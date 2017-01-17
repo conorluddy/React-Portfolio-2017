@@ -1,3 +1,9 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
 /*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
 /**
  * 1. Change the default font family in all browsers (opinionated).
@@ -406,19 +412,34 @@ a {
   color: #f00; }
 
 /* Small component SCSS ===================================================== */
-/* Component: cmpt: small screen size. 
+/* Component: FullHero: small screen size. 
 
 If you're reading this, the dev who generated this component was too lazy 
 to replace it with a component description :) 
 */
+/* Component: RouteLanding: small screen size.
+
+If you're reading this, the dev who generated this component was too lazy
+to replace it with a component description :)
+*/
 /* Medium component SCSS ==================================================== */
-/* Component: cmpt: medium screen size. 
+/* Component: FullHero: medium screen size. 
+
+If you're reading this, the dev who generated this component was too lazy 
+to replace it with a component description :) 
+*/
+/* Component: RouteLanding: medium screen size. 
 
 If you're reading this, the dev who generated this component was too lazy 
 to replace it with a component description :) 
 */
 /* Large component SCSS ==================================================== */
-/* Component: cmpt: large screen size. 
+/* Component: FullHero: large screen size. 
+
+If you're reading this, the dev who generated this component was too lazy 
+to replace it with a component description :) 
+*/
+/* Component: RouteLanding: large screen size. 
 
 If you're reading this, the dev who generated this component was too lazy 
 to replace it with a component description :) 
