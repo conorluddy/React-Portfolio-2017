@@ -54,7 +54,11 @@
 
 	var _reactRouter = __webpack_require__(178);
 
-	var _RouteLanding = __webpack_require__(233);
+	var _App = __webpack_require__(233);
+
+	var _App2 = _interopRequireDefault(_App);
+
+	var _RouteLanding = __webpack_require__(234);
 
 	var _RouteLanding2 = _interopRequireDefault(_RouteLanding);
 
@@ -67,11 +71,7 @@
 	    return _react2.default.createElement(
 	      'div',
 	      { className: 'app' },
-	      _react2.default.createElement(
-	        _reactRouter.Link,
-	        { to: '/test' },
-	        'Test'
-	      )
+	      'Main'
 	    );
 	  }
 	});
@@ -79,8 +79,12 @@
 	(0, _reactDom.render)(_react2.default.createElement(
 	  _reactRouter.Router,
 	  { history: _reactRouter.hashHistory },
-	  _react2.default.createElement(_reactRouter.Route, { path: '/', component: _RouteLanding2.default }),
-	  _react2.default.createElement(_reactRouter.Route, { path: '/test', component: MainLayout })
+	  _react2.default.createElement(
+	    _reactRouter.Route,
+	    { path: '/', component: _App2.default },
+	    _react2.default.createElement(_reactRouter.Route, { path: '/home', component: _RouteLanding2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: '/test', component: MainLayout })
+	  )
 	), document.getElementById('app'));
 
 /***/ },
@@ -26544,6 +26548,64 @@
 
 /***/ },
 /* 233 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(178);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/*
+	  App component description goes here, please!
+
+	  To import this elsewhere:
+	  import App from './components/App/App';
+	*/
+
+	exports.default = _react2.default.createClass({
+	  displayName: 'App',
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'div',
+	      { className: 'cpnt-app' },
+	      _react2.default.createElement(
+	        'ul',
+	        { role: 'nav' },
+	        _react2.default.createElement(
+	          'li',
+	          null,
+	          _react2.default.createElement(
+	            _reactRouter.Link,
+	            { to: '/home' },
+	            'About'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'li',
+	          null,
+	          _react2.default.createElement(
+	            _reactRouter.Link,
+	            { to: '/test' },
+	            'Repos'
+	          )
+	        )
+	      ),
+	      this.props.children
+	    );
+	  }
+	});
+
+/***/ },
+/* 234 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
