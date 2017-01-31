@@ -1,31 +1,22 @@
 import React from 'react'
 import { render } from 'react-dom';
-import { Router, Route, hashHistory, Link, IndexRoute } from 'react-router';
+import { Router, Route, hashHistory, browserHistory, Link, IndexRoute } from 'react-router';
+
+import RouteLanding from './components/RouteLanding/RouteLanding';
+import RoutePhotography from './components/RoutePhotography/RoutePhotography';
+import RouteSoftware from './components/RouteSoftware/RouteSoftware';
 
 import App from './components/App/App';
-import RouteLanding from './components/RouteLanding/RouteLanding';
-
-
-
-var MainLayout = React.createClass({
- render: () => {
-   return (
-     <div className="app">
-      Main
-     </div>
-   );
- }
-});
-
-
 
 render((
-    <Router history={hashHistory}>
-
+    <Router history={browserHistory} >
       <Route path="/" component={App}>
-        <Route path="/home" component={RouteLanding} ></Route>
-        <Route path="/test" component={MainLayout} ></Route>
-      </Route>
 
+        <IndexRoute component={RouteLanding} />
+
+        <Route path="/software" component={RouteSoftware} />
+        <Route path="/photography" component={RoutePhotography} />
+
+      </Route>
     </Router>
 ), document.getElementById('app'))

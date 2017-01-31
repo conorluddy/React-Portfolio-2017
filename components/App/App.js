@@ -6,17 +6,21 @@
 */
 
 import React from 'react'
-import { Link } from 'react-router';
+import { Link, IndexLink } from 'react-router';
 
 export default React.createClass({
   render() {
     return (
       <div className="cpnt-app">
 
-        <ul role="nav">
-          <li><Link to="/home">About</Link></li>
-          <li><Link to="/test">Repos</Link></li>
-        </ul>
+
+              <ul role="nav">
+                <li>
+                  <IndexLink to="/" activeClassName="is-active">Home</IndexLink>
+                  <IndexLink to="/software" activeClassName="is-active">Software</IndexLink>
+                  <IndexLink to="/photography" activeClassName="is-active">Photography</IndexLink>
+                </li>
+              </ul>
 
         {/* add this */}
         {this.props.children}

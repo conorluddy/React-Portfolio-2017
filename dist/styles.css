@@ -412,17 +412,42 @@ a {
   color: #f00; }
 
 /* Small component SCSS ===================================================== */
-/* Component: FullHero: small screen size. 
+/* Component: App: small screen size. 
 
 If you're reading this, the dev who generated this component was too lazy 
 to replace it with a component description :) 
 */
+/* Component: FullHero: small screen size.
+
+If you're reading this, the dev who generated this component was too lazy
+to replace it with a component description :)
+*/
+.cpnt-full-hero {
+  background: #333;
+  width: 100vw;
+  height: 100vh; }
+
 /* Component: RouteLanding: small screen size.
 
 If you're reading this, the dev who generated this component was too lazy
 to replace it with a component description :)
 */
+/* Component: RoutePhotography: small screen size. 
+
+If you're reading this, the dev who generated this component was too lazy 
+to replace it with a component description :) 
+*/
+/* Component: RouteSoftware: small screen size. 
+
+If you're reading this, the dev who generated this component was too lazy 
+to replace it with a component description :) 
+*/
 /* Medium component SCSS ==================================================== */
+/* Component: App: medium screen size. 
+
+If you're reading this, the dev who generated this component was too lazy 
+to replace it with a component description :) 
+*/
 /* Component: FullHero: medium screen size. 
 
 If you're reading this, the dev who generated this component was too lazy 
@@ -433,13 +458,38 @@ to replace it with a component description :)
 If you're reading this, the dev who generated this component was too lazy 
 to replace it with a component description :) 
 */
+/* Component: RoutePhotography: medium screen size. 
+
+If you're reading this, the dev who generated this component was too lazy 
+to replace it with a component description :) 
+*/
+/* Component: RouteSoftware: medium screen size. 
+
+If you're reading this, the dev who generated this component was too lazy 
+to replace it with a component description :) 
+*/
 /* Large component SCSS ==================================================== */
+/* Component: App: large screen size. 
+
+If you're reading this, the dev who generated this component was too lazy 
+to replace it with a component description :) 
+*/
 /* Component: FullHero: large screen size. 
 
 If you're reading this, the dev who generated this component was too lazy 
 to replace it with a component description :) 
 */
 /* Component: RouteLanding: large screen size. 
+
+If you're reading this, the dev who generated this component was too lazy 
+to replace it with a component description :) 
+*/
+/* Component: RoutePhotography: large screen size. 
+
+If you're reading this, the dev who generated this component was too lazy 
+to replace it with a component description :) 
+*/
+/* Component: RouteSoftware: large screen size. 
 
 If you're reading this, the dev who generated this component was too lazy 
 to replace it with a component description :) 
