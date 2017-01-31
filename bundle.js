@@ -54,36 +54,33 @@
 
 	var _reactRouter = __webpack_require__(178);
 
-	var _App = __webpack_require__(233);
-
-	var _App2 = _interopRequireDefault(_App);
-
-	var _RouteLanding = __webpack_require__(234);
+	var _RouteLanding = __webpack_require__(233);
 
 	var _RouteLanding2 = _interopRequireDefault(_RouteLanding);
 
+	var _RoutePhotography = __webpack_require__(234);
+
+	var _RoutePhotography2 = _interopRequireDefault(_RoutePhotography);
+
+	var _RouteSoftware = __webpack_require__(236);
+
+	var _RouteSoftware2 = _interopRequireDefault(_RouteSoftware);
+
+	var _App = __webpack_require__(237);
+
+	var _App2 = _interopRequireDefault(_App);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var MainLayout = _react2.default.createClass({
-	  displayName: 'MainLayout',
-
-	  render: function render() {
-	    return _react2.default.createElement(
-	      'div',
-	      { className: 'app' },
-	      'Main'
-	    );
-	  }
-	});
 
 	(0, _reactDom.render)(_react2.default.createElement(
 	  _reactRouter.Router,
-	  { history: _reactRouter.hashHistory },
+	  { history: _reactRouter.browserHistory },
 	  _react2.default.createElement(
 	    _reactRouter.Route,
 	    { path: '/', component: _App2.default },
-	    _react2.default.createElement(_reactRouter.Route, { path: '/home', component: _RouteLanding2.default }),
-	    _react2.default.createElement(_reactRouter.Route, { path: '/test', component: MainLayout })
+	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _RouteLanding2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: '/software', component: _RouteSoftware2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: '/photography', component: _RoutePhotography2.default })
 	  )
 	), document.getElementById('app'));
 
@@ -26550,6 +26547,149 @@
 /* 233 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+	  displayName: "RouteLanding",
+	  render: function render() {
+	    return _react2.default.createElement(
+	      "div",
+	      { className: "cpnt-route-landing" },
+	      "RouteLanding component"
+	    );
+	  }
+	}); /*
+	      RouteLanding component description goes here, please!
+	    
+	      To import this elsewhere:
+	      import RouteLanding from './components/RouteLanding/RouteLanding';
+	    */
+
+/***/ },
+/* 234 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _FullHero = __webpack_require__(235);
+
+	var _FullHero2 = _interopRequireDefault(_FullHero);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/*
+	  RoutePhotography component description goes here, please!
+
+	  To import this elsewhere:
+	  import RoutePhotography from './components/RoutePhotography/RoutePhotography';
+	*/
+
+	exports.default = _react2.default.createClass({
+	  displayName: 'RoutePhotography',
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'div',
+	      { className: 'cpnt-routephotography' },
+	      _react2.default.createElement(
+	        _FullHero2.default,
+	        { imgSrc: 'assets/images/hero/photography.jpg' },
+	        'xX'
+	      )
+	    );
+	  }
+	});
+
+/***/ },
+/* 235 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+	  displayName: 'FullHero',
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'div',
+	      { className: 'cpnt-full-hero', style: { backgroundImage: 'url(' + this.props.imgSrc + ')' } },
+	      this.props.children
+	    );
+	  }
+	}); /*
+	      FullHero component description goes here, please!
+	      To import this elsewhere:
+	      import FullHero from './components/FullHero/FullHero';
+	    */
+
+/***/ },
+/* 236 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _FullHero = __webpack_require__(235);
+
+	var _FullHero2 = _interopRequireDefault(_FullHero);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/*
+	  RouteSoftware component description goes here, please!
+
+	  To import this elsewhere:
+	  import RouteSoftware from './components/RouteSoftware/RouteSoftware';
+	*/
+
+	exports.default = _react2.default.createClass({
+	  displayName: 'RouteSoftware',
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'div',
+	      { className: 'cpnt-routesoftware' },
+	      _react2.default.createElement(_FullHero2.default, { imgSrc: 'assets/images/hero/software.jpg' })
+	    );
+	  }
+	});
+
+/***/ },
+/* 237 */
+/***/ function(module, exports, __webpack_require__) {
+
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
@@ -26584,18 +26724,19 @@
 	          'li',
 	          null,
 	          _react2.default.createElement(
-	            _reactRouter.Link,
-	            { to: '/home' },
-	            'About'
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'li',
-	          null,
+	            _reactRouter.IndexLink,
+	            { to: '/', activeClassName: 'is-active' },
+	            'Home'
+	          ),
 	          _react2.default.createElement(
-	            _reactRouter.Link,
-	            { to: '/test' },
-	            'Repos'
+	            _reactRouter.IndexLink,
+	            { to: '/software', activeClassName: 'is-active' },
+	            'Software'
+	          ),
+	          _react2.default.createElement(
+	            _reactRouter.IndexLink,
+	            { to: '/photography', activeClassName: 'is-active' },
+	            'Photography'
 	          )
 	        )
 	      ),
@@ -26603,38 +26744,6 @@
 	    );
 	  }
 	});
-
-/***/ },
-/* 234 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	exports.default = _react2.default.createClass({
-	  displayName: "RouteLanding",
-	  render: function render() {
-	    return _react2.default.createElement(
-	      "div",
-	      { className: "cpnt-route-landing" },
-	      "RouteLanding component"
-	    );
-	  }
-	}); /*
-	      RouteLanding component description goes here, please!
-	    
-	      To import this elsewhere:
-	      import RouteLanding from './components/RouteLanding/RouteLanding';
-	    */
 
 /***/ }
 /******/ ]);
