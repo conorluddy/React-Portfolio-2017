@@ -9,11 +9,12 @@ require('./gulp_modules/generate.js')(gulp);
 require('./gulp_modules/documentation.js')(gulp);
 require('./gulp_modules/js.js')(gulp);
 require('./gulp_modules/images.js')(gulp);
+require('./gulp_modules/fonts.js')(gulp);
 
 /**
  * Default: Webpack, BrowserSync, Watch
  */
-gulp.task('default', ['sass', 'images'], () => {
+gulp.task('default', ['sass', 'images', 'fonts'], () => {
   gulp.src('./index.js')
     .pipe(webpack({
       watch: true,

@@ -11,13 +11,7 @@ import FullHero from '../FullHero/FullHero';
 export default React.createClass({
   render() {
     return (
-      <div className="cpnt-routephotography">
-        <FullHero imgSrc="assets/images/hero/photography.jpg" >
-
-        xX
-
-        </FullHero>
-      </div>
+      <div className="cpnt-routephotography">Photo</div>
     );
   }
 })

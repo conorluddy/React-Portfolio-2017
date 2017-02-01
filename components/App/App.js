@@ -13,17 +13,17 @@ export default React.createClass({
     return (
       <div className="cpnt-app">
 
-
-              <ul role="nav">
-                <li>
-                  <IndexLink to="/" activeClassName="is-active">Home</IndexLink>
-                  <IndexLink to="/software" activeClassName="is-active">Software</IndexLink>
-                  <IndexLink to="/photography" activeClassName="is-active">Photography</IndexLink>
-                </li>
-              </ul>
-
         {/* add this */}
         {this.props.children}
+
+
+        <ul role="nav">
+          <li>
+            <IndexLink to="/" activeClassName="is-active">Home</IndexLink>
+            <IndexLink to="/software" activeClassName="is-active">Software</IndexLink>
+            <IndexLink to="/photography" activeClassName="is-active">Photography</IndexLink>
+          </li>
+        </ul>
 
       </div>
     );

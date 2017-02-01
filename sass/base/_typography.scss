@@ -1,4 +1,36 @@
 
+
+h1,
+h2,
+h3,
+.akrobat {
+  font-family: $fontfam-akrobat;
+}
+
+
+
+/**
+ * Font Weights
+ */
+.set-weight-xlight {
+  font-weight: 100;
+}
+.set-weight-light {
+  font-weight: 200;
+}
+.set-weight-normal {
+  font-weight: 200;
+}
+.set-weight-bold {
+  font-weight: 500;
+}
+.set-weight-black {
+  font-weight: 500;
+}
+
+
+
+
 a {
   color: #f00;
 }

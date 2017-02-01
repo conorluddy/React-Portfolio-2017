@@ -5,7 +5,27 @@ to replace it with a component description :)
 */
 
 .cpnt-full-hero {
-  background: #333;
+  background: $color-black;
   width: 100vw;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex-flow: center;
+  align-items: center;
+  align-content: center;
+
+
+  h1 {
+    color: $color-fluro;
+    text-transform: uppercase;
+    font-weight: 100;
+    font-size: 6rem;
+    margin: auto;
+
+    strong {
+      font-weight: 700;
+    }
+  }
+
+
 }

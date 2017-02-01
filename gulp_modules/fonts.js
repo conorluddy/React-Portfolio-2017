@@ -8,9 +8,9 @@ let fs = require('fs');
 
 module.exports = (gulp) => {
 
-  gulp.task('images', () => {
-    return gulp.src('./assets/images/**/*')
-      .pipe(gulp.dest('./dist/assets/images'));
+  gulp.task('fonts', () => {
+    return gulp.src('./assets/fonts/**/*')
+      .pipe(gulp.dest('./dist/assets/fonts'));
   });
 
 
