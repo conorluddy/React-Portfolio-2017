@@ -5,27 +5,29 @@
   import App from './components/App/App';
 */
 
-import React from 'react'
-import { Link, IndexLink } from 'react-router';
+import React from 'react';
+import Navi from '../Navi/Navi';
 
-export default React.createClass({
+export default class App extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      navmode: false
+    };
+  }
+
   render() {
     return (
       <div className="cpnt-app">
+
+        <Navi active={this.state.navmode} />
 
         {/* add this */}
         {this.props.children}
 
 
-        <ul role="nav">
-          <li>
-            <IndexLink to="/" activeClassName="is-active">Home</IndexLink>
-            <IndexLink to="/software" activeClassName="is-active">Software</IndexLink>
-            <IndexLink to="/photography" activeClassName="is-active">Photography</IndexLink>
-          </li>
-        </ul>
-
       </div>
     );
   }
-})
+};

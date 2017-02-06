@@ -7,7 +7,7 @@
 
 import React from 'react'
 
-export default React.createClass({
+export default class <ComponentName> extends React.Component {
   render() {
     return (
       <div className="<ComponentClassName>">
@@ -15,4 +15,4 @@ export default React.createClass({
       </div>
     );
   }
-})
+}

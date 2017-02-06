@@ -7,19 +7,14 @@
 
 import React from 'react';
 import FullHero from '../FullHero/FullHero';
+import LandingHero from '../LandingHero/LandingHero';
 
-export default React.createClass({
+export default class RouteLanding extends React.Component {
   render() {
     return (
       <div className="cpnt-route-landing">
-
-        <FullHero imgSrc="assets/images/hero/software.jpg" >
-          <h1>
-            <strong>Soft</strong>ware
-          </h1>
-        </FullHero>
-
+        <LandingHero imgSrc="assets/images/hero/software.jpg" />
       </div>
     );
   }
-})
+}

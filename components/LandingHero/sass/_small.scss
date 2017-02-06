@@ -1,0 +1,32 @@
+/* Component: LandingHero: small screen size.
+
+If you're reading this, the dev who generated this component was too lazy
+to replace it with a component description :)
+*/
+
+.cpnt-landing-hero {
+  background: $color-black;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex-flow: center;
+  align-items: center;
+  align-content: center;
+
+
+  .paths {
+    list-style-type: none;
+  }
+
+  li {
+    color: $color-fluro;
+    text-transform: uppercase;
+    font-weight: 100;
+    font-size: 2rem;
+    margin: auto;
+  }
+
+
+
+}

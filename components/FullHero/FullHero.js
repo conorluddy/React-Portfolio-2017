@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-export default React.createClass({
+export default class FullHero extends React.Component {
   render() {
     return (
       <div className="cpnt-full-hero" style={{backgroundImage: 'url(' + this.props.imgSrc + ')' }} >
@@ -16,4 +16,4 @@ export default React.createClass({
       </div>
     );
   }
-})
+}
