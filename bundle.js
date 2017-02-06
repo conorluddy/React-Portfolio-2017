@@ -58,15 +58,15 @@
 
 	var _RouteLanding2 = _interopRequireDefault(_RouteLanding);
 
-	var _RoutePhotography = __webpack_require__(235);
+	var _RoutePhotography = __webpack_require__(236);
 
 	var _RoutePhotography2 = _interopRequireDefault(_RoutePhotography);
 
-	var _RouteSoftware = __webpack_require__(236);
+	var _RouteSoftware = __webpack_require__(237);
 
 	var _RouteSoftware2 = _interopRequireDefault(_RouteSoftware);
 
-	var _App = __webpack_require__(237);
+	var _App = __webpack_require__(238);
 
 	var _App2 = _interopRequireDefault(_App);
 
@@ -26553,6 +26553,8 @@
 	  value: true
 	});
 
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
@@ -26561,38 +26563,47 @@
 
 	var _FullHero2 = _interopRequireDefault(_FullHero);
 
+	var _LandingHero = __webpack_require__(235);
+
+	var _LandingHero2 = _interopRequireDefault(_LandingHero);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	/*
-	  RouteLanding component description goes here, please!
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	  To import this elsewhere:
-	  import RouteLanding from './components/RouteLanding/RouteLanding';
-	*/
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-	exports.default = _react2.default.createClass({
-	  displayName: 'RouteLanding',
-	  render: function render() {
-	    return _react2.default.createElement(
-	      'div',
-	      { className: 'cpnt-route-landing' },
-	      _react2.default.createElement(
-	        _FullHero2.default,
-	        { imgSrc: 'assets/images/hero/software.jpg' },
-	        _react2.default.createElement(
-	          'h1',
-	          null,
-	          _react2.default.createElement(
-	            'strong',
-	            null,
-	            'Soft'
-	          ),
-	          'ware'
-	        )
-	      )
-	    );
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 RouteLanding component description goes here, please!
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 To import this elsewhere:
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 import RouteLanding from './components/RouteLanding/RouteLanding';
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               */
+
+	var RouteLanding = function (_React$Component) {
+	  _inherits(RouteLanding, _React$Component);
+
+	  function RouteLanding() {
+	    _classCallCheck(this, RouteLanding);
+
+	    return _possibleConstructorReturn(this, (RouteLanding.__proto__ || Object.getPrototypeOf(RouteLanding)).apply(this, arguments));
 	  }
-	});
+
+	  _createClass(RouteLanding, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'cpnt-route-landing' },
+	        _react2.default.createElement(_LandingHero2.default, { imgSrc: 'assets/images/hero/software.jpg' })
+	      );
+	    }
+	  }]);
+
+	  return RouteLanding;
+	}(_react2.default.Component);
+
+	exports.default = RouteLanding;
 
 /***/ },
 /* 234 */
@@ -26604,29 +26615,146 @@
 	  value: true
 	});
 
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	exports.default = _react2.default.createClass({
-	  displayName: 'FullHero',
-	  render: function render() {
-	    return _react2.default.createElement(
-	      'div',
-	      { className: 'cpnt-full-hero', style: { backgroundImage: 'url(' + this.props.imgSrc + ')' } },
-	      this.props.children
-	    );
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 FullHero component description goes here, please!
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 To import this elsewhere:
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 import FullHero from './components/FullHero/FullHero';
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               */
+
+	var FullHero = function (_React$Component) {
+	  _inherits(FullHero, _React$Component);
+
+	  function FullHero() {
+	    _classCallCheck(this, FullHero);
+
+	    return _possibleConstructorReturn(this, (FullHero.__proto__ || Object.getPrototypeOf(FullHero)).apply(this, arguments));
 	  }
-	}); /*
-	      FullHero component description goes here, please!
-	      To import this elsewhere:
-	      import FullHero from './components/FullHero/FullHero';
-	    */
+
+	  _createClass(FullHero, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'cpnt-full-hero', style: { backgroundImage: 'url(' + this.props.imgSrc + ')' } },
+	        this.props.children
+	      );
+	    }
+	  }]);
+
+	  return FullHero;
+	}(_react2.default.Component);
+
+	exports.default = FullHero;
 
 /***/ },
 /* 235 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 LandingHero component description goes here, please!
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 To import this elsewhere:
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 import LandingHero from './components/LandingHero/LandingHero';
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               */
+
+	var LandingHero = function (_React$Component) {
+	  _inherits(LandingHero, _React$Component);
+
+	  function LandingHero(props) {
+	    _classCallCheck(this, LandingHero);
+
+	    var _this = _possibleConstructorReturn(this, (LandingHero.__proto__ || Object.getPrototypeOf(LandingHero)).call(this, props));
+
+	    _this.state = { activeSection: 'photography' };
+
+	    // This binding is necessary to make `this` work in the callback
+	    _this.setSectionPhotography = _this.setSectionPhotography.bind(_this);
+	    _this.setSectionSoftware = _this.setSectionSoftware.bind(_this);
+	    return _this;
+	  }
+
+	  _createClass(LandingHero, [{
+	    key: 'setSectionPhotography',
+	    value: function setSectionPhotography(e) {
+	      e.preventDefault();
+	      this.setState({
+	        activeSection: 'photography'
+	      });
+	    }
+	  }, {
+	    key: 'setSectionSoftware',
+	    value: function setSectionSoftware(e) {
+	      e.preventDefault();
+	      this.setState({
+	        activeSection: 'software'
+	      });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'cpnt-landing-hero', style: { backgroundImage: 'url(' + this.props.imgSrc + ')' } },
+	        _react2.default.createElement(
+	          'ul',
+	          { className: 'paths' },
+	          _react2.default.createElement(
+	            'li',
+	            { onClick: this.setSectionSoftware },
+	            'SW'
+	          ),
+	          _react2.default.createElement(
+	            'li',
+	            { onClick: this.setSectionPhotography },
+	            'PH'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'h1',
+	          null,
+	          this.state.activeSection
+	        )
+	      );
+	    }
+	  }]);
+
+	  return LandingHero;
+	}(_react2.default.Component);
+
+	exports.default = LandingHero;
+
+/***/ },
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26664,7 +26792,7 @@
 	});
 
 /***/ },
-/* 236 */
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26702,7 +26830,7 @@
 	});
 
 /***/ },
-/* 237 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26710,6 +26838,73 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Navi = __webpack_require__(239);
+
+	var _Navi2 = _interopRequireDefault(_Navi);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 App component description goes here, please!
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 To import this elsewhere:
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 import App from './components/App/App';
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               */
+
+	var App = function (_React$Component) {
+	  _inherits(App, _React$Component);
+
+	  function App(props) {
+	    _classCallCheck(this, App);
+
+	    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+
+	    _this.state = {
+	      navmode: false
+	    };
+	    return _this;
+	  }
+
+	  _createClass(App, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'cpnt-app' },
+	        _react2.default.createElement(_Navi2.default, { active: this.state.navmode }),
+	        this.props.children
+	      );
+	    }
+	  }]);
+
+	  return App;
+	}(_react2.default.Component);
+
+	exports.default = App;
+	;
+
+/***/ },
+/* 239 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -26719,46 +26914,64 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	/*
-	  App component description goes here, please!
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	  To import this elsewhere:
-	  import App from './components/App/App';
-	*/
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-	exports.default = _react2.default.createClass({
-	  displayName: 'App',
-	  render: function render() {
-	    return _react2.default.createElement(
-	      'div',
-	      { className: 'cpnt-app' },
-	      this.props.children,
-	      _react2.default.createElement(
-	        'ul',
-	        { role: 'nav' },
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 Navi component description goes here, please!
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 To import this elsewhere:
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 import Navi from './components/Navi/Navi';
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               */
+
+	var Navi = function (_React$Component) {
+	  _inherits(Navi, _React$Component);
+
+	  function Navi() {
+	    _classCallCheck(this, Navi);
+
+	    return _possibleConstructorReturn(this, (Navi.__proto__ || Object.getPrototypeOf(Navi)).apply(this, arguments));
+	  }
+
+	  _createClass(Navi, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'cpnt-navi' },
+	        this.props.active,
 	        _react2.default.createElement(
-	          'li',
-	          null,
+	          'ul',
+	          { role: 'nav' },
 	          _react2.default.createElement(
-	            _reactRouter.IndexLink,
-	            { to: '/', activeClassName: 'is-active' },
-	            'Home'
-	          ),
-	          _react2.default.createElement(
-	            _reactRouter.IndexLink,
-	            { to: '/software', activeClassName: 'is-active' },
-	            'Software'
-	          ),
-	          _react2.default.createElement(
-	            _reactRouter.IndexLink,
-	            { to: '/photography', activeClassName: 'is-active' },
-	            'Photography'
+	            'li',
+	            null,
+	            _react2.default.createElement(
+	              _reactRouter.IndexLink,
+	              { to: '/', activeClassName: 'is-active' },
+	              'Home'
+	            ),
+	            _react2.default.createElement(
+	              _reactRouter.IndexLink,
+	              { to: '/software', activeClassName: 'is-active' },
+	              'Software'
+	            ),
+	            _react2.default.createElement(
+	              _reactRouter.IndexLink,
+	              { to: '/photography', activeClassName: 'is-active' },
+	              'Photography'
+	            )
 	          )
 	        )
-	      )
-	    );
-	  }
-	});
+	      );
+	    }
+	  }]);
+
+	  return Navi;
+	}(_react2.default.Component);
+
+	exports.default = Navi;
 
 /***/ }
 /******/ ]);

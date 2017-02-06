@@ -464,7 +464,8 @@ h3,
   font-weight: 500; }
 
 a {
-  color: #f00; }
+  color: #eeff00;
+  text-decoration: none; }
 
 /* Small component SCSS ===================================================== */
 /* Component: App: small screen size. 
@@ -495,6 +496,43 @@ to replace it with a component description :)
     .cpnt-full-hero h1 strong {
       font-weight: 700; }
 
+/* Component: LandingHero: small screen size.
+
+If you're reading this, the dev who generated this component was too lazy
+to replace it with a component description :)
+*/
+.cpnt-landing-hero {
+  background: #0a0a0a;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex-flow: center;
+  align-items: center;
+  align-content: center; }
+  .cpnt-landing-hero .paths {
+    list-style-type: none; }
+  .cpnt-landing-hero li {
+    color: #eeff00;
+    text-transform: uppercase;
+    font-weight: 100;
+    font-size: 2rem;
+    margin: auto; }
+
+/* Component: Navi: small screen size.
+
+If you're reading this, the dev who generated this component was too lazy
+to replace it with a component description :)
+*/
+.cpnt-navi {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #000;
+  display: none; }
+
 /* Component: RouteLanding: small screen size.
 
 If you're reading this, the dev who generated this component was too lazy
@@ -521,6 +559,16 @@ to replace it with a component description :)
 If you're reading this, the dev who generated this component was too lazy 
 to replace it with a component description :) 
 */
+/* Component: LandingHero: medium screen size. 
+
+If you're reading this, the dev who generated this component was too lazy 
+to replace it with a component description :) 
+*/
+/* Component: Navi: medium screen size. 
+
+If you're reading this, the dev who generated this component was too lazy 
+to replace it with a component description :) 
+*/
 /* Component: RouteLanding: medium screen size. 
 
 If you're reading this, the dev who generated this component was too lazy 
@@ -543,6 +591,16 @@ If you're reading this, the dev who generated this component was too lazy
 to replace it with a component description :) 
 */
 /* Component: FullHero: large screen size. 
+
+If you're reading this, the dev who generated this component was too lazy 
+to replace it with a component description :) 
+*/
+/* Component: LandingHero: large screen size. 
+
+If you're reading this, the dev who generated this component was too lazy 
+to replace it with a component description :) 
+*/
+/* Component: Navi: large screen size. 
 
 If you're reading this, the dev who generated this component was too lazy 
 to replace it with a component description :) 
