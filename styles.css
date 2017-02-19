@@ -439,6 +439,9 @@ template {
   font-weight: 200;
   font-style: normal; }
 
+html {
+  font-family: 'Ubuntu', sans-serif; }
+
 h1,
 h2,
 h3,

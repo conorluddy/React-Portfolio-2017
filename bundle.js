@@ -26583,10 +26583,14 @@
 	var RouteLanding = function (_React$Component) {
 	  _inherits(RouteLanding, _React$Component);
 
-	  function RouteLanding() {
+	  function RouteLanding(props) {
 	    _classCallCheck(this, RouteLanding);
 
-	    return _possibleConstructorReturn(this, (RouteLanding.__proto__ || Object.getPrototypeOf(RouteLanding)).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (RouteLanding.__proto__ || Object.getPrototypeOf(RouteLanding)).call(this, props));
+
+	    console.log('x');
+	    console.log(_this);
+	    return _this;
 	  }
 
 	  _createClass(RouteLanding, [{
@@ -26690,37 +26694,46 @@
 	var LandingHero = function (_React$Component) {
 	  _inherits(LandingHero, _React$Component);
 
-	  function LandingHero(props) {
+	  function LandingHero() {
 	    _classCallCheck(this, LandingHero);
 
-	    var _this = _possibleConstructorReturn(this, (LandingHero.__proto__ || Object.getPrototypeOf(LandingHero)).call(this, props));
-
-	    _this.state = { activeSection: 'photography' };
-
-	    // This binding is necessary to make `this` work in the callback
-	    _this.setSectionPhotography = _this.setSectionPhotography.bind(_this);
-	    _this.setSectionSoftware = _this.setSectionSoftware.bind(_this);
-	    return _this;
+	    return _possibleConstructorReturn(this, (LandingHero.__proto__ || Object.getPrototypeOf(LandingHero)).apply(this, arguments));
 	  }
 
 	  _createClass(LandingHero, [{
-	    key: 'setSectionPhotography',
-	    value: function setSectionPhotography(e) {
-	      e.preventDefault();
-	      this.setState({
-	        activeSection: 'photography'
-	      });
-	    }
-	  }, {
-	    key: 'setSectionSoftware',
-	    value: function setSectionSoftware(e) {
-	      e.preventDefault();
-	      this.setState({
-	        activeSection: 'software'
-	      });
-	    }
-	  }, {
 	    key: 'render',
+
+
+	    //
+	    // constructor(props) {
+	    //    super(props);
+	    //
+	    //    this.state = {activeSection: 'photography'};
+	    //
+	    //    // This binding is necessary to make `this` work in the callback
+	    //    this.setSectionPhotography = this.setSectionPhotography.bind(this);
+	    //    this.setSectionSoftware = this.setSectionSoftware.bind(this);
+	    // }
+	    //
+	    // setSectionPhotography(e) {
+	    //   e.preventDefault();
+	    //   this.setState({
+	    //     activeSection: 'photography'
+	    //   });
+	    // }
+	    //
+	    // setSectionSoftware(e) {
+	    //   e.preventDefault();
+	    //   this.setState({
+	    //     activeSection: 'software'
+	    //   });
+	    // }
+	    //
+	    // <li onClick={this.props.setSectionSoftware}>
+	    // <li onClick={this.props.setSectionPhotography}>
+	    // <h1>{this.state.activeSection}</h1>
+
+
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
@@ -26730,20 +26743,16 @@
 	          { className: 'paths' },
 	          _react2.default.createElement(
 	            'li',
-	            { onClick: this.setSectionSoftware },
+	            null,
 	            'SW'
 	          ),
 	          _react2.default.createElement(
 	            'li',
-	            { onClick: this.setSectionPhotography },
+	            null,
 	            'PH'
 	          )
 	        ),
-	        _react2.default.createElement(
-	          'h1',
-	          null,
-	          this.state.activeSection
-	        )
+	        _react2.default.createElement('h1', null)
 	      );
 	    }
 	  }]);
@@ -26871,12 +26880,33 @@
 	    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
 	    _this.state = {
-	      navmode: false
+	      navmode: false,
+	      activeSection: 'photography'
 	    };
+
+	    // This binding is necessary to make `this` work in the callback
+	    _this.setSectionPhotography = _this.setSectionPhotography.bind(_this);
+	    _this.setSectionSoftware = _this.setSectionSoftware.bind(_this);
 	    return _this;
 	  }
 
 	  _createClass(App, [{
+	    key: 'setSectionPhotography',
+	    value: function setSectionPhotography(e) {
+	      e.preventDefault();
+	      this.setState({
+	        activeSection: 'photography'
+	      });
+	    }
+	  }, {
+	    key: 'setSectionSoftware',
+	    value: function setSectionSoftware(e) {
+	      e.preventDefault();
+	      this.setState({
+	        activeSection: 'software'
+	      });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
