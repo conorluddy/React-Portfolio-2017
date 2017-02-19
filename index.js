@@ -15,6 +15,7 @@ render((
         <IndexRoute component={RouteLanding} />
 
         <Route path="/software" component={RouteSoftware} />
+
         <Route path="/photography" component={RoutePhotography} />
 
       </Route>
