@@ -6,28 +6,27 @@ html {
 h1,
 h2,
 h3,
-.akrobat {
+._akrobat {
   font-family: $fontfam-akrobat;
 }
-
 
 /**
  * Font Weights
  */
-.set-weight-xlight {
+._weight-xlight {
   font-weight: 100;
 }
-.set-weight-light {
+._weight-light {
   font-weight: 200;
 }
-.set-weight-normal {
-  font-weight: 200;
-}
-.set-weight-bold {
+._weight-normal {
   font-weight: 500;
 }
-.set-weight-black {
-  font-weight: 500;
+._weight-bold {
+  font-weight: 600;
+}
+._weight-black {
+  font-weight: 700;
 }
 
 

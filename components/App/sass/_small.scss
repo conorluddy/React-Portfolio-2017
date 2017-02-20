@@ -1,9 +1,10 @@
-/* Component: App: small screen size. 
+/* Component: App: small screen size.
 
-If you're reading this, the dev who generated this component was too lazy 
-to replace it with a component description :) 
+If you're reading this, the dev who generated this component was too lazy
+to replace it with a component description :)
 */
 
 .cpnt-app {
-
+  height: 100%;
+  border: solid 20px $grey-3E;
 }

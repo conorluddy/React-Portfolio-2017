@@ -1,0 +1,14 @@
+/* Component: Grip: small screen size.
+
+If you're reading this, the dev who generated this component was too lazy
+to replace it with a component description :)
+*/
+
+.cpnt-grip {
+  width: 24px;
+  height: 100vh;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background: url('assets/images/ui/grip-bubbles.svg');
+}
