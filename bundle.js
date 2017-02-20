@@ -58,15 +58,7 @@
 
 	var _RouteLanding2 = _interopRequireDefault(_RouteLanding);
 
-	var _RoutePhotography = __webpack_require__(236);
-
-	var _RoutePhotography2 = _interopRequireDefault(_RoutePhotography);
-
-	var _RouteSoftware = __webpack_require__(237);
-
-	var _RouteSoftware2 = _interopRequireDefault(_RouteSoftware);
-
-	var _App = __webpack_require__(238);
+	var _App = __webpack_require__(234);
 
 	var _App2 = _interopRequireDefault(_App);
 
@@ -78,9 +70,7 @@
 	  _react2.default.createElement(
 	    _reactRouter.Route,
 	    { path: '/', component: _App2.default },
-	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _RouteLanding2.default }),
-	    _react2.default.createElement(_reactRouter.Route, { path: '/software', component: _RouteSoftware2.default }),
-	    _react2.default.createElement(_reactRouter.Route, { path: '/photography', component: _RoutePhotography2.default })
+	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _RouteLanding2.default })
 	  )
 	), document.getElementById('app'));
 
@@ -26559,14 +26549,6 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _FullHero = __webpack_require__(234);
-
-	var _FullHero2 = _interopRequireDefault(_FullHero);
-
-	var _LandingHero = __webpack_require__(235);
-
-	var _LandingHero2 = _interopRequireDefault(_LandingHero);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -26588,19 +26570,14 @@
 
 	    var _this = _possibleConstructorReturn(this, (RouteLanding.__proto__ || Object.getPrototypeOf(RouteLanding)).call(this, props));
 
-	    console.log('x');
-	    console.log(_this);
+	    console.log('RouteLanding');
 	    return _this;
 	  }
 
 	  _createClass(RouteLanding, [{
 	    key: 'render',
 	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'cpnt-route-landing' },
-	        _react2.default.createElement(_LandingHero2.default, { imgSrc: 'assets/images/hero/software.jpg' })
-	      );
+	      return _react2.default.createElement('div', { className: 'cpnt-route-landing' });
 	    }
 	  }]);
 
@@ -26611,6 +26588,217 @@
 
 /***/ },
 /* 234 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Navigation = __webpack_require__(235);
+
+	var _Navigation2 = _interopRequireDefault(_Navigation);
+
+	var _FullHero = __webpack_require__(237);
+
+	var _FullHero2 = _interopRequireDefault(_FullHero);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 App component
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 To import this elsewhere:
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 import App from './components/App/App';
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               */
+
+	var App = function (_React$Component) {
+	  _inherits(App, _React$Component);
+
+	  function App() {
+	    _classCallCheck(this, App);
+
+	    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+	  }
+
+	  _createClass(App, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'cpnt-app' },
+	        _react2.default.createElement(_FullHero2.default, { imgSrc: 'assets/images/hero/mockup.jpg' }),
+	        _react2.default.createElement(_Navigation2.default, null),
+	        this.props.children
+	      );
+	    }
+	  }]);
+
+	  return App;
+	}(_react2.default.Component);
+
+	exports.default = App;
+	;
+
+/***/ },
+/* 235 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(178);
+
+	var _Grip = __webpack_require__(236);
+
+	var _Grip2 = _interopRequireDefault(_Grip);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 Navigation component description goes here, please!
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 To import this elsewhere:
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 import Navigation from './components/Navigation/Navigation';
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 Navigation should contain the initial 50/50 option,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 but should also contain nav for photog and nav for software...
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 These could be a component themselves...
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               */
+
+	var Navigation = function (_React$Component) {
+	  _inherits(Navigation, _React$Component);
+
+	  function Navigation(props) {
+	    _classCallCheck(this, Navigation);
+
+	    var _this = _possibleConstructorReturn(this, (Navigation.__proto__ || Object.getPrototypeOf(Navigation)).call(this, props));
+
+	    console.log('Navigation');
+	    return _this;
+	  }
+
+	  _createClass(Navigation, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'cpnt-navigation' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'initial-opt _akrobat _weight-black left' },
+	          _react2.default.createElement(
+	            'h2',
+	            { className: '_weight-normal' },
+	            'WEB',
+	            _react2.default.createElement(
+	              'small',
+	              { className: '_weight-xlight' },
+	              'DEVELOPMENT & DESIGN'
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'initial-opt _akrobat _weight-black right' },
+	          _react2.default.createElement(
+	            'h2',
+	            { className: '_weight-normal' },
+	            'PHOTO',
+	            _react2.default.createElement(
+	              'small',
+	              { className: '_weight-xlight' },
+	              'GRAPHY & VIDEO'
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(_Grip2.default, null)
+	      );
+	    }
+	  }]);
+
+	  return Navigation;
+	}(_react2.default.Component);
+
+	exports.default = Navigation;
+
+/***/ },
+/* 236 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 Grip component description goes here, please!
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 To import this elsewhere:
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 import Grip from './components/Grip/Grip';
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               */
+
+	var Grip = function (_React$Component) {
+	  _inherits(Grip, _React$Component);
+
+	  function Grip() {
+	    _classCallCheck(this, Grip);
+
+	    return _possibleConstructorReturn(this, (Grip.__proto__ || Object.getPrototypeOf(Grip)).apply(this, arguments));
+	  }
+
+	  _createClass(Grip, [{
+	    key: "render",
+	    value: function render() {
+	      return _react2.default.createElement("div", { className: "cpnt-grip" });
+	    }
+	  }]);
+
+	  return Grip;
+	}(_react2.default.Component);
+
+	exports.default = Grip;
+
+/***/ },
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26661,347 +26849,6 @@
 	}(_react2.default.Component);
 
 	exports.default = FullHero;
-
-/***/ },
-/* 235 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 LandingHero component description goes here, please!
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 To import this elsewhere:
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 import LandingHero from './components/LandingHero/LandingHero';
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               */
-
-	var LandingHero = function (_React$Component) {
-	  _inherits(LandingHero, _React$Component);
-
-	  function LandingHero() {
-	    _classCallCheck(this, LandingHero);
-
-	    return _possibleConstructorReturn(this, (LandingHero.__proto__ || Object.getPrototypeOf(LandingHero)).apply(this, arguments));
-	  }
-
-	  _createClass(LandingHero, [{
-	    key: 'render',
-
-
-	    //
-	    // constructor(props) {
-	    //    super(props);
-	    //
-	    //    this.state = {activeSection: 'photography'};
-	    //
-	    //    // This binding is necessary to make `this` work in the callback
-	    //    this.setSectionPhotography = this.setSectionPhotography.bind(this);
-	    //    this.setSectionSoftware = this.setSectionSoftware.bind(this);
-	    // }
-	    //
-	    // setSectionPhotography(e) {
-	    //   e.preventDefault();
-	    //   this.setState({
-	    //     activeSection: 'photography'
-	    //   });
-	    // }
-	    //
-	    // setSectionSoftware(e) {
-	    //   e.preventDefault();
-	    //   this.setState({
-	    //     activeSection: 'software'
-	    //   });
-	    // }
-	    //
-	    // <li onClick={this.props.setSectionSoftware}>
-	    // <li onClick={this.props.setSectionPhotography}>
-	    // <h1>{this.state.activeSection}</h1>
-
-
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'cpnt-landing-hero', style: { backgroundImage: 'url(' + this.props.imgSrc + ')' } },
-	        _react2.default.createElement(
-	          'ul',
-	          { className: 'paths' },
-	          _react2.default.createElement(
-	            'li',
-	            null,
-	            'SW'
-	          ),
-	          _react2.default.createElement(
-	            'li',
-	            null,
-	            'PH'
-	          )
-	        ),
-	        _react2.default.createElement('h1', null)
-	      );
-	    }
-	  }]);
-
-	  return LandingHero;
-	}(_react2.default.Component);
-
-	exports.default = LandingHero;
-
-/***/ },
-/* 236 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _FullHero = __webpack_require__(234);
-
-	var _FullHero2 = _interopRequireDefault(_FullHero);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	/*
-	  RoutePhotography component description goes here, please!
-
-	  To import this elsewhere:
-	  import RoutePhotography from './components/RoutePhotography/RoutePhotography';
-	*/
-
-	exports.default = _react2.default.createClass({
-	  displayName: 'RoutePhotography',
-	  render: function render() {
-	    return _react2.default.createElement(
-	      'div',
-	      { className: 'cpnt-routephotography' },
-	      'Photo'
-	    );
-	  }
-	});
-
-/***/ },
-/* 237 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _FullHero = __webpack_require__(234);
-
-	var _FullHero2 = _interopRequireDefault(_FullHero);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	/*
-	  RouteSoftware component description goes here, please!
-
-	  To import this elsewhere:
-	  import RouteSoftware from './components/RouteSoftware/RouteSoftware';
-	*/
-
-	exports.default = _react2.default.createClass({
-	  displayName: 'RouteSoftware',
-	  render: function render() {
-	    return _react2.default.createElement(
-	      'div',
-	      { className: 'cpnt-routesoftware' },
-	      'Software'
-	    );
-	  }
-	});
-
-/***/ },
-/* 238 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _Navi = __webpack_require__(239);
-
-	var _Navi2 = _interopRequireDefault(_Navi);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 App component description goes here, please!
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 To import this elsewhere:
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 import App from './components/App/App';
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               */
-
-	var App = function (_React$Component) {
-	  _inherits(App, _React$Component);
-
-	  function App(props) {
-	    _classCallCheck(this, App);
-
-	    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
-
-	    _this.state = {
-	      navmode: false,
-	      activeSection: 'photography'
-	    };
-
-	    // This binding is necessary to make `this` work in the callback
-	    _this.setSectionPhotography = _this.setSectionPhotography.bind(_this);
-	    _this.setSectionSoftware = _this.setSectionSoftware.bind(_this);
-	    return _this;
-	  }
-
-	  _createClass(App, [{
-	    key: 'setSectionPhotography',
-	    value: function setSectionPhotography(e) {
-	      e.preventDefault();
-	      this.setState({
-	        activeSection: 'photography'
-	      });
-	    }
-	  }, {
-	    key: 'setSectionSoftware',
-	    value: function setSectionSoftware(e) {
-	      e.preventDefault();
-	      this.setState({
-	        activeSection: 'software'
-	      });
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'cpnt-app' },
-	        _react2.default.createElement(_Navi2.default, { active: this.state.navmode }),
-	        this.props.children
-	      );
-	    }
-	  }]);
-
-	  return App;
-	}(_react2.default.Component);
-
-	exports.default = App;
-	;
-
-/***/ },
-/* 239 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRouter = __webpack_require__(178);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 Navi component description goes here, please!
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 To import this elsewhere:
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 import Navi from './components/Navi/Navi';
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               */
-
-	var Navi = function (_React$Component) {
-	  _inherits(Navi, _React$Component);
-
-	  function Navi() {
-	    _classCallCheck(this, Navi);
-
-	    return _possibleConstructorReturn(this, (Navi.__proto__ || Object.getPrototypeOf(Navi)).apply(this, arguments));
-	  }
-
-	  _createClass(Navi, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'cpnt-navi' },
-	        this.props.active,
-	        _react2.default.createElement(
-	          'ul',
-	          { role: 'nav' },
-	          _react2.default.createElement(
-	            'li',
-	            null,
-	            _react2.default.createElement(
-	              _reactRouter.IndexLink,
-	              { to: '/', activeClassName: 'is-active' },
-	              'Home'
-	            ),
-	            _react2.default.createElement(
-	              _reactRouter.IndexLink,
-	              { to: '/software', activeClassName: 'is-active' },
-	              'Software'
-	            ),
-	            _react2.default.createElement(
-	              _reactRouter.IndexLink,
-	              { to: '/photography', activeClassName: 'is-active' },
-	              'Photography'
-	            )
-	          )
-	        )
-	      );
-	    }
-	  }]);
-
-	  return Navi;
-	}(_react2.default.Component);
-
-	exports.default = Navi;
 
 /***/ }
 /******/ ]);
