@@ -5,10 +5,20 @@ to replace it with a component description :)
 */
 
 .cpnt-grip {
-  width: 24px;
-  height: 100vh;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
   background: url('assets/images/ui/grip-bubbles.svg');
+
+  &.mid-vertical-strip {
+    width: 24px;
+    height: 100vh;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &.nav-items {
+    width: 175px;
+    height: 26px;
+    position: absolute;
+    top: 60px;
+  }
 }

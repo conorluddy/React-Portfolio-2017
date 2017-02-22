@@ -5,7 +5,6 @@ to replace it with a component description :)
 */
 
 .cpnt-navigation {
-
   position: fixed;
   top: 0;
   bottom: 0;
@@ -13,15 +12,15 @@ to replace it with a component description :)
   right: 0;
   background: rgba(20, 20, 20, .90);
 
-
-
   .initial-opt {
-    color: rgba(216,216,216,.65);
     position: absolute;
     top: 0;
     bottom: 0;
     width: 50%;
 
+    a {
+      color: rgba(216,216,216,.65);
+    }
 
     h2 {
       font-size: rem(42);
@@ -37,7 +36,7 @@ to replace it with a component description :)
         width: 100%;
         background: $color-fluro;
         position: absolute;
-        right: 100%;
+        right: 80%;
         top: 50%;
       }
     }
@@ -53,6 +52,7 @@ to replace it with a component description :)
       }
     }
 
+
     &.right {
       right: 0;
 
@@ -62,11 +62,12 @@ to replace it with a component description :)
         transform: rotate(90deg);
       }
     }
-
   }
+
 
   small {
     font-size: rem(22);
   }
+
 
 }

@@ -2,7 +2,7 @@
   <ComponentName> component description goes here, please!
 
   To import this elsewhere:
-  import <ComponentName> from './components/<ComponentName>/<ComponentName>';
+  import <ComponentName> from '../<ComponentName>/<ComponentName>';
 */
 
 import React from 'react'
