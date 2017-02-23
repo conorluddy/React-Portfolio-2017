@@ -29,10 +29,19 @@ h3,
   font-weight: 700;
 }
 
-
-
-
 a {
   color: $color-fluro;
   text-decoration: none;
+}
+
+::selection {
+  background: $color-fluro;
+  color: $color-black;
+}
+
+._selection-transparent {
+  &::selection {
+    background: transparent;
+    color: inherit;
+  }
 }

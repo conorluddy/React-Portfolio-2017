@@ -26724,7 +26724,7 @@
 
 	var _Navigation2 = _interopRequireDefault(_Navigation);
 
-	var _FullHero = __webpack_require__(240);
+	var _FullHero = __webpack_require__(241);
 
 	var _FullHero2 = _interopRequireDefault(_FullHero);
 
@@ -26743,43 +26743,20 @@
 	var App = function (_React$Component) {
 	  _inherits(App, _React$Component);
 
-	  function App(props) {
+	  function App() {
 	    _classCallCheck(this, App);
 
-	    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
-
-	    _this.state = {
-	      section: 'landing'
-	    };
-	    return _this;
+	    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
 	  }
 
 	  _createClass(App, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      console.log('componentDidMount');
-	      this.setState({ section: this.props.location.pathname });
-	    }
-	  }, {
-	    key: 'componentDidUpdate',
-	    value: function componentDidUpdate(preProps) {
-	      if (this.props.location.pathname !== preProps.location.pathname) {
-	        this.updateSection();
-	      }
-	    }
-	  }, {
-	    key: 'updateSection',
-	    value: function updateSection() {
-	      this.setState({ section: this.props.location.pathname });
-	    }
-	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'cpnt-app' },
 	        _react2.default.createElement(_FullHero2.default, { imgSrc: 'assets/images/hero/mac-candles.jpg' }),
-	        _react2.default.createElement(_Navigation2.default, { section: this.state.section }),
+	        _react2.default.createElement(_Navigation2.default, null),
 	        this.props.children
 	      );
 	    }
@@ -26842,16 +26819,40 @@
 	  function Navigation(props) {
 	    _classCallCheck(this, Navigation);
 
-	    return _possibleConstructorReturn(this, (Navigation.__proto__ || Object.getPrototypeOf(Navigation)).call(this, props));
-	    //  console.log('this: ', this);
-	    //  console.log('this.props: ', this.props);
+	    var _this = _possibleConstructorReturn(this, (Navigation.__proto__ || Object.getPrototypeOf(Navigation)).call(this, props));
+
+	    _this.state = {
+	      section: 'landing'
+	    };
+
+	    _this.setSectionDevelopment = _this.setSectionDevelopment.bind(_this);
+	    _this.setSectionPhotography = _this.setSectionPhotography.bind(_this);
+	    _this.clearSection = _this.clearSection.bind(_this);
+	    return _this;
 	  }
 
 	  _createClass(Navigation, [{
-	    key: 'componentDidUpdate',
-	    value: function componentDidUpdate(prev) {
-	      console.log('Navigation CPT: You were here - ', prev.section);
-	      console.log('Navigation CPT: You are here - ', this.props.section);
+	    key: 'setSectionDevelopment',
+	    value: function setSectionDevelopment() {
+	      if (this.state.section !== 'development') {
+	        this.setState({ section: 'development' });
+	      } else {
+	        this.clearSection();
+	      }
+	    }
+	  }, {
+	    key: 'setSectionPhotography',
+	    value: function setSectionPhotography() {
+	      if (this.state.section !== 'photography') {
+	        this.setState({ section: 'photography' });
+	      } else {
+	        this.clearSection();
+	      }
+	    }
+	  }, {
+	    key: 'clearSection',
+	    value: function clearSection() {
+	      this.setState({ section: 'landing' });
 	    }
 	  }, {
 	    key: 'render',
@@ -26860,13 +26861,11 @@
 	      var photoNavItems = ['GEAR', 'TUTORIALS', 'LANDSCAPES', 'ARCHITECTURE', 'VIDEO'];
 	      var devNavItems = ['OVERVIEW', 'PLAYGROUND', 'TUTORIALS', 'WORK', 'PROJECTS', 'TOOLS'];
 
-	      if (this.props.section === 'development') {
-	        sectionNav = _react2.default.createElement(_NavigationSection2.default, { section: this.props.section, side: 'right', navList: devNavItems });
-	      } else if (this.props.section === 'photography') {
-	        sectionNav = _react2.default.createElement(_NavigationSection2.default, { section: this.props.section, side: 'left', navList: photoNavItems });
+	      if (this.state.section === 'development') {
+	        sectionNav = _react2.default.createElement(_NavigationSection2.default, { section: this.props.section, side: 'right', navList: devNavItems, clearSection: this.clearSection });
+	      } else if (this.state.section === 'photography') {
+	        sectionNav = _react2.default.createElement(_NavigationSection2.default, { section: this.props.section, side: 'left', navList: photoNavItems, clearSection: this.clearSection });
 	      }
-
-	      console.log('sectionNav: ', sectionNav);
 
 	      return _react2.default.createElement(
 	        'div',
@@ -26876,16 +26875,12 @@
 	          { className: 'initial-opt _akrobat _weight-black left' },
 	          _react2.default.createElement(
 	            'h2',
-	            { className: '_weight-normal' },
+	            { className: '_weight-normal _selection-transparent', onClick: this.setSectionDevelopment },
+	            'WEB',
 	            _react2.default.createElement(
-	              _reactRouter.Link,
-	              { to: 'development' },
-	              'WEB',
-	              _react2.default.createElement(
-	                'small',
-	                { className: '_weight-xlight' },
-	                'DEVELOPMENT & DESIGN'
-	              )
+	              'small',
+	              { className: '_weight-xlight _selection-transparent' },
+	              'DEVELOPMENT & DESIGN'
 	            )
 	          )
 	        ),
@@ -26894,20 +26889,16 @@
 	          { className: 'initial-opt _akrobat _weight-black right' },
 	          _react2.default.createElement(
 	            'h2',
-	            { className: '_weight-normal' },
+	            { className: '_weight-normal _selection-transparent', onClick: this.setSectionPhotography },
+	            'PHOTO',
 	            _react2.default.createElement(
-	              _reactRouter.Link,
-	              { to: 'photography' },
-	              'PHOTO',
-	              _react2.default.createElement(
-	                'small',
-	                { className: '_weight-xlight' },
-	                'GRAPHY & VIDEO'
-	              )
+	              'small',
+	              { className: '_weight-xlight _selection-transparent' },
+	              'GRAPHY & VIDEO'
 	            )
 	          )
 	        ),
-	        _react2.default.createElement(_Grip2.default, { 'class': 'mid-vertical-strip', className: 'mid-vertical-strip' }),
+	        _react2.default.createElement(_Grip2.default, null),
 	        sectionNav
 	      );
 	    }
@@ -26922,7 +26913,7 @@
 /* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -26957,12 +26948,9 @@
 	  }
 
 	  _createClass(Grip, [{
-	    key: 'render',
+	    key: "render",
 	    value: function render() {
-	      var classes = 'cpnt-grip ';
-	      classes += this.props.className;
-
-	      return _react2.default.createElement('div', { className: classes });
+	      return _react2.default.createElement("div", { className: "cpnt-grip" });
 	    }
 	  }]);
 
@@ -26993,6 +26981,10 @@
 
 	var _Grip2 = _interopRequireDefault(_Grip);
 
+	var _TriggerArrow = __webpack_require__(240);
+
+	var _TriggerArrow2 = _interopRequireDefault(_TriggerArrow);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -27009,18 +27001,27 @@
 	var NavigationSection = function (_React$Component) {
 	  _inherits(NavigationSection, _React$Component);
 
-	  function NavigationSection() {
+	  function NavigationSection(props) {
 	    _classCallCheck(this, NavigationSection);
 
-	    return _possibleConstructorReturn(this, (NavigationSection.__proto__ || Object.getPrototypeOf(NavigationSection)).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (NavigationSection.__proto__ || Object.getPrototypeOf(NavigationSection)).call(this, props));
+
+	    _this.clearSection = _this.clearSection.bind(_this);
+	    return _this;
 	  }
 
 	  _createClass(NavigationSection, [{
+	    key: 'clearSection',
+	    value: function clearSection() {
+	      this.props.clearSection();
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 
 	      var innerClasses = this.props.section + " inner " + this.props.side;
 	      var navList = this.props.navList;
+	      var arrowDirection = this.props.side === 'right' ? 'nw' : 'ne';
 
 	      return _react2.default.createElement(
 	        'div',
@@ -27031,19 +27032,29 @@
 	          _react2.default.createElement(
 	            'ul',
 	            { className: 'nav-list' },
-	            navList.map(function (title) {
+	            navList.map(function (title, idx) {
 	              return _react2.default.createElement(
 	                'li',
-	                { className: '_akrobat _weight-normal' },
+	                { className: '_akrobat _weight-normal', key: idx },
 	                _react2.default.createElement(
 	                  _reactRouter.Link,
 	                  { to: '/' },
 	                  title
 	                ),
-	                _react2.default.createElement(_Grip2.default, { className: 'nav-items' })
+	                _react2.default.createElement(_Grip2.default, { className: 'nav-items' }),
+	                _react2.default.createElement(
+	                  'span',
+	                  { className: 'big-num _akrobat _weight-normal' },
+	                  _react2.default.createElement(
+	                    'i',
+	                    { className: 'inner' },
+	                    '0' + (idx + 1)
+	                  )
+	                )
 	              );
 	            })
-	          )
+	          ),
+	          _react2.default.createElement(_TriggerArrow2.default, { onTriggerClick: this.clearSection, nsew: arrowDirection })
 	        )
 	      );
 	    }
@@ -27056,6 +27067,104 @@
 
 /***/ },
 /* 240 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 TriggerArrow component description goes here, please!
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 To import this elsewhere:
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 import TriggerArrow from '../TriggerArrow/TriggerArrow';
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               */
+
+	var TriggerArrow = function (_React$Component) {
+	  _inherits(TriggerArrow, _React$Component);
+
+	  function TriggerArrow(props) {
+	    _classCallCheck(this, TriggerArrow);
+
+	    var _this = _possibleConstructorReturn(this, (TriggerArrow.__proto__ || Object.getPrototypeOf(TriggerArrow)).call(this, props));
+
+	    _this.handleClick = _this.handleClick.bind(_this);
+	    return _this;
+	  }
+
+	  _createClass(TriggerArrow, [{
+	    key: 'handleClick',
+	    value: function handleClick() {
+	      this.props.onTriggerClick();
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var svgTransform = "translate(494.000000, 10.000000) ";
+
+	      switch (this.props.nsew) {
+	        case 'nw':
+	          svgTransform += "rotate(90.000000)";
+	          break;
+	        case 'ne':
+	          svgTransform += "rotate(180.000000)";
+	          break;
+	        case 'se':
+	          svgTransform += "rotate(270.000000)";
+	          break;
+	        case 'sw':
+	          svgTransform += "rotate(90.000000)";
+	          break;
+	        default:
+
+	      }
+
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'cpnt-trigger-arrow' },
+	        _react2.default.createElement(
+	          'svg',
+	          { width: '36px', height: '36px', viewBox: '494 10 36 36', version: '1.1', onClick: this.handleClick },
+	          _react2.default.createElement(
+	            'g',
+	            { id: 'back', stroke: 'none', fill: 'none', transform: 'translate(494.000000, 10.000000)', strokeWidth: '1', fillRule: 'evenodd' },
+	            _react2.default.createElement(
+	              'g',
+	              null,
+	              _react2.default.createElement('rect', { id: 'Rectangle-5', fill: '#EEFF00', x: '0', y: '0', width: '36', height: '36' }),
+	              _react2.default.createElement(
+	                'g',
+	                { id: 'aro', transform: 'translate(6.000000, 6.000000)', fillRule: 'nonzero', fill: '#4A4A4A' },
+	                _react2.default.createElement('path', { d: 'M12.1310756,7 L20.1708827,7 L20.1708827,0 L3.58544136,0 L0,0 L0,20 L7,20 L7,11.7986376 L11.9403839,16.8440668 L17.0218461,11.9947608 L12.1310756,7 Z', id: 'Combined-Shape' })
+	              )
+	            )
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return TriggerArrow;
+	}(_react2.default.Component);
+
+	exports.default = TriggerArrow;
+
+/***/ },
+/* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';

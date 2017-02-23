@@ -17,10 +17,7 @@ to replace it with a component description :)
     top: 0;
     bottom: 0;
     width: 50%;
-
-    a {
-      color: rgba(216,216,216,.65);
-    }
+    color: rgba(216,216,216,.65);
 
     h2 {
       font-size: rem(42);
@@ -67,6 +64,16 @@ to replace it with a component description :)
 
   small {
     font-size: rem(22);
+  }
+
+
+
+  > .cpnt-grip {
+    width: 24px;
+    height: 100vh;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
 

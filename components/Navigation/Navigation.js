@@ -20,13 +20,33 @@ export default class Navigation extends React.Component {
 
   constructor(props) {
     super(props);
-    //  console.log('this: ', this);
-    //  console.log('this.props: ', this.props);
+    this.state = {
+      section: 'landing'
+    };
+
+    this.setSectionDevelopment = this.setSectionDevelopment.bind(this);
+    this.setSectionPhotography = this.setSectionPhotography.bind(this);
+    this.clearSection = this.clearSection.bind(this);
   }
 
-  componentDidUpdate (prev) {
-    console.log( 'Navigation CPT: You were here - ', prev.section );
-    console.log( 'Navigation CPT: You are here - ', this.props.section );
+  setSectionDevelopment() {
+    if (this.state.section !== 'development') {
+      this.setState({section: 'development'});
+    } else {
+      this.clearSection();
+    }
+  }
+
+  setSectionPhotography() {
+    if (this.state.section !== 'photography') {
+      this.setState({section: 'photography'});
+    } else {
+      this.clearSection();
+    }
+  }
+
+  clearSection() {
+    this.setState({section: 'landing'})
   }
 
   render() {
@@ -34,30 +54,30 @@ export default class Navigation extends React.Component {
     let photoNavItems = ['GEAR', 'TUTORIALS', 'LANDSCAPES', 'ARCHITECTURE', 'VIDEO'];
     let devNavItems = ['OVERVIEW','PLAYGROUND','TUTORIALS','WORK','PROJECTS','TOOLS'];
 
-    if (this.props.section === 'development') {
-      sectionNav = <NavigationSection section={this.props.section} side='right' navList={devNavItems} />;
-    } else if (this.props.section === 'photography') {
-      sectionNav = <NavigationSection section={this.props.section} side='left' navList={photoNavItems} />;
+    if (this.state.section === 'development') {
+      sectionNav = <NavigationSection section={this.props.section} side='right' navList={devNavItems} clearSection={this.clearSection} />;
+    } else if (this.state.section === 'photography') {
+      sectionNav = <NavigationSection section={this.props.section} side='left' navList={photoNavItems} clearSection={this.clearSection} />;
     }
 
-    console.log('sectionNav: ', sectionNav);
+
 
     return (
       <div className="cpnt-navigation">
 
         <div className="initial-opt _akrobat _weight-black left" >
-            <h2 className="_weight-normal"  >
-              <Link to={'development'}>WEB<small className="_weight-xlight">DEVELOPMENT & DESIGN</small></Link>
+            <h2 className="_weight-normal _selection-transparent" onClick={this.setSectionDevelopment} >
+              WEB<small className="_weight-xlight _selection-transparent">DEVELOPMENT & DESIGN</small>
             </h2>
         </div>
 
         <div className="initial-opt _akrobat _weight-black right" >
-            <h2 className="_weight-normal" >
-              <Link to={'photography'}>PHOTO<small className="_weight-xlight">GRAPHY & VIDEO</small></Link>
+            <h2 className="_weight-normal _selection-transparent" onClick={this.setSectionPhotography} >
+              PHOTO<small className="_weight-xlight _selection-transparent">GRAPHY & VIDEO</small>
             </h2>
         </div>
 
-        <Grip class='mid-vertical-strip' className='mid-vertical-strip'  />
+        <Grip />
 
         {sectionNav}
 

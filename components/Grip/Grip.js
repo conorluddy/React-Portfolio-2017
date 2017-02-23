@@ -10,13 +10,9 @@ import React from 'react'
 export default class Grip extends React.Component {
 
   render() {
-    let classes = 'cpnt-grip ';
-    classes += this.props.className;
-
     return (
-      <div className={classes}>
-
-      </div>
+      <div className="cpnt-grip" ></div>
     );
   }
+
 }
