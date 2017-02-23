@@ -1,0 +1,20 @@
+
+// Handy PX to REM converter. Put in PX value, REM value comes out.
+// use-like {
+//   font-size: rem(20);
+// }
+// @param  {int} $px   Target PX font size
+// @param  {int} $base Optional base to use. Defaults to 16px if not entered.
+// @return {string}    Xrem
+
+@function rem($px-font-size, $base-font-size: false) {
+
+  @if $base-font-size {
+    @return $px-font-size / $base-font-size * 1rem;
+
+  } @else {
+    @return $px-font-size / 16 * 1rem;
+
+  }
+
+}

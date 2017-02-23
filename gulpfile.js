@@ -2,16 +2,19 @@
 let gulp = require('gulp');
 let webpack = require('webpack-stream');
 let browserSync = require('browser-sync').create();
+var modRewrite  = require('connect-modrewrite');
 
 require('./gulp_modules/css.js')(gulp);
 require('./gulp_modules/generate.js')(gulp);
 require('./gulp_modules/documentation.js')(gulp);
 require('./gulp_modules/js.js')(gulp);
+require('./gulp_modules/images.js')(gulp);
+require('./gulp_modules/fonts.js')(gulp);
 
 /**
  * Default: Webpack, BrowserSync, Watch
  */
-gulp.task('default', () => {
+gulp.task('default', ['sass', 'images', 'fonts'], () => {
   gulp.src('./index.js')
     .pipe(webpack({
       watch: true,
@@ -30,10 +33,14 @@ gulp.task('default', () => {
     }))
     .pipe(gulp.dest('dist/'));
 
-
   browserSync.init({
       server: {
-          baseDir: "./dist"
+          baseDir: "./dist",
+          middleware: [
+              modRewrite([
+                  '!\\.\\w+$ /index.html [L]'
+              ])
+          ]
       }
   });
 
@@ -43,6 +50,10 @@ gulp.task('default', () => {
 
   gulp.watch(['sass/**/*','components/**/*.scss'], () => {
     gulp.start('sass');
+  });
+
+  gulp.watch(['images/**/*'], () => {
+    gulp.start('images');
   });
 
 });

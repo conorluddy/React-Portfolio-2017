@@ -1,4 +1,47 @@
 
+html {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+h1,
+h2,
+h3,
+._akrobat {
+  font-family: $fontfam-akrobat;
+}
+
+/**
+ * Font Weights
+ */
+._weight-xlight {
+  font-weight: 100;
+}
+._weight-light {
+  font-weight: 200;
+}
+._weight-normal {
+  font-weight: 500;
+}
+._weight-bold {
+  font-weight: 600;
+}
+._weight-black {
+  font-weight: 700;
+}
+
 a {
-  color: #f00;
+  color: $color-fluro;
+  text-decoration: none;
+}
+
+::selection {
+  background: $color-fluro;
+  color: $color-black;
+}
+
+._selection-transparent {
+  &::selection {
+    background: transparent;
+    color: inherit;
+  }
 }
