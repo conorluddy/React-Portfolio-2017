@@ -34,6 +34,7 @@ gulp.task('default', ['sass', 'images', 'fonts'], () => {
     .pipe(gulp.dest('dist/'));
 
   browserSync.init({
+      port: 6969,
       server: {
           baseDir: "./dist",
           middleware: [

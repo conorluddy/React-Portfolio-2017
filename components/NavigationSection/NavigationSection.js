@@ -28,15 +28,19 @@ export default class NavigationSection extends React.Component {
     let navList = this.props.navList;
     let arrowDirection = this.props.side === 'right' ? 'nw' : 'ne';
 
+
+console.log('navList: ', navList);
+
+
     return (
       <div className="cpnt-nav-section">
         <div className={innerClasses} >
 
           <ul className="nav-list">
-            {navList.map((title, idx) =>
+            {navList.map((navItem, idx) =>
               <li className="_akrobat _weight-normal" key={idx}>
 
-                <Link to='/' >{title}</Link>
+                <Link to={navItem.path} >{navItem.label}</Link>
 
                 <Grip className="nav-items"/>
 
