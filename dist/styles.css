@@ -535,6 +535,8 @@ to replace it with a component description :)
   left: 0;
   right: 0;
   background: rgba(20, 20, 20, 0.9); }
+  .cpnt-navigation.is-stashed {
+    display: none; }
   .cpnt-navigation .initial-opt {
     position: absolute;
     top: 0;
@@ -619,17 +621,37 @@ to replace it with a component description :)
 .cpnt-nav-section li {
   position: relative;
   cursor: pointer; }
+  .cpnt-nav-section li::selection {
+    color: inherit;
+    background: transparent; }
 
 .cpnt-nav-section a {
   color: #515151;
-  position: relative; }
+  position: relative;
+  padding: 0 10px; }
+  .cpnt-nav-section a::before, .cpnt-nav-section a::after {
+    content: '';
+    position: absolute;
+    background-color: transparent; }
+  .cpnt-nav-section a::before {
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0;
+    z-index: -1; }
+  .cpnt-nav-section a::after {
+    bottom: -3px;
+    height: 1px;
+    left: 0;
+    right: 0;
+    width: 205px; }
 
 .cpnt-nav-section .cpnt-grip {
   width: 175px;
   height: 26px;
   position: absolute;
   top: 56px;
-  left: -10px; }
+  left: 0; }
 
 .cpnt-nav-section .big-num {
   position: absolute;
@@ -641,7 +663,8 @@ to replace it with a component description :)
   width: 120px;
   height: 140px;
   overflow: hidden;
-  opacity: 0; }
+  opacity: 0;
+  cursor: default; }
   .cpnt-nav-section .big-num .inner {
     font-style: normal;
     font-weight: 600;
@@ -649,23 +672,7 @@ to replace it with a component description :)
     background: none; }
 
 .cpnt-nav-section li:hover a::before, .cpnt-nav-section li:hover a::after {
-  content: '';
-  position: absolute;
   background-color: #eeff00; }
-
-.cpnt-nav-section li:hover a::before {
-  top: -1px;
-  bottom: -1px;
-  left: -10px;
-  right: -10px;
-  z-index: -1; }
-
-.cpnt-nav-section li:hover a::after {
-  bottom: -3px;
-  height: 1px;
-  left: -10px;
-  right: 0;
-  width: 215px; }
 
 .cpnt-nav-section li:hover .big-num {
   display: inherit;

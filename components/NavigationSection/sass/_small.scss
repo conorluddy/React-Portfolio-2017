@@ -52,11 +52,38 @@ to replace it with a component description :)
   li {
     position: relative;
     cursor: pointer;
+
+    &::selection {
+      color: inherit;
+      background: transparent;
+    }
   }
 
   a {
     color: rgba(81, 81, 81, 1);
     position: relative;
+    padding: 0 10px;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      background-color: transparent;
+    }
+    &::before {
+      top: 0px;
+      bottom: 0px;
+      left: 0px;
+      right: 0;
+      z-index: -1;
+    }
+    &::after {
+      bottom: -3px;
+      height: 1px;
+      left: 0;
+      right: 0;
+      width: 205px;
+    }
   }
 
   .cpnt-grip {
@@ -64,7 +91,7 @@ to replace it with a component description :)
     height: 26px;
     position: absolute;
     top: 56px;
-    left: -10px;
+    left: 0;
   }
 
 
@@ -79,6 +106,7 @@ to replace it with a component description :)
     height: 140px;
     overflow: hidden;
     opacity: 0;
+    cursor: default;
 
     .inner {
       font-style: normal;
@@ -94,23 +122,7 @@ to replace it with a component description :)
     a {
       &::before,
       &::after {
-        content: '';
-        position: absolute;
         background-color: $color-fluro;
-      }
-      &::before {
-        top: -1px;
-        bottom: -1px;
-        left: -10px;
-        right: -10px;
-        z-index: -1;
-      }
-      &::after {
-        bottom: -3px;
-        height: 1px;
-        left: -10px;
-        right: 0;
-        width: 215px;
       }
     }
 

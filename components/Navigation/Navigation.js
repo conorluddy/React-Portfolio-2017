@@ -27,6 +27,7 @@ export default class Navigation extends React.Component {
     this.setSectionDevelopment = this.setSectionDevelopment.bind(this);
     this.setSectionPhotography = this.setSectionPhotography.bind(this);
     this.clearSection = this.clearSection.bind(this);
+    this.stashNav = this.stashNav.bind(this);
   }
 
   setSectionDevelopment() {
@@ -45,13 +46,30 @@ export default class Navigation extends React.Component {
     }
   }
 
+  stashNav() {
+    this.setState({
+      section: 'none'
+    });
+  }
+
   clearSection() {
-    this.setState({section: 'landing'})
+    this.setState({
+      section: 'landing'
+    });
+  }
+
+  getClassNames() {
+    let clas = 'cpnt-navigation';
+    console.log('this.state.section: ', this.state.section);
+    clas += this.state.section === "none" ? " is-stashed" : '';
+
+    return clas;
   }
 
   render() {
     let sectionNav = null;
     let photoNavItems = [
+      {label: 'HOME', path: '/'},
       {label: 'OVERVIEW', path: '/photography'},
       {label: 'GEAR', path: '/photography/gear'},
       {label: 'TUTORIALS', path: '/photography/tutorials'},
@@ -60,6 +78,7 @@ export default class Navigation extends React.Component {
       {label: 'VIDEO', path: '/photography/video'}
     ];
     let devNavItems = [
+      {label: 'HOME', path: '/'},
       {label: 'OVERVIEW', path: '/development'},
       {label: 'PLAYGROUND', path: '/development/playground'},
       {label: 'TUTORIALS', path: '/development/tutorials'},
@@ -69,16 +88,17 @@ export default class Navigation extends React.Component {
     ];
 
 
+
     if (this.state.section === 'development') {
-      sectionNav = <NavigationSection section={this.props.section} side='right' navList={devNavItems} clearSection={this.clearSection} />;
+      sectionNav = <NavigationSection section={this.props.section} navList={devNavItems} clearSection={this.clearSection} stashNav={this.stashNav} side='right' />;
     } else if (this.state.section === 'photography') {
-      sectionNav = <NavigationSection section={this.props.section} side='left' navList={photoNavItems} clearSection={this.clearSection} />;
+      sectionNav = <NavigationSection section={this.props.section} navList={photoNavItems} clearSection={this.clearSection} stashNav={this.stashNav} side='left' />;
     }
 
 
 
     return (
-      <div className="cpnt-navigation">
+      <div className={this.getClassNames()} >
 
         <div className="initial-opt _akrobat _weight-black left" >
             <h2 className="_weight-normal _selection-transparent" onClick={this.setSectionDevelopment} >

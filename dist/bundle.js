@@ -58,19 +58,19 @@
 
 	var _RouteLanding2 = _interopRequireDefault(_RouteLanding);
 
-	var _RoutePhotography = __webpack_require__(234);
+	var _RoutePhotography = __webpack_require__(235);
 
 	var _RoutePhotography2 = _interopRequireDefault(_RoutePhotography);
 
-	var _RouteDevelopment = __webpack_require__(235);
+	var _RouteDevelopment = __webpack_require__(236);
 
 	var _RouteDevelopment2 = _interopRequireDefault(_RouteDevelopment);
 
-	var _PageReader = __webpack_require__(236);
+	var _PageReader = __webpack_require__(237);
 
 	var _PageReader2 = _interopRequireDefault(_PageReader);
 
-	var _App = __webpack_require__(237);
+	var _App = __webpack_require__(238);
 
 	var _App2 = _interopRequireDefault(_App);
 
@@ -86,9 +86,13 @@
 	    _react2.default.createElement(
 	      _reactRouter.Route,
 	      { path: 'photography', component: _RoutePhotography2.default },
-	      _react2.default.createElement(_reactRouter.Route, { path: 'gear', component: _PageReader2.default })
+	      _react2.default.createElement(_reactRouter.Route, { path: 'overview', component: _PageReader2.default })
 	    ),
-	    _react2.default.createElement(_reactRouter.Route, { path: 'development', component: _RouteDevelopment2.default })
+	    _react2.default.createElement(
+	      _reactRouter.Route,
+	      { path: 'development', component: _RouteDevelopment2.default },
+	      _react2.default.createElement(_reactRouter.Route, { path: 'overview', component: _PageReader2.default })
+	    )
 	  )
 	), document.getElementById('app'));
 
@@ -26567,6 +26571,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _FullHero = __webpack_require__(234);
+
+	var _FullHero2 = _interopRequireDefault(_FullHero);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -26595,7 +26603,11 @@
 	  _createClass(RouteLanding, [{
 	    key: 'render',
 	    value: function render() {
-	      return _react2.default.createElement('div', { className: 'cpnt-route-landing' });
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'cpnt-route-landing' },
+	        _react2.default.createElement(_FullHero2.default, { imgSrc: 'assets/images/hero/mac-candles.jpg' })
+	      );
 	    }
 	  }]);
 
@@ -26606,6 +26618,59 @@
 
 /***/ },
 /* 234 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 FullHero component description goes here, please!
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 To import this elsewhere:
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 import FullHero from './components/FullHero/FullHero';
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               */
+
+	var FullHero = function (_React$Component) {
+	  _inherits(FullHero, _React$Component);
+
+	  function FullHero() {
+	    _classCallCheck(this, FullHero);
+
+	    return _possibleConstructorReturn(this, (FullHero.__proto__ || Object.getPrototypeOf(FullHero)).apply(this, arguments));
+	  }
+
+	  _createClass(FullHero, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'cpnt-full-hero', style: { backgroundImage: 'url(' + this.props.imgSrc + ')' } },
+	        this.props.children
+	      );
+	    }
+	  }]);
+
+	  return FullHero;
+	}(_react2.default.Component);
+
+	exports.default = FullHero;
+
+/***/ },
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -26659,7 +26724,7 @@
 	exports.default = RoutePhotography;
 
 /***/ },
-/* 235 */
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -26713,7 +26778,7 @@
 	exports.default = RouteDevelopment;
 
 /***/ },
-/* 236 */
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -26767,7 +26832,7 @@
 	exports.default = PageReader;
 
 /***/ },
-/* 237 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26782,13 +26847,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Navigation = __webpack_require__(238);
+	var _Navigation = __webpack_require__(239);
 
 	var _Navigation2 = _interopRequireDefault(_Navigation);
-
-	var _FullHero = __webpack_require__(242);
-
-	var _FullHero2 = _interopRequireDefault(_FullHero);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -26805,10 +26866,13 @@
 	var App = function (_React$Component) {
 	  _inherits(App, _React$Component);
 
-	  function App() {
+	  function App(props) {
 	    _classCallCheck(this, App);
 
-	    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+
+	    console.info('Appp constructor');
+	    return _this;
 	  }
 
 	  _createClass(App, [{
@@ -26817,7 +26881,6 @@
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'cpnt-app' },
-	        _react2.default.createElement(_FullHero2.default, { imgSrc: 'assets/images/hero/mac-candles.jpg' }),
 	        _react2.default.createElement(_Navigation2.default, null),
 	        this.props.children
 	      );
@@ -26831,7 +26894,7 @@
 	;
 
 /***/ },
-/* 238 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26848,11 +26911,11 @@
 
 	var _reactRouter = __webpack_require__(178);
 
-	var _Grip = __webpack_require__(239);
+	var _Grip = __webpack_require__(240);
 
 	var _Grip2 = _interopRequireDefault(_Grip);
 
-	var _NavigationSection = __webpack_require__(240);
+	var _NavigationSection = __webpack_require__(241);
 
 	var _NavigationSection2 = _interopRequireDefault(_NavigationSection);
 
@@ -26890,6 +26953,7 @@
 	    _this.setSectionDevelopment = _this.setSectionDevelopment.bind(_this);
 	    _this.setSectionPhotography = _this.setSectionPhotography.bind(_this);
 	    _this.clearSection = _this.clearSection.bind(_this);
+	    _this.stashNav = _this.stashNav.bind(_this);
 	    return _this;
 	  }
 
@@ -26912,26 +26976,44 @@
 	      }
 	    }
 	  }, {
+	    key: 'stashNav',
+	    value: function stashNav() {
+	      this.setState({
+	        section: 'none'
+	      });
+	    }
+	  }, {
 	    key: 'clearSection',
 	    value: function clearSection() {
-	      this.setState({ section: 'landing' });
+	      this.setState({
+	        section: 'landing'
+	      });
+	    }
+	  }, {
+	    key: 'getClassNames',
+	    value: function getClassNames() {
+	      var clas = 'cpnt-navigation';
+	      console.log('this.state.section: ', this.state.section);
+	      clas += this.state.section === "none" ? " is-stashed" : '';
+
+	      return clas;
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var sectionNav = null;
-	      var photoNavItems = [{ label: 'OVERVIEW', path: '/photography' }, { label: 'GEAR', path: '/photography/gear' }, { label: 'TUTORIALS', path: '/photography/tutorials' }, { label: 'LANDSCAPES', path: '/photography/landscapes' }, { label: 'ARCHITECTURE', path: '/photography/architecture' }, { label: 'VIDEO', path: '/photography/video' }];
-	      var devNavItems = [{ label: 'OVERVIEW', path: '/development' }, { label: 'PLAYGROUND', path: '/development/playground' }, { label: 'TUTORIALS', path: '/development/tutorials' }, { label: 'WORK', path: '/development/work' }, { label: 'PROJECTS', path: '/development/projects' }, { label: 'TOOLS', path: '/development/tools' }];
+	      var photoNavItems = [{ label: 'HOME', path: '/' }, { label: 'OVERVIEW', path: '/photography' }, { label: 'GEAR', path: '/photography/gear' }, { label: 'TUTORIALS', path: '/photography/tutorials' }, { label: 'LANDSCAPES', path: '/photography/landscapes' }, { label: 'ARCHITECTURE', path: '/photography/architecture' }, { label: 'VIDEO', path: '/photography/video' }];
+	      var devNavItems = [{ label: 'HOME', path: '/' }, { label: 'OVERVIEW', path: '/development' }, { label: 'PLAYGROUND', path: '/development/playground' }, { label: 'TUTORIALS', path: '/development/tutorials' }, { label: 'WORK', path: '/development/work' }, { label: 'PROJECTS', path: '/development/projects' }, { label: 'TOOLS', path: '/development/tools' }];
 
 	      if (this.state.section === 'development') {
-	        sectionNav = _react2.default.createElement(_NavigationSection2.default, { section: this.props.section, side: 'right', navList: devNavItems, clearSection: this.clearSection });
+	        sectionNav = _react2.default.createElement(_NavigationSection2.default, { section: this.props.section, navList: devNavItems, clearSection: this.clearSection, stashNav: this.stashNav, side: 'right' });
 	      } else if (this.state.section === 'photography') {
-	        sectionNav = _react2.default.createElement(_NavigationSection2.default, { section: this.props.section, side: 'left', navList: photoNavItems, clearSection: this.clearSection });
+	        sectionNav = _react2.default.createElement(_NavigationSection2.default, { section: this.props.section, navList: photoNavItems, clearSection: this.clearSection, stashNav: this.stashNav, side: 'left' });
 	      }
 
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'cpnt-navigation' },
+	        { className: this.getClassNames() },
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'initial-opt _akrobat _weight-black left' },
@@ -26972,7 +27054,7 @@
 	exports.default = Navigation;
 
 /***/ },
-/* 239 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -27022,7 +27104,7 @@
 	exports.default = Grip;
 
 /***/ },
-/* 240 */
+/* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27039,11 +27121,11 @@
 
 	var _reactRouter = __webpack_require__(178);
 
-	var _Grip = __webpack_require__(239);
+	var _Grip = __webpack_require__(240);
 
 	var _Grip2 = _interopRequireDefault(_Grip);
 
-	var _TriggerArrow = __webpack_require__(241);
+	var _TriggerArrow = __webpack_require__(242);
 
 	var _TriggerArrow2 = _interopRequireDefault(_TriggerArrow);
 
@@ -27069,6 +27151,7 @@
 	    var _this = _possibleConstructorReturn(this, (NavigationSection.__proto__ || Object.getPrototypeOf(NavigationSection)).call(this, props));
 
 	    _this.clearSection = _this.clearSection.bind(_this);
+	    _this.stashNav = _this.stashNav.bind(_this);
 	    return _this;
 	  }
 
@@ -27078,14 +27161,19 @@
 	      this.props.clearSection();
 	    }
 	  }, {
+	    key: 'stashNav',
+	    value: function stashNav(e) {
+	      e.stopPropagation();
+	      this.props.stashNav();
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var _this2 = this;
 
 	      var innerClasses = this.props.section + " inner " + this.props.side;
 	      var navList = this.props.navList;
 	      var arrowDirection = this.props.side === 'right' ? 'nw' : 'ne';
-
-	      console.log('navList: ', navList);
 
 	      return _react2.default.createElement(
 	        'div',
@@ -27102,7 +27190,7 @@
 	                { className: '_akrobat _weight-normal', key: idx },
 	                _react2.default.createElement(
 	                  _reactRouter.Link,
-	                  { to: navItem.path },
+	                  { to: navItem.path, onClick: _this2.stashNav },
 	                  navItem.label
 	                ),
 	                _react2.default.createElement(_Grip2.default, { className: 'nav-items' }),
@@ -27130,7 +27218,7 @@
 	exports.default = NavigationSection;
 
 /***/ },
-/* 241 */
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27226,59 +27314,6 @@
 	}(_react2.default.Component);
 
 	exports.default = TriggerArrow;
-
-/***/ },
-/* 242 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 FullHero component description goes here, please!
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 To import this elsewhere:
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 import FullHero from './components/FullHero/FullHero';
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               */
-
-	var FullHero = function (_React$Component) {
-	  _inherits(FullHero, _React$Component);
-
-	  function FullHero() {
-	    _classCallCheck(this, FullHero);
-
-	    return _possibleConstructorReturn(this, (FullHero.__proto__ || Object.getPrototypeOf(FullHero)).apply(this, arguments));
-	  }
-
-	  _createClass(FullHero, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'cpnt-full-hero', style: { backgroundImage: 'url(' + this.props.imgSrc + ')' } },
-	        this.props.children
-	      );
-	    }
-	  }]);
-
-	  return FullHero;
-	}(_react2.default.Component);
-
-	exports.default = FullHero;
 
 /***/ }
 /******/ ]);

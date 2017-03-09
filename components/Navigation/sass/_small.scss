@@ -12,6 +12,12 @@ to replace it with a component description :)
   right: 0;
   background: rgba(20, 20, 20, .90);
 
+
+  &.is-stashed {
+    display: none;
+  }
+
+
   .initial-opt {
     position: absolute;
     top: 0;

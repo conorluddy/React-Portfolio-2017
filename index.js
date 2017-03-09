@@ -16,10 +16,12 @@ render((
         <IndexRoute component={RouteLanding} />
 
         <Route path="photography" component={RoutePhotography} >
-          <Route path="gear" component={PageReader} />
+          <Route path="overview" component={PageReader} />
         </Route>
 
-        <Route path="development" component={RouteDevelopment} />
+        <Route path="development" component={RouteDevelopment} >
+          <Route path="overview" component={PageReader} />
+        </Route>
 
       </Route>
     </Router>

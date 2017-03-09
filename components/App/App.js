@@ -6,14 +6,17 @@
 
 import React from 'react';
 import Navigation from '../Navigation/Navigation';
-import FullHero from '../FullHero/FullHero';
 
 export default class App extends React.Component {
+
+  constructor(props) {
+     super(props);
+     console.info('Appp constructor');
+  }
+
   render() {
     return (
       <div className="cpnt-app">
-
-        <FullHero imgSrc="assets/images/hero/mac-candles.jpg" />
 
         <Navigation />
 
