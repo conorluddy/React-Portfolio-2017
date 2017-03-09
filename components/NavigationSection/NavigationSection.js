@@ -16,10 +16,16 @@ export default class NavigationSection extends React.Component {
     super(props);
 
     this.clearSection = this.clearSection.bind(this);
+    this.stashNav = this.stashNav.bind(this);
   }
 
   clearSection () {
     this.props.clearSection();
+  }
+
+  stashNav (e) {
+    e.stopPropagation();
+    this.props.stashNav();
   }
 
   render() {
@@ -27,10 +33,6 @@ export default class NavigationSection extends React.Component {
     let innerClasses = this.props.section + " inner " + this.props.side;
     let navList = this.props.navList;
     let arrowDirection = this.props.side === 'right' ? 'nw' : 'ne';
-
-
-console.log('navList: ', navList);
-
 
     return (
       <div className="cpnt-nav-section">
@@ -40,7 +42,7 @@ console.log('navList: ', navList);
             {navList.map((navItem, idx) =>
               <li className="_akrobat _weight-normal" key={idx}>
 
-                <Link to={navItem.path} >{navItem.label}</Link>
+                <Link to={navItem.path} onClick={this.stashNav} >{navItem.label}</Link>
 
                 <Grip className="nav-items"/>
 
