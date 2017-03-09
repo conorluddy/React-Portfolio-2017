@@ -15,6 +15,7 @@ import React from 'react';
 import { Link, IndexLink } from 'react-router';
 import Grip from '../Grip/Grip';
 import NavigationSection from '../NavigationSection/NavigationSection';
+import TriggerArrow from '../TriggerArrow/TriggerArrow';
 
 export default class Navigation extends React.Component {
 
@@ -26,6 +27,7 @@ export default class Navigation extends React.Component {
 
     this.setSectionDevelopment = this.setSectionDevelopment.bind(this);
     this.setSectionPhotography = this.setSectionPhotography.bind(this);
+    this.setSectionLanding = this.setSectionLanding.bind(this);
     this.clearSection = this.clearSection.bind(this);
     this.stashNav = this.stashNav.bind(this);
   }
@@ -46,9 +48,17 @@ export default class Navigation extends React.Component {
     }
   }
 
+  setSectionLanding() {
+    if (this.state.section !== 'landing') {
+      this.setState({section: 'landing'});
+    } else {
+      this.clearSection();
+    }
+  }
+
   stashNav() {
     this.setState({
-      section: 'none'
+      section: null
     });
   }
 
@@ -60,9 +70,7 @@ export default class Navigation extends React.Component {
 
   getClassNames() {
     let clas = 'cpnt-navigation';
-    console.log('this.state.section: ', this.state.section);
-    clas += this.state.section === "none" ? " is-stashed" : '';
-
+    clas += this.state.section ? '' : ' is-stashed';
     return clas;
   }
 
@@ -88,8 +96,10 @@ export default class Navigation extends React.Component {
     ];
 
 
-
-    if (this.state.section === 'development') {
+    if (!this.state.section) {
+      console.log('x');
+      sectionNav = <TriggerArrow onTriggerClick={this.setSectionLanding} nsew='nw' />
+    } else if (this.state.section === 'development') {
       sectionNav = <NavigationSection section={this.props.section} navList={devNavItems} clearSection={this.clearSection} stashNav={this.stashNav} side='right' />;
     } else if (this.state.section === 'photography') {
       sectionNav = <NavigationSection section={this.props.section} navList={photoNavItems} clearSection={this.clearSection} stashNav={this.stashNav} side='left' />;

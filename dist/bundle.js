@@ -26919,6 +26919,10 @@
 
 	var _NavigationSection2 = _interopRequireDefault(_NavigationSection);
 
+	var _TriggerArrow = __webpack_require__(242);
+
+	var _TriggerArrow2 = _interopRequireDefault(_TriggerArrow);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -26952,6 +26956,7 @@
 
 	    _this.setSectionDevelopment = _this.setSectionDevelopment.bind(_this);
 	    _this.setSectionPhotography = _this.setSectionPhotography.bind(_this);
+	    _this.setSectionLanding = _this.setSectionLanding.bind(_this);
 	    _this.clearSection = _this.clearSection.bind(_this);
 	    _this.stashNav = _this.stashNav.bind(_this);
 	    return _this;
@@ -26976,10 +26981,19 @@
 	      }
 	    }
 	  }, {
+	    key: 'setSectionLanding',
+	    value: function setSectionLanding() {
+	      if (this.state.section !== 'landing') {
+	        this.setState({ section: 'landing' });
+	      } else {
+	        this.clearSection();
+	      }
+	    }
+	  }, {
 	    key: 'stashNav',
 	    value: function stashNav() {
 	      this.setState({
-	        section: 'none'
+	        section: null
 	      });
 	    }
 	  }, {
@@ -26993,9 +27007,7 @@
 	    key: 'getClassNames',
 	    value: function getClassNames() {
 	      var clas = 'cpnt-navigation';
-	      console.log('this.state.section: ', this.state.section);
-	      clas += this.state.section === "none" ? " is-stashed" : '';
-
+	      clas += this.state.section ? '' : ' is-stashed';
 	      return clas;
 	    }
 	  }, {
@@ -27005,7 +27017,10 @@
 	      var photoNavItems = [{ label: 'HOME', path: '/' }, { label: 'OVERVIEW', path: '/photography' }, { label: 'GEAR', path: '/photography/gear' }, { label: 'TUTORIALS', path: '/photography/tutorials' }, { label: 'LANDSCAPES', path: '/photography/landscapes' }, { label: 'ARCHITECTURE', path: '/photography/architecture' }, { label: 'VIDEO', path: '/photography/video' }];
 	      var devNavItems = [{ label: 'HOME', path: '/' }, { label: 'OVERVIEW', path: '/development' }, { label: 'PLAYGROUND', path: '/development/playground' }, { label: 'TUTORIALS', path: '/development/tutorials' }, { label: 'WORK', path: '/development/work' }, { label: 'PROJECTS', path: '/development/projects' }, { label: 'TOOLS', path: '/development/tools' }];
 
-	      if (this.state.section === 'development') {
+	      if (!this.state.section) {
+	        console.log('x');
+	        sectionNav = _react2.default.createElement(_TriggerArrow2.default, { onTriggerClick: this.setSectionLanding, nsew: 'nw' });
+	      } else if (this.state.section === 'development') {
 	        sectionNav = _react2.default.createElement(_NavigationSection2.default, { section: this.props.section, navList: devNavItems, clearSection: this.clearSection, stashNav: this.stashNav, side: 'right' });
 	      } else if (this.state.section === 'photography') {
 	        sectionNav = _react2.default.createElement(_NavigationSection2.default, { section: this.props.section, navList: photoNavItems, clearSection: this.clearSection, stashNav: this.stashNav, side: 'left' });
