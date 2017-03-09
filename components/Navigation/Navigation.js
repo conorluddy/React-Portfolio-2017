@@ -51,8 +51,23 @@ export default class Navigation extends React.Component {
 
   render() {
     let sectionNav = null;
-    let photoNavItems = ['GEAR', 'TUTORIALS', 'LANDSCAPES', 'ARCHITECTURE', 'VIDEO'];
-    let devNavItems = ['OVERVIEW','PLAYGROUND','TUTORIALS','WORK','PROJECTS','TOOLS'];
+    let photoNavItems = [
+      {label: 'OVERVIEW', path: '/photography'},
+      {label: 'GEAR', path: '/photography/gear'},
+      {label: 'TUTORIALS', path: '/photography/tutorials'},
+      {label: 'LANDSCAPES', path: '/photography/landscapes'},
+      {label: 'ARCHITECTURE', path: '/photography/architecture'},
+      {label: 'VIDEO', path: '/photography/video'}
+    ];
+    let devNavItems = [
+      {label: 'OVERVIEW', path: '/development'},
+      {label: 'PLAYGROUND', path: '/development/playground'},
+      {label: 'TUTORIALS', path: '/development/tutorials'},
+      {label: 'WORK', path: '/development/work'},
+      {label: 'PROJECTS', path: '/development/projects'},
+      {label: 'TOOLS', path: '/development/tools'}
+    ];
+
 
     if (this.state.section === 'development') {
       sectionNav = <NavigationSection section={this.props.section} side='right' navList={devNavItems} clearSection={this.clearSection} />;

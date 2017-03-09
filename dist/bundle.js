@@ -66,7 +66,11 @@
 
 	var _RouteDevelopment2 = _interopRequireDefault(_RouteDevelopment);
 
-	var _App = __webpack_require__(236);
+	var _PageReader = __webpack_require__(236);
+
+	var _PageReader2 = _interopRequireDefault(_PageReader);
+
+	var _App = __webpack_require__(237);
 
 	var _App2 = _interopRequireDefault(_App);
 
@@ -79,7 +83,11 @@
 	    _reactRouter.Route,
 	    { path: '/', component: _App2.default },
 	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _RouteLanding2.default }),
-	    _react2.default.createElement(_reactRouter.Route, { path: 'photography', component: _RoutePhotography2.default }),
+	    _react2.default.createElement(
+	      _reactRouter.Route,
+	      { path: 'photography', component: _RoutePhotography2.default },
+	      _react2.default.createElement(_reactRouter.Route, { path: 'gear', component: _PageReader2.default })
+	    ),
 	    _react2.default.createElement(_reactRouter.Route, { path: 'development', component: _RouteDevelopment2.default })
 	  )
 	), document.getElementById('app'));
@@ -26708,6 +26716,60 @@
 /* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 PageReader component description goes here, please!
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 To import this elsewhere:
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 import PageReader from '../PageReader/PageReader';
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               */
+
+	var PageReader = function (_React$Component) {
+	  _inherits(PageReader, _React$Component);
+
+	  function PageReader() {
+	    _classCallCheck(this, PageReader);
+
+	    return _possibleConstructorReturn(this, (PageReader.__proto__ || Object.getPrototypeOf(PageReader)).apply(this, arguments));
+	  }
+
+	  _createClass(PageReader, [{
+	    key: "render",
+	    value: function render() {
+	      return _react2.default.createElement(
+	        "div",
+	        { className: "cpnt-page-reader" },
+	        "PageReader component"
+	      );
+	    }
+	  }]);
+
+	  return PageReader;
+	}(_react2.default.Component);
+
+	exports.default = PageReader;
+
+/***/ },
+/* 237 */
+/***/ function(module, exports, __webpack_require__) {
+
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
@@ -26720,11 +26782,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Navigation = __webpack_require__(237);
+	var _Navigation = __webpack_require__(238);
 
 	var _Navigation2 = _interopRequireDefault(_Navigation);
 
-	var _FullHero = __webpack_require__(241);
+	var _FullHero = __webpack_require__(242);
 
 	var _FullHero2 = _interopRequireDefault(_FullHero);
 
@@ -26769,7 +26831,7 @@
 	;
 
 /***/ },
-/* 237 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26786,11 +26848,11 @@
 
 	var _reactRouter = __webpack_require__(178);
 
-	var _Grip = __webpack_require__(238);
+	var _Grip = __webpack_require__(239);
 
 	var _Grip2 = _interopRequireDefault(_Grip);
 
-	var _NavigationSection = __webpack_require__(239);
+	var _NavigationSection = __webpack_require__(240);
 
 	var _NavigationSection2 = _interopRequireDefault(_NavigationSection);
 
@@ -26858,8 +26920,8 @@
 	    key: 'render',
 	    value: function render() {
 	      var sectionNav = null;
-	      var photoNavItems = ['GEAR', 'TUTORIALS', 'LANDSCAPES', 'ARCHITECTURE', 'VIDEO'];
-	      var devNavItems = ['OVERVIEW', 'PLAYGROUND', 'TUTORIALS', 'WORK', 'PROJECTS', 'TOOLS'];
+	      var photoNavItems = [{ label: 'OVERVIEW', path: '/photography' }, { label: 'GEAR', path: '/photography/gear' }, { label: 'TUTORIALS', path: '/photography/tutorials' }, { label: 'LANDSCAPES', path: '/photography/landscapes' }, { label: 'ARCHITECTURE', path: '/photography/architecture' }, { label: 'VIDEO', path: '/photography/video' }];
+	      var devNavItems = [{ label: 'OVERVIEW', path: '/development' }, { label: 'PLAYGROUND', path: '/development/playground' }, { label: 'TUTORIALS', path: '/development/tutorials' }, { label: 'WORK', path: '/development/work' }, { label: 'PROJECTS', path: '/development/projects' }, { label: 'TOOLS', path: '/development/tools' }];
 
 	      if (this.state.section === 'development') {
 	        sectionNav = _react2.default.createElement(_NavigationSection2.default, { section: this.props.section, side: 'right', navList: devNavItems, clearSection: this.clearSection });
@@ -26910,7 +26972,7 @@
 	exports.default = Navigation;
 
 /***/ },
-/* 238 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -26960,7 +27022,7 @@
 	exports.default = Grip;
 
 /***/ },
-/* 239 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26977,11 +27039,11 @@
 
 	var _reactRouter = __webpack_require__(178);
 
-	var _Grip = __webpack_require__(238);
+	var _Grip = __webpack_require__(239);
 
 	var _Grip2 = _interopRequireDefault(_Grip);
 
-	var _TriggerArrow = __webpack_require__(240);
+	var _TriggerArrow = __webpack_require__(241);
 
 	var _TriggerArrow2 = _interopRequireDefault(_TriggerArrow);
 
@@ -27023,6 +27085,8 @@
 	      var navList = this.props.navList;
 	      var arrowDirection = this.props.side === 'right' ? 'nw' : 'ne';
 
+	      console.log('navList: ', navList);
+
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'cpnt-nav-section' },
@@ -27032,14 +27096,14 @@
 	          _react2.default.createElement(
 	            'ul',
 	            { className: 'nav-list' },
-	            navList.map(function (title, idx) {
+	            navList.map(function (navItem, idx) {
 	              return _react2.default.createElement(
 	                'li',
 	                { className: '_akrobat _weight-normal', key: idx },
 	                _react2.default.createElement(
 	                  _reactRouter.Link,
-	                  { to: '/' },
-	                  title
+	                  { to: navItem.path },
+	                  navItem.label
 	                ),
 	                _react2.default.createElement(_Grip2.default, { className: 'nav-items' }),
 	                _react2.default.createElement(
@@ -27066,7 +27130,7 @@
 	exports.default = NavigationSection;
 
 /***/ },
-/* 240 */
+/* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27164,7 +27228,7 @@
 	exports.default = TriggerArrow;
 
 /***/ },
-/* 241 */
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';

@@ -5,6 +5,7 @@ import { Router, Route, hashHistory, browserHistory, Link, IndexRoute } from 're
 import RouteLanding from './components/RouteLanding/RouteLanding';
 import RoutePhotography from './components/RoutePhotography/RoutePhotography';
 import RouteDevelopment from './components/RouteDevelopment/RouteDevelopment';
+import PageReader from './components/PageReader/PageReader';
 
 import App from './components/App/App';
 
@@ -14,7 +15,9 @@ render((
 
         <IndexRoute component={RouteLanding} />
 
-        <Route path="photography" component={RoutePhotography} />
+        <Route path="photography" component={RoutePhotography} >
+          <Route path="gear" component={PageReader} />
+        </Route>
 
         <Route path="development" component={RouteDevelopment} />
 

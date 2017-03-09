@@ -617,7 +617,8 @@ to replace it with a component description :)
   transform: translateY(-50%); }
 
 .cpnt-nav-section li {
-  position: relative; }
+  position: relative;
+  cursor: pointer; }
 
 .cpnt-nav-section a {
   color: #515151;
@@ -644,7 +645,8 @@ to replace it with a component description :)
   .cpnt-nav-section .big-num .inner {
     font-style: normal;
     font-weight: 600;
-    transform: rotate(-60deg); }
+    transform: rotate(-60deg);
+    background: none; }
 
 .cpnt-nav-section li:hover a::before, .cpnt-nav-section li:hover a::after {
   content: '';
@@ -688,6 +690,11 @@ to replace it with a component description :)
   100% {
     transform: rotate(-60deg) translate3d(0, -10px, 0); } }
 
+/* Component: PageReader: small screen size. 
+
+If you're reading this, the dev who generated this component was too lazy 
+to replace it with a component description :) 
+*/
 /* Component: RouteDevelopment: small screen size. 
 
 If you're reading this, the dev who generated this component was too lazy 
@@ -734,6 +741,11 @@ to replace it with a component description :)
 If you're reading this, the dev who generated this component was too lazy 
 to replace it with a component description :) 
 */
+/* Component: PageReader: medium screen size. 
+
+If you're reading this, the dev who generated this component was too lazy 
+to replace it with a component description :) 
+*/
 /* Component: RouteDevelopment: medium screen size. 
 
 If you're reading this, the dev who generated this component was too lazy 
@@ -776,6 +788,11 @@ If you're reading this, the dev who generated this component was too lazy
 to replace it with a component description :) 
 */
 /* Component: NavigationSection: large screen size. 
+
+If you're reading this, the dev who generated this component was too lazy 
+to replace it with a component description :) 
+*/
+/* Component: PageReader: large screen size. 
 
 If you're reading this, the dev who generated this component was too lazy 
 to replace it with a component description :) 

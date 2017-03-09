@@ -12,7 +12,6 @@ to replace it with a component description :)
     top: 0;
     bottom: 0;
     width: calc(50% + 15px);
-    // width: calc(50% - 75px);
     overflow: hidden;
   }
 
@@ -52,6 +51,7 @@ to replace it with a component description :)
 
   li {
     position: relative;
+    cursor: pointer;
   }
 
   a {
@@ -84,6 +84,7 @@ to replace it with a component description :)
       font-style: normal;
       font-weight: 600;
       transform: rotate(-60deg);
+      background: none;
     }
   }
 
