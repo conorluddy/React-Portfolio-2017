@@ -1,3 +1,18 @@
+.-white {
+  color: RGBA(255, 255, 255, 1); }
+
+.-fluro {
+  color: #eeff00; }
+
+.-black {
+  color: #0a0a0a; }
+
+.-grey-3E {
+  color: #3e3e3e; }
+
+.-grey-FB {
+  color: #fafafa; }
+
 html {
   box-sizing: border-box; }
 
@@ -488,9 +503,10 @@ If you're reading this, the dev who generated this component was too lazy
 to replace it with a component description :)
 */
 .cpnt-app {
-  height: 100%;
-  border: solid 20px #3E3E3E;
-  transform: translate3d(0, 0, 0); }
+  min-height: 100%;
+  border: solid 20px #3e3e3e;
+  transform: translate3d(0, 0, 0);
+  background: #fafafa; }
 
 /* Component: FullHero: small screen size.
 
@@ -505,15 +521,29 @@ to replace it with a component description :)
   flex-direction: column;
   flex-flow: center;
   align-items: center;
-  align-content: center; }
+  align-content: center;
+  text-align: center;
+  position: relative;
+  z-index: -1; }
   .cpnt-full-hero h1 {
     color: #eeff00;
     text-transform: uppercase;
     font-weight: 100;
-    font-size: 6rem;
-    margin: auto; }
+    font-size: 5.625rem;
+    line-height: 5.625rem;
+    margin: auto;
+    z-index: 10; }
     .cpnt-full-hero h1 strong {
-      font-weight: 700; }
+      font-weight: 500; }
+  .cpnt-full-hero.-darken-40::after {
+    content: '';
+    background: RGBA(0, 0, 0, 0.4);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+    position: absolute; }
 
 /* Component: Grip: small screen size.
 
@@ -650,6 +680,8 @@ to replace it with a component description :)
     left: 0;
     right: 0;
     width: 205px; }
+  .cpnt-nav-section a.is-active::before, .cpnt-nav-section a.is-active::after {
+    background-color: #eeff00; }
 
 .cpnt-nav-section .cpnt-grip {
   width: 175px;

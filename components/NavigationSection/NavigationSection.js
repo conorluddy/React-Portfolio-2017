@@ -42,7 +42,7 @@ export default class NavigationSection extends React.Component {
             {navList.map((navItem, idx) =>
               <li className="_akrobat _weight-normal" key={idx}>
 
-                <Link to={navItem.path} onClick={this.stashNav} >{navItem.label}</Link>
+                <Link to={navItem.path} onClick={this.stashNav} activeClassName="is-active" >{navItem.label}</Link>
 
                 <Grip className="nav-items"/>
 

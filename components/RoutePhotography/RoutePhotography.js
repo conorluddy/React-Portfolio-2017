@@ -8,10 +8,17 @@
 import React from 'react'
 
 export default class RoutePhotography extends React.Component {
+
+  constructor(props) {
+    super(props);
+
+    console.log('this.props: ', this.props);
+  }
+
   render() {
     return (
       <div className="cpnt-route-photography">
-        RoutePhotography component
+        {this.props.children}
       </div>
     );
   }

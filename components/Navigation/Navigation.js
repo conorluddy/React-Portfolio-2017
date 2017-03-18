@@ -78,7 +78,7 @@ export default class Navigation extends React.Component {
     let sectionNav = null;
     let photoNavItems = [
       {label: 'HOME', path: '/'},
-      {label: 'OVERVIEW', path: '/photography'},
+      {label: 'OVERVIEW', path: '/photography/overview'},
       {label: 'GEAR', path: '/photography/gear'},
       {label: 'TUTORIALS', path: '/photography/tutorials'},
       {label: 'LANDSCAPES', path: '/photography/landscapes'},
@@ -87,7 +87,7 @@ export default class Navigation extends React.Component {
     ];
     let devNavItems = [
       {label: 'HOME', path: '/'},
-      {label: 'OVERVIEW', path: '/development'},
+      {label: 'OVERVIEW', path: '/development/overview'},
       {label: 'PLAYGROUND', path: '/development/playground'},
       {label: 'TUTORIALS', path: '/development/tutorials'},
       {label: 'WORK', path: '/development/work'},
@@ -97,8 +97,7 @@ export default class Navigation extends React.Component {
 
 
     if (!this.state.section) {
-      console.log('x');
-      sectionNav = <TriggerArrow onTriggerClick={this.setSectionLanding} nsew='nw' />
+      sectionNav = <TriggerArrow onTriggerClick={this.setSectionPhotography} nsew='nw' />
     } else if (this.state.section === 'development') {
       sectionNav = <NavigationSection section={this.props.section} navList={devNavItems} clearSection={this.clearSection} stashNav={this.stashNav} side='right' />;
     } else if (this.state.section === 'photography') {

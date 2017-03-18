@@ -12,6 +12,7 @@ export default class <ComponentName> extends React.Component {
     return (
       <div className="<ComponentClassName>">
         <ComponentName> component
+        {this.props.children}
       </div>
     );
   }

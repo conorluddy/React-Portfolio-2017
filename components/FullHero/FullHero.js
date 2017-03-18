@@ -8,12 +8,17 @@ import React from 'react'
 
 export default class FullHero extends React.Component {
   render() {
+
+    let heroClassNames = 'cpnt-full-hero';
+    if (this.props.darken) {
+      heroClassNames += ' -darken-' + this.props.darken;
+    }
+
     return (
-      <div className="cpnt-full-hero" style={{backgroundImage: 'url(' + this.props.imgSrc + ')' }} >
-
+      <div className={heroClassNames}  darken="40" style={{backgroundImage: 'url(/' + this.props.imgSrc + ')' }} >
         {this.props.children}
-
       </div>
     );
+
   }
 }

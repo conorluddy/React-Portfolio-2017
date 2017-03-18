@@ -1,7 +1,28 @@
 
 
+$color-white: RGBA(255, 255, 255, 1);
 $color-fluro: rgba(238, 255, 0, 1);
 $color-black: rgba(10, 10, 10, 1);
+$color-grey-3E: rgba(62, 62, 62, 1);
+$color-grey-FB: rgba(250, 250, 250, 1);
 
 
-$grey-3E: #3E3E3E;
+.-white {
+  color: $color-white;
+}
+
+.-fluro {
+  color: $color-fluro;
+}
+
+.-black {
+  color: $color-black;
+}
+
+.-grey-3E {
+  color: $color-grey-3E;
+}
+
+.-grey-FB {
+  color: $color-grey-FB;
+}
