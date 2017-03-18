@@ -26606,7 +26606,8 @@
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'cpnt-route-landing' },
-	        _react2.default.createElement(_FullHero2.default, { imgSrc: 'assets/images/hero/mac-candles.jpg' })
+	        _react2.default.createElement(_FullHero2.default, { imgSrc: 'assets/images/hero/mac-candles.jpg' }),
+	        this.props.children
 	      );
 	    }
 	  }]);
@@ -26656,9 +26657,15 @@
 	  _createClass(FullHero, [{
 	    key: 'render',
 	    value: function render() {
+
+	      var heroClassNames = 'cpnt-full-hero';
+	      if (this.props.darken) {
+	        heroClassNames += ' -darken-' + this.props.darken;
+	      }
+
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'cpnt-full-hero', style: { backgroundImage: 'url(' + this.props.imgSrc + ')' } },
+	        { className: heroClassNames, darken: '40', style: { backgroundImage: 'url(/' + this.props.imgSrc + ')' } },
 	        this.props.children
 	      );
 	    }
@@ -26673,7 +26680,7 @@
 /* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -26701,19 +26708,22 @@
 	var RoutePhotography = function (_React$Component) {
 	  _inherits(RoutePhotography, _React$Component);
 
-	  function RoutePhotography() {
+	  function RoutePhotography(props) {
 	    _classCallCheck(this, RoutePhotography);
 
-	    return _possibleConstructorReturn(this, (RoutePhotography.__proto__ || Object.getPrototypeOf(RoutePhotography)).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (RoutePhotography.__proto__ || Object.getPrototypeOf(RoutePhotography)).call(this, props));
+
+	    console.log('this.props: ', _this.props);
+	    return _this;
 	  }
 
 	  _createClass(RoutePhotography, [{
-	    key: "render",
+	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        "div",
-	        { className: "cpnt-route-photography" },
-	        "RoutePhotography component"
+	        'div',
+	        { className: 'cpnt-route-photography' },
+	        this.props.children
 	      );
 	    }
 	  }]);
@@ -26755,10 +26765,10 @@
 	var RouteDevelopment = function (_React$Component) {
 	  _inherits(RouteDevelopment, _React$Component);
 
-	  function RouteDevelopment() {
+	  function RouteDevelopment(props) {
 	    _classCallCheck(this, RouteDevelopment);
 
-	    return _possibleConstructorReturn(this, (RouteDevelopment.__proto__ || Object.getPrototypeOf(RouteDevelopment)).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (RouteDevelopment.__proto__ || Object.getPrototypeOf(RouteDevelopment)).call(this, props));
 	  }
 
 	  _createClass(RouteDevelopment, [{
@@ -26767,7 +26777,8 @@
 	      return _react2.default.createElement(
 	        "div",
 	        { className: "cpnt-route-development" },
-	        "RouteDevelopment component"
+	        "RouteDevelopment component",
+	        this.props.children
 	      );
 	    }
 	  }]);
@@ -26781,7 +26792,7 @@
 /* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -26792,6 +26803,10 @@
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
+
+	var _FullHero = __webpack_require__(234);
+
+	var _FullHero2 = _interopRequireDefault(_FullHero);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -26816,12 +26831,36 @@
 	  }
 
 	  _createClass(PageReader, [{
-	    key: "render",
+	    key: 'render',
 	    value: function render() {
+
 	      return _react2.default.createElement(
-	        "div",
-	        { className: "cpnt-page-reader" },
-	        "PageReader component"
+	        'div',
+	        { className: 'cpnt-page-reader' },
+	        _react2.default.createElement(
+	          _FullHero2.default,
+	          { imgSrc: 'assets/images/hero/mockup.jpg', darken: '40' },
+	          _react2.default.createElement(
+	            'h1',
+	            null,
+	            _react2.default.createElement(
+	              'strong',
+	              { className: '-white' },
+	              'PRODRIFT ACADEMY'
+	            ),
+	            _react2.default.createElement('br', null),
+	            _react2.default.createElement(
+	              'span',
+	              null,
+	              'RESPONSIVE WORDPRESS'
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'h2',
+	          { className: 'title' },
+	          'PRODRIFT ACADEMY'
+	        )
 	      );
 	    }
 	  }]);
@@ -27014,12 +27053,11 @@
 	    key: 'render',
 	    value: function render() {
 	      var sectionNav = null;
-	      var photoNavItems = [{ label: 'HOME', path: '/' }, { label: 'OVERVIEW', path: '/photography' }, { label: 'GEAR', path: '/photography/gear' }, { label: 'TUTORIALS', path: '/photography/tutorials' }, { label: 'LANDSCAPES', path: '/photography/landscapes' }, { label: 'ARCHITECTURE', path: '/photography/architecture' }, { label: 'VIDEO', path: '/photography/video' }];
-	      var devNavItems = [{ label: 'HOME', path: '/' }, { label: 'OVERVIEW', path: '/development' }, { label: 'PLAYGROUND', path: '/development/playground' }, { label: 'TUTORIALS', path: '/development/tutorials' }, { label: 'WORK', path: '/development/work' }, { label: 'PROJECTS', path: '/development/projects' }, { label: 'TOOLS', path: '/development/tools' }];
+	      var photoNavItems = [{ label: 'HOME', path: '/' }, { label: 'OVERVIEW', path: '/photography/overview' }, { label: 'GEAR', path: '/photography/gear' }, { label: 'TUTORIALS', path: '/photography/tutorials' }, { label: 'LANDSCAPES', path: '/photography/landscapes' }, { label: 'ARCHITECTURE', path: '/photography/architecture' }, { label: 'VIDEO', path: '/photography/video' }];
+	      var devNavItems = [{ label: 'HOME', path: '/' }, { label: 'OVERVIEW', path: '/development/overview' }, { label: 'PLAYGROUND', path: '/development/playground' }, { label: 'TUTORIALS', path: '/development/tutorials' }, { label: 'WORK', path: '/development/work' }, { label: 'PROJECTS', path: '/development/projects' }, { label: 'TOOLS', path: '/development/tools' }];
 
 	      if (!this.state.section) {
-	        console.log('x');
-	        sectionNav = _react2.default.createElement(_TriggerArrow2.default, { onTriggerClick: this.setSectionLanding, nsew: 'nw' });
+	        sectionNav = _react2.default.createElement(_TriggerArrow2.default, { onTriggerClick: this.setSectionPhotography, nsew: 'nw' });
 	      } else if (this.state.section === 'development') {
 	        sectionNav = _react2.default.createElement(_NavigationSection2.default, { section: this.props.section, navList: devNavItems, clearSection: this.clearSection, stashNav: this.stashNav, side: 'right' });
 	      } else if (this.state.section === 'photography') {
@@ -27205,7 +27243,7 @@
 	                { className: '_akrobat _weight-normal', key: idx },
 	                _react2.default.createElement(
 	                  _reactRouter.Link,
-	                  { to: navItem.path, onClick: _this2.stashNav },
+	                  { to: navItem.path, onClick: _this2.stashNav, activeClassName: 'is-active' },
 	                  navItem.label
 	                ),
 	                _react2.default.createElement(_Grip2.default, { className: 'nav-items' }),
