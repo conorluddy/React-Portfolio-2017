@@ -18,3 +18,10 @@
   }
 
 }
+
+
+
+// No point having named variables for greys.
+@function grey($level, $opacity: 1) {
+  @return rgba($level, $level, $level, $opacity);
+}

@@ -1,0 +1,17 @@
+
+
+//Bourbon-Neat overrides
+
+$max-width: 1020px !default;
+$neat-grid: (
+  columns: 12,
+  gutter: 20px,
+);
+
+
+.grid-row {
+  @include grid-container;
+  max-width: $max-width;
+  margin-left: auto;
+  margin-right: auto;
+}
