@@ -7,9 +7,12 @@
 
 import React from 'react'
 import FullHero from '../FullHero/FullHero';
+import AsyncContent from '../AsyncContent/AsyncContent';
 
 export default class PageReader extends React.Component {
   render() {
+
+    console.log('PageReader props: ', this.props);
 
     return (
       <div className='cpnt-page-reader' >
@@ -22,6 +25,10 @@ export default class PageReader extends React.Component {
             <span>RESPONSIVE WORDPRESS</span>
           </h1>
         </FullHero>
+
+
+        <AsyncContent subreddit="reactjs"/>,
+
 
 
         <div className="grid-row">

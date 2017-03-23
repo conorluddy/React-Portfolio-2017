@@ -16,11 +16,34 @@ render((
         <IndexRoute component={RouteLanding} />
 
         <Route path="photography" component={RoutePhotography} >
-          <Route path="overview" component={PageReader} />
+          <Route path="gear" component={PageReader} >
+            <Route path=":slug" component={PageReader}/>
+          </Route>
+          <Route path="tutorials" component={PageReader} >
+            <Route path=":slug" component={PageReader}/>
+          </Route>
+          <Route path="work" component={PageReader} >
+            <Route path=":slug" component={PageReader}/>
+          </Route>
+          <Route path="video" component={PageReader} >
+            <Route path=":slug" component={PageReader}/>
+          </Route>
         </Route>
 
         <Route path="development" component={RouteDevelopment} >
-          <Route path="overview" component={PageReader} />
+          <Route path="about" component={PageReader} />
+          <Route path="playground" component={PageReader} >
+            <Route path=":slug" component={PageReader}/>
+          </Route>
+          <Route path="projects" component={PageReader} >
+            <Route path=":slug" component={PageReader}/>
+          </Route>
+          <Route path="tutorials" component={PageReader} >
+            <Route path=":slug" component={PageReader}/>
+          </Route>
+          <Route path="design" component={PageReader} >
+            <Route path=":slug" component={PageReader}/>
+          </Route>
         </Route>
 
       </Route>
