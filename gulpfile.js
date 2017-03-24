@@ -2,8 +2,13 @@
 let gulp = require('gulp');
 let webpack = require('webpack-stream');
 let browserSync = require('browser-sync').create();
-var modRewrite  = require('connect-modrewrite');
+let modRewrite  = require('connect-modrewrite');
 
+let config = {
+  contentRoot: './content'
+};
+
+require('./gulp_modules/content.js')(gulp, config);
 require('./gulp_modules/css.js')(gulp);
 require('./gulp_modules/generate.js')(gulp);
 require('./gulp_modules/documentation.js')(gulp);
@@ -55,6 +60,10 @@ gulp.task('default', ['sass', 'images', 'fonts'], () => {
 
   gulp.watch(['images/**/*'], () => {
     gulp.start('images');
+  });
+
+  gulp.watch(['content/**/*'], () => {
+    gulp.start('content');
   });
 
 });

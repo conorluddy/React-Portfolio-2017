@@ -27,7 +27,7 @@ export default class PageReader extends React.Component {
         </FullHero>
 
 
-        <AsyncContent subreddit="reactjs"/>,
+
 
 
 
@@ -36,6 +36,8 @@ export default class PageReader extends React.Component {
           <h2 className="title" >
             PRODRIFT ACADEMY
           </h2>
+
+          <AsyncContent subreddit="reactjs"/>
 
           <p>Well, I'm not Thomas Jefferson .... He was a pussy! And people say, 'Oh,
           you know... you have to work through your resentments.' Yeah. No. I'm gonna
