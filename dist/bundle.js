@@ -86,51 +86,12 @@
 	    _react2.default.createElement(
 	      _reactRouter.Route,
 	      { path: 'photography', component: _RoutePhotography2.default },
-	      _react2.default.createElement(
-	        _reactRouter.Route,
-	        { path: 'gear', component: _PageReader2.default },
-	        _react2.default.createElement(_reactRouter.Route, { path: ':slug', component: _PageReader2.default })
-	      ),
-	      _react2.default.createElement(
-	        _reactRouter.Route,
-	        { path: 'tutorials', component: _PageReader2.default },
-	        _react2.default.createElement(_reactRouter.Route, { path: ':slug', component: _PageReader2.default })
-	      ),
-	      _react2.default.createElement(
-	        _reactRouter.Route,
-	        { path: 'work', component: _PageReader2.default },
-	        _react2.default.createElement(_reactRouter.Route, { path: ':slug', component: _PageReader2.default })
-	      ),
-	      _react2.default.createElement(
-	        _reactRouter.Route,
-	        { path: 'video', component: _PageReader2.default },
-	        _react2.default.createElement(_reactRouter.Route, { path: ':slug', component: _PageReader2.default })
-	      )
+	      _react2.default.createElement(_reactRouter.Route, { path: ':slug', component: _PageReader2.default })
 	    ),
 	    _react2.default.createElement(
 	      _reactRouter.Route,
 	      { path: 'development', component: _RouteDevelopment2.default },
-	      _react2.default.createElement(_reactRouter.Route, { path: 'about', component: _PageReader2.default }),
-	      _react2.default.createElement(
-	        _reactRouter.Route,
-	        { path: 'playground', component: _PageReader2.default },
-	        _react2.default.createElement(_reactRouter.Route, { path: ':slug', component: _PageReader2.default })
-	      ),
-	      _react2.default.createElement(
-	        _reactRouter.Route,
-	        { path: 'projects', component: _PageReader2.default },
-	        _react2.default.createElement(_reactRouter.Route, { path: ':slug', component: _PageReader2.default })
-	      ),
-	      _react2.default.createElement(
-	        _reactRouter.Route,
-	        { path: 'tutorials', component: _PageReader2.default },
-	        _react2.default.createElement(_reactRouter.Route, { path: ':slug', component: _PageReader2.default })
-	      ),
-	      _react2.default.createElement(
-	        _reactRouter.Route,
-	        { path: 'design', component: _PageReader2.default },
-	        _react2.default.createElement(_reactRouter.Route, { path: ':slug', component: _PageReader2.default })
-	      )
+	      _react2.default.createElement(_reactRouter.Route, { path: ':slug', component: _PageReader2.default })
 	    )
 	  )
 	), document.getElementById('app'));
@@ -26704,7 +26665,7 @@
 
 	      return _react2.default.createElement(
 	        'div',
-	        { className: heroClassNames, darken: '40', style: { backgroundImage: 'url(/' + this.props.imgSrc + ')' } },
+	        { className: heroClassNames, style: { backgroundImage: 'url(/' + this.props.imgSrc + ')' } },
 	        this.props.children
 	      );
 	    }
@@ -26874,10 +26835,19 @@
 	  }
 
 	  _createClass(PageReader, [{
+	    key: 'componentWillMount',
+	    value: function componentWillMount() {
+	      console.info('PageReader');
+	      console.log('PageReader props: ', this.props);
+	      console.log('PageReader pathname: ', this.props.location.pathname);
+
+	      this.setState({ 'mdPath': '/content' + this.props.location.pathname + '.md' });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 
-	      console.log('PageReader props: ', this.props);
+	      console.log('mdPath: ', this.state.mdPath);
 
 	      return _react2.default.createElement(
 	        'div',
@@ -26909,37 +26879,7 @@
 	            { className: 'title' },
 	            'PRODRIFT ACADEMY'
 	          ),
-	          _react2.default.createElement(_AsyncContent2.default, { subreddit: 'reactjs' }),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            'Well, I\'m not Thomas Jefferson .... He was a pussy! And people say, \'Oh, you know... you have to work through your resentments.\' Yeah. No. I\'m gonna hold on to them and they\'re gonna fuel my attack. So ... you know ... within that is tremendous focus, and tremendous clarity, and tremendous peace. But ... whatever. I agreed to do it. There\'s just one deal point that Jim Robinson - a wonderful man at Morgan Creek, a great company - need to work out is they want me in it. If they do, it\'s a smash. If they don\'t, it\'s a turd that opens on a tugboat.'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            { className: '-wide-cols' },
-	            'Let me just say this: It\'s nothing this side of deplorable, that a certain Chaim Levine - yeah, that\'s Chuck\'s real name - mistook this rock star for his own selfish exit strategy, bro. It\'s ... yeah ... it\'s an understatement. You know, I just ... I\'m sorry, man, I got magic and I got poetry in my fingertips. And people say, \'Oh, you know... you have to work through your resentments.\' Yeah. No. I\'m gonna hold on to them and they\'re gonna fuel my attack.  Let me just say this: It\'s nothing this side of deplorable, that a certain Chaim Levine - yeah, that\'s Chuck\'s real name - mistook this rock star for his own selfish exit strategy, bro.'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            ' But like in baseball, the scoreboard doesn\'t lie. Never has. So what we all have is a marriage of the heart ... of the hearts. 100%. You know, here\'s your first pee test. Next one goes in your mouth. But I dare anyone to debate me on things. And one of those stupid mottoes, Alex, is \'Don\'t be special. Be one of us.\' News flash! I am special, and I\'ll never be one of you! ... There it is.'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            'Yeah, but I can\'t use the word \'sober\' because that\'s a term from \'those people\', and I have cleansed myself. And if you\'re a part of my family, I will love you violently. If you infiltrate and try to hurt my family, I will murder you violently. \'You have the right to kill me, but you do not have the right to judge me.\' Boom. That\'s the whole movie. That\'s life .... That\'s life. There\'s nobility in that. There\'s focus. It\'s genuine. It\'s crystal and it\'s pure and it\'s available to everybody.  But ... whatever. I agreed to do it. There\'s just one deal point that Jim Robinson - a wonderful man at Morgan Creek, a great company - need to work out is they want me in it. If they do, it\'s a smash. If they don\'t, it\'s a turd that opens on a tugboat.'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            'But there\'s also ... falling from it ... is the apple from The Giving Tree. There\'s my life. Deal with it. Oh, wait! Can\'t process it. Losers! WINNING! B\'bye. No, you won\'t get high .... It\'s all good. It\'s all good, guys. Quit panicking. Quit panicking. No panic, no judgment. They will lose the rest of their lives as they think about me and my life for the rest of their lives. So ... it\'s ... there\'s no ... again, bring me a challenge, somebody. Bring me a frickin\' challenge. Because, you know ... it just ain\'t there. WINNING! Um ... but I\'m excited to get back ... to work. Um ... and not to completely discount what you just talked about ... It\'s just that if I bring up these ... these turds ... these little losers ... there\'s no reason to then bring them back into the fold, because I have real fame, and they have nothing.'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            'Because I\'m just ... um .... I don\'t know. Why give an interview when you can leave a warning, you know?  Well, yeah. But I was gonna tell you, I\'m tired of being told like, \'Oh, you can\'t talk about that. You can\'t talk about that.\' Bull s.h.i.t. ... uh .... Yeah, I didn\'t care about that vanity card. In fact, I went straight on with that one and just dispelled that one.'
-	          )
+	          _react2.default.createElement(_AsyncContent2.default, { contentPath: this.state.mdPath })
 	        )
 	      );
 	    }
@@ -26947,6 +26887,69 @@
 
 	  return PageReader;
 	}(_react2.default.Component);
+
+	/*
+
+	          <p>Well, I'm not Thomas Jefferson .... He was a pussy! And people say, 'Oh,
+	          you know... you have to work through your resentments.' Yeah. No. I'm gonna
+	          hold on to them and they're gonna fuel my attack. So ... you know ...
+	          within that is tremendous focus, and tremendous clarity, and tremendous
+	          peace. But ... whatever. I agreed to do it. There's just one deal point
+	          that Jim Robinson - a wonderful man at Morgan Creek, a great company - need
+	          to work out is they want me in it. If they do, it's a smash. If they don't,
+	          it's a turd that opens on a tugboat.</p>
+
+	          <p className="-wide-cols">Let me just say this: It's nothing this side of deplorable, that a
+	          certain Chaim Levine - yeah, that's Chuck's real name - mistook this rock
+	          star for his own selfish exit strategy, bro. It's ... yeah ... it's an
+	          understatement. You know, I just ... I'm sorry, man, I got magic and I got
+	          poetry in my fingertips. And people say, 'Oh, you know... you have to work
+	          through your resentments.' Yeah. No. I'm gonna hold on to them and they're
+	          gonna fuel my attack.  Let me just say this: It's nothing this side of
+	          deplorable, that a certain Chaim Levine - yeah, that's Chuck's real name -
+	          mistook this rock star for his own selfish exit strategy, bro.</p>
+
+	          <p> But like in baseball, the scoreboard doesn't lie. Never has. So what we
+	          all have is a marriage of the heart ... of the hearts. 100%. You know,
+	          here's your first pee test. Next one goes in your mouth. But I dare anyone
+	          to debate me on things. And one of those stupid mottoes, Alex, is 'Don't be
+	          special. Be one of us.' News flash! I am special, and I'll never be one of
+	          you! ... There it is.</p>
+
+	          <p>Yeah, but I can't use the word 'sober' because that's a term from 'those
+	          people', and I have cleansed myself. And if you're a part of my family, I
+	          will love you violently. If you infiltrate and try to hurt my family, I
+	          will murder you violently. 'You have the right to kill me, but you do not
+	          have the right to judge me.' Boom. That's the whole movie. That's life ....
+	          That's life. There's nobility in that. There's focus. It's genuine. It's
+	          crystal and it's pure and it's available to everybody.  But ... whatever. I
+	          agreed to do it. There's just one deal point that Jim Robinson - a
+	          wonderful man at Morgan Creek, a great company - need to work out is they
+	          want me in it. If they do, it's a smash. If they don't, it's a turd that
+	          opens on a tugboat.</p>
+
+	          <p>But there's also ... falling from it ... is the apple from The Giving
+	          Tree. There's my life. Deal with it. Oh, wait! Can't process it. Losers!
+	          WINNING! B'bye. No, you won't get high .... It's all good. It's all good,
+	          guys. Quit panicking. Quit panicking. No panic, no judgment. They will lose
+	          the rest of their lives as they think about me and my life for the rest of
+	          their lives. So ... it's ... there's no ... again, bring me a challenge,
+	          somebody. Bring me a frickin' challenge. Because, you know ... it just
+	          ain't there. WINNING! Um ... but I'm excited to get back ... to work. Um
+	          ... and not to completely discount what you just talked about ... It's just
+	          that if I bring up these ... these turds ... these little losers ...
+	          there's no reason to then bring them back into the fold, because I have
+	          real fame, and they have nothing.</p>
+
+	          <p>Because I'm just ... um .... I don't know. Why give an interview when
+	          you can leave a warning, you know?  Well, yeah. But I was gonna tell you,
+	          I'm tired of being told like, 'Oh, you can't talk about that. You can't
+	          talk about that.' Bull s.h.i.t. ... uh .... Yeah, I didn't care about that
+	          vanity card. In fact, I went straight on with that one and just dispelled
+	          that one.</p>
+
+	 */
+
 
 	exports.default = PageReader;
 
@@ -27002,11 +27005,8 @@
 	    value: function componentDidMount() {
 	      var _this2 = this;
 
-	      _axios2.default.get('http://www.reddit.com/r/' + this.props.subreddit + '.json').then(function (res) {
-	        var posts = res.data.data.children.map(function (obj) {
-	          return obj.data;
-	        });
-	        _this2.setState({ posts: posts });
+	      _axios2.default.get(this.props.contentPath).then(function (res) {
+	        _this2.setState({ pageContent: res.data });
 	      });
 	    }
 	  }, {
@@ -27015,22 +27015,7 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(
-	          'h1',
-	          null,
-	          '/r/' + this.props.subreddit
-	        ),
-	        _react2.default.createElement(
-	          'ul',
-	          null,
-	          this.state.posts.map(function (post) {
-	            return _react2.default.createElement(
-	              'li',
-	              { key: post.id },
-	              post.title
-	            );
-	          })
-	        )
+	        this.state.pageContent
 	      );
 	    }
 
@@ -28559,6 +28544,10 @@
 
 	var _Navigation2 = _interopRequireDefault(_Navigation);
 
+	var _tree = __webpack_require__(269);
+
+	var _tree2 = _interopRequireDefault(_tree);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -28577,19 +28566,18 @@
 	  function App(props) {
 	    _classCallCheck(this, App);
 
-	    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
-
-	    console.info('Appp constructor');
-	    return _this;
+	    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 	  }
 
 	  _createClass(App, [{
 	    key: 'render',
 	    value: function render() {
+	      console.info('ContentTree: ', _tree2.default);
+
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'cpnt-app' },
-	        _react2.default.createElement(_Navigation2.default, null),
+	        _react2.default.createElement(_Navigation2.default, { tree: _tree2.default }),
 	        this.props.children
 	      );
 	    }
@@ -28719,11 +28707,75 @@
 	      return clas;
 	    }
 	  }, {
+	    key: 'componentWillMount',
+	    value: function componentWillMount() {
+	      console.log('treetree: ', this.props.tree);
+
+	      for (var i = 0; i < this.props.tree.children.length; i++) {
+	        if (this.props.tree.children[i].name === 'development') {
+	          this.setState({
+	            'treeDev': this.props.tree.children[i]
+	          });
+	        }
+	        if (this.props.tree.children[i].name === 'photography') {
+	          this.setState({
+	            'treePhoto': this.props.tree.children[i]
+	          });
+	        }
+	      }
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var sectionNav = null;
-	      var photoNavItems = [{ label: 'ABOUT', path: '/photography/about' }, { label: 'GEAR', path: '/photography/gear' }, { label: 'TUTORIALS', path: '/photography/tutorials' }, { label: 'BUSINESS', path: '/photography/work/business' }, { label: 'LANDSCAPES', path: '/photography/work/landscapes' }, { label: 'INTERIOR', path: '/photography/work/interior' }, { label: 'VIDEO', path: '/photography/video' }];
-	      var devNavItems = [{ label: 'ABOUT', path: '/development/about' }, { label: 'PLAYGROUND', path: '/development/playground' }, { label: 'TUTORIALS', path: '/development/tutorials' }, { label: 'PROJECTS', path: '/development/projects' }, { label: 'DESIGN', path: '/development/design' }];
+	      var photoNavItems = [];
+	      var devNavItems = [];
+	      var tempName = void 0;
+
+	      for (var i = 0; i < this.state.treePhoto.children.length; i++) {
+	        tempName = this.state.treePhoto.children[i].name;
+	        tempName = this.state.treePhoto.children[i].extension ? tempName.substring(0, tempName.length - this.state.treePhoto.children[i].extension.length) : tempName;
+
+	        photoNavItems.push({
+	          label: tempName,
+	          path: '/photography/' + tempName,
+	          md: this.state.treePhoto.children[i].path,
+	          children: this.state.treePhoto.children[i].children
+	        });
+	      }
+
+	      for (var i = 0; i < this.state.treeDev.children.length; i++) {
+	        tempName = this.state.treeDev.children[i].name;
+	        tempName = this.state.treeDev.children[i].extension ? tempName.substring(0, tempName.length - this.state.treeDev.children[i].extension.length) : tempName;
+
+	        devNavItems.push({
+	          label: tempName,
+	          path: '/development/' + tempName,
+	          md: this.state.treeDev.children[i].path,
+	          children: this.state.treeDev.children[i].children
+	        });
+	      }
+
+	      console.log('photoNavItems: ', photoNavItems);
+	      console.log('devNavItems: ', devNavItems);
+
+	      // let photoNavItems = [
+	      // {label: 'ABOUT', path: '/photography/about'},
+	      // {label: 'GEAR', path: '/photography/gear'},
+	      // {label: 'TUTORIALS', path: '/photography/tutorials'},
+	      // {label: 'BUSINESS', path: '/photography/work/business'},
+	      // {label: 'LANDSCAPES', path: '/photography/work/landscapes'},
+	      // {label: 'INTERIOR', path: '/photography/work/interior'},
+	      // {label: 'VIDEO', path: '/photography/video'}
+	      // ];
+	      // let devNavItems = [
+	      //   {label: 'ABOUT', path: '/development/about'},
+	      //   {label: 'PLAYGROUND', path: '/development/playground'},
+	      //   {label: 'TUTORIALS', path: '/development/tutorials'},
+	      //   {label: 'PROJECTS', path: '/development/projects'},
+	      //   {label: 'DESIGN', path: '/development/design'},
+	      // ];
+
 
 	      if (!this.state.section) {
 	        sectionNav = _react2.default.createElement(_TriggerArrow2.default, { onTriggerClick: this.setSectionPhotography, nsew: 'nw' });
@@ -29036,6 +29088,50 @@
 	}(_react2.default.Component);
 
 	exports.default = TriggerArrow;
+
+/***/ },
+/* 269 */
+/***/ function(module, exports) {
+
+	module.exports = {
+		"path": "./content",
+		"name": "content",
+		"children": [
+			{
+				"path": "content/development",
+				"name": "development",
+				"children": [
+					{
+						"path": "content/development/work",
+						"name": "work",
+						"children": [],
+						"size": 0
+					}
+				],
+				"size": 0
+			},
+			{
+				"path": "content/photography",
+				"name": "photography",
+				"children": [
+					{
+						"path": "content/photography/about.md",
+						"name": "about.md",
+						"size": 12,
+						"extension": ".md"
+					},
+					{
+						"path": "content/photography/interiors.md",
+						"name": "interiors.md",
+						"size": 0,
+						"extension": ".md"
+					}
+				],
+				"size": 12
+			}
+		],
+		"size": 12
+	};
 
 /***/ }
 /******/ ]);

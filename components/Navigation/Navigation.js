@@ -74,24 +74,72 @@ export default class Navigation extends React.Component {
     return clas;
   }
 
+  componentWillMount() {
+    console.log('treetree: ', this.props.tree);
+
+    for (var i = 0; i < this.props.tree.children.length; i++) {
+      if (this.props.tree.children[i].name === 'development') {
+        this.setState({
+          'treeDev': this.props.tree.children[i]
+        });
+      }
+      if (this.props.tree.children[i].name === 'photography') {
+        this.setState({
+          'treePhoto': this.props.tree.children[i]
+        });
+      }
+    }
+  }
+
   render() {
     let sectionNav = null;
-    let photoNavItems = [
-      {label: 'ABOUT', path: '/photography/about'},
-      {label: 'GEAR', path: '/photography/gear'},
-      {label: 'TUTORIALS', path: '/photography/tutorials'},
-      {label: 'BUSINESS', path: '/photography/work/business'},
-      {label: 'LANDSCAPES', path: '/photography/work/landscapes'},
-      {label: 'INTERIOR', path: '/photography/work/interior'},
-      {label: 'VIDEO', path: '/photography/video'}
-    ];
-    let devNavItems = [
-      {label: 'ABOUT', path: '/development/about'},
-      {label: 'PLAYGROUND', path: '/development/playground'},
-      {label: 'TUTORIALS', path: '/development/tutorials'},
-      {label: 'PROJECTS', path: '/development/projects'},
-      {label: 'DESIGN', path: '/development/design'},
-    ];
+    let photoNavItems = [];
+    let devNavItems = [];
+    let tempName;
+
+    for (var i = 0; i < this.state.treePhoto.children.length; i++) {
+      tempName = this.state.treePhoto.children[i].name;
+      tempName = this.state.treePhoto.children[i].extension ? tempName.substring(0, tempName.length - this.state.treePhoto.children[i].extension.length) : tempName;
+
+      photoNavItems.push({
+        label: tempName,
+        path: '/photography/' + tempName,
+        md: this.state.treePhoto.children[i].path,
+        children: this.state.treePhoto.children[i].children
+      });
+    }
+
+    for (var i = 0; i < this.state.treeDev.children.length; i++) {
+      tempName = this.state.treeDev.children[i].name;
+      tempName = this.state.treeDev.children[i].extension ? tempName.substring(0, tempName.length - this.state.treeDev.children[i].extension.length) : tempName;
+
+      devNavItems.push({
+        label: tempName,
+        path: '/development/' + tempName,
+        md: this.state.treeDev.children[i].path,
+        children: this.state.treeDev.children[i].children
+      });
+    }
+
+    console.log('photoNavItems: ', photoNavItems);
+    console.log('devNavItems: ', devNavItems);
+
+    // let photoNavItems = [
+      // {label: 'ABOUT', path: '/photography/about'},
+      // {label: 'GEAR', path: '/photography/gear'},
+      // {label: 'TUTORIALS', path: '/photography/tutorials'},
+      // {label: 'BUSINESS', path: '/photography/work/business'},
+      // {label: 'LANDSCAPES', path: '/photography/work/landscapes'},
+      // {label: 'INTERIOR', path: '/photography/work/interior'},
+      // {label: 'VIDEO', path: '/photography/video'}
+    // ];
+    // let devNavItems = [
+    //   {label: 'ABOUT', path: '/development/about'},
+    //   {label: 'PLAYGROUND', path: '/development/playground'},
+    //   {label: 'TUTORIALS', path: '/development/tutorials'},
+    //   {label: 'PROJECTS', path: '/development/projects'},
+    //   {label: 'DESIGN', path: '/development/design'},
+    // ];
 
 
     if (!this.state.section) {

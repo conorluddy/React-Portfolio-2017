@@ -18,22 +18,16 @@ export default class AsyncContent extends React.Component {
   }
 
   componentDidMount() {
-    axios.get(`http://www.reddit.com/r/${this.props.subreddit}.json`)
+    axios.get(this.props.contentPath)
       .then(res => {
-        const posts = res.data.data.children.map(obj => obj.data);
-        this.setState({ posts });
+        this.setState({ pageContent: res.data });
       });
   }
 
   render() {
     return (
       <div>
-        <h1>{`/r/${this.props.subreddit}`}</h1>
-        <ul>
-          {this.state.posts.map(post =>
-            <li key={post.id}>{post.title}</li>
-          )}
-        </ul>
+        {this.state.pageContent}
       </div>
     );
   }

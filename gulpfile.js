@@ -19,7 +19,7 @@ require('./gulp_modules/fonts.js')(gulp);
 /**
  * Default: Webpack, BrowserSync, Watch
  */
-gulp.task('default', ['sass', 'images', 'fonts'], () => {
+gulp.task('default', ['sass', 'images', 'fonts', 'content'], () => {
   gulp.src('./index.js')
     .pipe(webpack({
       watch: true,
@@ -32,9 +32,13 @@ gulp.task('default', ['sass', 'images', 'fonts'], () => {
             test: /\.(jsx|js)$/,
             exclude: /node_modules/,
             loader: 'babel-loader?presets[]=es2015&presets[]=react'
+          },
+          {
+            test: /\.json$/,
+            loader: 'json-loader'
           }
-        ],
-      },
+        ]
+      }
     }))
     .pipe(gulp.dest('dist/'));
 

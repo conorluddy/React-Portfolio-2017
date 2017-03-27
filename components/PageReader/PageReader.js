@@ -10,13 +10,23 @@ import FullHero from '../FullHero/FullHero';
 import AsyncContent from '../AsyncContent/AsyncContent';
 
 export default class PageReader extends React.Component {
+
+  componentWillMount() {
+    console.info('PageReader');
+    console.log('PageReader props: ', this.props);
+    console.log('PageReader pathname: ', this.props.location.pathname);
+
+    this.setState({'mdPath': '/content' + this.props.location.pathname + '.md'})
+  }
+
   render() {
 
-    console.log('PageReader props: ', this.props);
+
+    console.log('mdPath: ', this.state.mdPath);
+
 
     return (
       <div className='cpnt-page-reader' >
-
 
         <FullHero imgSrc="assets/images/hero/mockup.jpg" darken="40" >
           <h1>
@@ -26,18 +36,24 @@ export default class PageReader extends React.Component {
           </h1>
         </FullHero>
 
-
-
-
-
-
         <div className="grid-row">
 
           <h2 className="title" >
             PRODRIFT ACADEMY
           </h2>
 
-          <AsyncContent subreddit="reactjs"/>
+          <AsyncContent contentPath={this.state.mdPath} />
+
+        </div>
+      </div>
+
+    );
+  }
+}
+
+
+
+/*
 
           <p>Well, I'm not Thomas Jefferson .... He was a pussy! And people say, 'Oh,
           you know... you have to work through your resentments.' Yeah. No. I'm gonna
@@ -97,9 +113,4 @@ export default class PageReader extends React.Component {
           vanity card. In fact, I went straight on with that one and just dispelled
           that one.</p>
 
-        </div>
-      </div>
-
-    );
-  }
-}
+ */
