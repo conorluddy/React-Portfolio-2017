@@ -15,9 +15,4 @@ module.exports = (gulp, config) => {
 
   });
 
-
-
-
-
-
 };

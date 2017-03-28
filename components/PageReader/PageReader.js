@@ -7,46 +7,69 @@
 
 import React from 'react'
 import FullHero from '../FullHero/FullHero';
-import AsyncContent from '../AsyncContent/AsyncContent';
+
+import axios from 'axios';
+import marked from 'marked';
 
 export default class PageReader extends React.Component {
 
-  componentWillMount() {
-    console.info('PageReader');
-    console.log('PageReader props: ', this.props);
-    console.log('PageReader pathname: ', this.props.location.pathname);
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoading: true,
+      rawContent: ''
+    };
 
-    this.setState({'mdPath': '/content' + this.props.location.pathname + '.md'})
+    this.getContent('/content' + props.location.pathname + '.md');
+
+    marked.setOptions({
+      renderer: new marked.Renderer(),
+      gfm: true,
+      tables: true,
+      breaks: false,
+      pedantic: false,
+      sanitize: false,
+      smartLists: true,
+      smartypants: false
+    });
   }
 
+  getContent(contentPath) {
+    setTimeout(() => {
+      axios.get(contentPath)
+        .then(res => {
+          this.setState({
+            isLoading: false,
+            rawContent: res.data
+          });
+        });
+    }, 1000);
+  }
+
+  createMarkup() {
+    return {__html: marked(this.state.rawContent)};
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.location !== this.props.location) {
+      this.setState({isLoading: true});
+      this.getContent('/content' + nextProps.location.pathname + '.md');
+    }
+  }
+
+  // componentDidUpdate(prevProps, prevState) {
+  //   console.log('componentDidUpdate');
+  // }
+
   render() {
-
-
-    console.log('mdPath: ', this.state.mdPath);
-
+    let loader = this.state.isLoading ? <div>LOADING</div> : '';
+    // let markedContent = marked(this.state.rawContent);
 
     return (
       <div className='cpnt-page-reader' >
-
-        <FullHero imgSrc="assets/images/hero/mockup.jpg" darken="40" >
-          <h1>
-            <strong className="-white">PRODRIFT ACADEMY</strong>
-            <br />
-            <span>RESPONSIVE WORDPRESS</span>
-          </h1>
-        </FullHero>
-
-        <div className="grid-row">
-
-          <h2 className="title" >
-            PRODRIFT ACADEMY
-          </h2>
-
-          <AsyncContent contentPath={this.state.mdPath} />
-
-        </div>
+        {loader}
+        <div dangerouslySetInnerHTML={this.createMarkup()} />;
       </div>
-
     );
   }
 }
@@ -54,6 +77,22 @@ export default class PageReader extends React.Component {
 
 
 /*
+
+<FullHero imgSrc="assets/images/hero/mockup.jpg" darken="40" >
+  <h1>
+    <strong className="-white">PRODRIFT ACADEMY</strong>
+    <br />
+    <span>RESPONSIVE WORDPRESS</span>
+  </h1>
+</FullHero>
+
+<div className="grid-row">
+  // <AsyncContent contentPath={contentPath} />
+</div>
+
+          <h2 className="title" >
+            PRODRIFT ACADEMY
+          </h2>
 
           <p>Well, I'm not Thomas Jefferson .... He was a pussy! And people say, 'Oh,
           you know... you have to work through your resentments.' Yeah. No. I'm gonna
