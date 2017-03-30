@@ -58,19 +58,19 @@
 
 	var _RouteLanding2 = _interopRequireDefault(_RouteLanding);
 
-	var _RoutePhotography = __webpack_require__(235);
+	var _RoutePhotography = __webpack_require__(236);
 
 	var _RoutePhotography2 = _interopRequireDefault(_RoutePhotography);
 
-	var _RouteDevelopment = __webpack_require__(236);
+	var _RouteDevelopment = __webpack_require__(237);
 
 	var _RouteDevelopment2 = _interopRequireDefault(_RouteDevelopment);
 
-	var _PageReader = __webpack_require__(237);
+	var _PageReader = __webpack_require__(238);
 
 	var _PageReader2 = _interopRequireDefault(_PageReader);
 
-	var _App = __webpack_require__(264);
+	var _App = __webpack_require__(267);
 
 	var _App2 = _interopRequireDefault(_App);
 
@@ -26575,6 +26575,10 @@
 
 	var _FullHero2 = _interopRequireDefault(_FullHero);
 
+	var _VideoHero = __webpack_require__(235);
+
+	var _VideoHero2 = _interopRequireDefault(_VideoHero);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -26603,10 +26607,12 @@
 	  _createClass(RouteLanding, [{
 	    key: 'render',
 	    value: function render() {
+	      // <FullHero imgSrc="assets/images/hero/mac-candles.jpg" />
+	      //
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'cpnt-route-landing' },
-	        _react2.default.createElement(_FullHero2.default, { imgSrc: 'assets/images/hero/mac-candles.jpg' }),
+	        _react2.default.createElement(_VideoHero2.default, null),
 	        this.props.children
 	      );
 	    }
@@ -26680,6 +26686,65 @@
 /* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 VideoHero component description goes here, please!
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 To import this elsewhere:
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 import VideoHero from '../VideoHero/VideoHero';
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               */
+
+	var VideoHero = function (_React$Component) {
+	  _inherits(VideoHero, _React$Component);
+
+	  function VideoHero(props) {
+	    _classCallCheck(this, VideoHero);
+
+	    return _possibleConstructorReturn(this, (VideoHero.__proto__ || Object.getPrototypeOf(VideoHero)).call(this, props));
+	  }
+
+	  _createClass(VideoHero, [{
+	    key: "render",
+	    value: function render() {
+	      return _react2.default.createElement(
+	        "div",
+	        { className: "cpnt-video-hero" },
+	        _react2.default.createElement(
+	          "video",
+	          { autoPlay: true, loop: true, muted: true },
+	          _react2.default.createElement("source", { src: "https://player.vimeo.com/external/97799177.hd.mp4", type: "video/mp4" })
+	        ),
+	        this.props.children
+	      );
+	    }
+	  }]);
+
+	  return VideoHero;
+	}(_react2.default.Component);
+
+	exports.default = VideoHero;
+
+/***/ },
+/* 236 */
+/***/ function(module, exports, __webpack_require__) {
+
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
@@ -26734,7 +26799,7 @@
 	exports.default = RoutePhotography;
 
 /***/ },
-/* 236 */
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -26789,7 +26854,7 @@
 	exports.default = RouteDevelopment;
 
 /***/ },
-/* 237 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26808,11 +26873,19 @@
 
 	var _FullHero2 = _interopRequireDefault(_FullHero);
 
-	var _axios = __webpack_require__(238);
+	var _ReadProgress = __webpack_require__(239);
+
+	var _ReadProgress2 = _interopRequireDefault(_ReadProgress);
+
+	var _LoadingStatus = __webpack_require__(240);
+
+	var _LoadingStatus2 = _interopRequireDefault(_LoadingStatus);
+
+	var _axios = __webpack_require__(241);
 
 	var _axios2 = _interopRequireDefault(_axios);
 
-	var _marked = __webpack_require__(263);
+	var _marked = __webpack_require__(266);
 
 	var _marked2 = _interopRequireDefault(_marked);
 
@@ -26842,7 +26915,7 @@
 	      rawContent: ''
 	    };
 
-	    _this.getContent('/content' + props.location.pathname + '.md');
+	    _this.getMdFileViaXHR('/content' + props.location.pathname + '.md');
 
 	    _marked2.default.setOptions({
 	      renderer: new _marked2.default.Renderer(),
@@ -26858,8 +26931,8 @@
 	  }
 
 	  _createClass(PageReader, [{
-	    key: 'getContent',
-	    value: function getContent(contentPath) {
+	    key: 'getMdFileViaXHR',
+	    value: function getMdFileViaXHR(contentPath) {
 	      var _this2 = this;
 
 	      setTimeout(function () {
@@ -26869,11 +26942,12 @@
 	            rawContent: res.data
 	          });
 	        });
-	      }, 1000);
+	      }, 2000);
 	    }
 	  }, {
 	    key: 'createMarkup',
 	    value: function createMarkup() {
+	      // return {__html: this.state.rawContent};
 	      return { __html: (0, _marked2.default)(this.state.rawContent) };
 	    }
 	  }, {
@@ -26881,30 +26955,37 @@
 	    value: function componentWillReceiveProps(nextProps) {
 	      if (nextProps.location !== this.props.location) {
 	        this.setState({ isLoading: true });
-	        this.getContent('/content' + nextProps.location.pathname + '.md');
+	        this.getMdFileViaXHR('/content' + nextProps.location.pathname + '.md'); // TODO: CDN for content...?
 	      }
 	    }
-
-	    // componentDidUpdate(prevProps, prevState) {
-	    //   console.log('componentDidUpdate');
-	    // }
-
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var loader = this.state.isLoading ? _react2.default.createElement(
-	        'div',
-	        null,
-	        'LOADING'
-	      ) : '';
-	      // let markedContent = marked(this.state.rawContent);
-
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'cpnt-page-reader' },
-	        loader,
+	        _react2.default.createElement(
+	          _FullHero2.default,
+	          { imgSrc: 'assets/images/hero/{this.props.location.pathname}.jpg', darken: '40' },
+	          _react2.default.createElement(
+	            'h1',
+	            null,
+	            _react2.default.createElement(
+	              'strong',
+	              { className: '-white' },
+	              'MAIN IMAGE'
+	            ),
+	            _react2.default.createElement('br', null),
+	            _react2.default.createElement(
+	              'span',
+	              null,
+	              'SUBTITLE'
+	            )
+	          )
+	        ),
 	        _react2.default.createElement('div', { dangerouslySetInnerHTML: this.createMarkup() }),
-	        ';'
+	        _react2.default.createElement(_ReadProgress2.default, null),
+	        _react2.default.createElement(_LoadingStatus2.default, { isLoading: this.state.isLoading })
 	      );
 	    }
 	  }]);
@@ -26994,21 +27075,176 @@
 	exports.default = PageReader;
 
 /***/ },
-/* 238 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(239);
-
-/***/ },
 /* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(240);
-	var bind = __webpack_require__(241);
-	var Axios = __webpack_require__(242);
-	var defaults = __webpack_require__(243);
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ReadProgress component description goes here, please!
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 To import this elsewhere:
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 import ReadProgress from '../ReadProgress/ReadProgress';
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               */
+
+	var ReadProgress = function (_React$Component) {
+	  _inherits(ReadProgress, _React$Component);
+
+	  function ReadProgress(props) {
+	    _classCallCheck(this, ReadProgress);
+
+	    var _this = _possibleConstructorReturn(this, (ReadProgress.__proto__ || Object.getPrototypeOf(ReadProgress)).call(this, props));
+
+	    _this.state = {
+	      'scrollProgress': 0
+	    };
+	    return _this;
+	  }
+
+	  _createClass(ReadProgress, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      this.setState({ intrvl: setInterval(this.update.bind(this), 1000 / 10) });
+	    }
+	  }, {
+	    key: 'componentWillUnmount',
+	    value: function componentWillUnmount() {
+	      clearInterval(this.state.intrvl);
+	    }
+	  }, {
+	    key: 'update',
+	    value: function update() {
+	      var progress = Math.round(this.getScrollPos());
+	      this.setState({ scrollProgress: progress });
+	    }
+	  }, {
+	    key: 'getScrollPos',
+	    value: function getScrollPos() {
+	      return (window.scrollY + window.innerHeight) / window.document.documentElement.clientHeight * 100;
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var barPosition = this.state.scrollProgress - 100;
+	      var translateX = 'translateX(' + barPosition + '%)';
+
+	      // let adjustForWindow = (window.innerHeight / 100) * barPosition;
+	      // barPosition += adjustForWindow;
+	      // console.log('adjustForWindow: ', adjustForWindow);
+	      // console.log('innerHeight: ', window.innerHeight);
+	      // console.log('scrollProgress', this.state.scrollProgress);
+
+	      return _react2.default.createElement('div', { className: 'cpnt-read-progress', style: { transform: translateX } });
+	    }
+	  }]);
+
+	  return ReadProgress;
+	}(_react2.default.Component);
+
+	exports.default = ReadProgress;
+
+/***/ },
+/* 240 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 LoadingStatus component description goes here, please!
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 To import this elsewhere:
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 import LoadingStatus from '../LoadingStatus/LoadingStatus';
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               */
+
+	var LoadingStatus = function (_React$Component) {
+	  _inherits(LoadingStatus, _React$Component);
+
+	  function LoadingStatus(props) {
+	    _classCallCheck(this, LoadingStatus);
+
+	    return _possibleConstructorReturn(this, (LoadingStatus.__proto__ || Object.getPrototypeOf(LoadingStatus)).call(this, props));
+	  }
+
+	  _createClass(LoadingStatus, [{
+	    key: 'render',
+	    value: function render() {
+	      var content = '';
+	      var classNames = 'cpnt-loading-status';
+
+	      if (this.props.isLoading) {
+	        classNames = 'cpnt-loading-status is-loading';
+	        content = _react2.default.createElement(
+	          'div',
+	          null,
+	          'FETCHING CONTENT...'
+	        );
+	      } else {
+	        classNames = 'cpnt-loading-status';
+	        content = '';
+	      }
+
+	      return _react2.default.createElement(
+	        'div',
+	        { className: classNames },
+	        content,
+	        this.props.children
+	      );
+	    }
+	  }]);
+
+	  return LoadingStatus;
+	}(_react2.default.Component);
+
+	exports.default = LoadingStatus;
+
+/***/ },
+/* 241 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(242);
+
+/***/ },
+/* 242 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var utils = __webpack_require__(243);
+	var bind = __webpack_require__(244);
+	var Axios = __webpack_require__(245);
+	var defaults = __webpack_require__(246);
 
 	/**
 	 * Create an instance of Axios
@@ -27041,15 +27277,15 @@
 	};
 
 	// Expose Cancel & CancelToken
-	axios.Cancel = __webpack_require__(260);
-	axios.CancelToken = __webpack_require__(261);
-	axios.isCancel = __webpack_require__(257);
+	axios.Cancel = __webpack_require__(263);
+	axios.CancelToken = __webpack_require__(264);
+	axios.isCancel = __webpack_require__(260);
 
 	// Expose all/spread
 	axios.all = function all(promises) {
 	  return Promise.all(promises);
 	};
-	axios.spread = __webpack_require__(262);
+	axios.spread = __webpack_require__(265);
 
 	module.exports = axios;
 
@@ -27058,12 +27294,12 @@
 
 
 /***/ },
-/* 240 */
+/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var bind = __webpack_require__(241);
+	var bind = __webpack_require__(244);
 
 	/*global toString:true*/
 
@@ -27363,7 +27599,7 @@
 
 
 /***/ },
-/* 241 */
+/* 244 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -27380,17 +27616,17 @@
 
 
 /***/ },
-/* 242 */
+/* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var defaults = __webpack_require__(243);
-	var utils = __webpack_require__(240);
-	var InterceptorManager = __webpack_require__(254);
-	var dispatchRequest = __webpack_require__(255);
-	var isAbsoluteURL = __webpack_require__(258);
-	var combineURLs = __webpack_require__(259);
+	var defaults = __webpack_require__(246);
+	var utils = __webpack_require__(243);
+	var InterceptorManager = __webpack_require__(257);
+	var dispatchRequest = __webpack_require__(258);
+	var isAbsoluteURL = __webpack_require__(261);
+	var combineURLs = __webpack_require__(262);
 
 	/**
 	 * Create a new instance of Axios
@@ -27471,13 +27707,13 @@
 
 
 /***/ },
-/* 243 */
+/* 246 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
-	var utils = __webpack_require__(240);
-	var normalizeHeaderName = __webpack_require__(244);
+	var utils = __webpack_require__(243);
+	var normalizeHeaderName = __webpack_require__(247);
 
 	var PROTECTION_PREFIX = /^\)\]\}',?\n/;
 	var DEFAULT_CONTENT_TYPE = {
@@ -27494,10 +27730,10 @@
 	  var adapter;
 	  if (typeof XMLHttpRequest !== 'undefined') {
 	    // For browsers use XHR adapter
-	    adapter = __webpack_require__(245);
+	    adapter = __webpack_require__(248);
 	  } else if (typeof process !== 'undefined') {
 	    // For node use HTTP adapter
-	    adapter = __webpack_require__(245);
+	    adapter = __webpack_require__(248);
 	  }
 	  return adapter;
 	}
@@ -27571,12 +27807,12 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 244 */
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(240);
+	var utils = __webpack_require__(243);
 
 	module.exports = function normalizeHeaderName(headers, normalizedName) {
 	  utils.forEach(headers, function processHeader(value, name) {
@@ -27589,18 +27825,18 @@
 
 
 /***/ },
-/* 245 */
+/* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
-	var utils = __webpack_require__(240);
-	var settle = __webpack_require__(246);
-	var buildURL = __webpack_require__(249);
-	var parseHeaders = __webpack_require__(250);
-	var isURLSameOrigin = __webpack_require__(251);
-	var createError = __webpack_require__(247);
-	var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(252);
+	var utils = __webpack_require__(243);
+	var settle = __webpack_require__(249);
+	var buildURL = __webpack_require__(252);
+	var parseHeaders = __webpack_require__(253);
+	var isURLSameOrigin = __webpack_require__(254);
+	var createError = __webpack_require__(250);
+	var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(255);
 
 	module.exports = function xhrAdapter(config) {
 	  return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -27696,7 +27932,7 @@
 	    // This is only done if running in a standard browser environment.
 	    // Specifically not if we're in a web worker, or react-native.
 	    if (utils.isStandardBrowserEnv()) {
-	      var cookies = __webpack_require__(253);
+	      var cookies = __webpack_require__(256);
 
 	      // Add xsrf header
 	      var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -27773,12 +28009,12 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 246 */
+/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var createError = __webpack_require__(247);
+	var createError = __webpack_require__(250);
 
 	/**
 	 * Resolve or reject a Promise based on response status.
@@ -27804,12 +28040,12 @@
 
 
 /***/ },
-/* 247 */
+/* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var enhanceError = __webpack_require__(248);
+	var enhanceError = __webpack_require__(251);
 
 	/**
 	 * Create an Error with the specified message, config, error code, and response.
@@ -27827,7 +28063,7 @@
 
 
 /***/ },
-/* 248 */
+/* 251 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -27852,12 +28088,12 @@
 
 
 /***/ },
-/* 249 */
+/* 252 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(240);
+	var utils = __webpack_require__(243);
 
 	function encode(val) {
 	  return encodeURIComponent(val).
@@ -27926,12 +28162,12 @@
 
 
 /***/ },
-/* 250 */
+/* 253 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(240);
+	var utils = __webpack_require__(243);
 
 	/**
 	 * Parse headers into an object
@@ -27969,12 +28205,12 @@
 
 
 /***/ },
-/* 251 */
+/* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(240);
+	var utils = __webpack_require__(243);
 
 	module.exports = (
 	  utils.isStandardBrowserEnv() ?
@@ -28043,7 +28279,7 @@
 
 
 /***/ },
-/* 252 */
+/* 255 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -28085,12 +28321,12 @@
 
 
 /***/ },
-/* 253 */
+/* 256 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(240);
+	var utils = __webpack_require__(243);
 
 	module.exports = (
 	  utils.isStandardBrowserEnv() ?
@@ -28144,12 +28380,12 @@
 
 
 /***/ },
-/* 254 */
+/* 257 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(240);
+	var utils = __webpack_require__(243);
 
 	function InterceptorManager() {
 	  this.handlers = [];
@@ -28202,15 +28438,15 @@
 
 
 /***/ },
-/* 255 */
+/* 258 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(240);
-	var transformData = __webpack_require__(256);
-	var isCancel = __webpack_require__(257);
-	var defaults = __webpack_require__(243);
+	var utils = __webpack_require__(243);
+	var transformData = __webpack_require__(259);
+	var isCancel = __webpack_require__(260);
+	var defaults = __webpack_require__(246);
 
 	/**
 	 * Throws a `Cancel` if cancellation has been requested.
@@ -28287,12 +28523,12 @@
 
 
 /***/ },
-/* 256 */
+/* 259 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(240);
+	var utils = __webpack_require__(243);
 
 	/**
 	 * Transform the data for a request or a response
@@ -28313,7 +28549,7 @@
 
 
 /***/ },
-/* 257 */
+/* 260 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -28324,7 +28560,7 @@
 
 
 /***/ },
-/* 258 */
+/* 261 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -28344,7 +28580,7 @@
 
 
 /***/ },
-/* 259 */
+/* 262 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -28362,7 +28598,7 @@
 
 
 /***/ },
-/* 260 */
+/* 263 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -28387,12 +28623,12 @@
 
 
 /***/ },
-/* 261 */
+/* 264 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Cancel = __webpack_require__(260);
+	var Cancel = __webpack_require__(263);
 
 	/**
 	 * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -28450,7 +28686,7 @@
 
 
 /***/ },
-/* 262 */
+/* 265 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -28483,7 +28719,7 @@
 
 
 /***/ },
-/* 263 */
+/* 266 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
@@ -29776,7 +30012,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 264 */
+/* 267 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29791,11 +30027,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Navigation = __webpack_require__(265);
+	var _Navigation = __webpack_require__(268);
 
 	var _Navigation2 = _interopRequireDefault(_Navigation);
 
-	var _tree = __webpack_require__(269);
+	var _tree = __webpack_require__(272);
 
 	var _tree2 = _interopRequireDefault(_tree);
 
@@ -29841,7 +30077,7 @@
 	;
 
 /***/ },
-/* 265 */
+/* 268 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29858,15 +30094,15 @@
 
 	var _reactRouter = __webpack_require__(178);
 
-	var _Grip = __webpack_require__(266);
+	var _Grip = __webpack_require__(269);
 
 	var _Grip2 = _interopRequireDefault(_Grip);
 
-	var _NavigationSection = __webpack_require__(267);
+	var _NavigationSection = __webpack_require__(270);
 
 	var _NavigationSection2 = _interopRequireDefault(_NavigationSection);
 
-	var _TriggerArrow = __webpack_require__(268);
+	var _TriggerArrow = __webpack_require__(271);
 
 	var _TriggerArrow2 = _interopRequireDefault(_TriggerArrow);
 
@@ -30079,7 +30315,7 @@
 	exports.default = Navigation;
 
 /***/ },
-/* 266 */
+/* 269 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -30129,7 +30365,7 @@
 	exports.default = Grip;
 
 /***/ },
-/* 267 */
+/* 270 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30146,11 +30382,11 @@
 
 	var _reactRouter = __webpack_require__(178);
 
-	var _Grip = __webpack_require__(266);
+	var _Grip = __webpack_require__(269);
 
 	var _Grip2 = _interopRequireDefault(_Grip);
 
-	var _TriggerArrow = __webpack_require__(268);
+	var _TriggerArrow = __webpack_require__(271);
 
 	var _TriggerArrow2 = _interopRequireDefault(_TriggerArrow);
 
@@ -30243,7 +30479,7 @@
 	exports.default = NavigationSection;
 
 /***/ },
-/* 268 */
+/* 271 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30341,7 +30577,7 @@
 	exports.default = TriggerArrow;
 
 /***/ },
-/* 269 */
+/* 272 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -30368,7 +30604,7 @@
 					{
 						"path": "content/photography/about.md",
 						"name": "about.md",
-						"size": 3971,
+						"size": 3828,
 						"extension": ".md"
 					},
 					{
@@ -30378,10 +30614,10 @@
 						"extension": ".md"
 					}
 				],
-				"size": 3984
+				"size": 3841
 			}
 		],
-		"size": 4048
+		"size": 3905
 	};
 
 /***/ }
