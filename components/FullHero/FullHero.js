@@ -19,6 +19,5 @@ export default class FullHero extends React.Component {
         {this.props.children}
       </div>
     );
-
   }
 }

@@ -1,12 +1,10 @@
-<fullhero imgsrc="assets/images/hero/mockup.jpg" darken="40">
-  <h1><strong classname="-white">PRODRIFT ACADEMY</strong>
-    <br>
-    <span>RESPONSIVE WORDPRESS</span></h1>
-</fullhero>
+
+<!-- author: C -->
 
 
+<div class="grid-row">
 
-  <h2 className="title" >
+  <h2 class="title" >
     PRODRIFT ACADEMY
   </h2>
 
@@ -19,7 +17,7 @@
   to work out is they want me in it. If they do, it's a smash. If they don't,
   it's a turd that opens on a tugboat.</p>
 
-  <p className="-wide-cols">Let me just say this: It's nothing this side of deplorable, that a
+  <p class="-wide-cols">Let me just say this: It's nothing this side of deplorable, that a
   certain Chaim Levine - yeah, that's Chuck's real name - mistook this rock
   star for his own selfish exit strategy, bro. It's ... yeah ... it's an
   understatement. You know, I just ... I'm sorry, man, I got magic and I got
@@ -67,3 +65,4 @@
   talk about that.' Bull s.h.i.t. ... uh .... Yeah, I didn't care about that
   vanity card. In fact, I went straight on with that one and just dispelled
   that one.</p>
+</div>

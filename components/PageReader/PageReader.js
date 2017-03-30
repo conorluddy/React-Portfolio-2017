@@ -7,6 +7,8 @@
 
 import React from 'react'
 import FullHero from '../FullHero/FullHero';
+import ReadProgress from '../ReadProgress/ReadProgress';
+import LoadingStatus from '../LoadingStatus/LoadingStatus';
 
 import axios from 'axios';
 import marked from 'marked';
@@ -20,7 +22,7 @@ export default class PageReader extends React.Component {
       rawContent: ''
     };
 
-    this.getContent('/content' + props.location.pathname + '.md');
+    this.getMdFileViaXHR('/content' + props.location.pathname + '.md');
 
     marked.setOptions({
       renderer: new marked.Renderer(),
@@ -34,7 +36,7 @@ export default class PageReader extends React.Component {
     });
   }
 
-  getContent(contentPath) {
+  getMdFileViaXHR(contentPath) {
     setTimeout(() => {
       axios.get(contentPath)
         .then(res => {
@@ -43,32 +45,37 @@ export default class PageReader extends React.Component {
             rawContent: res.data
           });
         });
-    }, 1000);
+    }, 2000);
   }
 
   createMarkup() {
+    // return {__html: this.state.rawContent};
     return {__html: marked(this.state.rawContent)};
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.location !== this.props.location) {
       this.setState({isLoading: true});
-      this.getContent('/content' + nextProps.location.pathname + '.md');
+      this.getMdFileViaXHR('/content' + nextProps.location.pathname + '.md'); // TODO: CDN for content...?
     }
   }
 
-  // componentDidUpdate(prevProps, prevState) {
-  //   console.log('componentDidUpdate');
-  // }
-
   render() {
-    let loader = this.state.isLoading ? <div>LOADING</div> : '';
-    // let markedContent = marked(this.state.rawContent);
-
     return (
       <div className='cpnt-page-reader' >
-        {loader}
-        <div dangerouslySetInnerHTML={this.createMarkup()} />;
+
+        <FullHero imgSrc="assets/images/hero/{this.props.location.pathname}.jpg" darken="40" >
+          <h1>
+            <strong className="-white">MAIN IMAGE</strong>
+            <br />
+            <span>SUBTITLE</span>
+          </h1>
+        </FullHero>
+
+        <div dangerouslySetInnerHTML={this.createMarkup()} />
+
+        <ReadProgress />
+        <LoadingStatus isLoading={this.state.isLoading} />
       </div>
     );
   }

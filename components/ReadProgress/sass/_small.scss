@@ -1,0 +1,16 @@
+/* Component: ReadProgress: small screen size.
+
+If you're reading this, the dev who generated this component was too lazy
+to replace it with a component description :)
+*/
+
+.cpnt-read-progress {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  right: 0;
+  height: 6px;
+  background: $color-fluro;
+  transition: transform 500ms $water-kick;
+  border-right: solid 2px grey(50);
+}
