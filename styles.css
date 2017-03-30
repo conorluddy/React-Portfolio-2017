@@ -689,7 +689,8 @@ to replace it with a component description :)
 .cpnt-nav-section a {
   color: #515151;
   position: relative;
-  padding: 0 10px; }
+  padding: 0 10px;
+  text-transform: uppercase; }
   .cpnt-nav-section a::before, .cpnt-nav-section a::after {
     content: '';
     position: absolute;
@@ -722,25 +723,32 @@ to replace it with a component description :)
   color: #eeff00;
   transform: rotate(60deg);
   top: 50%;
-  left: 180px;
+  left: 175px;
   width: 120px;
   height: 140px;
   overflow: hidden;
   opacity: 0;
   cursor: default; }
-  .cpnt-nav-section .big-num .inner {
+  .cpnt-nav-section .big-num .num-wrap {
     font-style: normal;
     font-weight: 600;
     transform: rotate(-60deg);
-    background: none; }
+    background: none;
+    position: absolute;
+    top: 10px;
+    left: -25px; }
 
-.cpnt-nav-section li:hover a::before, .cpnt-nav-section li:hover a::after {
+.cpnt-nav-section .is-active ~ a::before, .cpnt-nav-section .is-active ~ a::after,
+.cpnt-nav-section li:hover a::before,
+.cpnt-nav-section li:hover a::after {
   background-color: #eeff00; }
 
+.cpnt-nav-section .is-active ~ .big-num,
 .cpnt-nav-section li:hover .big-num {
   display: inherit;
   opacity: 1; }
-  .cpnt-nav-section li:hover .big-num .inner {
+  .cpnt-nav-section .is-active ~ .big-num .num-wrap,
+  .cpnt-nav-section li:hover .big-num .num-wrap {
     animation-name: judder;
     animation-duration: 80ms;
     animation-fill-mode: forwards;
