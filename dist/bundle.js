@@ -26842,7 +26842,6 @@
 	      return _react2.default.createElement(
 	        "div",
 	        { className: "cpnt-route-development" },
-	        "RouteDevelopment component",
 	        this.props.children
 	      );
 	    }
@@ -30460,7 +30459,7 @@
 	                  { className: 'big-num _akrobat _weight-normal' },
 	                  _react2.default.createElement(
 	                    'i',
-	                    { className: 'inner' },
+	                    { className: 'num-wrap' },
 	                    '0' + (idx + 1)
 	                  )
 	                )

@@ -16,11 +16,7 @@ export default class RouteDevelopment extends React.Component {
   render() {
     return (
       <div className="cpnt-route-development">
-
-        RouteDevelopment component
-
         {this.props.children}
-
       </div>
     );
   }

@@ -47,7 +47,7 @@ export default class NavigationSection extends React.Component {
                 <Grip className="nav-items"/>
 
                 <span className="big-num _akrobat _weight-normal">
-                  <i className="inner">
+                  <i className="num-wrap">
                     {'0' + (idx + 1)}
                   </i>
                 </span>

@@ -64,6 +64,7 @@ to replace it with a component description :)
     color: rgba(81, 81, 81, 1);
     position: relative;
     padding: 0 10px;
+    text-transform: uppercase;
 
     &::before,
     &::after {
@@ -109,21 +110,25 @@ to replace it with a component description :)
     color: $color-fluro;
     transform: rotate(60deg);
     top: 50%;
-    left: 180px;
+    left: 175px;
     width: 120px;
     height: 140px;
     overflow: hidden;
     opacity: 0;
     cursor: default;
 
-    .inner {
+    .num-wrap {
       font-style: normal;
       font-weight: 600;
       transform: rotate(-60deg);
       background: none;
+      position: absolute;
+      top: 10px;
+      left: -25px;
     }
   }
 
+  .is-active ~ ,
   li:hover {
     a {
       &::before,
@@ -135,7 +140,7 @@ to replace it with a component description :)
     .big-num {
       display: inherit;
       opacity: 1;
-      .inner {
+      .num-wrap {
         animation-name: judder;
         animation-duration: 80ms;
         animation-fill-mode: forwards;
@@ -143,6 +148,10 @@ to replace it with a component description :)
       }
     }
   }
+
+
+
+
 
   @keyframes judder {
     0% {

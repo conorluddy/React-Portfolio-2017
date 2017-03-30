@@ -22,11 +22,8 @@ export default class RouteLanding extends React.Component {
     //
     return (
       <div className="cpnt-route-landing">
-
         <VideoHero />
-
         {this.props.children}
-
       </div>
     );
   }
