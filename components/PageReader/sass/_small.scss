@@ -7,7 +7,7 @@ to replace it with a component description :)
 .cpnt-page-reader {
   padding-bottom: 170px;
 
-  .title {
+  h2:first-child {
     @include grid-shift(1);
     font-size: rem(100);
     color: grey(94);
@@ -25,7 +25,6 @@ to replace it with a component description :)
       border: solid 6px grey(251);
     }
   }
-
 
   p {
     @include grid-column(8);

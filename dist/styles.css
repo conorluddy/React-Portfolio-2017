@@ -688,7 +688,7 @@ to replace it with a component description :)
     background: transparent; }
 
 .cpnt-nav-section a {
-  color: #eeff00;
+  color: #787878;
   position: relative;
   padding: 0 10px;
   text-transform: uppercase; }
@@ -781,13 +781,13 @@ to replace it with a component description :)
 */
 .cpnt-page-reader {
   padding-bottom: 170px; }
-  .cpnt-page-reader .title {
+  .cpnt-page-reader h2:first-child {
     left: calc(8.33333% - 21.66667px + 20px);
     position: relative;
     font-size: 6.25rem;
     color: #5e5e5e;
     position: relative; }
-    .cpnt-page-reader .title:before {
+    .cpnt-page-reader h2:first-child:before {
       content: '';
       position: absolute;
       top: 0;

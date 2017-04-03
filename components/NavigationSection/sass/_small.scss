@@ -62,7 +62,8 @@ to replace it with a component description :)
 
   a {
     // color: rgba(81, 81, 81, 1);
-    color: $color-fluro;
+    // color: $color-fluro;
+    color: grey(120);
     position: relative;
     padding: 0 10px;
     text-transform: uppercase;
