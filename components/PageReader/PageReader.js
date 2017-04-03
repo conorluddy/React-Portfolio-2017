@@ -11,7 +11,8 @@ import ReadProgress from '../ReadProgress/ReadProgress';
 import LoadingStatus from '../LoadingStatus/LoadingStatus';
 
 import axios from 'axios';
-import marked from 'marked';
+// import marked from 'marked';
+import mMarked from 'meta-marked';
 
 export default class PageReader extends React.Component {
 
@@ -24,8 +25,8 @@ export default class PageReader extends React.Component {
 
     this.getMdFileViaXHR('/content' + props.location.pathname + '.md');
 
-    marked.setOptions({
-      renderer: new marked.Renderer(),
+    mMarked.setOptions({
+      renderer: new mMarked.Renderer(),
       gfm: true,
       tables: true,
       breaks: false,
@@ -49,8 +50,11 @@ export default class PageReader extends React.Component {
   }
 
   createMarkup() {
+
+    console.log(mMarked(this.state.rawContent));
+
     // return {__html: this.state.rawContent};
-    return {__html: marked(this.state.rawContent)};
+    return {__html: mMarked(this.state.rawContent)};
   }
 
   componentWillReceiveProps(nextProps) {

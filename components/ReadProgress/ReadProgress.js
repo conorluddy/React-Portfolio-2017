@@ -44,7 +44,9 @@ export default class ReadProgress extends React.Component {
     // console.log('scrollProgress', this.state.scrollProgress);
 
     return (
-      <div className="cpnt-read-progress" style={{transform: translateX}} ></div>
+      <div className="cpnt-read-progress" style={{transform: translateX}} >
+        <span>{this.state.scrollProgress}%</span>
+      </div>
     );
   }
 }

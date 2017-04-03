@@ -13,9 +13,12 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.15.3",
+    "gulp-uglify": "^2.1.2",
     "gutil": "^1.6.4",
     "lodash": "^4.17.4",
     "marked": "^0.3.6",
+    "meta-marked": "^0.4.2",
+    "meta-remarkable": "^0.1.0",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-router": "^3.0.0",

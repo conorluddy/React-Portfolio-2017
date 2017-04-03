@@ -20,7 +20,7 @@ to replace it with a component description :)
     left: 0;
 
     .cpnt-trigger-arrow {
-      right: 10px;
+      right: 40px;
       transform: rotate(90deg);
     }
   }
@@ -29,7 +29,7 @@ to replace it with a component description :)
     right: 0;
 
     .cpnt-trigger-arrow {
-      left: 10px;
+      left: 40px;
     }
   }
 
@@ -61,7 +61,8 @@ to replace it with a component description :)
   }
 
   a {
-    color: rgba(81, 81, 81, 1);
+    // color: rgba(81, 81, 81, 1);
+    color: $color-fluro;
     position: relative;
     padding: 0 10px;
     text-transform: uppercase;
@@ -88,6 +89,8 @@ to replace it with a component description :)
     }
 
     &.is-active {
+      color: grey(50);
+
       &::before,
       &::after {
         background-color: $color-fluro;
@@ -131,6 +134,8 @@ to replace it with a component description :)
   .is-active ~ ,
   li:hover {
     a {
+      color: grey(50);
+
       &::before,
       &::after {
         background-color: $color-fluro;
