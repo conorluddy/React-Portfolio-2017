@@ -6,12 +6,11 @@ import RouteLanding from './components/RouteLanding/RouteLanding';
 import RoutePhotography from './components/RoutePhotography/RoutePhotography';
 import RouteDevelopment from './components/RouteDevelopment/RouteDevelopment';
 import PageReader from './components/PageReader/PageReader';
-
 import App from './components/App/App';
 
 render((
     <Router history={browserHistory} >
-      <Route path="/portfolio2017/" component={App}>
+      <Route path="/portfolio2017" component={App}>
 
         <IndexRoute component={RouteLanding} />
 
