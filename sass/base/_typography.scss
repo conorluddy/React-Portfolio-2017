@@ -1,13 +1,19 @@
 
 html {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Inconsolata', sans-serif;
+  color: grey(68);
 }
 
 h1,
 h2,
 h3,
 ._akrobat {
-  font-family: $fontfam-akrobat;
+  font-family: $font-akrobat;
+}
+
+h2 {
+  margin-top: 1.3em;
+  margin-bottom: 1.7em;
 }
 
 /**

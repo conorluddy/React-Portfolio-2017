@@ -13,19 +13,34 @@ to replace it with a component description :)
   flex-flow: center;
   align-items: center;
   align-content: center;
-
+  text-align: center;
+  position: relative;
+  z-index: -1;
 
   h1 {
     color: $color-fluro;
     text-transform: uppercase;
     font-weight: 100;
-    font-size: 6rem;
+    font-size: rem( 90 );
+    line-height: rem( 90 );
     margin: auto;
+    z-index: 10;
 
     strong {
-      font-weight: 700;
+      font-weight: 500;
     }
   }
 
-
+  &.-darken-40 {
+    &::after {
+      content: '';
+      background: RGBA(0, 0, 0, 0.4);
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 0;
+      position: absolute;
+    }
+  }
 }

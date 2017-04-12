@@ -77,28 +77,25 @@ export default class Navigation extends React.Component {
   render() {
     let sectionNav = null;
     let photoNavItems = [
-      {label: 'HOME', path: '/'},
-      {label: 'OVERVIEW', path: '/photography'},
+      {label: 'ABOUT', path: '/photography/about'},
       {label: 'GEAR', path: '/photography/gear'},
       {label: 'TUTORIALS', path: '/photography/tutorials'},
-      {label: 'LANDSCAPES', path: '/photography/landscapes'},
-      {label: 'ARCHITECTURE', path: '/photography/architecture'},
+      {label: 'BUSINESS', path: '/photography/work/business'},
+      {label: 'LANDSCAPES', path: '/photography/work/landscapes'},
+      {label: 'INTERIOR', path: '/photography/work/interior'},
       {label: 'VIDEO', path: '/photography/video'}
     ];
     let devNavItems = [
-      {label: 'HOME', path: '/'},
-      {label: 'OVERVIEW', path: '/development'},
+      {label: 'ABOUT', path: '/development/about'},
       {label: 'PLAYGROUND', path: '/development/playground'},
       {label: 'TUTORIALS', path: '/development/tutorials'},
-      {label: 'WORK', path: '/development/work'},
       {label: 'PROJECTS', path: '/development/projects'},
-      {label: 'TOOLS', path: '/development/tools'}
+      {label: 'DESIGN', path: '/development/design'},
     ];
 
 
     if (!this.state.section) {
-      console.log('x');
-      sectionNav = <TriggerArrow onTriggerClick={this.setSectionLanding} nsew='nw' />
+      sectionNav = <TriggerArrow onTriggerClick={this.setSectionPhotography} nsew='nw' />
     } else if (this.state.section === 'development') {
       sectionNav = <NavigationSection section={this.props.section} navList={devNavItems} clearSection={this.clearSection} stashNav={this.stashNav} side='right' />;
     } else if (this.state.section === 'photography') {

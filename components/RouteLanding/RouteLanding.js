@@ -21,6 +21,9 @@ export default class RouteLanding extends React.Component {
 
         <FullHero imgSrc="assets/images/hero/mac-candles.jpg" />
 
+
+        {this.props.children}
+
       </div>
     );
   }

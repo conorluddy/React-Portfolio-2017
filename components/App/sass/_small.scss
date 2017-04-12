@@ -5,7 +5,8 @@ to replace it with a component description :)
 */
 
 .cpnt-app {
-  height: 100%;
-  border: solid 20px $grey-3E;
+  min-height: 100%;
+  border: solid 20px grey(62);
   transform: translate3d(0,0,0);//Employ 3Dgfx
+  background: grey(251);
 }

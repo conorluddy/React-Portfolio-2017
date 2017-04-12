@@ -7,6 +7,10 @@
 import React from 'react';
 import Navigation from '../Navigation/Navigation';
 
+import Tree from '../../tree.json';
+
+
+
 export default class App extends React.Component {
 
   constructor(props) {
@@ -15,10 +19,13 @@ export default class App extends React.Component {
   }
 
   render() {
+
+    console.log( 'Tree: ', Tree );
+
     return (
       <div className="cpnt-app">
 
-        <Navigation />
+        <Navigation content="" />
 
         {this.props.children}
 

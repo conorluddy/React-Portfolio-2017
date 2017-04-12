@@ -12,6 +12,7 @@ to replace it with a component description :)
     top: 0;
     bottom: 0;
     width: calc(50% + 15px);
+    height: 100vh;
     overflow: hidden;
   }
 
@@ -84,6 +85,13 @@ to replace it with a component description :)
       right: 0;
       width: 205px;
     }
+
+    &.is-active {
+      &::before,
+      &::after {
+        background-color: $color-fluro;
+      }
+    }
   }
 
   .cpnt-grip {
@@ -116,8 +124,6 @@ to replace it with a component description :)
     }
   }
 
-
-
   li:hover {
     a {
       &::before,
@@ -137,7 +143,6 @@ to replace it with a component description :)
       }
     }
   }
-
 
   @keyframes judder {
     0% {

@@ -1,22 +1,21 @@
 {
   "name": "neat",
   "description": "A lightweight, semantic grid framework",
-  "version": "1.8.0",
-  "main": "app/assets/stylesheets/_neat.scss",
+  "version": "2.0.0",
+  "main": "core/_neat.scss",
   "license": "MIT",
   "ignore": [
     "**/.*",
+    "bin",
+    "bin",
     "CONTRIBUTING.md",
     "Gemfile",
     "Gemfile.lock",
-    "NEWS.md",
-    "Rakefile",
-    "bin",
     "lib",
     "neat.gemspec",
-    "sache.json",
-    "spec",
-    "test"
+    "NEWS.md",
+    "Rakefile",
+    "spec"
   ],
   "keywords": [
     "columns",

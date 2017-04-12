@@ -1,8 +1,11 @@
-html {
-  box-sizing: border-box; }
+.-white {
+  color: RGBA(255, 255, 255, 1); }
 
-*, *::after, *::before {
-  box-sizing: inherit; }
+.-fluro {
+  color: #eeff00; }
+
+.-black {
+  color: #0a0a0a; }
 
 /*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
 /**
@@ -408,6 +411,15 @@ template {
 [hidden] {
   display: none; }
 
+.grid-row {
+  max-width: 1020px;
+  margin-left: auto;
+  margin-right: auto; }
+  .grid-row::after {
+    clear: both;
+    content: "";
+    display: block; }
+
 #app {
   height: 100%; }
 
@@ -443,13 +455,18 @@ template {
   font-style: normal; }
 
 html {
-  font-family: 'Ubuntu', sans-serif; }
+  font-family: 'Inconsolata', sans-serif;
+  color: #444444; }
 
 h1,
 h2,
 h3,
 ._akrobat {
   font-family: akrobat, sans-serif; }
+
+h2 {
+  margin-top: 1.3em;
+  margin-bottom: 1.7em; }
 
 /**
  * Font Weights
@@ -488,10 +505,16 @@ If you're reading this, the dev who generated this component was too lazy
 to replace it with a component description :)
 */
 .cpnt-app {
-  height: 100%;
-  border: solid 20px #3E3E3E;
-  transform: translate3d(0, 0, 0); }
+  min-height: 100%;
+  border: solid 20px #3e3e3e;
+  transform: translate3d(0, 0, 0);
+  background: #fbfbfb; }
 
+/* Component: AsyncContent: small screen size. 
+
+If you're reading this, the dev who generated this component was too lazy 
+to replace it with a component description :) 
+*/
 /* Component: FullHero: small screen size.
 
 If you're reading this, the dev who generated this component was too lazy
@@ -505,15 +528,29 @@ to replace it with a component description :)
   flex-direction: column;
   flex-flow: center;
   align-items: center;
-  align-content: center; }
+  align-content: center;
+  text-align: center;
+  position: relative;
+  z-index: -1; }
   .cpnt-full-hero h1 {
     color: #eeff00;
     text-transform: uppercase;
     font-weight: 100;
-    font-size: 6rem;
-    margin: auto; }
+    font-size: 5.625rem;
+    line-height: 5.625rem;
+    margin: auto;
+    z-index: 10; }
     .cpnt-full-hero h1 strong {
-      font-weight: 700; }
+      font-weight: 500; }
+  .cpnt-full-hero.-darken-40::after {
+    content: '';
+    background: RGBA(0, 0, 0, 0.4);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+    position: absolute; }
 
 /* Component: Grip: small screen size.
 
@@ -530,10 +567,11 @@ to replace it with a component description :)
 */
 .cpnt-navigation {
   position: fixed;
+  z-index: 1000;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background: rgba(20, 20, 20, 0.9); }
   .cpnt-navigation.is-stashed {
     top: 0;
@@ -595,6 +633,7 @@ to replace it with a component description :)
   top: 0;
   bottom: 0;
   width: calc(50% + 15px);
+  height: 100vh;
   overflow: hidden; }
 
 .cpnt-nav-section .left {
@@ -650,6 +689,8 @@ to replace it with a component description :)
     left: 0;
     right: 0;
     width: 205px; }
+  .cpnt-nav-section a.is-active::before, .cpnt-nav-section a.is-active::after {
+    background-color: #eeff00; }
 
 .cpnt-nav-section .cpnt-grip {
   width: 175px;
@@ -702,11 +743,47 @@ to replace it with a component description :)
   100% {
     transform: rotate(-60deg) translate3d(0, -10px, 0); } }
 
-/* Component: PageReader: small screen size. 
+/* Component: PageReader: small screen size.
 
-If you're reading this, the dev who generated this component was too lazy 
-to replace it with a component description :) 
+If you're reading this, the dev who generated this component was too lazy
+to replace it with a component description :)
 */
+.cpnt-page-reader {
+  padding-bottom: 170px; }
+  .cpnt-page-reader .title {
+    left: calc(8.33333% - 21.66667px + 20px);
+    position: relative;
+    font-size: 6.25rem;
+    color: #5e5e5e;
+    position: relative; }
+    .cpnt-page-reader .title:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-50%) rotate(-45deg);
+      width: 2em;
+      height: 1em;
+      background: rgba(251, 251, 251, 0.8);
+      border: solid 6px #fbfbfb; }
+  .cpnt-page-reader p {
+    width: calc(66.66667% - 33.33333px);
+    float: left;
+    margin-left: 20px;
+    left: calc(16.66667% - 23.33333px + 20px);
+    position: relative;
+    font-size: 1.25rem;
+    line-height: 1.75rem; }
+  .cpnt-page-reader .-wide-cols {
+    width: calc(100% - 40px);
+    float: left;
+    margin-left: 20px;
+    left: calc(0% - 20px + 20px);
+    position: relative;
+    column-count: 2;
+    column-gap: 40px;
+    text-align: justify; }
+
 /* Component: RouteDevelopment: small screen size. 
 
 If you're reading this, the dev who generated this component was too lazy 
@@ -732,6 +809,11 @@ to replace it with a component description :)
 
 /* Medium component SCSS ==================================================== */
 /* Component: App: medium screen size. 
+
+If you're reading this, the dev who generated this component was too lazy 
+to replace it with a component description :) 
+*/
+/* Component: AsyncContent: medium screen size. 
 
 If you're reading this, the dev who generated this component was too lazy 
 to replace it with a component description :) 
@@ -783,6 +865,11 @@ to replace it with a component description :)
 */
 /* Large component SCSS ==================================================== */
 /* Component: App: large screen size. 
+
+If you're reading this, the dev who generated this component was too lazy 
+to replace it with a component description :) 
+*/
+/* Component: AsyncContent: large screen size. 
 
 If you're reading this, the dev who generated this component was too lazy 
 to replace it with a component description :) 

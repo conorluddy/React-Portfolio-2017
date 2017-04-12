@@ -8,10 +8,16 @@
 import React from 'react'
 
 export default class <ComponentName> extends React.Component {
+
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
       <div className="<ComponentClassName>">
         <ComponentName> component
+        {this.props.children}
       </div>
     );
   }

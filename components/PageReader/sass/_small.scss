@@ -1,9 +1,46 @@
-/* Component: PageReader: small screen size. 
+/* Component: PageReader: small screen size.
 
-If you're reading this, the dev who generated this component was too lazy 
-to replace it with a component description :) 
+If you're reading this, the dev who generated this component was too lazy
+to replace it with a component description :)
 */
 
 .cpnt-page-reader {
+  padding-bottom: 170px;
+
+  .title {
+    @include grid-shift(1);
+    font-size: rem(100);
+    color: grey(94);
+    position: relative;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-50%) rotate(-45deg);
+      width: 2em;
+      height: 1em;
+      background: grey(251, 0.8);
+      border: solid 6px grey(251);
+    }
+  }
+
+
+  p {
+    @include grid-column(8);
+    @include grid-shift(2);
+    font-size: rem(20);
+    line-height: rem(28);
+  }
+
+
+  .-wide-cols {
+    @include grid-column(12);
+    @include grid-shift(0);
+    column-count: 2;
+    column-gap: 40px;
+    text-align: justify;
+  }
 
 }
