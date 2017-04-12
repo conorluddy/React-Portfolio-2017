@@ -7,29 +7,29 @@ to replace it with a component description :)
 .cpnt-page-reader {
   padding-bottom: 170px;
 
-  .title {
-    @include grid-shift(1);
-    font-size: rem(100);
-    color: grey(94);
-    position: relative;
 
-    &:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      transform: translateX(-50%) rotate(-45deg);
-      width: 2em;
-      height: 1em;
-      background: grey(251, 0.8);
-      border: solid 6px grey(251);
+  .main-content {
+    h1:first-child,
+    h2:first-child {
+      font-size: rem(100);
+      color: grey(94);
+      position: relative;
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateX(-50%) rotate(-45deg);
+        width: 2em;
+        height: 1em;
+        background: grey(251, 0.8);
+        border: solid 6px grey(251);
+      }
     }
   }
 
-
   p {
-    @include grid-column(8);
-    @include grid-shift(2);
     font-size: rem(20);
     line-height: rem(28);
   }

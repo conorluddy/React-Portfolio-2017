@@ -1,9 +1,9 @@
 "use strict";
 let gulp = require('gulp');
-let webpack = require('webpack-stream');
+let webpack2 = require('webpack');
+let webpackStream = require('webpack-stream');
 let browserSync = require('browser-sync').create();
 let modRewrite  = require('connect-modrewrite');
-
 let config = {
   contentRoot: './content'
 };
@@ -19,10 +19,14 @@ require('./gulp_modules/fonts.js')(gulp);
 /**
  * Default: Webpack, BrowserSync, Watch
  */
-gulp.task('default', ['sass', 'images', 'fonts'], () => {
+gulp.task('default', ['sass', 'images', 'fonts', 'content'], () => {
   gulp.src('./index.js')
-    .pipe(webpack({
+    .pipe(webpackStream({
       watch: true,
+      watchOptions: {
+        aggregateTimeout: 300,
+        poll: 500
+      },
       output: {
         filename: 'bundle.js'
       },
@@ -33,19 +37,18 @@ gulp.task('default', ['sass', 'images', 'fonts'], () => {
             exclude: /node_modules/,
             loader: 'babel-loader?presets[]=es2015&presets[]=react'
           }
-        ],
-      },
-    }))
-    .pipe(gulp.dest('dist/'));
+        ]
+      }
+    }, webpack2
+  )).pipe(gulp.dest('dist/'));
 
   browserSync.init({
+      browser: 'Google Chrome Canary',//Canary will open if it exists, else default
       port: 6969,
       server: {
           baseDir: "./dist",
           middleware: [
-              modRewrite([
-                  '!\\.\\w+$ /index.html [L]'
-              ])
+              modRewrite(['!\\.\\w+$ /index.html [L]'])
           ]
       }
   });

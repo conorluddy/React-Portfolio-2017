@@ -7,6 +7,8 @@
 
 import React from 'react';
 import FullHero from '../FullHero/FullHero';
+import VideoHero from '../VideoHero/VideoHero';
+
 
 export default class RouteLanding extends React.Component {
 
@@ -16,14 +18,12 @@ export default class RouteLanding extends React.Component {
   }
 
   render() {
+    // <FullHero imgSrc="assets/images/hero/mac-candles.jpg" />
+    //
     return (
       <div className="cpnt-route-landing">
-
-        <FullHero imgSrc="assets/images/hero/mac-candles.jpg" />
-
-
+        <VideoHero />
         {this.props.children}
-
       </div>
     );
   }

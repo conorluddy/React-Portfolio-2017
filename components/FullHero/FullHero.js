@@ -15,10 +15,9 @@ export default class FullHero extends React.Component {
     }
 
     return (
-      <div className={heroClassNames}  darken="40" style={{backgroundImage: 'url(/' + this.props.imgSrc + ')' }} >
+      <div className={heroClassNames} style={{backgroundImage: 'url(/' + this.props.imgSrc + ')' }} >
         {this.props.children}
       </div>
     );
-
   }
 }
