@@ -4,7 +4,6 @@ let webpack2 = require('webpack');
 let webpackStream = require('webpack-stream');
 let browserSync = require('browser-sync').create();
 let modRewrite  = require('connect-modrewrite');
-
 let config = {
   contentRoot: './content'
 };
@@ -38,23 +37,18 @@ gulp.task('default', ['sass', 'images', 'fonts', 'content'], () => {
             exclude: /node_modules/,
             loader: 'babel-loader?presets[]=es2015&presets[]=react'
           }
-          // ,{
-          //   test: /\.json$/,
-          //   loader: 'json-loader'
-          // }
         ]
       }
     }, webpack2
   )).pipe(gulp.dest('dist/'));
 
   browserSync.init({
+      browser: 'Google Chrome Canary',//Canary will open if it exists, else default
       port: 6969,
       server: {
           baseDir: "./dist",
           middleware: [
-              modRewrite([
-                  '!\\.\\w+$ /index.html [L]'
-              ])
+              modRewrite(['!\\.\\w+$ /index.html [L]'])
           ]
       }
   });

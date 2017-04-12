@@ -17,8 +17,8 @@ export default class VideoHero extends React.Component {
     return (
       <div className="cpnt-video-hero">
 
-        <video autoPlay loop muted>
-          <source src="https://player.vimeo.com/external/97799177.hd.mp4" type="video/mp4" />
+        <video autoPlay loop>
+          <source src="assets/video/landing.mp4" type="video/mp4" />
         </video>
 
         {this.props.children}

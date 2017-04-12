@@ -13,9 +13,4 @@ module.exports = (gulp, config) => {
       .pipe(gulp.dest('./dist/content'));
   });
 
-  // gulp.task('remark', () => {
-  //   return gulp.src('./content/**/*')
-  //     .pipe(gulp.dest('./dist/content'));
-  // });
-
 };

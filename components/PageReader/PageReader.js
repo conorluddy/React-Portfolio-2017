@@ -87,7 +87,7 @@ export default class PageReader extends React.Component {
 
         {this.iNeedAHero()}
 
-        <div dangerouslySetInnerHTML={this.createMarkup()} />
+        <div className='grid-row main-content' dangerouslySetInnerHTML={this.createMarkup()} />
 
         <ReadProgress />
 
