@@ -15359,10 +15359,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 (0, _reactDom.render)(_react2.default.createElement(
   _reactRouter.Router,
-  { history: _reactRouter.hashHistory },
+  { history: _reactRouter.browserHistory },
   _react2.default.createElement(
     _reactRouter.Route,
-    { path: '/', component: _App2.default },
+    { path: '/portfolio2017/', component: _App2.default },
     _react2.default.createElement(_reactRouter.IndexRoute, { component: _RouteLanding2.default }),
     _react2.default.createElement(
       _reactRouter.Route,
