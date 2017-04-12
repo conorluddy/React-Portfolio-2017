@@ -13695,7 +13695,7 @@ var PageReader = function (_React$Component) {
         'div',
         { className: 'cpnt-page-reader' },
         this.iNeedAHero(),
-        _react2.default.createElement('div', { dangerouslySetInnerHTML: this.createMarkup() }),
+        _react2.default.createElement('div', { className: 'grid-row main-content', dangerouslySetInnerHTML: this.createMarkup() }),
         _react2.default.createElement(_ReadProgress2.default, null),
         _react2.default.createElement(_LoadingStatus2.default, { isLoading: this.state.isLoading })
       );
@@ -15307,8 +15307,8 @@ var VideoHero = function (_React$Component) {
         { className: "cpnt-video-hero" },
         _react2.default.createElement(
           "video",
-          { autoPlay: true, loop: true, muted: true },
-          _react2.default.createElement("source", { src: "https://player.vimeo.com/external/97799177.hd.mp4", type: "video/mp4" })
+          { autoPlay: true, loop: true },
+          _react2.default.createElement("source", { src: "assets/video/landing.mp4", type: "video/mp4" })
         ),
         this.props.children
       );
@@ -40696,13 +40696,13 @@ module.exports = {
 				{
 					"path": "content/photography/about.md",
 					"name": "about.md",
-					"size": 3828,
+					"size": 3761,
 					"extension": ".md"
 				},
 				{
 					"path": "content/photography/architecture.md",
 					"name": "architecture.md",
-					"size": 2073,
+					"size": 2593,
 					"extension": ".md"
 				},
 				{
@@ -40714,13 +40714,13 @@ module.exports = {
 				{
 					"path": "content/photography/gear.md",
 					"name": "gear.md",
-					"size": 1928,
+					"size": 6184,
 					"extension": ".md"
 				},
 				{
 					"path": "content/photography/landscape.md",
 					"name": "landscape.md",
-					"size": 3130,
+					"size": 2682,
 					"extension": ".md"
 				},
 				{
@@ -40730,10 +40730,10 @@ module.exports = {
 					"extension": ".md"
 				}
 			],
-			"size": 16068
+			"size": 20329
 		}
 	],
-	"size": 16152
+	"size": 20413
 };
 
 /***/ }),

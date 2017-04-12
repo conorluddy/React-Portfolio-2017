@@ -1,10 +1,5 @@
 
-<!-- author: C -->
-
-
-<div class="grid-row">
-
-  <h2 class="title" >
+  <h2>
     PRODRIFT ACADEMY
   </h2>
 
@@ -65,4 +60,3 @@
   talk about that.' Bull s.h.i.t. ... uh .... Yeah, I didn't care about that
   vanity card. In fact, I went straight on with that one and just dispelled
   that one.</p>
-</div>

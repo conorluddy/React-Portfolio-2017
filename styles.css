@@ -458,15 +458,39 @@ html {
   font-family: 'Inconsolata', sans-serif;
   color: #444444; }
 
+body {
+  line-height: 1.45; }
+
 h1,
 h2,
 h3,
-._akrobat {
+h4 {
+  margin: 1.414em 0 0.5em;
+  line-height: 1.2;
   font-family: akrobat, sans-serif; }
 
+h1 {
+  font-size: 6.854rem; }
+
 h2 {
-  margin-top: 1.3em;
-  margin-bottom: 1.7em; }
+  font-size: 4.236rem; }
+
+h3 {
+  font-size: 2.618rem; }
+
+h4 {
+  font-size: 1.618rem; }
+
+p {
+  margin-bottom: 1.3rem; }
+
+a {
+  color: #eeff00;
+  text-decoration: none; }
+
+small,
+._small {
+  font-size: 0.618em; }
 
 /**
  * Font Weights
@@ -486,9 +510,9 @@ h2 {
 ._weight-black {
   font-weight: 700; }
 
-a {
-  color: #eeff00;
-  text-decoration: none; }
+._akrobat,
+._display-font {
+  font-family: akrobat, sans-serif; }
 
 ::selection {
   background: #eeff00;
@@ -497,6 +521,10 @@ a {
 ._selection-transparent::selection {
   background: transparent;
   color: inherit; }
+
+._selection-grey::selection {
+  background: transparent;
+  color: #323232; }
 
 /* Small component SCSS ===================================================== */
 /* Component: App: small screen size.
@@ -781,13 +809,13 @@ to replace it with a component description :)
 */
 .cpnt-page-reader {
   padding-bottom: 170px; }
-  .cpnt-page-reader h2:first-child {
-    left: calc(8.33333% - 21.66667px + 20px);
-    position: relative;
+  .cpnt-page-reader .main-content h1:first-child,
+  .cpnt-page-reader .main-content h2:first-child {
     font-size: 6.25rem;
     color: #5e5e5e;
     position: relative; }
-    .cpnt-page-reader h2:first-child:before {
+    .cpnt-page-reader .main-content h1:first-child:before,
+    .cpnt-page-reader .main-content h2:first-child:before {
       content: '';
       position: absolute;
       top: 0;
@@ -798,11 +826,6 @@ to replace it with a component description :)
       background: rgba(251, 251, 251, 0.8);
       border: solid 6px #fbfbfb; }
   .cpnt-page-reader p {
-    width: calc(66.66667% - 33.33333px);
-    float: left;
-    margin-left: 20px;
-    left: calc(16.66667% - 23.33333px + 20px);
-    position: relative;
     font-size: 1.25rem;
     line-height: 1.75rem; }
   .cpnt-page-reader .-wide-cols {
@@ -859,11 +882,15 @@ to replace it with a component description :)
 .cpnt-trigger-arrow {
   cursor: pointer; }
 
-/* Component: VideoHero: small screen size. 
+/* Component: VideoHero: small screen size.
 
-If you're reading this, the dev who generated this component was too lazy 
-to replace it with a component description :) 
+If you're reading this, the dev who generated this component was too lazy
+to replace it with a component description :)
 */
+.cpnt-video-hero video {
+  width: 100%;
+  height: 100%; }
+
 /* Medium component SCSS ==================================================== */
 /* Component: App: medium screen size. 
 
@@ -900,10 +927,10 @@ to replace it with a component description :)
 If you're reading this, the dev who generated this component was too lazy 
 to replace it with a component description :) 
 */
-/* Component: PageReader: medium screen size. 
+/* Component: PageReader: medium screen size.
 
-If you're reading this, the dev who generated this component was too lazy 
-to replace it with a component description :) 
+If you're reading this, the dev who generated this component was too lazy
+to replace it with a component description :)
 */
 /* Component: ReadProgress: medium screen size. 
 
