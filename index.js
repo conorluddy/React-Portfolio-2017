@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Router, Route, browserHistory, hashHistory, Link, IndexRoute } from 'react-router';
+import { Router, Route, browserHistory, Link, IndexRoute } from 'react-router';
 
 import RouteLanding from './components/RouteLanding/RouteLanding';
 import RoutePhotography from './components/RoutePhotography/RoutePhotography';
@@ -10,8 +10,8 @@ import PageReader from './components/PageReader/PageReader';
 import App from './components/App/App';
 
 render((
-    <Router history={hashHistory} >
-      <Route path="/" component={App}>
+    <Router history={browserHistory} >
+      <Route path="/portfolio2017/" component={App}>
 
         <IndexRoute component={RouteLanding} />
 
