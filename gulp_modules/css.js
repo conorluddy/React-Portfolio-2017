@@ -1,6 +1,9 @@
-"use strict";
-let sass = require('gulp-sass');
-let fs = require('fs');
+const sass = require('gulp-sass');
+const sassLint = require('gulp-sass-lint');
+const fs = require('fs');
+const rename = require("gulp-rename");
+const cleanCSS = require('gulp-clean-css');
+
 
 /**
  * CSS Gulp file.
@@ -8,27 +11,58 @@ let fs = require('fs');
  */
 
 module.exports = (gulp) => {
+  'use strict';
 
-  gulp.task('sass', () => {
-    return gulp.src('./sass/styles.scss')
+
+  /**
+   * Make SASS into CSS.
+   * Saves normal and minified versions
+  **/
+  gulp.task('sass', ['sass-lint'], () => {
+    return gulp.src('./sass/*.scss')
       .pipe(sass().on('error', sass.logError))
+      .pipe(gulp.dest('./dist'))
+      .pipe(cleanCSS({compatibility: 'ie9'}))
+      .pipe(rename({suffix: ".min"}))
       .pipe(gulp.dest('./dist'));
   });
 
-  gulp.task('sass-build-component-index', () => {
+  /**
+   * SASS Lint
+   * Lint everything in Components and
+   * @param  {[type]} sass     [description]
+   * @param  {[type]} function [description]
+   * @return {[type]}          [description]
+   */
+  gulp.task('sass-lint', function () {
+    return gulp.src([
+        'sass/**/*.s+(a|c)ss',
+        'components/**/*.s+(a|c)ss',
+        '!sass/base/_normalize.scss'
+      ])
+      .pipe(sassLint())
+      .pipe(sassLint.format())
+      .pipe(sassLint.failOnError());
+  });
+
+
+  /**
+   * Builds up the index files for our components so that we can keep our
+   * component SCSS files split out into components
+  **/
+  gulp.task('sass-component-index', () => {
     let sassContentSmall = '';
     let sassContentMedium = '';
     let sassContentLarge = '';
 
     //Get list of components
-    fs.readdir('./components', function(err, items) {
-        // console.log(items);
+    fs.readdir('./components/presentation', (err, items) => {
         for (let i=0; i<items.length; i++) {
-          //Ignore directories beginning with _underscore
-          if (items[i].indexOf('_') !== 0) {
-            sassContentSmall += '@import \"../../components/' + items[i] + '/sass/_small.scss\"\;\n';
-            sassContentMedium += '@import \"../../components/' + items[i] + '/sass/_medium.scss\"\;\n';
-            sassContentLarge += '@import \"../../components/' + items[i] + '/sass/_large.scss\"\;\n';
+          //Ignore directories beginning with _underscore and .DS_Store crud
+          if (items[i].indexOf('_') !== 0 && items[i].indexOf('.DS_') !== 0) {
+            sassContentSmall += '@import \'../../components/presentation/' + items[i] + '/sass/small\'\;\n';
+            sassContentMedium += '@import \'../../components/presentation/' + items[i] + '/sass/medium\'\;\n';
+            sassContentLarge += '@import \'../../components/presentation/' + items[i] + '/sass/large\'\;\n';
           }
         }
 
@@ -37,6 +71,6 @@ module.exports = (gulp) => {
         fs.writeFile('./sass/components/_large.scss', sassContentLarge);
     });
 
-  })
+  });
 
 };

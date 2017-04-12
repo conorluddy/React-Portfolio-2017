@@ -10,7 +10,7 @@ import App from './components/App/App';
 
 render((
     <Router history={browserHistory} >
-      <Route path="/portfolio2017" component={App}>
+      <Route path="/" component={App}>
 
         <IndexRoute component={RouteLanding} />
 
