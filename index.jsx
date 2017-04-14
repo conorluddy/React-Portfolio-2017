@@ -5,7 +5,7 @@ import Nucleus from './components/container/Nucleus/Nucleus.jsx';
 import RouteLanding from './components/presentation/RouteLanding/RouteLanding.jsx';
 import RoutePhotography from './components/presentation/RoutePhotography/RoutePhotography.jsx';
 import RouteDevelopment from './components/presentation/RouteDevelopment/RouteDevelopment.jsx';
-import Reader from './components/presentation/Reader/Reader.jsx';
+import Reader from './components/container/Reader/Reader.jsx';
 
 render((
   <Router history={browserHistory} >

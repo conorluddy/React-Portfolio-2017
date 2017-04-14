@@ -1,5 +1,6 @@
 "use strict";
 const browserSync = require('browser-sync').create();
+const modRewrite  = require('connect-modrewrite');
 
 /**
  * BrowserSync
@@ -11,7 +12,10 @@ module.exports = (gulp, browserSync) => {
             browser: 'Google Chrome Canary', //Canary will open if it exists, else default should.
             port: 6969,
             server: {
-                baseDir: "./dist"
+                baseDir: "./dist",
+                middleware: [
+                    modRewrite(['!\\.\\w+$ /index.html [L]'])
+                ]
             }
         });
     });

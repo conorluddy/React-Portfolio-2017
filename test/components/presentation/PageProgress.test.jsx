@@ -1,0 +1,1 @@
+const PageProgress = require('../../../components/presentation/PageProgress.jsx');

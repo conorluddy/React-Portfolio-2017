@@ -1,0 +1,1 @@
+const ReaderContent = require('../../../components/presentation/ReaderContent.jsx');

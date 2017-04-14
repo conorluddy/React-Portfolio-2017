@@ -1,0 +1,23 @@
+/* Component: PageProgress: small screen size.
+
+Description...
+*/
+
+.cpnt-page-progress {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  right: 0;
+  height: 6px;
+  background: $color-fluro;
+  transition: transform 500ms $water-kick;
+  border-right: solid 2px grey(50);
+
+  span {
+    position: absolute;
+    right: 0;
+    bottom: 6px;
+    font-size: 12px;
+    font-weight: 300;
+  }
+}

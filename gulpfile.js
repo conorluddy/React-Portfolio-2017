@@ -24,8 +24,9 @@ gulp.task('default', ['sass-component-index'], () => {
   gulp.start('sass');
   gulp.start('webpack');
   gulp.start('browserSync');
-  gulp.src('./index.html').pipe(gulp.dest('dist/'));
+  gulp.start('content');
 
+  gulp.src('./index.html').pipe(gulp.dest('dist/'));
 
   gulp.watch(['./sass/**/*.scss', './components/**/*.scss'], () => {
     gulp.start('sass');
@@ -37,4 +38,7 @@ gulp.task('default', ['sass-component-index'], () => {
 
   gulp.watch(['./dist/**/*'], browserSync.reload);
 
+  gulp.watch(['./content/**/*'], () => {
+    gulp.start('content');
+  });
 });

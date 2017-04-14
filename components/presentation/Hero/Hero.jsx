@@ -10,19 +10,36 @@
 
 import React from 'react';
 
-const Hero = () => {
-  return (
-    <div className="cpnt-hero">
+const Hero = ({imgSrc, videoSrc, title, subtitle}) => {
 
-      <video autoPlay loop>
-        <source src="assets/video/landing.mp4" type="video/mp4" />
-      </video>
+  const video = <video autoPlay loop><source src={videoSrc} type="video/mp4" /></video>;
+  const heroStyle = {
+    backgroundImage: 'url(/' + imgSrc + ')'
+  };
 
-    </div>
-  )
+  if (videoSrc) {
+    return (
+      <div className="cpnt-hero">
+        {video}
+        <h1>
+          {title}
+          <br />
+          {subtitle}
+        </h1>
+      </div>
+    )
+  } else {
+    return (
+      <div className="cpnt-hero" style={heroStyle}>
+        <h1>
+          {title}
+          <br />
+          {subtitle}
+        </h1>
+      </div>
+    )
+  }
+
 };
-
-//Hero.propTypes = { children: React.PropTypes.string };
-//Hero.defaultProps = { children: 'Hello World!' };
 
 export default Hero;
