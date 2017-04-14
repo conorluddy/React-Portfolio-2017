@@ -617,7 +617,7 @@ to replace it with a component description :)
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(20, 20, 20, 0.9); }
+  background: rgba(20, 20, 20, 0.5); }
   .cpnt-navigation.is-stashed {
     top: 0;
     left: 0;
