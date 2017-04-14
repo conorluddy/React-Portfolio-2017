@@ -1,5 +1,5 @@
 .-white {
-  color: RGBA(255, 255, 255, 1); }
+  color: white; }
 
 .-fluro {
   color: #eeff00; }
@@ -465,7 +465,7 @@ h1,
 h2,
 h3,
 h4 {
-  margin: 1.414em 0 0.5em;
+  margin: 1.414em 0 .5em;
   line-height: 1.2;
   font-family: akrobat, sans-serif; }
 
@@ -490,7 +490,7 @@ a {
 
 small,
 ._small {
-  font-size: 0.618em; }
+  font-size: .618em; }
 
 /**
  * Font Weights
@@ -527,67 +527,27 @@ small,
   color: #323232; }
 
 /* Small component SCSS ===================================================== */
-/* Component: App: small screen size.
-
-If you're reading this, the dev who generated this component was too lazy
-to replace it with a component description :)
-*/
-/* Component: AsyncContent: small screen size. 
-
-If you're reading this, the dev who generated this component was too lazy 
-to replace it with a component description :) 
-*/
-/* Component: FullHero: small screen size.
-
-If you're reading this, the dev who generated this component was too lazy
-to replace it with a component description :)
-*/
-.cpnt-full-hero {
-  background: #0a0a0a;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  flex-flow: center;
-  align-items: center;
-  align-content: center;
-  text-align: center;
-  position: relative;
-  z-index: -1; }
-  .cpnt-full-hero h1 {
-    color: #eeff00;
-    text-transform: uppercase;
-    font-weight: 100;
-    font-size: 5.625rem;
-    line-height: 5.625rem;
-    margin: auto;
-    z-index: 10; }
-    .cpnt-full-hero h1 strong {
-      font-weight: 500; }
-  .cpnt-full-hero.-darken-40::after {
-    content: '';
-    background: RGBA(0, 0, 0, 0.4);
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 0;
-    position: absolute; }
-
 /* Component: Grip: small screen size.
 
-If you're reading this, the dev who generated this component was too lazy
-to replace it with a component description :)
+Description...
 */
 .cpnt-grip {
   background: url("assets/images/ui/grip-bubbles.svg"); }
 
-/* Component: LoadingStatus: small screen size.
+/* Component: Hero: small screen size.
 
-If you're reading this, the dev who generated this component was too lazy
-to replace it with a component description :)
+Description...
 */
-.cpnt-loading-status {
+.cpnt-hero video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; }
+
+/* Component: Loading: small screen size.
+
+Description...
+*/
+.cpnt-loading {
   transition: background 500ms ease;
   position: fixed;
   top: 0;
@@ -601,16 +561,15 @@ to replace it with a component description :)
   justify-content: flex-start;
   z-index: -1;
   background: RGBA(255, 255, 255, 0); }
-  .cpnt-loading-status.is-loading {
+  .cpnt-loading.is-loading {
     background: RGBA(255, 255, 255, 0.75);
     z-index: 1; }
 
-/* Component: Navigation: small screen size.
+/* Component: NavOverlay: small screen size.
 
-If you're reading this, the dev who generated this component was too lazy
-to replace it with a component description :)
+Description...
 */
-.cpnt-navigation {
+.cpnt-nav-overlay {
   position: fixed;
   z-index: 1000;
   top: 0;
@@ -618,27 +577,27 @@ to replace it with a component description :)
   width: 100vw;
   height: 100vh;
   background: rgba(20, 20, 20, 0.5); }
-  .cpnt-navigation.is-stashed {
+  .cpnt-nav-overlay.is-stashed {
     top: 0;
     left: 0;
     width: 36px;
     height: 36px; }
-    .cpnt-navigation.is-stashed > *:not(.cpnt-trigger-arrow) {
+    .cpnt-nav-overlay.is-stashed > *:not(.cpnt-trigger-arrow) {
       display: none; }
-  .cpnt-navigation .initial-opt {
+  .cpnt-nav-overlay .initial-opt {
     position: absolute;
     top: 0;
     bottom: 0;
     width: 50%;
     color: rgba(216, 216, 216, 0.65); }
-    .cpnt-navigation .initial-opt h2 {
+    .cpnt-nav-overlay .initial-opt h2 {
       font-size: 2.625rem;
       position: absolute;
       line-height: 2;
       text-align: center;
       width: calc(100vh / 1.5);
       cursor: pointer; }
-      .cpnt-navigation .initial-opt h2:before {
+      .cpnt-nav-overlay .initial-opt h2:before {
         content: '';
         height: 1px;
         width: 100%;
@@ -646,21 +605,21 @@ to replace it with a component description :)
         position: absolute;
         right: 80%;
         top: 50%; }
-    .cpnt-navigation .initial-opt.left {
+    .cpnt-nav-overlay .initial-opt.left {
       left: 0; }
-      .cpnt-navigation .initial-opt.left h2 {
+      .cpnt-nav-overlay .initial-opt.left h2 {
         right: 0;
         transform-origin: bottom right;
         transform: rotate(-90deg); }
-    .cpnt-navigation .initial-opt.right {
+    .cpnt-nav-overlay .initial-opt.right {
       right: 0; }
-      .cpnt-navigation .initial-opt.right h2 {
+      .cpnt-nav-overlay .initial-opt.right h2 {
         left: 0;
         transform-origin: bottom left;
         transform: rotate(90deg); }
-  .cpnt-navigation small {
+  .cpnt-nav-overlay small {
     font-size: 1.375rem; }
-  .cpnt-navigation > .cpnt-grip {
+  .cpnt-nav-overlay > .cpnt-grip {
     width: 24px;
     height: 100vh;
     position: absolute;
@@ -673,7 +632,7 @@ to replace it with a component description :)
 If you're reading this, the dev who generated this component was too lazy
 to replace it with a component description :)
 */
-.cpnt-nav-section .inner {
+.cpnt-navigation-section .inner {
   position: fixed;
   background: rgba(32, 32, 32, 0.84);
   top: 0;
@@ -682,23 +641,23 @@ to replace it with a component description :)
   height: 100vh;
   overflow: hidden; }
 
-.cpnt-nav-section .left {
+.cpnt-navigation-section .left {
   left: 0; }
-  .cpnt-nav-section .left .cpnt-trigger-arrow {
+  .cpnt-navigation-section .left .cpnt-trigger-arrow {
     right: 40px;
     transform: rotate(90deg); }
 
-.cpnt-nav-section .right {
+.cpnt-navigation-section .right {
   right: 0; }
-  .cpnt-nav-section .right .cpnt-trigger-arrow {
+  .cpnt-navigation-section .right .cpnt-trigger-arrow {
     left: 40px; }
 
-.cpnt-nav-section .cpnt-trigger-arrow {
+.cpnt-navigation-section .cpnt-trigger-arrow {
   position: absolute;
   bottom: 10px;
   cursor: pointer; }
 
-.cpnt-nav-section .nav-list {
+.cpnt-navigation-section .nav-list {
   list-style-type: none;
   font-size: 1.25rem;
   line-height: 5rem;
@@ -708,47 +667,47 @@ to replace it with a component description :)
   width: 80%;
   transform: translateY(-50%); }
 
-.cpnt-nav-section li {
+.cpnt-navigation-section li {
   position: relative;
   cursor: pointer; }
-  .cpnt-nav-section li::selection {
+  .cpnt-navigation-section li::selection {
     color: inherit;
     background: transparent; }
 
-.cpnt-nav-section a {
+.cpnt-navigation-section a {
   color: #787878;
   position: relative;
   padding: 0 10px;
   text-transform: uppercase; }
-  .cpnt-nav-section a::before, .cpnt-nav-section a::after {
+  .cpnt-navigation-section a::before, .cpnt-navigation-section a::after {
     content: '';
     position: absolute;
     background-color: transparent; }
-  .cpnt-nav-section a::before {
+  .cpnt-navigation-section a::before {
     top: 0px;
     bottom: 0px;
     left: 0px;
     right: 0;
     z-index: -1; }
-  .cpnt-nav-section a::after {
+  .cpnt-navigation-section a::after {
     bottom: -3px;
     height: 1px;
     left: 0;
     right: 0;
     width: 205px; }
-  .cpnt-nav-section a.is-active {
+  .cpnt-navigation-section a.is-active {
     color: #323232; }
-    .cpnt-nav-section a.is-active::before, .cpnt-nav-section a.is-active::after {
+    .cpnt-navigation-section a.is-active::before, .cpnt-navigation-section a.is-active::after {
       background-color: #eeff00; }
 
-.cpnt-nav-section .cpnt-grip {
+.cpnt-navigation-section .cpnt-grip {
   width: 175px;
   height: 26px;
   position: absolute;
   top: 56px;
   left: 0; }
 
-.cpnt-nav-section .big-num {
+.cpnt-navigation-section .big-num {
   position: absolute;
   font-size: 5.125rem;
   color: #eeff00;
@@ -760,7 +719,7 @@ to replace it with a component description :)
   overflow: hidden;
   opacity: 0;
   cursor: default; }
-  .cpnt-nav-section .big-num .num-wrap {
+  .cpnt-navigation-section .big-num .num-wrap {
     font-style: normal;
     font-weight: 600;
     transform: rotate(-60deg);
@@ -769,20 +728,20 @@ to replace it with a component description :)
     top: 10px;
     left: -25px; }
 
-.cpnt-nav-section .is-active ~ a,
-.cpnt-nav-section li:hover a {
+.cpnt-navigation-section .is-active ~ a,
+.cpnt-navigation-section li:hover a {
   color: #323232; }
-  .cpnt-nav-section .is-active ~ a::before, .cpnt-nav-section .is-active ~ a::after,
-  .cpnt-nav-section li:hover a::before,
-  .cpnt-nav-section li:hover a::after {
+  .cpnt-navigation-section .is-active ~ a::before, .cpnt-navigation-section .is-active ~ a::after,
+  .cpnt-navigation-section li:hover a::before,
+  .cpnt-navigation-section li:hover a::after {
     background-color: #eeff00; }
 
-.cpnt-nav-section .is-active ~ .big-num,
-.cpnt-nav-section li:hover .big-num {
+.cpnt-navigation-section .is-active ~ .big-num,
+.cpnt-navigation-section li:hover .big-num {
   display: inherit;
   opacity: 1; }
-  .cpnt-nav-section .is-active ~ .big-num .num-wrap,
-  .cpnt-nav-section li:hover .big-num .num-wrap {
+  .cpnt-navigation-section .is-active ~ .big-num .num-wrap,
+  .cpnt-navigation-section li:hover .big-num .num-wrap {
     animation-name: judder;
     animation-duration: 80ms;
     animation-fill-mode: forwards;
@@ -802,235 +761,108 @@ to replace it with a component description :)
   100% {
     transform: rotate(-60deg) translate3d(0, -10px, 0); } }
 
-/* Component: PageReader: small screen size.
+/* Component: Reader: small screen size. 
 
-If you're reading this, the dev who generated this component was too lazy
-to replace it with a component description :)
+Description... 
 */
-.cpnt-page-reader {
-  padding-bottom: 170px; }
-  .cpnt-page-reader .main-content h1:first-child,
-  .cpnt-page-reader .main-content h2:first-child {
-    font-size: 6.25rem;
-    color: #5e5e5e;
-    position: relative; }
-    .cpnt-page-reader .main-content h1:first-child:before,
-    .cpnt-page-reader .main-content h2:first-child:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      transform: translateX(-50%) rotate(-45deg);
-      width: 2em;
-      height: 1em;
-      background: rgba(251, 251, 251, 0.8);
-      border: solid 6px #fbfbfb; }
-  .cpnt-page-reader p {
-    font-size: 1.25rem;
-    line-height: 1.75rem; }
-  .cpnt-page-reader .-wide-cols {
-    width: calc(100% - 40px);
-    float: left;
-    margin-left: 20px;
-    left: calc(0% - 20px + 20px);
-    position: relative;
-    column-count: 2;
-    column-gap: 40px;
-    text-align: justify; }
-
-/* Component: ReadProgress: small screen size.
-
-If you're reading this, the dev who generated this component was too lazy
-to replace it with a component description :)
-*/
-.cpnt-read-progress {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  right: 0;
-  height: 6px;
-  background: #eeff00;
-  transition: transform 500ms cubic-bezier(0.32, 0.9, 0.68, 0.98);
-  border-right: solid 2px #323232; }
-  .cpnt-read-progress span {
-    position: absolute;
-    right: 0;
-    bottom: 6px;
-    font-size: 12px;
-    font-weight: 300; }
-
 /* Component: RouteDevelopment: small screen size. 
 
-If you're reading this, the dev who generated this component was too lazy 
-to replace it with a component description :) 
+Description... 
 */
-/* Component: RouteLanding: small screen size.
+/* Component: RouteLanding: small screen size. 
 
-If you're reading this, the dev who generated this component was too lazy
-to replace it with a component description :)
+Description... 
 */
 /* Component: RoutePhotography: small screen size. 
 
-If you're reading this, the dev who generated this component was too lazy 
-to replace it with a component description :) 
+Description... 
 */
 /* Component: TriggerArrow: small screen size.
 
-If you're reading this, the dev who generated this component was too lazy
-to replace it with a component description :)
+Description...
 */
 .cpnt-trigger-arrow {
   cursor: pointer; }
 
-/* Component: VideoHero: small screen size.
-
-If you're reading this, the dev who generated this component was too lazy
-to replace it with a component description :)
-*/
-.cpnt-video-hero video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; }
-
 /* Medium component SCSS ==================================================== */
-/* Component: App: medium screen size. 
-
-If you're reading this, the dev who generated this component was too lazy 
-to replace it with a component description :) 
-*/
-/* Component: AsyncContent: medium screen size. 
-
-If you're reading this, the dev who generated this component was too lazy 
-to replace it with a component description :) 
-*/
-/* Component: FullHero: medium screen size. 
-
-If you're reading this, the dev who generated this component was too lazy 
-to replace it with a component description :) 
-*/
 /* Component: Grip: medium screen size. 
 
-If you're reading this, the dev who generated this component was too lazy 
-to replace it with a component description :) 
+Description... 
 */
-/* Component: LoadingStatus: medium screen size. 
+/* Component: Hero: medium screen size. 
 
-If you're reading this, the dev who generated this component was too lazy 
-to replace it with a component description :) 
+Description... 
 */
-/* Component: Navigation: medium screen size. 
+/* Component: Loading: medium screen size. 
 
-If you're reading this, the dev who generated this component was too lazy 
-to replace it with a component description :) 
+Description... 
+*/
+/* Component: NavOverlay: medium screen size. 
+
+Description... 
 */
 /* Component: NavigationSection: medium screen size. 
 
-If you're reading this, the dev who generated this component was too lazy 
-to replace it with a component description :) 
+Description... 
 */
-/* Component: PageReader: medium screen size.
+/* Component: Reader: medium screen size. 
 
-If you're reading this, the dev who generated this component was too lazy
-to replace it with a component description :)
-*/
-/* Component: ReadProgress: medium screen size. 
-
-If you're reading this, the dev who generated this component was too lazy 
-to replace it with a component description :) 
+Description... 
 */
 /* Component: RouteDevelopment: medium screen size. 
 
-If you're reading this, the dev who generated this component was too lazy 
-to replace it with a component description :) 
+Description... 
 */
 /* Component: RouteLanding: medium screen size. 
 
-If you're reading this, the dev who generated this component was too lazy 
-to replace it with a component description :) 
+Description... 
 */
 /* Component: RoutePhotography: medium screen size. 
 
-If you're reading this, the dev who generated this component was too lazy 
-to replace it with a component description :) 
+Description... 
 */
 /* Component: TriggerArrow: medium screen size. 
 
-If you're reading this, the dev who generated this component was too lazy 
-to replace it with a component description :) 
-*/
-/* Component: VideoHero: medium screen size. 
-
-If you're reading this, the dev who generated this component was too lazy 
-to replace it with a component description :) 
+Description... 
 */
 /* Large component SCSS ==================================================== */
-/* Component: App: large screen size. 
-
-If you're reading this, the dev who generated this component was too lazy 
-to replace it with a component description :) 
-*/
-/* Component: AsyncContent: large screen size. 
-
-If you're reading this, the dev who generated this component was too lazy 
-to replace it with a component description :) 
-*/
-/* Component: FullHero: large screen size. 
-
-If you're reading this, the dev who generated this component was too lazy 
-to replace it with a component description :) 
-*/
 /* Component: Grip: large screen size. 
 
-If you're reading this, the dev who generated this component was too lazy 
-to replace it with a component description :) 
+Description... 
 */
-/* Component: LoadingStatus: large screen size. 
+/* Component: Hero: large screen size. 
 
-If you're reading this, the dev who generated this component was too lazy 
-to replace it with a component description :) 
+Description... 
 */
-/* Component: Navigation: large screen size. 
+/* Component: Loading: large screen size. 
 
-If you're reading this, the dev who generated this component was too lazy 
-to replace it with a component description :) 
+Description... 
+*/
+/* Component: NavOverlay: large screen size. 
+
+Description... 
 */
 /* Component: NavigationSection: large screen size. 
 
-If you're reading this, the dev who generated this component was too lazy 
-to replace it with a component description :) 
+Description... 
 */
-/* Component: PageReader: large screen size. 
+/* Component: Reader: large screen size. 
 
-If you're reading this, the dev who generated this component was too lazy 
-to replace it with a component description :) 
-*/
-/* Component: ReadProgress: large screen size. 
-
-If you're reading this, the dev who generated this component was too lazy 
-to replace it with a component description :) 
+Description... 
 */
 /* Component: RouteDevelopment: large screen size. 
 
-If you're reading this, the dev who generated this component was too lazy 
-to replace it with a component description :) 
+Description... 
 */
 /* Component: RouteLanding: large screen size. 
 
-If you're reading this, the dev who generated this component was too lazy 
-to replace it with a component description :) 
+Description... 
 */
 /* Component: RoutePhotography: large screen size. 
 
-If you're reading this, the dev who generated this component was too lazy 
-to replace it with a component description :) 
+Description... 
 */
 /* Component: TriggerArrow: large screen size. 
 
-If you're reading this, the dev who generated this component was too lazy 
-to replace it with a component description :) 
-*/
-/* Component: VideoHero: large screen size. 
-
-If you're reading this, the dev who generated this component was too lazy 
-to replace it with a component description :) 
+Description... 
 */

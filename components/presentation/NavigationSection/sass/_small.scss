@@ -1,0 +1,182 @@
+/* Component: NavigationSection: small screen size.
+
+If you're reading this, the dev who generated this component was too lazy
+to replace it with a component description :)
+*/
+
+.cpnt-navigation-section {
+
+  .inner {
+    position: fixed;
+    background: rgba(32,32,32,.84);
+    top: 0;
+    bottom: 0;
+    width: calc(50% + 15px);
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .left {
+    left: 0;
+
+    .cpnt-trigger-arrow {
+      right: 40px;
+      transform: rotate(90deg);
+    }
+  }
+
+  .right {
+    right: 0;
+
+    .cpnt-trigger-arrow {
+      left: 40px;
+    }
+  }
+
+  .cpnt-trigger-arrow {
+    position: absolute;
+    bottom: 10px;
+    cursor: pointer;
+  }
+
+  .nav-list {
+    list-style-type: none;
+    font-size: rem(20);
+    line-height: rem(80);
+    position: relative;
+    top: 50%;
+    left: 20%;
+    width: 80%;
+    transform: translateY(-50%);
+  }
+
+  li {
+    position: relative;
+    cursor: pointer;
+
+    &::selection {
+      color: inherit;
+      background: transparent;
+    }
+  }
+
+  a {
+    // color: rgba(81, 81, 81, 1);
+    // color: $color-fluro;
+    color: grey(120);
+    position: relative;
+    padding: 0 10px;
+    text-transform: uppercase;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      background-color: transparent;
+    }
+    &::before {
+      top: 0px;
+      bottom: 0px;
+      left: 0px;
+      right: 0;
+      z-index: -1;
+    }
+    &::after {
+      bottom: -3px;
+      height: 1px;
+      left: 0;
+      right: 0;
+      width: 205px;
+    }
+
+    &.is-active {
+      color: grey(50);
+
+      &::before,
+      &::after {
+        background-color: $color-fluro;
+      }
+    }
+  }
+
+  .cpnt-grip {
+    width: 175px;
+    height: 26px;
+    position: absolute;
+    top: 56px;
+    left: 0;
+  }
+
+
+  .big-num {
+    position: absolute;
+    font-size: rem(82);
+    color: $color-fluro;
+    transform: rotate(60deg);
+    top: 50%;
+    left: 175px;
+    width: 120px;
+    height: 140px;
+    overflow: hidden;
+    opacity: 0;
+    cursor: default;
+
+    .num-wrap {
+      font-style: normal;
+      font-weight: 600;
+      transform: rotate(-60deg);
+      background: none;
+      position: absolute;
+      top: 10px;
+      left: -25px;
+    }
+  }
+
+  .is-active ~ ,
+  li:hover {
+    a {
+      color: grey(50);
+
+      &::before,
+      &::after {
+        background-color: $color-fluro;
+      }
+    }
+
+    .big-num {
+      display: inherit;
+      opacity: 1;
+      .num-wrap {
+        animation-name: judder;
+        animation-duration: 80ms;
+        animation-fill-mode: forwards;
+        animation-iteration-count: 1;
+      }
+    }
+  }
+
+
+
+
+
+  @keyframes judder {
+    0% {
+      transform: rotate(-60deg) translate3d(0, -20px, 0);
+    }
+    20% {
+      transform: rotate(-60deg) translate3d(0, 20px, 0);
+    }
+    40% {
+      transform: rotate(-60deg) translate3d(0, -10px, 0);
+    }
+    60% {
+      transform: rotate(-60deg) translate3d(0, 0, 0);
+    }
+    80% {
+      transform: rotate(-60deg) translate3d(0, 10px, 0);
+    }
+    100% {
+      transform: rotate(-60deg) translate3d(0, -10px, 0);
+    }
+  }
+}

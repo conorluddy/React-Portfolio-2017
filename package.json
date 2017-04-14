@@ -43,6 +43,7 @@
     "json-loader": "^0.5.4",
     "prompt": "^1.0.0",
     "webpack": "^2.3.3",
-    "webpack-stream": "^3.2.0"
+    "webpack-stream": "^3.2.0",
+    "whatwg-fetch": "^2.0.3"
   }
 }

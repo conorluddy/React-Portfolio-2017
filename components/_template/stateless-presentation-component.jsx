@@ -10,10 +10,11 @@
 
 import React from 'react';
 
-const <ComponentName> = () => {
+const <ComponentName> = (props) => {
   return (
     <div className="<ComponentClassName>">
      <ComponentName> component
+     {props.children}
     </div>
   )
 };

@@ -9,6 +9,8 @@
 */
 
 import React from 'react';
+import ContentTree from '../../../tree.json';
+import Navigation from '../Navigation/Navigation.jsx';
 
 class Nucleus extends React.Component {
 
@@ -19,11 +21,16 @@ class Nucleus extends React.Component {
   render() {
     return (
       <div className="cpnt-nucleus">
-        Nucleus component
+
+        <Navigation tree={ContentTree} />
+
         {this.props.children}
+
       </div>
     );
   }
 }
 
 export default Nucleus;
+
+//<Navigation tree={ContentTree} />
