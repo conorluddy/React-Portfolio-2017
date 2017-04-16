@@ -13629,6 +13629,8 @@ var Reader = function (_React$Component) {
       scrollProgress: 0,
       intrvl: null
     };
+
+    _this.getContent(props.location.pathname);
     return _this;
   }
 
@@ -13645,14 +13647,18 @@ var Reader = function (_React$Component) {
   }, {
     key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps(nextProps) {
+      this.getContent(nextProps.location.pathname);
+    }
+  }, {
+    key: 'getContent',
+    value: function getContent(path) {
       var _this2 = this;
 
       //TODO: improved path generation
       //ToDo: Check if this has already been fetched before... cache etc...
-      (0, _fetchMd2.default)('./../content' + nextProps.location.pathname + '.md').then(function (md) {
+      console.info('Getting page content...');
 
-        console.log('Got MD');
-
+      (0, _fetchMd2.default)('./../content' + path + '.md').then(function (md) {
         var metamark = (0, _metaMarked2.default)(md);
         _this2.setState({
           isLoading: false,
@@ -13699,15 +13705,18 @@ var Reader = function (_React$Component) {
       return '';
     }
   }, {
+    key: 'getScrollPos',
+    value: function getScrollPos() {
+      var scroll = window.scrollY;;
+      var windowHeight = window.innerHeight;
+      var docHeight = window.document.documentElement.clientHeight;
+      return scroll / (docHeight - windowHeight) * 100;
+    }
+  }, {
     key: 'updateProgress',
     value: function updateProgress() {
       var progress = Math.round(this.getScrollPos());
       this.setState({ scrollProgress: progress });
-    }
-  }, {
-    key: 'getScrollPos',
-    value: function getScrollPos() {
-      return (window.scrollY + window.innerHeight) / window.document.documentElement.clientHeight * 100;
     }
   }, {
     key: 'render',
@@ -39467,7 +39476,7 @@ module.exports = {
 				{
 					"path": "content/photography/architecture.md",
 					"name": "architecture.md",
-					"size": 2593,
+					"size": 2549,
 					"extension": ".md"
 				},
 				{
@@ -39495,10 +39504,10 @@ module.exports = {
 					"extension": ".md"
 				}
 			],
-			"size": 20307
+			"size": 20263
 		}
 	],
-	"size": 20391
+	"size": 20347
 };
 
 /***/ }),

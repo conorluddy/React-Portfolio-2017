@@ -35,6 +35,8 @@ class Reader extends React.Component {
       scrollProgress: 0,
       intrvl: null
     };
+
+    this.getContent(props.location.pathname);
   }
 
   componentDidMount() {
@@ -46,13 +48,17 @@ class Reader extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    this.getContent(nextProps.location.pathname);
+  }
+
+
+  getContent(path) {
     //TODO: improved path generation
     //ToDo: Check if this has already been fetched before... cache etc...
-    fetchMd('./../content' + nextProps.location.pathname + '.md')
+    console.info('Getting page content...');
+
+    fetchMd('./../content' + path + '.md')
       .then((md) => {
-
-        console.log('Got MD');
-
         let metamark = mMarked(md);
         this.setState({
           isLoading: false,
@@ -65,7 +71,6 @@ class Reader extends React.Component {
         console.warn(err);
       });
   }
-
 
 
   /**
@@ -92,14 +97,17 @@ class Reader extends React.Component {
   }
 
 
+  getScrollPos() {
+    let scroll = window.scrollY;;
+    let windowHeight = window.innerHeight;
+    let docHeight = window.document.documentElement.clientHeight;
+    return (scroll / (docHeight - windowHeight)) * 100;
+  }
+
 
   updateProgress() {
     let progress = Math.round( this.getScrollPos() );
     this.setState({ scrollProgress: progress });
-  }
-
-  getScrollPos() {
-    return ((window.scrollY + window.innerHeight) / window.document.documentElement.clientHeight) * 100;
   }
 
 
