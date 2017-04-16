@@ -13396,16 +13396,16 @@ var Navigation = function (_React$Component) {
   }, {
     key: 'stashNav',
     value: function stashNav() {
-      this.setState({
-        section: null
-      });
+      var _this2 = this;
+
+      setTimeout(function () {
+        _this2.setState({ section: null });
+      }, 500);
     }
   }, {
     key: 'clearSection',
     value: function clearSection() {
-      this.setState({
-        section: 'landing'
-      });
+      this.setState({ section: 'landing' });
     }
   }, {
     key: 'getClassNames',
@@ -13415,8 +13415,7 @@ var Navigation = function (_React$Component) {
   }, {
     key: 'componentWillMount',
     value: function componentWillMount() {
-      console.log('treetree: ', this.props.tree);
-
+      // console.log('treetree: ', this.props.tree);
       for (var i = 0; i < this.props.tree.children.length; i++) {
         if (this.props.tree.children[i].name === 'development') {
           this.setState({
@@ -13463,7 +13462,7 @@ var Navigation = function (_React$Component) {
       }
 
       if (!this.state.section) {
-        sectionNav = _react2.default.createElement(_TriggerArrow2.default, { onTriggerClick: this.setSectionPhotography, nsew: 'nw' });
+        sectionNav = _react2.default.createElement(_TriggerArrow2.default, { handleClick: this.setSectionLanding, nsew: 'nw' });
       } else if (this.state.section === 'development') {
         sectionNav = _react2.default.createElement(_NavigationSection2.default, { section: this.state.section, navList: devNavItems, clearSection: this.clearSection, stashNav: this.stashNav, side: 'right' });
       } else if (this.state.section === 'photography') {
@@ -13771,13 +13770,16 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 */
 
 var NavOverlay = function NavOverlay(_ref) {
-  var setSectionDevelopment = _ref.setSectionDevelopment,
+  var className = _ref.className,
+      setSectionDevelopment = _ref.setSectionDevelopment,
       setSectionPhotography = _ref.setSectionPhotography,
       sectionNav = _ref.sectionNav;
 
+
+  className = 'cpnt-nav-overlay' + ' ' + className;
   return _react2.default.createElement(
     'div',
-    { className: 'cpnt-nav-overlay' },
+    { className: className },
     _react2.default.createElement(
       'div',
       { className: 'initial-opt _akrobat _weight-black left' },
@@ -13894,7 +13896,7 @@ var NavigationSection = function NavigationSection(_ref) {
           );
         })
       ),
-      _react2.default.createElement(_TriggerArrow2.default, { onTriggerClick: clearSection, nsew: arrowDirection })
+      _react2.default.createElement(_TriggerArrow2.default, { handleClick: clearSection, nsew: arrowDirection })
     )
   );
 };
@@ -39476,7 +39478,7 @@ module.exports = {
 				{
 					"path": "content/photography/architecture.md",
 					"name": "architecture.md",
-					"size": 2549,
+					"size": 2539,
 					"extension": ".md"
 				},
 				{
@@ -39504,10 +39506,10 @@ module.exports = {
 					"extension": ".md"
 				}
 			],
-			"size": 20263
+			"size": 20253
 		}
 	],
-	"size": 20347
+	"size": 20337
 };
 
 /***/ }),

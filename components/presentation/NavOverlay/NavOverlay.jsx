@@ -11,9 +11,11 @@
 import React from 'react';
 import Grip from '../Grip/Grip.jsx';
 
-const NavOverlay = ({setSectionDevelopment, setSectionPhotography, sectionNav}) => {
+const NavOverlay = ({className, setSectionDevelopment, setSectionPhotography, sectionNav}) => {
+
+  className = 'cpnt-nav-overlay' + ' ' + className;
   return (
-    <div className="cpnt-nav-overlay">
+    <div className={className}>
 
       <div className="initial-opt _akrobat _weight-black left" >
           <h2 className="_weight-normal _selection-transparent" onClick={setSectionDevelopment} >

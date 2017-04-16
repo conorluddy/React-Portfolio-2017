@@ -56,15 +56,13 @@ class Navigation extends React.Component {
   }
 
   stashNav() {
-    this.setState({
-      section: null
-    });
+    setTimeout(() => {
+      this.setState({section: null});
+    }, 500);
   }
 
   clearSection() {
-    this.setState({
-      section: 'landing'
-    });
+    this.setState({section: 'landing'});
   }
 
   getClassNames() {
@@ -72,8 +70,7 @@ class Navigation extends React.Component {
   }
 
   componentWillMount() {
-    console.log('treetree: ', this.props.tree);
-
+    // console.log('treetree: ', this.props.tree);
     for (var i = 0; i < this.props.tree.children.length; i++) {
       if (this.props.tree.children[i].name === 'development') {
         this.setState({
@@ -119,7 +116,7 @@ class Navigation extends React.Component {
     }
 
     if (!this.state.section) {
-      sectionNav = <TriggerArrow onTriggerClick={this.setSectionPhotography} nsew='nw' />
+      sectionNav = <TriggerArrow handleClick={this.setSectionLanding} nsew='nw' />
     } else if (this.state.section === 'development') {
       sectionNav = <NavigationSection section={this.state.section} navList={devNavItems} clearSection={this.clearSection} stashNav={this.stashNav} side='right' />;
     } else if (this.state.section === 'photography') {

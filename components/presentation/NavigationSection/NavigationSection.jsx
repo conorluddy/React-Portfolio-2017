@@ -39,7 +39,7 @@ const NavigationSection = ({section, navList, side, stashNav, clearSection}) => 
           )}
         </ul>
 
-        <TriggerArrow onTriggerClick={clearSection} nsew={arrowDirection} />
+        <TriggerArrow handleClick={clearSection} nsew={arrowDirection} />
 
       </div>
     </div>
