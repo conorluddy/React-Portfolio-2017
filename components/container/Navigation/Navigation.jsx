@@ -21,7 +21,8 @@ class Navigation extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      section: 'landing'
+      section: 'landing',
+      transparency: 90
     };
 
     this.setSectionDevelopment = this.setSectionDevelopment.bind(this);
@@ -56,9 +57,7 @@ class Navigation extends React.Component {
   }
 
   stashNav() {
-    setTimeout(() => {
-      this.setState({section: null});
-    }, 500);
+    this.setState({section: null});
   }
 
   clearSection() {
@@ -125,7 +124,7 @@ class Navigation extends React.Component {
 
     return (
       <div className="cpnt-navigation">
-        <NavOverlay className={this.getClassNames()} setSectionDevelopment={this.setSectionDevelopment} setSectionPhotography={this.setSectionPhotography} sectionNav={sectionNav} />
+        <NavOverlay className={this.getClassNames()} setSectionDevelopment={this.setSectionDevelopment} setSectionPhotography={this.setSectionPhotography} sectionNav={sectionNav} transparency={this.state.transparency} stashNav={this.stashNav} />
       </div>
     );
   }

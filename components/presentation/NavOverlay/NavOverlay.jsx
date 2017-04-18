@@ -10,12 +10,17 @@
 
 import React from 'react';
 import Grip from '../Grip/Grip.jsx';
+import TriggerArrow from '../TriggerArrow/TriggerArrow.jsx';
 
-const NavOverlay = ({className, setSectionDevelopment, setSectionPhotography, sectionNav}) => {
+const NavOverlay = ({className, setSectionDevelopment, setSectionPhotography, sectionNav, transparency, stashNav}) => {
+
+  const styles = {
+    backgroundColor: 'RGBA(20,20,20,' + transparency/100 + ')'
+  }
 
   className = 'cpnt-nav-overlay' + ' ' + className;
   return (
-    <div className={className}>
+    <div className={className} style={styles}>
 
       <div className="initial-opt _akrobat _weight-black left" >
           <h2 className="_weight-normal _selection-transparent" onClick={setSectionDevelopment} >
@@ -32,6 +37,8 @@ const NavOverlay = ({className, setSectionDevelopment, setSectionPhotography, se
       <Grip />
 
       {sectionNav}
+
+      <TriggerArrow handleClick={stashNav} nsew="se" />
 
     </div>
   )

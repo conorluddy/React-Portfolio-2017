@@ -613,8 +613,7 @@ Description...
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
-  background: rgba(20, 20, 20, 0.5); }
+  height: 100vh; }
   .cpnt-nav-overlay.is-stashed {
     top: 0;
     left: 0;
@@ -875,7 +874,9 @@ Description...
 Description...
 */
 .cpnt-trigger-arrow {
-  cursor: pointer; }
+  cursor: pointer;
+  z-index: 100;
+  position: relative; }
 
 /* Medium component SCSS ==================================================== */
 /* Component: Grip: medium screen size. 

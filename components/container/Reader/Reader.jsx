@@ -87,8 +87,8 @@ class Reader extends React.Component {
 
       title = meta.heroTitle ? <strong className="-white">{meta.heroTitle}</strong> : '';
       subtitle = meta.heroSubtitle ? <span>{meta.heroSubtitle}</span> : '';
-      imgSrc = meta.heroImage ? "assets/images/hero/" + meta.heroImage : false;
-      videoSrc = meta.heroVideo ? "./../assets/video/" + meta.heroVideo : false;
+      imgSrc = meta.heroImage ? meta.heroImage : false;
+      videoSrc = meta.heroVideo ? meta.heroVideo : false;
 
       return <Hero imgSrc={imgSrc} videoSrc={videoSrc} title={title} subtitle={subtitle} darken="40" />;
     }
