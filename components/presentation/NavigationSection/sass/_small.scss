@@ -14,10 +14,14 @@ to replace it with a component description :)
     width: calc(50% + 15px);
     height: 100vh;
     overflow: hidden;
+    animation-duration: 600ms;
+    animation-fill-mode: forwards;
+    // animation-timing-function: ease-in-out;
   }
 
   .left {
     left: 0;
+    animation-name: nav-section-inner-intro-left;
 
     .cpnt-trigger-arrow {
       right: 40px;
@@ -27,6 +31,7 @@ to replace it with a component description :)
 
   .right {
     right: 0;
+    animation-name: nav-section-inner-intro-right;
 
     .cpnt-trigger-arrow {
       left: 40px;
@@ -177,6 +182,32 @@ to replace it with a component description :)
     }
     100% {
       transform: rotate(-60deg) translate3d(0, -10px, 0);
+    }
+  }
+
+  @keyframes nav-section-inner-intro-left {
+    0% {
+      opacity: 0;
+      transform: translateX(-120px);
+      filter: blur(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+      filter: blur(0);
+    }
+  }
+
+  @keyframes nav-section-inner-intro-right {
+    0% {
+      opacity: 0;
+      transform: translateX(120px);
+      filter: blur(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+      filter: blur(0);
     }
   }
 }

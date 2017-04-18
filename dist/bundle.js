@@ -14020,7 +14020,9 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var RouteDevelopment = function RouteDevelopment() {
+var RouteDevelopment = function RouteDevelopment(_ref) {
+  var children = _ref.children;
+
   return _react2.default.createElement(
     "div",
     { className: "cpnt-route-development" },
@@ -14035,9 +14037,6 @@ var RouteDevelopment = function RouteDevelopment() {
      To import this elsewhere (directory nesting level may vary):
      import RouteDevelopment from '../../RouteDevelopment/RouteDevelopment.jsx';
    */
-
-RouteDevelopment.propTypes = { children: _react2.default.PropTypes.string };
-//RouteDevelopment.defaultProps = { children: 'Hello World!' };
 
 exports.default = RouteDevelopment;
 
@@ -14078,7 +14077,7 @@ var RouteLanding = function RouteLanding() {
   return _react2.default.createElement(
     'div',
     { className: 'cpnt-route-landing' },
-    _react2.default.createElement(_Hero2.default, { videoSrc: 'landing.mp4', title: 'Welcome', subtitle: 'Here', darken: '40' })
+    _react2.default.createElement(_Hero2.default, { videoSrc: 'landing.mp4', darken: '40' })
   );
 };
 
@@ -14101,26 +14100,23 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var RoutePhotography = function RoutePhotography(props) {
+var RoutePhotography = function RoutePhotography(_ref) {
+  var children = _ref.children;
+
   return _react2.default.createElement(
     "div",
     { className: "cpnt-route-photography" },
-    props.children
+    children
   );
-};
-
-// RoutePhotography.propTypes = { children: React.PropTypes.string };
-//RoutePhotography.defaultProps = { children: 'Hello World!' };
-
-/*
-  RoutePhotography
-  Stateless Presentation Component
-
-  Component description...
-
-  To import this elsewhere (directory nesting level may vary):
-  import RoutePhotography from '../../RoutePhotography/RoutePhotography.jsx';
-*/
+}; /*
+     RoutePhotography
+     Stateless Presentation Component
+   
+     Component description...
+   
+     To import this elsewhere (directory nesting level may vary):
+     import RoutePhotography from '../../RoutePhotography/RoutePhotography.jsx';
+   */
 
 exports.default = RoutePhotography;
 
@@ -39450,13 +39446,7 @@ module.exports = {
 				{
 					"path": "content/development/about.md",
 					"name": "about.md",
-					"size": 6,
-					"extension": ".md"
-				},
-				{
-					"path": "content/development/projects.md",
-					"name": "projects.md",
-					"size": 64,
+					"size": 6208,
 					"extension": ".md"
 				},
 				{
@@ -39466,13 +39456,13 @@ module.exports = {
 					"extension": ".md"
 				},
 				{
-					"path": "content/development/tools.md",
-					"name": "tools.md",
-					"size": 7,
+					"path": "content/development/this-site.md",
+					"name": "this-site.md",
+					"size": 6208,
 					"extension": ".md"
 				}
 			],
-			"size": 84
+			"size": 12423
 		},
 		{
 			"path": "content/photography",
@@ -39518,7 +39508,7 @@ module.exports = {
 			"size": 20253
 		}
 	],
-	"size": 20337
+	"size": 32676
 };
 
 /***/ }),
