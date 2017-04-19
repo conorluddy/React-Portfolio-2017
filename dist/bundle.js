@@ -9069,42 +9069,45 @@ var Hero = function Hero(_ref) {
   var imgSrc = _ref.imgSrc,
       videoSrc = _ref.videoSrc,
       title = _ref.title,
-      subtitle = _ref.subtitle;
+      subtitle = _ref.subtitle,
+      modifiers = _ref.modifiers;
 
+
+  var video = '';
+  var heroStyle = {};
 
   videoSrc = videoSrc ? "./../assets/video/" + videoSrc : false;
-
-  var video = _react2.default.createElement(
-    "video",
+  video = _react2.default.createElement(
+    'video',
     { autoPlay: true, loop: true },
-    _react2.default.createElement("source", { src: videoSrc, type: "video/mp4" })
+    _react2.default.createElement('source', { src: videoSrc, type: 'video/mp4' })
   );
-  var heroStyle = {
-    backgroundImage: 'url(/assets/images/hero/' + imgSrc + ')'
-  };
+
+  if (imgSrc) heroStyle.backgroundImage = 'url(/assets/images/hero/' + imgSrc + ')';
+  if (modifiers && modifiers.height) heroStyle.height = modifiers.height;
 
   if (videoSrc) {
     return _react2.default.createElement(
-      "div",
-      { className: "cpnt-hero" },
+      'div',
+      { className: 'cpnt-hero', style: heroStyle },
       video,
       _react2.default.createElement(
-        "h1",
+        'h1',
         null,
         title,
-        _react2.default.createElement("br", null),
+        _react2.default.createElement('br', null),
         subtitle
       )
     );
   } else {
     return _react2.default.createElement(
-      "div",
-      { className: "cpnt-hero", style: heroStyle },
+      'div',
+      { className: 'cpnt-hero', style: heroStyle },
       _react2.default.createElement(
-        "h1",
+        'h1',
         null,
         title,
-        _react2.default.createElement("br", null),
+        _react2.default.createElement('br', null),
         subtitle
       )
     );
@@ -13779,7 +13782,6 @@ var Navigation = function (_React$Component) {
       section: 'landing',
       transparency: 90
     };
-    props.setNavActive(1);
 
     _this.setSectionDevelopment = _this.setSectionDevelopment.bind(_this);
     _this.setSectionPhotography = _this.setSectionPhotography.bind(_this);
@@ -14128,6 +14130,7 @@ var Reader = function (_React$Component) {
       var subtitle = void 0;
       var imgSrc = void 0;
       var videoSrc = void 0;
+      var modifiers = {};
 
       if (meta && (meta.heroImage || meta.heroVideo)) {
 
@@ -14141,10 +14144,19 @@ var Reader = function (_React$Component) {
           null,
           meta.heroSubtitle
         ) : '';
+
         imgSrc = meta.heroImage ? meta.heroImage : false;
         videoSrc = meta.heroVideo ? meta.heroVideo : false;
 
-        return _react2.default.createElement(_Hero2.default, { imgSrc: imgSrc, videoSrc: videoSrc, title: title, subtitle: subtitle, darken: '40' });
+        if (meta.heroHeight === 'half') {
+          modifiers.height = '50vh';
+        }
+
+        if (meta.heroDarken) {
+          modifiers.heroDarken = meta.heroDarken;
+        }
+
+        return _react2.default.createElement(_Hero2.default, { imgSrc: imgSrc, videoSrc: videoSrc, title: title, subtitle: subtitle, modifiers: modifiers });
       }
 
       return '';
@@ -14259,8 +14271,7 @@ var NavOverlay = function NavOverlay(_ref) {
       )
     ),
     _react2.default.createElement(_Grip2.default, null),
-    sectionNav,
-    _react2.default.createElement(_TriggerArrow2.default, { handleClick: stashNav, nsew: 'se' })
+    sectionNav
   );
 };
 
@@ -14441,7 +14452,11 @@ var ReaderContent = function ReaderContent(_ref) {
     return { __html: content };
   };
 
-  return _react2.default.createElement("div", { className: "cpnt-reader-content grid-row", dangerouslySetInnerHTML: createMarkup() });
+  return _react2.default.createElement(
+    "div",
+    { className: "cpnt-reader-content grid-row" },
+    _react2.default.createElement("div", { className: "inner", dangerouslySetInnerHTML: createMarkup() })
+  );
 }; /*
      ReaderContent
      Stateless Presentation Component
@@ -14523,12 +14538,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 */
 
 var RouteLanding = function RouteLanding() {
-  //<Hero imgSrc={imgSrc} videoSrc={videoSrc} title={title} subtitle={subtitle} darken="40" />;
 
   return _react2.default.createElement(
     'div',
     { className: 'cpnt-route-landing' },
-    _react2.default.createElement(_Hero2.default, { videoSrc: 'landing.mp4', darken: '40' })
+    _react2.default.createElement(_Hero2.default, { videoSrc: 'landing.mp4' })
   );
 };
 
@@ -41354,13 +41368,13 @@ module.exports = {
 				{
 					"path": "content/development/about.md",
 					"name": "about.md",
-					"size": 6208,
+					"size": 908,
 					"extension": ".md"
 				},
 				{
 					"path": "content/development/resume.md",
 					"name": "resume.md",
-					"size": 7,
+					"size": 6098,
 					"extension": ".md"
 				},
 				{
@@ -41370,7 +41384,7 @@ module.exports = {
 					"extension": ".md"
 				}
 			],
-			"size": 12423
+			"size": 13214
 		},
 		{
 			"path": "content/photography",
@@ -41379,19 +41393,13 @@ module.exports = {
 				{
 					"path": "content/photography/about.md",
 					"name": "about.md",
-					"size": 3761,
+					"size": 3871,
 					"extension": ".md"
 				},
 				{
-					"path": "content/photography/architecture.md",
-					"name": "architecture.md",
-					"size": 2539,
-					"extension": ".md"
-				},
-				{
-					"path": "content/photography/business.md",
-					"name": "business.md",
-					"size": 1962,
+					"path": "content/photography/automotive.md",
+					"name": "automotive.md",
+					"size": 3189,
 					"extension": ".md"
 				},
 				{
@@ -41401,22 +41409,22 @@ module.exports = {
 					"extension": ".md"
 				},
 				{
-					"path": "content/photography/landscape.md",
-					"name": "landscape.md",
-					"size": 2682,
+					"path": "content/photography/interiors.md",
+					"name": "interiors.md",
+					"size": 2539,
 					"extension": ".md"
 				},
 				{
-					"path": "content/photography/motorsport.md",
-					"name": "motorsport.md",
-					"size": 3130,
+					"path": "content/photography/landscape.md",
+					"name": "landscape.md",
+					"size": 3182,
 					"extension": ".md"
 				}
 			],
-			"size": 20253
+			"size": 18960
 		}
 	],
-	"size": 32676
+	"size": 32174
 };
 
 /***/ }),

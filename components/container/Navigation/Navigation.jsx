@@ -15,7 +15,6 @@ import NavigationSection from '../../presentation/NavigationSection/NavigationSe
 import NavOverlay from '../../presentation/NavOverlay/NavOverlay.jsx';
 import TriggerArrow from '../../presentation/TriggerArrow/TriggerArrow.jsx';
 
-
 class Navigation extends React.Component {
 
   constructor(props) {
@@ -24,7 +23,6 @@ class Navigation extends React.Component {
       section: 'landing',
       transparency: 90
     };
-    props.setNavActive(1);
 
     this.setSectionDevelopment = this.setSectionDevelopment.bind(this);
     this.setSectionPhotography = this.setSectionPhotography.bind(this);
@@ -130,7 +128,7 @@ class Navigation extends React.Component {
 
     return (
       <div className="cpnt-navigation">
-        <NavOverlay className={this.getClassNames()} setSectionDevelopment={this.setSectionDevelopment} setSectionPhotography={this.setSectionPhotography} sectionNav={sectionNav} transparency={this.state.transparency} stashNav={this.stashNav} />
+          <NavOverlay className={this.getClassNames()} setSectionDevelopment={this.setSectionDevelopment} setSectionPhotography={this.setSectionPhotography} sectionNav={sectionNav} transparency={this.state.transparency} stashNav={this.stashNav} />
       </div>
     );
   }

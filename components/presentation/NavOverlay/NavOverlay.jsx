@@ -38,7 +38,7 @@ const NavOverlay = ({className, setSectionDevelopment, setSectionPhotography, se
 
       {sectionNav}
 
-      <TriggerArrow handleClick={stashNav} nsew="se" />
+
 
     </div>
   )

@@ -17,6 +17,7 @@ Description...
     font-size: rem(100);
     color: grey(94);
     position: relative;
+    font-weight: normal;//To be overridden with md **
 
     &:before {
       content: '';
@@ -28,6 +29,15 @@ Description...
       height: 1em;
       background: grey(251, 0.8);
       border: solid 6px grey(251);
+    }
+  }
+
+  a {
+    color: $color-blue;
+    transition: color 300ms ease;
+
+    &:hover {
+      color: $color-blue-fade;
     }
   }
 

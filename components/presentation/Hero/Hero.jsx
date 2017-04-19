@@ -10,18 +10,20 @@
 
 import React from 'react';
 
-const Hero = ({imgSrc, videoSrc, title, subtitle}) => {
+const Hero = ({imgSrc, videoSrc, title, subtitle, modifiers}) => {
+
+  let video = '';
+  let heroStyle = {};
 
   videoSrc = videoSrc ? "./../assets/video/" + videoSrc : false;
+  video = <video autoPlay loop><source src={videoSrc} type="video/mp4" /></video>;
 
-  const video = <video autoPlay loop><source src={videoSrc} type="video/mp4" /></video>;
-  const heroStyle = {
-    backgroundImage: 'url(/assets/images/hero/' + imgSrc + ')'
-  };
+  if (imgSrc) heroStyle.backgroundImage = 'url(/assets/images/hero/' + imgSrc + ')';
+  if (modifiers && modifiers.height) heroStyle.height = modifiers.height;
 
   if (videoSrc) {
     return (
-      <div className="cpnt-hero">
+      <div className="cpnt-hero" style={heroStyle}>
         {video}
         <h1>
           {title}

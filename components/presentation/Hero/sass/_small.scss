@@ -5,8 +5,8 @@ Description...
 
 
 .page-nav-active .cpnt-hero {
-  filter: blur(6px);
-  transform: scale(1.1);
+  // filter: blur(6px);
+  // transform: scale(1.1);
 }
 
 .cpnt-hero {
@@ -67,25 +67,25 @@ Description...
 
 
   &.hero-enter {
-    filter: blur(6px);
-    transform: scale(1.1);
+    // filter: blur(6px);
+    // transform: scale(1.1);
   }
 
   &.hero-enter.hero-enter-active {
-    filter: blur(0);
-    transform: scale(1);
-    transition-duration: 500ms;
+    // filter: blur(0);
+    // // transform: scale(1);
+    // transition-duration: 500ms;
   }
 
   &.hero-leave {
-    filter: blur(0);
-    transform: scale(1);
+    // filter: blur(0);
+    // transform: scale(1);
   }
 
   &.hero-leave.hero-leave-active {
-    filter: blur(6px);
-    transform: scale(1.1);
-    transition-duration: 300ms;
+    // filter: blur(6px);
+    // // transform: scale(1.1);
+    // transition-duration: 300ms;
   }
 
 }

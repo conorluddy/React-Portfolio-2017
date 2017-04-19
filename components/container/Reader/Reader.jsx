@@ -85,15 +85,25 @@ class Reader extends React.Component {
     let subtitle;
     let imgSrc;
     let videoSrc;
+    let modifiers = {};
 
     if (meta && (meta.heroImage || meta.heroVideo)) {
 
       title = meta.heroTitle ? <strong className="-white">{meta.heroTitle}</strong> : '';
       subtitle = meta.heroSubtitle ? <span>{meta.heroSubtitle}</span> : '';
+
       imgSrc = meta.heroImage ? meta.heroImage : false;
       videoSrc = meta.heroVideo ? meta.heroVideo : false;
 
-      return <Hero imgSrc={imgSrc} videoSrc={videoSrc} title={title} subtitle={subtitle} darken="40" />;
+      if (meta.heroHeight === 'half') {
+        modifiers.height = '50vh';
+      }
+
+      if (meta.heroDarken) {
+        modifiers.heroDarken = meta.heroDarken;
+      }
+
+      return <Hero imgSrc={imgSrc} videoSrc={videoSrc} title={title} subtitle={subtitle} modifiers={modifiers} />;
     }
 
     return '';
