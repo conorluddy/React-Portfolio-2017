@@ -10,6 +10,9 @@
 
 import React from 'react';
 import mMarked from 'meta-marked';
+
+import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+
 import fetchMd from '../../../modules/fetch-md.js';
 import Hero from '../../presentation/Hero/Hero.jsx';
 import ReaderContent from '../../presentation/ReaderContent/ReaderContent.jsx';
@@ -55,7 +58,7 @@ class Reader extends React.Component {
   getContent(path) {
     //TODO: improved path generation
     //ToDo: Check if this has already been fetched before... cache etc...
-    console.info('Getting page content...');
+    console.info('Fetching page content...');
 
     fetchMd('./../content' + path + '.md')
       .then((md) => {
@@ -118,7 +121,9 @@ class Reader extends React.Component {
     return (
       <div className="cpnt-reader">
 
-        {this.iNeedAHero(this.state.meta)}
+        <CSSTransitionGroup transitionName="hero" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
+            {this.iNeedAHero(this.state.meta)}
+        </CSSTransitionGroup>
 
         <ReaderContent content={this.state.content} />
 

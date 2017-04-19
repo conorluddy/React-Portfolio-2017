@@ -538,7 +538,12 @@ Description...
 
 Description...
 */
+.page-nav-active .cpnt-hero {
+  filter: blur(6px);
+  transform: scale(1.1); }
+
 .cpnt-hero {
+  transition: filter 1500ms linear, transform 1500ms linear;
   background: #0a0a0a;
   background-size: cover;
   width: 100%;
@@ -580,6 +585,20 @@ Description...
     left: 0;
     z-index: 0;
     position: absolute; }
+  .cpnt-hero.hero-enter {
+    filter: blur(6px);
+    transform: scale(1.1); }
+  .cpnt-hero.hero-enter.hero-enter-active {
+    filter: blur(0);
+    transform: scale(1);
+    transition-duration: 500ms; }
+  .cpnt-hero.hero-leave {
+    filter: blur(0);
+    transform: scale(1); }
+  .cpnt-hero.hero-leave.hero-leave-active {
+    filter: blur(6px);
+    transform: scale(1.1);
+    transition-duration: 300ms; }
 
 /* Component: Loading: small screen size.
 
@@ -873,10 +892,6 @@ Description...
     font-size: 12px;
     font-weight: 300; }
 
-/* Component: Reader: small screen size. 
-
-Description... 
-*/
 /* Component: ReaderContent: small screen size.
 
 Description...
@@ -911,6 +926,19 @@ Description...
     column-count: 2;
     column-gap: 40px;
     text-align: justify; }
+  .cpnt-reader-content.animate {
+    animation-name: reader-intro;
+    animation-duration: 1500ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear; }
+
+@keyframes reader-intro {
+  0% {
+    filter: blur(20px);
+    opacity: 0; }
+  100% {
+    filter: blur(0);
+    opacity: 1; } }
 
 /* Component: RouteDevelopment: small screen size. 
 
@@ -958,10 +986,6 @@ Description...
 
 Description... 
 */
-/* Component: Reader: medium screen size. 
-
-Description... 
-*/
 /* Component: ReaderContent: medium screen size. 
 
 Description... 
@@ -1004,10 +1028,6 @@ Description...
 Description... 
 */
 /* Component: PageProgress: large screen size. 
-
-Description... 
-*/
-/* Component: Reader: large screen size. 
 
 Description... 
 */

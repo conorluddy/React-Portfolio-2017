@@ -24,6 +24,7 @@ class Navigation extends React.Component {
       section: 'landing',
       transparency: 90
     };
+    props.setNavActive(1);
 
     this.setSectionDevelopment = this.setSectionDevelopment.bind(this);
     this.setSectionPhotography = this.setSectionPhotography.bind(this);
@@ -38,6 +39,7 @@ class Navigation extends React.Component {
     } else {
       this.clearSection();
     }
+    this.props.setNavActive(1);
   }
 
   setSectionPhotography() {
@@ -46,6 +48,7 @@ class Navigation extends React.Component {
     } else {
       this.clearSection();
     }
+    this.props.setNavActive(1);
   }
 
   setSectionLanding() {
@@ -54,14 +57,17 @@ class Navigation extends React.Component {
     } else {
       this.clearSection();
     }
+    this.props.setNavActive(1);
   }
 
   stashNav() {
     this.setState({section: null});
+    this.props.setNavActive(0);
   }
 
   clearSection() {
     this.setState({section: 'landing'});
+    this.props.setNavActive(1);
   }
 
   getClassNames() {
