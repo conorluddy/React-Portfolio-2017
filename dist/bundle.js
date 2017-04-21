@@ -9070,11 +9070,14 @@ var Hero = function Hero(_ref) {
       videoSrc = _ref.videoSrc,
       title = _ref.title,
       subtitle = _ref.subtitle,
-      modifiers = _ref.modifiers;
+      modifiers = _ref.modifiers,
+      scrollPosition = _ref.scrollPosition;
 
 
   var video = '';
   var heroStyle = {};
+  var imgStyle = {};
+  var heroImg = "/assets/images/hero/" + imgSrc;
 
   videoSrc = videoSrc ? "./../assets/video/" + videoSrc : false;
   video = _react2.default.createElement(
@@ -9083,8 +9086,9 @@ var Hero = function Hero(_ref) {
     _react2.default.createElement('source', { src: videoSrc, type: 'video/mp4' })
   );
 
-  if (imgSrc) heroStyle.backgroundImage = 'url(/assets/images/hero/' + imgSrc + ')';
   if (modifiers && modifiers.height) heroStyle.height = modifiers.height;
+
+  imgStyle.transform = 'translate3D(0,' + scrollPosition / 5 + 'px,0)';
 
   if (videoSrc) {
     return _react2.default.createElement(
@@ -9103,6 +9107,7 @@ var Hero = function Hero(_ref) {
     return _react2.default.createElement(
       'div',
       { className: 'cpnt-hero', style: heroStyle },
+      _react2.default.createElement('img', { src: heroImg, alt: title, style: imgStyle }),
       _react2.default.createElement(
         'h1',
         null,
@@ -13786,6 +13791,7 @@ var Navigation = function (_React$Component) {
     _this.setSectionDevelopment = _this.setSectionDevelopment.bind(_this);
     _this.setSectionPhotography = _this.setSectionPhotography.bind(_this);
     _this.setSectionLanding = _this.setSectionLanding.bind(_this);
+    _this.setSectionBiased = _this.setSectionBiased.bind(_this);
     _this.clearSection = _this.clearSection.bind(_this);
     _this.stashNav = _this.stashNav.bind(_this);
     return _this;
@@ -13810,6 +13816,17 @@ var Navigation = function (_React$Component) {
         this.clearSection();
       }
       this.props.setNavActive(1);
+    }
+  }, {
+    key: 'setSectionBiased',
+    value: function setSectionBiased() {
+      if (this.props.routeSection === 'dev') {
+        this.setSectionDevelopment();
+      } else if (this.props.routeSection === 'photo') {
+        this.setSectionPhotography();
+      } else {
+        this.setSectionLanding();
+      }
     }
   }, {
     key: 'setSectionLanding',
@@ -13888,7 +13905,7 @@ var Navigation = function (_React$Component) {
       }
 
       if (!this.state.section) {
-        sectionNav = _react2.default.createElement(_TriggerArrow2.default, { handleClick: this.setSectionLanding, nsew: 'nw' });
+        sectionNav = _react2.default.createElement(_TriggerArrow2.default, { handleClick: this.setSectionBiased, nsew: 'nw' });
       } else if (this.state.section === 'development') {
         sectionNav = _react2.default.createElement(_NavigationSection2.default, { section: this.state.section, navList: devNavItems, clearSection: this.clearSection, stashNav: this.stashNav, side: 'right' });
       } else if (this.state.section === 'photography') {
@@ -13979,10 +13996,12 @@ var Nucleus = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      var section = this.props.location.pathname.toLowerCase().indexOf('photography') > -1 ? 'photo' : 'dev';
+
       return _react2.default.createElement(
         'div',
         { className: this.getClassNames() },
-        _react2.default.createElement(_Navigation2.default, { tree: _tree2.default, setNavActive: this.setNavActive }),
+        _react2.default.createElement(_Navigation2.default, { tree: _tree2.default, setNavActive: this.setNavActive, routeSection: section }),
         this.props.children
       );
     }
@@ -14084,7 +14103,7 @@ var Reader = function (_React$Component) {
   _createClass(Reader, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      this.setState({ intrvl: setInterval(this.updateProgress.bind(this), 1000 / 10) });
+      this.setState({ intrvl: setInterval(this.updateProgress.bind(this), 1000 / 40) });
     }
   }, {
     key: 'componentWillUnmount',
@@ -14148,15 +14167,23 @@ var Reader = function (_React$Component) {
         imgSrc = meta.heroImage ? meta.heroImage : false;
         videoSrc = meta.heroVideo ? meta.heroVideo : false;
 
+        if (meta.heroHeight === 'one-third') {
+          modifiers.height = '33vh';
+        }
+
         if (meta.heroHeight === 'half') {
           modifiers.height = '50vh';
+        }
+
+        if (meta.heroHeight === 'two-thirds') {
+          modifiers.height = '66vh';
         }
 
         if (meta.heroDarken) {
           modifiers.heroDarken = meta.heroDarken;
         }
 
-        return _react2.default.createElement(_Hero2.default, { imgSrc: imgSrc, videoSrc: videoSrc, title: title, subtitle: subtitle, modifiers: modifiers });
+        return _react2.default.createElement(_Hero2.default, { imgSrc: imgSrc, videoSrc: videoSrc, title: title, subtitle: subtitle, modifiers: modifiers, scrollPosition: this.state.scrollPosition });
       }
 
       return '';
@@ -14164,7 +14191,7 @@ var Reader = function (_React$Component) {
   }, {
     key: 'getScrollPos',
     value: function getScrollPos() {
-      var scroll = window.scrollY;;
+      var scroll = window.scrollY;
       var windowHeight = window.innerHeight;
       var docHeight = window.document.documentElement.clientHeight;
       return scroll / (docHeight - windowHeight) * 100;
@@ -14172,8 +14199,13 @@ var Reader = function (_React$Component) {
   }, {
     key: 'updateProgress',
     value: function updateProgress() {
-      var progress = Math.round(this.getScrollPos());
-      this.setState({ scrollProgress: progress });
+      var progress = Math.floor(this.getScrollPos());
+      var position = Math.floor(window.scrollY);
+
+      this.setState({
+        scrollProgress: progress,
+        scrollPosition: position
+      });
     }
   }, {
     key: 'render',
@@ -14273,20 +14305,15 @@ var NavOverlay = function NavOverlay(_ref) {
     _react2.default.createElement(_Grip2.default, null),
     sectionNav
   );
-};
-
-//NavOverlay.propTypes = { children: React.PropTypes.string };
-//NavOverlay.defaultProps = { children: 'Hello World!' };
-
-/*
-  NavOverlay
-  Stateless Presentation Component
-
-  Component description...
-
-  To import this elsewhere (directory nesting level may vary):
-  import NavOverlay from '../../NavOverlay/NavOverlay.jsx';
-*/
+}; /*
+     NavOverlay
+     Stateless Presentation Component
+   
+     Component description...
+   
+     To import this elsewhere (directory nesting level may vary):
+     import NavOverlay from '../../NavOverlay/NavOverlay.jsx';
+   */
 
 exports.default = NavOverlay;
 
@@ -41368,7 +41395,13 @@ module.exports = {
 				{
 					"path": "content/development/about.md",
 					"name": "about.md",
-					"size": 908,
+					"size": 1734,
+					"extension": ".md"
+				},
+				{
+					"path": "content/development/kitchensink.md",
+					"name": "kitchensink.md",
+					"size": 6208,
 					"extension": ".md"
 				},
 				{
@@ -41376,15 +41409,9 @@ module.exports = {
 					"name": "resume.md",
 					"size": 6098,
 					"extension": ".md"
-				},
-				{
-					"path": "content/development/this-site.md",
-					"name": "this-site.md",
-					"size": 6208,
-					"extension": ".md"
 				}
 			],
-			"size": 13214
+			"size": 14040
 		},
 		{
 			"path": "content/photography",
@@ -41419,12 +41446,24 @@ module.exports = {
 					"name": "landscape.md",
 					"size": 3182,
 					"extension": ".md"
+				},
+				{
+					"path": "content/photography/travel.md",
+					"name": "travel.md",
+					"size": 3182,
+					"extension": ".md"
+				},
+				{
+					"path": "content/photography/video.md",
+					"name": "video.md",
+					"size": 57,
+					"extension": ".md"
 				}
 			],
-			"size": 18960
+			"size": 22199
 		}
 	],
-	"size": 32174
+	"size": 36239
 };
 
 /***/ }),

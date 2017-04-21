@@ -43,7 +43,7 @@ class Reader extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({intrvl: setInterval( this.updateProgress.bind(this), 1000/10 ) });
+    this.setState({intrvl: setInterval( this.updateProgress.bind(this), 1000/40 ) });
   }
 
   componentWillUnmount() {
@@ -95,15 +95,23 @@ class Reader extends React.Component {
       imgSrc = meta.heroImage ? meta.heroImage : false;
       videoSrc = meta.heroVideo ? meta.heroVideo : false;
 
+      if (meta.heroHeight === 'one-third') {
+        modifiers.height = '33vh';
+      }
+
       if (meta.heroHeight === 'half') {
         modifiers.height = '50vh';
+      }
+
+      if (meta.heroHeight === 'two-thirds') {
+        modifiers.height = '66vh';
       }
 
       if (meta.heroDarken) {
         modifiers.heroDarken = meta.heroDarken;
       }
 
-      return <Hero imgSrc={imgSrc} videoSrc={videoSrc} title={title} subtitle={subtitle} modifiers={modifiers} />;
+      return <Hero imgSrc={imgSrc} videoSrc={videoSrc} title={title} subtitle={subtitle} modifiers={modifiers} scrollPosition={this.state.scrollPosition} />;
     }
 
     return '';
@@ -111,7 +119,7 @@ class Reader extends React.Component {
 
 
   getScrollPos() {
-    let scroll = window.scrollY;;
+    let scroll = window.scrollY;
     let windowHeight = window.innerHeight;
     let docHeight = window.document.documentElement.clientHeight;
     return (scroll / (docHeight - windowHeight)) * 100;
@@ -119,8 +127,13 @@ class Reader extends React.Component {
 
 
   updateProgress() {
-    let progress = Math.round( this.getScrollPos() );
-    this.setState({ scrollProgress: progress });
+    let progress = Math.floor( this.getScrollPos() );
+    let position = Math.floor( window.scrollY );
+
+    this.setState({
+      scrollProgress: progress,
+      scrollPosition: position
+    });
   }
 
 

@@ -44,7 +44,5 @@ const NavOverlay = ({className, setSectionDevelopment, setSectionPhotography, se
   )
 };
 
-//NavOverlay.propTypes = { children: React.PropTypes.string };
-//NavOverlay.defaultProps = { children: 'Hello World!' };
 
 export default NavOverlay;

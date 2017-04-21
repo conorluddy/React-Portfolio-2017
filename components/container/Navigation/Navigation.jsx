@@ -27,6 +27,7 @@ class Navigation extends React.Component {
     this.setSectionDevelopment = this.setSectionDevelopment.bind(this);
     this.setSectionPhotography = this.setSectionPhotography.bind(this);
     this.setSectionLanding = this.setSectionLanding.bind(this);
+    this.setSectionBiased = this.setSectionBiased.bind(this);
     this.clearSection = this.clearSection.bind(this);
     this.stashNav = this.stashNav.bind(this);
   }
@@ -47,6 +48,16 @@ class Navigation extends React.Component {
       this.clearSection();
     }
     this.props.setNavActive(1);
+  }
+
+  setSectionBiased() {
+    if (this.props.routeSection === 'dev') {
+      this.setSectionDevelopment();
+    } else if (this.props.routeSection === 'photo') {
+      this.setSectionPhotography();
+    } else {
+      this.setSectionLanding();
+    }
   }
 
   setSectionLanding() {
@@ -119,7 +130,7 @@ class Navigation extends React.Component {
     }
 
     if (!this.state.section) {
-      sectionNav = <TriggerArrow handleClick={this.setSectionLanding} nsew='nw' />
+      sectionNav = <TriggerArrow handleClick={this.setSectionBiased} nsew='nw' />
     } else if (this.state.section === 'development') {
       sectionNav = <NavigationSection section={this.state.section} navList={devNavItems} clearSection={this.clearSection} stashNav={this.stashNav} side='right' />;
     } else if (this.state.section === 'photography') {

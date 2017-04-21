@@ -18,7 +18,11 @@ Description...
     color: grey(94);
     position: relative;
     font-weight: normal;//To be overridden with md **
+  }
 
+  h1,
+  h2 {
+    position: relative;
     &:before {
       content: '';
       position: absolute;

@@ -32,10 +32,12 @@ class Nucleus extends React.Component {
   }
 
   render() {
+    const section = this.props.location.pathname.toLowerCase().indexOf('photography') > -1 ? 'photo' : 'dev';
+
     return (
       <div className={this.getClassNames()}>
 
-        <Navigation tree={ContentTree} setNavActive={this.setNavActive} />
+        <Navigation tree={ContentTree} setNavActive={this.setNavActive} routeSection={section} />
 
         {this.props.children}
 
