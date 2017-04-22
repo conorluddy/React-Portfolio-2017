@@ -10,6 +10,30 @@ Description...
     // @include grid-push();
   }
 
+
+  > * {
+    @include grid-column(12);
+    @include grid-push(3);
+  }
+
+
+  .wide-image {
+    @include grid-column(18);
+    @include grid-push(0);
+
+    img {
+      width: 100%;
+    }
+  }
+
+
+
+
+
+
+
+
+
   .neat {
     @include grid-container;
     @include grid-collapse;
