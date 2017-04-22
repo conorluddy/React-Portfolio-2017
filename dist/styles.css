@@ -553,16 +553,27 @@ Description...
   position: relative;
   z-index: -1;
   overflow: hidden; }
+  .cpnt-hero::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: white;
+    background-blend-mode: overlay;
+    mix-blend-mode: overlay;
+    content: ''; }
   .cpnt-hero h1 {
     color: #eeff00;
     text-transform: uppercase;
     font-weight: 100;
-    font-size: 5.625rem;
+    font-size: 11.25rem;
     line-height: 5.625rem;
     margin: auto;
-    z-index: 10; }
+    z-index: 10;
+    mix-blend-mode: overlay; }
     .cpnt-hero h1 strong {
-      font-weight: 500; }
+      font-weight: 600; }
   .cpnt-hero video,
   .cpnt-hero img {
     width: 100%;
@@ -616,7 +627,8 @@ Description...
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh; }
+  height: 100vh;
+  transition: background-color 300ms cubic-bezier(0.32, 0.9, 0.68, 0.98); }
   .cpnt-nav-overlay.is-stashed {
     top: 0;
     left: 0;
@@ -628,8 +640,9 @@ Description...
     position: absolute;
     top: 0;
     bottom: 0;
+    z-index: 0;
     width: 50%;
-    color: rgba(216, 216, 216, 0.65); }
+    color: rgba(216, 216, 216, 0.95); }
     .cpnt-nav-overlay .initial-opt h2 {
       font-size: 2.625rem;
       position: absolute;
@@ -839,22 +852,18 @@ to replace it with a component description :)
 @keyframes nav-section-inner-intro-left {
   0% {
     opacity: 0;
-    transform: translateX(-120px);
-    filter: blur(20px); }
+    transform: translateX(-120px); }
   100% {
     opacity: 1;
-    transform: translateX(0);
-    filter: blur(0); } }
+    transform: translateX(0); } }
 
 @keyframes nav-section-inner-intro-right {
   0% {
     opacity: 0;
-    transform: translateX(120px);
-    filter: blur(20px); }
+    transform: translateX(120px); }
   100% {
     opacity: 1;
-    transform: translateX(0);
-    filter: blur(0); } }
+    transform: translateX(0); } }
 
 /* Component: PageProgress: small screen size.
 
@@ -867,7 +876,7 @@ Description...
   right: 0;
   height: 6px;
   background: #eeff00;
-  transition: transform 500ms cubic-bezier(0.32, 0.9, 0.68, 0.98);
+  transition: transform 500ms cubic-bezier(0.32, 0.9, 0.68, 0.98), background-color 500ms cubic-bezier(0.32, 0.9, 0.68, 0.98);
   border-right: solid 2px #323232; }
   .cpnt-page-progress span {
     position: absolute;
@@ -875,6 +884,12 @@ Description...
     bottom: 6px;
     font-size: 12px;
     font-weight: 300; }
+  .cpnt-page-progress strong {
+    color: #c8c8c8; }
+  .cpnt-page-progress.-begin {
+    background-color: #25a0ff; }
+  .cpnt-page-progress.-fin {
+    background-color: #25a0ff; }
 
 /* Component: ReaderContent: small screen size.
 
@@ -886,11 +901,17 @@ Description...
   .cpnt-reader-content h2:first-child {
     font-size: 6.25rem;
     color: #5e5e5e;
-    position: relative;
-    font-weight: normal; }
+    position: relative; }
   .cpnt-reader-content h1,
   .cpnt-reader-content h2 {
-    position: relative; }
+    position: relative;
+    font-weight: 200;
+    text-transform: uppercase; }
+    .cpnt-reader-content h1 strong,
+    .cpnt-reader-content h1 b,
+    .cpnt-reader-content h2 strong,
+    .cpnt-reader-content h2 b {
+      font-weight: 600; }
     .cpnt-reader-content h1:before,
     .cpnt-reader-content h2:before {
       content: '';
@@ -910,6 +931,9 @@ Description...
   .cpnt-reader-content p {
     font-size: 1.25rem;
     line-height: 1.75rem; }
+  .cpnt-reader-content img {
+    max-width: 100%;
+    margin-bottom: 20px; }
   .cpnt-reader-content .-wide-cols {
     width: calc(100% - 40px);
     float: left;
@@ -954,6 +978,10 @@ Description...
   z-index: 100;
   position: relative; }
 
+/* Component: TriggerMenu: small screen size. 
+
+Description... 
+*/
 /* Medium component SCSS ==================================================== */
 /* Component: Grip: medium screen size. 
 
@@ -999,6 +1027,10 @@ Description...
 
 Description... 
 */
+/* Component: TriggerMenu: medium screen size. 
+
+Description... 
+*/
 /* Large component SCSS ==================================================== */
 /* Component: Grip: large screen size. 
 
@@ -1029,111 +1061,90 @@ Description...
 Description...
 */
 .cpnt-reader-content .inner {
-  width: calc(75% - 35px);
-  float: left;
-  margin-left: 20px;
-  margin-left: calc(8.33333% - 21.66667px + 40px); }
-
-.cpnt-reader-content .neat::after {
-  clear: both;
-  content: "";
-  display: block; }
-
-.cpnt-reader-content .neat .c-1 {
-  width: calc(8.33333% - 21.66667px);
-  float: left;
-  margin-left: 20px; }
-
-.cpnt-reader-content .neat .c-2 {
-  width: calc(16.66667% - 23.33333px);
-  float: left;
-  margin-left: 20px; }
-
-.cpnt-reader-content .neat .c-3 {
-  width: calc(25% - 25px);
-  float: left;
-  margin-left: 20px; }
-
-.cpnt-reader-content .neat .c-4 {
-  width: calc(33.33333% - 26.66667px);
-  float: left;
-  margin-left: 20px; }
-
-.cpnt-reader-content .neat .c-5 {
-  width: calc(41.66667% - 28.33333px);
-  float: left;
-  margin-left: 20px; }
-
-.cpnt-reader-content .neat .c-6 {
-  width: calc(50% - 30px);
-  float: left;
-  margin-left: 20px; }
-
-.cpnt-reader-content .neat .c-7 {
-  width: calc(58.33333% - 31.66667px);
-  float: left;
-  margin-left: 20px; }
-
-.cpnt-reader-content .neat .c-8 {
-  width: calc(66.66667% - 33.33333px);
-  float: left;
-  margin-left: 20px; }
-
-.cpnt-reader-content .neat .c-9 {
-  width: calc(75% - 35px);
-  float: left;
-  margin-left: 20px; }
-
-.cpnt-reader-content .neat .c-10 {
-  width: calc(83.33333% - 36.66667px);
-  float: left;
-  margin-left: 20px; }
-
-.cpnt-reader-content .neat .c-11 {
-  width: calc(91.66667% - 38.33333px);
-  float: left;
-  margin-left: 20px; }
-
-.cpnt-reader-content .neat .c-12 {
   width: calc(100% - 40px);
   float: left;
   margin-left: 20px; }
 
-.cpnt-reader-content .neat .push-1 {
-  margin-left: calc(8.33333% - 21.66667px + 40px); }
-
-.cpnt-reader-content .neat .push-2 {
-  margin-left: calc(16.66667% - 23.33333px + 40px); }
-
-.cpnt-reader-content .neat .push-3 {
-  margin-left: calc(25% - 25px + 40px); }
-
-.cpnt-reader-content .neat .push-4 {
-  margin-left: calc(33.33333% - 26.66667px + 40px); }
-
-.cpnt-reader-content .neat .push-5 {
-  margin-left: calc(41.66667% - 28.33333px + 40px); }
-
-.cpnt-reader-content .neat .push-6 {
-  margin-left: calc(50% - 30px + 40px); }
-
-.cpnt-reader-content .neat .pull-1 {
-  margin-left: calc(-8.33333% - 18.33333px + 40px); }
-
-.cpnt-reader-content .neat .pull-2 {
-  margin-left: calc(-16.66667% - 16.66667px + 40px); }
-
-.cpnt-reader-content .neat .pull-3 {
-  margin-left: calc(-25% - 15px + 40px); }
-
-.cpnt-reader-content .neat .pull-4 {
-  margin-left: calc(-33.33333% - 13.33333px + 40px); }
-
-.cpnt-reader-content .neat .pull-5 {
-  margin-left: calc(-41.66667% - 11.66667px + 40px); }
-
-.cpnt-reader-content .neat .pull-6 {
-  margin-left: calc(-50% - 10px + 40px); }
+.cpnt-reader-content .neat {
+  margin-left: -20px;
+  margin-right: -20px;
+  width: calc(100% + 40px); }
+  .cpnt-reader-content .neat::after {
+    clear: both;
+    content: "";
+    display: block; }
+  .cpnt-reader-content .neat .c-1 {
+    width: calc(8.33333% - 21.66667px);
+    float: left;
+    margin-left: 20px; }
+  .cpnt-reader-content .neat .c-2 {
+    width: calc(16.66667% - 23.33333px);
+    float: left;
+    margin-left: 20px; }
+  .cpnt-reader-content .neat .c-3 {
+    width: calc(25% - 25px);
+    float: left;
+    margin-left: 20px; }
+  .cpnt-reader-content .neat .c-4 {
+    width: calc(33.33333% - 26.66667px);
+    float: left;
+    margin-left: 20px; }
+  .cpnt-reader-content .neat .c-5 {
+    width: calc(41.66667% - 28.33333px);
+    float: left;
+    margin-left: 20px; }
+  .cpnt-reader-content .neat .c-6 {
+    width: calc(50% - 30px);
+    float: left;
+    margin-left: 20px; }
+  .cpnt-reader-content .neat .c-7 {
+    width: calc(58.33333% - 31.66667px);
+    float: left;
+    margin-left: 20px; }
+  .cpnt-reader-content .neat .c-8 {
+    width: calc(66.66667% - 33.33333px);
+    float: left;
+    margin-left: 20px; }
+  .cpnt-reader-content .neat .c-9 {
+    width: calc(75% - 35px);
+    float: left;
+    margin-left: 20px; }
+  .cpnt-reader-content .neat .c-10 {
+    width: calc(83.33333% - 36.66667px);
+    float: left;
+    margin-left: 20px; }
+  .cpnt-reader-content .neat .c-11 {
+    width: calc(91.66667% - 38.33333px);
+    float: left;
+    margin-left: 20px; }
+  .cpnt-reader-content .neat .c-12 {
+    width: calc(100% - 40px);
+    float: left;
+    margin-left: 20px; }
+  .cpnt-reader-content .neat .push-1 {
+    margin-left: calc(8.33333% - 21.66667px + 40px); }
+  .cpnt-reader-content .neat .push-2 {
+    margin-left: calc(16.66667% - 23.33333px + 40px); }
+  .cpnt-reader-content .neat .push-3 {
+    margin-left: calc(25% - 25px + 40px); }
+  .cpnt-reader-content .neat .push-4 {
+    margin-left: calc(33.33333% - 26.66667px + 40px); }
+  .cpnt-reader-content .neat .push-5 {
+    margin-left: calc(41.66667% - 28.33333px + 40px); }
+  .cpnt-reader-content .neat .push-6 {
+    margin-left: calc(50% - 30px + 40px); }
+  .cpnt-reader-content .neat .pull-1 {
+    margin-left: calc(-8.33333% - 18.33333px + 40px); }
+  .cpnt-reader-content .neat .pull-2 {
+    margin-left: calc(-16.66667% - 16.66667px + 40px); }
+  .cpnt-reader-content .neat .pull-3 {
+    margin-left: calc(-25% - 15px + 40px); }
+  .cpnt-reader-content .neat .pull-4 {
+    margin-left: calc(-33.33333% - 13.33333px + 40px); }
+  .cpnt-reader-content .neat .pull-5 {
+    margin-left: calc(-41.66667% - 11.66667px + 40px); }
+  .cpnt-reader-content .neat .pull-6 {
+    margin-left: calc(-50% - 10px + 40px); }
 
 /* Component: RouteDevelopment: large screen size. 
 
@@ -1148,6 +1159,10 @@ Description...
 Description... 
 */
 /* Component: TriggerArrow: large screen size. 
+
+Description... 
+*/
+/* Component: TriggerMenu: large screen size. 
 
 Description... 
 */

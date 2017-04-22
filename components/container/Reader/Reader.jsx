@@ -10,7 +10,6 @@
 
 import React from 'react';
 import mMarked from 'meta-marked';
-
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 
 import fetchMd from '../../../modules/fetch-md.js';
@@ -43,7 +42,10 @@ class Reader extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({intrvl: setInterval( this.updateProgress.bind(this), 1000/40 ) });
+    //No interval until content stops updating!
+    // this.setState({
+    //   intrvl: setInterval(this.updateProgress.bind(this), 1000/40)
+    // });
   }
 
   componentWillUnmount() {
@@ -141,6 +143,8 @@ class Reader extends React.Component {
     let barPosition = this.state.scrollProgress - 100;
     let translateX = 'translateX(' + barPosition + '%)';
 
+    // console.log('READER RENDER');
+
     return (
       <div className="cpnt-reader">
 
@@ -148,6 +152,8 @@ class Reader extends React.Component {
             {this.iNeedAHero(this.state.meta)}
         </CSSTransitionGroup>
 
+
+        //this is updating with setinterval. fix
         <ReaderContent content={this.state.content} />
 
         <PageProgress translateX={translateX} scrollProgress={this.state.scrollProgress} />

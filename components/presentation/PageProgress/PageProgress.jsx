@@ -12,14 +12,23 @@ import React from 'react';
 
 const PageProgress = ({translateX, scrollProgress}) => {
 
+  function getClassNames(baseName) {
+    if (scrollProgress < 25) {
+      baseName += ' -begin';
+    }
+    if (scrollProgress > 98) {
+      baseName += ' -fin';
+    }
+    return baseName;
+  }
+
+  let text = scrollProgress === 100 ? 'THANKS FOR READING!' : 'READ PROGRESS';
+
   return (
-    <div className="cpnt-page-progress" style={{transform: translateX}} >
-      <span>{scrollProgress}%</span>
+    <div className={getClassNames("cpnt-page-progress")} style={{transform: translateX}} >
+      <span><strong>{text} // </strong>{scrollProgress}%</span>
     </div>
   )
 };
-
-//PageProgress.propTypes = { children: React.PropTypes.string };
-//PageProgress.defaultProps = { children: 'Hello World!' };
 
 export default PageProgress;

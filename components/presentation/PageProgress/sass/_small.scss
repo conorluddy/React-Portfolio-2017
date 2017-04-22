@@ -10,7 +10,7 @@ Description...
   right: 0;
   height: 6px;
   background: $color-fluro;
-  transition: transform 500ms $water-kick;
+  transition: transform 500ms $water-kick, background-color 500ms $water-kick;
   border-right: solid 2px grey(50);
 
   span {
@@ -19,5 +19,17 @@ Description...
     bottom: 6px;
     font-size: 12px;
     font-weight: 300;
+  }
+
+  strong {
+    color: grey(200);    
+  }
+
+  &.-begin {
+    background-color: $color-blue;
+  }
+
+  &.-fin {
+    background-color: $color-blue;
   }
 }

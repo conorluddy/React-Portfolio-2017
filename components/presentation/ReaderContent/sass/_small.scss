@@ -17,12 +17,23 @@ Description...
     font-size: rem(100);
     color: grey(94);
     position: relative;
-    font-weight: normal;//To be overridden with md **
+
+    // &:before {
+    //   mix-blend-mode: exclusion;
+    // }
   }
 
   h1,
   h2 {
     position: relative;
+    font-weight: 200;
+    text-transform: uppercase;
+
+    strong,
+    b {
+      font-weight: 600;
+    }
+
     &:before {
       content: '';
       position: absolute;
@@ -48,6 +59,11 @@ Description...
   p {
     font-size: rem(20);
     line-height: rem(28);
+  }
+
+  img {
+    max-width: 100%;
+    margin-bottom: 20px;
   }
 
   .-wide-cols {

@@ -1,7 +1,6 @@
 ---
 title:  About
 heroTitle:  About
-heroSubtitle: Kitchen Sink
 heroImage:  mockup.jpg
 ---
 
