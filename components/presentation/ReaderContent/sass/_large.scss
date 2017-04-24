@@ -20,12 +20,25 @@ Description...
   .wide-image {
     @include grid-column(18);
     @include grid-push(0);
+    @include grid-collapse;
 
     img {
       width: 100%;
     }
   }
 
+  .image-row {
+    @include grid-column(18);
+    @include grid-push(0);
+    @include grid-collapse;
+
+    display: flex;
+    justify-content: space-between;
+
+    img {
+      flex: 1 1 0;
+    }
+  }
 
 
 

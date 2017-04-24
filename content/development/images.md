@@ -11,7 +11,7 @@ I haven't had my own site for several years now, so I thought it was about time 
 
 
 
-<div component="images" >
+<div component="image-group" >
 ![alt text](../../assets/images/content/work01.jpg "Title")
 ![alt text](../../assets/images/content/work02.jpg "Title")
 ![alt text](../../assets/images/content/work03.jpg "Title")
@@ -19,6 +19,6 @@ I haven't had my own site for several years now, so I thought it was about time 
 
 
 
-<div component="wide-image" >
+<div component="image-wide" >
 ![alt text](../../assets/images/content/work01.jpg "Title")
 </div>

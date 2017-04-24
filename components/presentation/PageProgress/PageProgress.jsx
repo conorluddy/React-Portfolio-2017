@@ -9,26 +9,34 @@
 */
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const PageProgress = ({translateX, scrollProgress}) => {
+const PageProgress = ({}, context) => {
+  let barPosition = context.scrollProgress - 100;
+  let translateX = 'translateX(' + barPosition + '%)';
 
   function getClassNames(baseName) {
-    if (scrollProgress < 25) {
+    if (context.scrollProgress < 25) {
       baseName += ' -begin';
     }
-    if (scrollProgress > 98) {
+    if (context.scrollProgress > 98) {
       baseName += ' -fin';
     }
     return baseName;
   }
 
-  let text = scrollProgress === 100 ? 'THANKS FOR READING!' : 'READ PROGRESS';
+  let text = context.scrollProgress === 100 ? 'THANKS FOR READING!' : 'READ PROGRESS';
 
   return (
     <div className={getClassNames("cpnt-page-progress")} style={{transform: translateX}} >
-      <span><strong>{text} // </strong>{scrollProgress}%</span>
+      <span><strong>{text} // </strong>{context.scrollProgress}%</span>
     </div>
   )
 };
+
+PageProgress.contextTypes = {
+  scrollProgress: PropTypes.number,
+  scrollPosition: PropTypes.number
+}
 
 export default PageProgress;

@@ -10,7 +10,7 @@ Description...
   right: 0;
   height: 6px;
   background: $color-fluro;
-  transition: transform 500ms $water-kick, background-color 500ms $water-kick;
+  transition: transform 400ms $water-kick, background-color 500ms $water-kick;
   border-right: solid 2px grey(50);
 
   span {
@@ -22,7 +22,7 @@ Description...
   }
 
   strong {
-    color: grey(200);    
+    color: grey(200);
   }
 
   &.-begin {

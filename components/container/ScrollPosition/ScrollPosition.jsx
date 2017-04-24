@@ -9,44 +9,66 @@
 */
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class ScrollPosition extends React.Component {
 
   constructor(props) {
     super(props);
 
-    console.log('x');
-    console.log(props);
-    console.log(props.inner);
+    this.state = {
+      scrollProgress: 0,
+      scrollPosition: 0,
+      intrvl: null
+    };
   }
 
-  // // Define how the context looks like
-  // getChildContext: function() {
-  //   return {
-  //     eventBus: this.props.eventBus
-  //   }
-  // }
-  //
-  // // Define types of elements in context
-  // // We define it the same way as `propTypes`
-  // childContextTypes: {
-  //   eventBus: React.PropTypes.object.isRequired
-  // },
+  componentDidMount() {
+    this.setState({
+      intrvl: setInterval(this.updateProgress.bind(this), 1000/60)
+    });
+  }
 
+  componentWillUnmount() {
+    clearInterval(this.state.intrvl);
+  }
+
+  getScrollPos() {
+    let scroll = window.scrollY;
+    let windowHeight = window.innerHeight;
+    let docHeight = window.document.documentElement.clientHeight;
+    return (scroll / (docHeight - windowHeight)) * 100;
+  }
+
+  updateProgress() {
+    let progress = Math.floor( this.getScrollPos() );
+    let position = Math.floor( window.scrollY );
+
+    this.setState({
+      scrollProgress: progress,
+      scrollPosition: position
+    });
+  }
+
+  getChildContext() {
+     return {
+       scrollProgress: this.state.scrollProgress,
+       scrollPosition: this.state.scrollPosition
+     };
+  }
 
   render() {
-
-    // ScrollPosition component
-    // {this.props.children}
-
     return (
       <div className="cpnt-scroll-position">
-
-        {this.props.inner}
-
+        {this.props.children}
       </div>
     );
   }
 }
+
+ScrollPosition.childContextTypes = {
+  scrollProgress: PropTypes.number,
+  scrollPosition: PropTypes.number
+};
 
 export default ScrollPosition;

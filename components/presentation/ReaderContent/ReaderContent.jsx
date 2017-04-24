@@ -12,6 +12,8 @@ import React from 'react';
 import Parser from 'html-react-parser';
 import DomToReact from 'html-react-parser/lib/dom-to-react';
 
+import ScrollPosition from '../../container/ScrollPosition/ScrollPosition.jsx';
+import ImageGroup from '../ContentImageGroup/ContentImageGroup.jsx';
 
 const ReaderContent = ({content}) => {
 
@@ -80,26 +82,30 @@ const ReaderContent = ({content}) => {
   //
   // };
 
-
-
+  console.log('ReaderContent - should only render once per page.');
 
   return (
     <div className="cpnt-reader-content grid-row" >
       {Parser(content, { replace: function(domNode) {
 
-              // if (domNode.attribs) {
-              //     return <span>replaced</span>;
-              // }
-            // if (!domNode.attribs) {
-            //   return domNode;
-            // }
-
-            if (domNode.attribs && domNode.attribs.component === 'images') {
-              return <div> {DomToReact(domNode.children, {})} </div>;
+            if (!domNode.attribs) {
+              return domNode;
             }
 
-            if (domNode.attribs && domNode.attribs.component === 'wide-image') {
-              return <div className="wide-image"> {DomToReact(domNode.children, {})} </div>;
+            if (domNode.attribs && domNode.attribs.component === 'image-group') {
+              return (
+                <ScrollPosition>
+                  <ImageGroup domNode={domNode} />
+                </ScrollPosition>
+              )
+            }
+
+            if (domNode.attribs && domNode.attribs.component === 'image-row') {
+              return <div className="image-row"> {DomToReact(domNode.children)} </div>;
+            }
+
+            if (domNode.attribs && domNode.attribs.component === 'image-wide') {
+              return <div className="wide-image"> {DomToReact(domNode.children)} </div>;
             }
 
       }})}

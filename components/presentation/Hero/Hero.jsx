@@ -9,14 +9,17 @@
 */
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const Hero = ({imgSrc, videoSrc, title, subtitle, modifiers, scrollPosition}) => {
+const Hero = ({imgSrc, videoSrc, title, subtitle, modifiers, scrollPosition}, context) => {
+
+  //TODO - make this work independently of context
 
   let video = '';
   let heroStyle = {};
   let heroImg = "/assets/images/hero/" + imgSrc;
   let parallaxStyle = {
-    transform: 'translate3D(0,' + scrollPosition/5 + 'px,0)'
+    transform: 'translate3D(0,' + context.scrollPosition / 5 + 'px,0)'
   };
 
   videoSrc = videoSrc ? "./../assets/video/" + videoSrc : false;
@@ -48,7 +51,11 @@ const Hero = ({imgSrc, videoSrc, title, subtitle, modifiers, scrollPosition}) =>
       </div>
     )
   }
-
 };
+
+Hero.contextTypes = {
+  scrollProgress: PropTypes.number,
+  scrollPosition: PropTypes.number
+}
 
 export default Hero;
