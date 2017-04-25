@@ -10,8 +10,6 @@ Description...
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(20, 20, 20, .50);
-
 
   &.is-stashed {
     // display: none;
@@ -41,6 +39,11 @@ Description...
       text-align: center;
       width: calc(100vh / 1.5);
       cursor: pointer;
+      opacity: 0;
+      animation-duration: 2500ms;
+      animation-fill-mode: forwards;
+      animation-timing-function: $water-kick;
+      color: RGBA(216,216,216,0);
 
       &:before {
         content: '';
@@ -60,7 +63,8 @@ Description...
       h2 {
         right: 0;
         transform-origin: bottom right;
-        transform: rotate(-90deg);
+        transform: rotate(-90deg) translate3d(-50%, 0, 0);
+        animation-name: nav-overlay-intro-up;
       }
     }
 
@@ -71,7 +75,8 @@ Description...
       h2 {
         left: 0;
         transform-origin: bottom left;
-        transform: rotate(90deg);
+        transform: rotate(90deg) translate3d(-50%, 0, 0);
+        animation-name: nav-overlay-intro-down;
       }
     }
   }
@@ -93,4 +98,37 @@ Description...
   }
 
 
+}
+
+
+@keyframes nav-overlay-intro-up {
+  0% {
+    color: transparent;
+    opacity: 0;
+    transform: rotate(-90deg) translate3d(-50%, 0, 0);
+  }
+  20% {
+    color: rgba(216,216,216,.25);
+  }
+  100% {
+    color: rgba(216,216,216,.75);
+    opacity: 1;
+    transform: rotate(-90deg) translate3d(30%, 0, 0);
+  }
+}
+
+@keyframes nav-overlay-intro-down {
+  0% {
+    color: transparent;
+    opacity: 0;
+    transform: rotate(90deg) translate3d(-50%, 0, 0);
+  }
+  20% {
+    color: rgba(216,216,216,.25);
+  }
+  100% {
+    color: rgba(216,216,216,.75);
+    opacity: 1;
+    transform: rotate(90deg) translate3d(30%, 0, 0);
+  }
 }

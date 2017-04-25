@@ -12,14 +12,14 @@ import React from 'react';
 import Hero from '../Hero/Hero.jsx';
 
 const RouteLanding = () => {
+  //<Hero imgSrc={imgSrc} videoSrc={videoSrc} title={title} subtitle={subtitle} darken="40" />;
+
   return (
     <div className="cpnt-route-landing">
-      <Hero />
+      <Hero videoSrc="landing.mp4" darken="40" />
     </div>
   )
-};
 
-//RouteLanding.propTypes = { children: React.PropTypes.string };
-//RouteLanding.defaultProps = { children: 'Hello World!' };
+};
 
 export default RouteLanding;

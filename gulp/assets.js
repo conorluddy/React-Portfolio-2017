@@ -8,7 +8,7 @@ module.exports = (gulp) => {
     gulp.task('assets', () => {
 
       gulp.src('./assets/**/*')
-        .pipe(gulp.dest('publish/assets/'));
+        .pipe(gulp.dest('dist/assets/'));
 
     });
 };

@@ -10,15 +10,12 @@
 
 import React from 'react';
 
-const RoutePhotography = (props) => {
+const RoutePhotography = ({children}) => {
   return (
     <div className="cpnt-route-photography">
-     {props.children}
+     {children}
     </div>
   )
 };
-
-// RoutePhotography.propTypes = { children: React.PropTypes.string };
-//RoutePhotography.defaultProps = { children: 'Hello World!' };
 
 export default RoutePhotography;

@@ -10,15 +10,12 @@
 
 import React from 'react';
 
-const RouteDevelopment = () => {
+const RouteDevelopment = ({children}) => {
   return (
     <div className="cpnt-route-development">
      {children}
     </div>
   )
 };
-
-RouteDevelopment.propTypes = { children: React.PropTypes.string };
-//RouteDevelopment.defaultProps = { children: 'Hello World!' };
 
 export default RouteDevelopment;

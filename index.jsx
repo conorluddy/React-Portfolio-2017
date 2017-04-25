@@ -14,15 +14,11 @@ render((
       <IndexRoute component={RouteLanding} />
 
       <Route path="photography" component={RoutePhotography} >
-
         <Route path=":slug" component={Reader}/>
-
       </Route>
 
       <Route path="development" component={RouteDevelopment} >
-
         <Route path=":slug" component={Reader}/>
-
       </Route>
 
     </Route>
