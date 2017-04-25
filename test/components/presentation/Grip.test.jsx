@@ -1,0 +1,1 @@
+const Grip = require('../../../components/presentation/Grip.jsx');

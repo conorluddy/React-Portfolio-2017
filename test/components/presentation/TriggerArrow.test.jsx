@@ -1,0 +1,1 @@
+const TriggerArrow = require('../../../components/presentation/TriggerArrow.jsx');

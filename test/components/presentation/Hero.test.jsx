@@ -1,0 +1,1 @@
+const Hero = require('../../../components/presentation/Hero.jsx');

@@ -1,8 +1,8 @@
 ---
-title:   Business
-heroFileName:  'business.jpg'
-heroTitle:   'Business'
-heroSubtitle:   'Offices and shit'
+title: Business
+heroTitle: Business
+heroSubtitle: Offices and shit
+heroVideo: landing.mp4
 ---
 
 <div class="grid-row">

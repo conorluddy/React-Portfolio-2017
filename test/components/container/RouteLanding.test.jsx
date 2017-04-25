@@ -1,0 +1,1 @@
+const RouteLanding = require('../../../components/container/RouteLanding.jsx');

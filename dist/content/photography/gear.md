@@ -1,7 +1,7 @@
 ---
-title:   Gear
-heroFileName:  mockup.jpg
-heroTitle:   Gear
+title:  Gear
+heroTitle:  Gear
+heroImage:  mockup.jpg
 ---
 
 # GitHub Markdown
