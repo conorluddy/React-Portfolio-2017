@@ -1,6 +1,8 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Router, Route, browserHistory, Link, IndexRoute } from 'react-router';
+import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+
 import Nucleus from './components/container/Nucleus/Nucleus.jsx';
 import RouteLanding from './components/presentation/RouteLanding/RouteLanding.jsx';
 import RoutePhotography from './components/presentation/RoutePhotography/RoutePhotography.jsx';

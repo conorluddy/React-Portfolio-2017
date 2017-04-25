@@ -10,18 +10,24 @@
 
 import React from 'react';
 
-const Hero = ({imgSrc, videoSrc, title, subtitle}) => {
+const Hero = ({imgSrc, videoSrc, title, subtitle, modifiers, scrollPosition}) => {
+
+  let video = '';
+  let heroStyle = {};
+  let imgStyle = {};
+  let heroImg = "/assets/images/hero/" + imgSrc;
 
   videoSrc = videoSrc ? "./../assets/video/" + videoSrc : false;
+  video = <video autoPlay loop><source src={videoSrc} type="video/mp4" /></video>;
 
-  const video = <video autoPlay loop><source src={videoSrc} type="video/mp4" /></video>;
-  const heroStyle = {
-    backgroundImage: 'url(/assets/images/hero/' + imgSrc + ')'
-  };
+  if (modifiers && modifiers.height) heroStyle.height = modifiers.height;
+
+  imgStyle.transform = 'translate3D(0,' + scrollPosition/5 + 'px,0)';
+
 
   if (videoSrc) {
     return (
-      <div className="cpnt-hero">
+      <div className="cpnt-hero" style={heroStyle}>
         {video}
         <h1>
           {title}
@@ -33,6 +39,7 @@ const Hero = ({imgSrc, videoSrc, title, subtitle}) => {
   } else {
     return (
       <div className="cpnt-hero" style={heroStyle}>
+        <img src={heroImg} alt={title} style={imgStyle} />
         <h1>
           {title}
           <br />

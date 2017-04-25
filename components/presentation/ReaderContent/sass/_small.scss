@@ -3,8 +3,13 @@
 Description...
 */
 
-.cpnt-reader-content {
+// .page-nav-active .cpnt-reader-content {
+//   filter: blur(10px);
+//   transform: scale(0.8);
+//   transform-origin: top center;
+// }
 
+.cpnt-reader-content {
   padding-bottom: 170px;
 
   h1:first-child,
@@ -12,7 +17,12 @@ Description...
     font-size: rem(100);
     color: grey(94);
     position: relative;
+    font-weight: normal;//To be overridden with md **
+  }
 
+  h1,
+  h2 {
+    position: relative;
     &:before {
       content: '';
       position: absolute;
@@ -23,6 +33,15 @@ Description...
       height: 1em;
       background: grey(251, 0.8);
       border: solid 6px grey(251);
+    }
+  }
+
+  a {
+    color: $color-blue;
+    transition: color 300ms ease;
+
+    &:hover {
+      color: $color-blue-fade;
     }
   }
 
@@ -37,6 +56,24 @@ Description...
     column-count: 2;
     column-gap: 40px;
     text-align: justify;
+  }
+
+  &.animate {
+    animation-name: reader-intro;
+    animation-duration: 1500ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+  }
+
+  @keyframes reader-intro {
+    0% {
+      filter: blur(20px);
+      opacity: 0;
+    }
+    100% {
+      filter: blur(0);
+      opacity: 1;
+    }
   }
 
 }

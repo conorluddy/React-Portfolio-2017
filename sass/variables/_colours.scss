@@ -1,9 +1,11 @@
 
 
-$color-white: rgba(255, 255, 255, 1);
-$color-fluro: rgba(238, 255, 0, 1);
+$color-white: rgb(255, 255, 255);
+$color-fluro: rgb(238, 255, 0);
+$color-blue: rgb(37, 160, 255);
+$color-blue-alt: rgb(45, 120, 196);
+$color-blue-fade: rgb(122, 165, 196);
 $color-black: rgba(10, 10, 10, 1);
-
 
 .-white {
   color: $color-white;

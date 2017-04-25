@@ -16,13 +16,28 @@ class Nucleus extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      navActive: false
+    };
+
+    this.setNavActive = this.setNavActive.bind(this);
+  }
+
+  setNavActive(io) {//io = 1/0 = on/off
+    this.setState({navActive: io});
+  }
+
+  getClassNames() {
+    return this.state.navActive ? 'cpnt-nucleus page-nav-active' : 'cpnt-nucleus page-nav-hidden';
   }
 
   render() {
-    return (
-      <div className="cpnt-nucleus">
+    const section = this.props.location.pathname.toLowerCase().indexOf('photography') > -1 ? 'photo' : 'dev';
 
-        <Navigation tree={ContentTree} />
+    return (
+      <div className={this.getClassNames()}>
+
+        <Navigation tree={ContentTree} setNavActive={this.setNavActive} routeSection={section} />
 
         {this.props.children}
 

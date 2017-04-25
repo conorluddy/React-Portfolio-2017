@@ -10,6 +10,9 @@
 
 import React from 'react';
 import mMarked from 'meta-marked';
+
+import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+
 import fetchMd from '../../../modules/fetch-md.js';
 import Hero from '../../presentation/Hero/Hero.jsx';
 import ReaderContent from '../../presentation/ReaderContent/ReaderContent.jsx';
@@ -40,7 +43,7 @@ class Reader extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({intrvl: setInterval( this.updateProgress.bind(this), 1000/10 ) });
+    this.setState({intrvl: setInterval( this.updateProgress.bind(this), 1000/40 ) });
   }
 
   componentWillUnmount() {
@@ -55,7 +58,7 @@ class Reader extends React.Component {
   getContent(path) {
     //TODO: improved path generation
     //ToDo: Check if this has already been fetched before... cache etc...
-    console.info('Getting page content...');
+    console.info('Fetching page content...');
 
     fetchMd('./../content' + path + '.md')
       .then((md) => {
@@ -82,15 +85,33 @@ class Reader extends React.Component {
     let subtitle;
     let imgSrc;
     let videoSrc;
+    let modifiers = {};
 
     if (meta && (meta.heroImage || meta.heroVideo)) {
 
       title = meta.heroTitle ? <strong className="-white">{meta.heroTitle}</strong> : '';
       subtitle = meta.heroSubtitle ? <span>{meta.heroSubtitle}</span> : '';
+
       imgSrc = meta.heroImage ? meta.heroImage : false;
       videoSrc = meta.heroVideo ? meta.heroVideo : false;
 
-      return <Hero imgSrc={imgSrc} videoSrc={videoSrc} title={title} subtitle={subtitle} darken="40" />;
+      if (meta.heroHeight === 'one-third') {
+        modifiers.height = '33vh';
+      }
+
+      if (meta.heroHeight === 'half') {
+        modifiers.height = '50vh';
+      }
+
+      if (meta.heroHeight === 'two-thirds') {
+        modifiers.height = '66vh';
+      }
+
+      if (meta.heroDarken) {
+        modifiers.heroDarken = meta.heroDarken;
+      }
+
+      return <Hero imgSrc={imgSrc} videoSrc={videoSrc} title={title} subtitle={subtitle} modifiers={modifiers} scrollPosition={this.state.scrollPosition} />;
     }
 
     return '';
@@ -98,7 +119,7 @@ class Reader extends React.Component {
 
 
   getScrollPos() {
-    let scroll = window.scrollY;;
+    let scroll = window.scrollY;
     let windowHeight = window.innerHeight;
     let docHeight = window.document.documentElement.clientHeight;
     return (scroll / (docHeight - windowHeight)) * 100;
@@ -106,8 +127,13 @@ class Reader extends React.Component {
 
 
   updateProgress() {
-    let progress = Math.round( this.getScrollPos() );
-    this.setState({ scrollProgress: progress });
+    let progress = Math.floor( this.getScrollPos() );
+    let position = Math.floor( window.scrollY );
+
+    this.setState({
+      scrollProgress: progress,
+      scrollPosition: position
+    });
   }
 
 
@@ -118,7 +144,9 @@ class Reader extends React.Component {
     return (
       <div className="cpnt-reader">
 
-        {this.iNeedAHero(this.state.meta)}
+        <CSSTransitionGroup transitionName="hero" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
+            {this.iNeedAHero(this.state.meta)}
+        </CSSTransitionGroup>
 
         <ReaderContent content={this.state.content} />
 

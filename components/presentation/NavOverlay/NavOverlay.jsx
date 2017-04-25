@@ -38,13 +38,11 @@ const NavOverlay = ({className, setSectionDevelopment, setSectionPhotography, se
 
       {sectionNav}
 
-      <TriggerArrow handleClick={stashNav} nsew="se" />
+
 
     </div>
   )
 };
 
-//NavOverlay.propTypes = { children: React.PropTypes.string };
-//NavOverlay.defaultProps = { children: 'Hello World!' };
 
 export default NavOverlay;

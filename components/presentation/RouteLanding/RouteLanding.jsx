@@ -12,11 +12,10 @@ import React from 'react';
 import Hero from '../Hero/Hero.jsx';
 
 const RouteLanding = () => {
-  //<Hero imgSrc={imgSrc} videoSrc={videoSrc} title={title} subtitle={subtitle} darken="40" />;
 
   return (
     <div className="cpnt-route-landing">
-      <Hero videoSrc="landing.mp4" darken="40" />
+      <Hero videoSrc="landing.mp4" />
     </div>
   )
 

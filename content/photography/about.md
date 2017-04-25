@@ -1,3 +1,9 @@
+---
+title: Business
+heroTitle: PRODRIFT ACADEMY
+heroSubtitle: Responsive Wordpress
+heroVideo: landing.mp4
+---
 
   <h2>
     PRODRIFT ACADEMY

@@ -17,7 +17,9 @@ const ReaderContent = ({content}) => {
   };
 
   return (
-    <div className="cpnt-reader-content grid-row" dangerouslySetInnerHTML={createMarkup()} />
+    <div className="cpnt-reader-content grid-row" >
+      <div className="inner" dangerouslySetInnerHTML={createMarkup()} />
+    </div>
   )
 };
 
