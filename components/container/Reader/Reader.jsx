@@ -112,13 +112,13 @@ class Reader extends React.Component {
     return (
       <div className="cpnt-reader">
 
-        <ScrollPosition>
+        <ScrollPosition getBoundingRect={false} >
           {this.iNeedAHero(this.state.meta)}
         </ScrollPosition>
 
         <ReaderContent content={this.state.content} />
 
-        <ScrollPosition>
+        <ScrollPosition getBoundingRect={false} >
           <PageProgress />
         </ScrollPosition>
 

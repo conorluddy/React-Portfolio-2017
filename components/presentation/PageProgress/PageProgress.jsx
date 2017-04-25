@@ -16,10 +16,10 @@ const PageProgress = ({}, context) => {
   let translateX = 'translateX(' + barPosition + '%)';
 
   function getClassNames(baseName) {
-    if (context.scrollProgress < 25) {
+    if (context.scrollProgress < 10) {
       baseName += ' -begin';
     }
-    if (context.scrollProgress > 98) {
+    if (context.scrollProgress > 97) {
       baseName += ' -fin';
     }
     return baseName;

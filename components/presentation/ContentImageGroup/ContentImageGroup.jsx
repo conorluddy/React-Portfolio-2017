@@ -13,28 +13,28 @@ import DomToReact from 'html-react-parser/lib/dom-to-react';
 
 const ContentImageGroup = (props, context) => {
 
+  let baseClassName = 'cpnt-content-image-group';
+  let vh = window.innerHeight || 800;
+  let componentTop = context.boundingRect.top;
+  let isInView = componentTop < vh;
 
-  console.log('scrollPosition: ', context.scrollPosition);
-
-  // componentWillUpdate: function() {
-  //   var node = this.getDOMNode();
-  //   this.shouldScrollBottom = node.scrollTop + node.offsetHeight === node.scrollHeight;
-  // },
-
+  function getClassNames() {
+    let mods = isInView ? 'is-in-view' : '';
+    return baseClassName + ' ' + mods;
+  }
 
   return (
-    <div className="cpnt-content-image-group">
-     ContentImageGroup component
-
-     {DomToReact(props.domNode.children)}
-
+    <div className={getClassNames()} >
+      {DomToReact(props.domNode.children)}
     </div>
   )
+
 };
 
 
 ContentImageGroup.contextTypes = {
-  scrollPosition: React.PropTypes.number
+  scrollPosition: React.PropTypes.number,
+  boundingRect: React.PropTypes.object
 }
 
 export default ContentImageGroup;

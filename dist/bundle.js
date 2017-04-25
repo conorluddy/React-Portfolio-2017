@@ -9204,6 +9204,7 @@ var ScrollPosition = function (_React$Component) {
     _this.state = {
       scrollProgress: 0,
       scrollPosition: 0,
+      boundingRect: {},
       intrvl: null
     };
     return _this;
@@ -9234,10 +9235,14 @@ var ScrollPosition = function (_React$Component) {
     value: function updateProgress() {
       var progress = Math.floor(this.getScrollPos());
       var position = Math.floor(window.scrollY);
+      var boundingRect = this.props.getBoundingRect ? this.elWrap.getBoundingClientRect() : null;
+
+      // console.log('boundingRect: ', boundingRect);
 
       this.setState({
         scrollProgress: progress,
-        scrollPosition: position
+        scrollPosition: position,
+        boundingRect: boundingRect
       });
     }
   }, {
@@ -9245,15 +9250,20 @@ var ScrollPosition = function (_React$Component) {
     value: function getChildContext() {
       return {
         scrollProgress: this.state.scrollProgress,
-        scrollPosition: this.state.scrollPosition
+        scrollPosition: this.state.scrollPosition,
+        boundingRect: this.state.boundingRect
       };
     }
   }, {
     key: 'render',
     value: function render() {
+      var _this2 = this;
+
       return _react2.default.createElement(
         'div',
-        { className: 'cpnt-scroll-position' },
+        { className: 'cpnt-scroll-position', ref: function ref(el) {
+            _this2.elWrap = el;
+          } },
         this.props.children
       );
     }
@@ -9264,7 +9274,8 @@ var ScrollPosition = function (_React$Component) {
 
 ScrollPosition.childContextTypes = {
   scrollProgress: _propTypes2.default.number,
-  scrollPosition: _propTypes2.default.number
+  scrollPosition: _propTypes2.default.number,
+  boundingRect: _propTypes2.default.object
 };
 
 exports.default = ScrollPosition;
@@ -14936,13 +14947,13 @@ var Reader = function (_React$Component) {
         { className: 'cpnt-reader' },
         _react2.default.createElement(
           _ScrollPosition2.default,
-          null,
+          { getBoundingRect: false },
           this.iNeedAHero(this.state.meta)
         ),
         _react2.default.createElement(_ReaderContent2.default, { content: this.state.content }),
         _react2.default.createElement(
           _ScrollPosition2.default,
-          null,
+          { getBoundingRect: false },
           _react2.default.createElement(_PageProgress2.default, null)
         )
       );
@@ -14987,24 +14998,26 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var ContentImageGroup = function ContentImageGroup(props, context) {
 
-  console.log('scrollPosition: ', context.scrollPosition);
+  var baseClassName = 'cpnt-content-image-group';
+  var vh = window.innerHeight || 800;
+  var componentTop = context.boundingRect.top;
+  var isInView = componentTop < vh;
 
-  // componentWillUpdate: function() {
-  //   var node = this.getDOMNode();
-  //   this.shouldScrollBottom = node.scrollTop + node.offsetHeight === node.scrollHeight;
-  // },
-
+  function getClassNames() {
+    var mods = isInView ? 'is-in-view' : '';
+    return baseClassName + ' ' + mods;
+  }
 
   return _react2.default.createElement(
     'div',
-    { className: 'cpnt-content-image-group' },
-    'ContentImageGroup component',
+    { className: getClassNames() },
     (0, _domToReact2.default)(props.domNode.children)
   );
 };
 
 ContentImageGroup.contextTypes = {
-  scrollPosition: _react2.default.PropTypes.number
+  scrollPosition: _react2.default.PropTypes.number,
+  boundingRect: _react2.default.PropTypes.object
 };
 
 exports.default = ContentImageGroup;
@@ -15220,10 +15233,10 @@ var PageProgress = function PageProgress(_ref, context) {
   var translateX = 'translateX(' + barPosition + '%)';
 
   function getClassNames(baseName) {
-    if (context.scrollProgress < 25) {
+    if (context.scrollProgress < 10) {
       baseName += ' -begin';
     }
-    if (context.scrollProgress > 98) {
+    if (context.scrollProgress > 97) {
       baseName += ' -fin';
     }
     return baseName;
@@ -15369,7 +15382,7 @@ var ReaderContent = function ReaderContent(_ref) {
         if (domNode.attribs && domNode.attribs.component === 'image-group') {
           return _react2.default.createElement(
             _ScrollPosition2.default,
-            null,
+            { getBoundingRect: 'true' },
             _react2.default.createElement(_ContentImageGroup2.default, { domNode: domNode })
           );
         }
@@ -42336,7 +42349,7 @@ module.exports = {
 				{
 					"path": "content/development/images.md",
 					"name": "images.md",
-					"size": 582,
+					"size": 5218,
 					"extension": ".md"
 				},
 				{
@@ -42352,7 +42365,7 @@ module.exports = {
 					"extension": ".md"
 				}
 			],
-			"size": 14644
+			"size": 19280
 		},
 		{
 			"path": "content/photography",
@@ -42404,7 +42417,7 @@ module.exports = {
 			"size": 22199
 		}
 	],
-	"size": 36843
+	"size": 41479
 };
 
 /***/ }),

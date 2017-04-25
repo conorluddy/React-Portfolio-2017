@@ -13,7 +13,7 @@ import Parser from 'html-react-parser';
 import DomToReact from 'html-react-parser/lib/dom-to-react';
 
 import ScrollPosition from '../../container/ScrollPosition/ScrollPosition.jsx';
-import ImageGroup from '../ContentImageGroup/ContentImageGroup.jsx';
+import ContentImageGroup from '../ContentImageGroup/ContentImageGroup.jsx';
 
 const ReaderContent = ({content}) => {
 
@@ -94,8 +94,8 @@ const ReaderContent = ({content}) => {
 
             if (domNode.attribs && domNode.attribs.component === 'image-group') {
               return (
-                <ScrollPosition>
-                  <ImageGroup domNode={domNode} />
+                <ScrollPosition getBoundingRect="true" >
+                  <ContentImageGroup domNode={domNode} />
                 </ScrollPosition>
               )
             }

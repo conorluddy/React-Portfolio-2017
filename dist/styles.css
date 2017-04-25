@@ -527,10 +527,16 @@ small,
   color: #323232; }
 
 /* Small component SCSS ===================================================== */
-/* Component: ContentImageGroup: small screen size. 
+/* Component: ContentImageGroup: small screen size.
 
-Description... 
+Description...
 */
+.cpnt-content-image-group {
+  opacity: 0;
+  transition: opacity 900ms ease-in; }
+  .cpnt-content-image-group.is-in-view {
+    opacity: 1; }
+
 /* Component: Grip: small screen size.
 
 Description...
@@ -880,7 +886,7 @@ Description...
   right: 0;
   height: 6px;
   background: #eeff00;
-  transition: transform 400ms cubic-bezier(0.32, 0.9, 0.68, 0.98), background-color 500ms cubic-bezier(0.32, 0.9, 0.68, 0.98);
+  transition: transform 400ms cubic-bezier(0.32, 0.9, 0.68, 0.98), background-color 5000ms cubic-bezier(0.32, 0.9, 0.68, 0.98);
   border-right: solid 2px #323232; }
   .cpnt-page-progress span {
     position: absolute;
