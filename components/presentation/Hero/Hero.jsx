@@ -9,21 +9,24 @@
 */
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const Hero = ({imgSrc, videoSrc, title, subtitle, modifiers, scrollPosition}) => {
+const Hero = ({imgSrc, videoSrc, title, subtitle, modifiers, scrollPosition}, context) => {
+
+  //TODO - make this work independently of context
 
   let video = '';
   let heroStyle = {};
-  let imgStyle = {};
   let heroImg = "/assets/images/hero/" + imgSrc;
+  let parallaxStyle = {
+    transform: 'translate3D(0,' + context.scrollPosition / 5 + 'px,0)'
+  };
 
   videoSrc = videoSrc ? "./../assets/video/" + videoSrc : false;
-  video = <video autoPlay loop><source src={videoSrc} type="video/mp4" /></video>;
+  video = <video style={parallaxStyle} autoPlay loop><source src={videoSrc} type="video/mp4" /></video>;
 
-  if (modifiers && modifiers.height) heroStyle.height = modifiers.height;
-
-  imgStyle.transform = 'translate3D(0,' + scrollPosition/5 + 'px,0)';
-
+  if (modifiers && modifiers.height)
+    heroStyle.height = modifiers.height;
 
   if (videoSrc) {
     return (
@@ -39,7 +42,7 @@ const Hero = ({imgSrc, videoSrc, title, subtitle, modifiers, scrollPosition}) =>
   } else {
     return (
       <div className="cpnt-hero" style={heroStyle}>
-        <img src={heroImg} alt={title} style={imgStyle} />
+        <img src={heroImg} alt={title} style={parallaxStyle} />
         <h1>
           {title}
           <br />
@@ -48,7 +51,11 @@ const Hero = ({imgSrc, videoSrc, title, subtitle, modifiers, scrollPosition}) =>
       </div>
     )
   }
-
 };
+
+Hero.contextTypes = {
+  scrollProgress: PropTypes.number,
+  scrollPosition: PropTypes.number
+}
 
 export default Hero;

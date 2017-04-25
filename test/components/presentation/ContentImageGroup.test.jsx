@@ -1,0 +1,1 @@
+const ContentImageGroup = require('../../../components/presentation/ContentImageGroup.jsx');

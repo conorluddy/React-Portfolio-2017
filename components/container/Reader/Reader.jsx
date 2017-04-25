@@ -10,9 +10,9 @@
 
 import React from 'react';
 import mMarked from 'meta-marked';
+// import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 
-import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
-
+import ScrollPosition from '../ScrollPosition/ScrollPosition.jsx';
 import fetchMd from '../../../modules/fetch-md.js';
 import Hero from '../../presentation/Hero/Hero.jsx';
 import ReaderContent from '../../presentation/ReaderContent/ReaderContent.jsx';
@@ -34,20 +34,10 @@ class Reader extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      content: '',
-      scrollProgress: 0,
-      intrvl: null
+      content: ''
     };
 
     this.getContent(props.location.pathname);
-  }
-
-  componentDidMount() {
-    this.setState({intrvl: setInterval( this.updateProgress.bind(this), 1000/40 ) });
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.state.intrvl);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -117,40 +107,20 @@ class Reader extends React.Component {
     return '';
   }
 
-
-  getScrollPos() {
-    let scroll = window.scrollY;
-    let windowHeight = window.innerHeight;
-    let docHeight = window.document.documentElement.clientHeight;
-    return (scroll / (docHeight - windowHeight)) * 100;
-  }
-
-
-  updateProgress() {
-    let progress = Math.floor( this.getScrollPos() );
-    let position = Math.floor( window.scrollY );
-
-    this.setState({
-      scrollProgress: progress,
-      scrollPosition: position
-    });
-  }
-
-
   render() {
-    let barPosition = this.state.scrollProgress - 100;
-    let translateX = 'translateX(' + barPosition + '%)';
 
     return (
       <div className="cpnt-reader">
 
-        <CSSTransitionGroup transitionName="hero" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
-            {this.iNeedAHero(this.state.meta)}
-        </CSSTransitionGroup>
+        <ScrollPosition getBoundingRect={false} >
+          {this.iNeedAHero(this.state.meta)}
+        </ScrollPosition>
 
         <ReaderContent content={this.state.content} />
 
-        <PageProgress translateX={translateX} scrollProgress={this.state.scrollProgress} />
+        <ScrollPosition getBoundingRect={false} >
+          <PageProgress />
+        </ScrollPosition>
 
       </div>
     );

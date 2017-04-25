@@ -10,7 +10,7 @@ Description...
   left: 0;
   width: 100vw;
   height: 100vh;
-
+  transition: background-color 300ms $water-kick;
 
   // .navi
 
@@ -32,8 +32,9 @@ Description...
     position: absolute;
     top: 0;
     bottom: 0;
+    z-index: 0;
     width: 50%;
-    color: rgba(216,216,216,.65);
+    color: rgba(216,216,216,.95);
 
     h2 {
       font-size: rem(42);

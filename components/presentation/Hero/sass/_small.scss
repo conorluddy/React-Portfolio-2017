@@ -27,17 +27,30 @@ Description...
   z-index: -1;
   overflow: hidden;
 
+  &::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: $color-white;
+    background-blend-mode: overlay;
+    mix-blend-mode: overlay;
+    content: '';
+  }
+
   h1 {
     color: $color-fluro;
     text-transform: uppercase;
     font-weight: 100;
-    font-size: rem( 90 );
+    font-size: rem( 180 );
     line-height: rem( 90 );
     margin: auto;
     z-index: 10;
+    mix-blend-mode: overlay;
 
     strong {
-      font-weight: 500;
+      font-weight: 600;
     }
   }
 

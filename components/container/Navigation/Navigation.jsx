@@ -34,7 +34,10 @@ class Navigation extends React.Component {
 
   setSectionDevelopment() {
     if (this.state.section !== 'development') {
-      this.setState({section: 'development'});
+      this.setState({
+        section: 'development',
+        transparency: 60
+      });
     } else {
       this.clearSection();
     }
@@ -43,7 +46,10 @@ class Navigation extends React.Component {
 
   setSectionPhotography() {
     if (this.state.section !== 'photography') {
-      this.setState({section: 'photography'});
+      this.setState({
+        section: 'photography',
+        transparency: 60
+      });
     } else {
       this.clearSection();
     }
@@ -62,7 +68,10 @@ class Navigation extends React.Component {
 
   setSectionLanding() {
     if (this.state.section !== 'landing') {
-      this.setState({section: 'landing'});
+      this.setState({
+        section: 'landing',
+        transparency: 90
+      });
     } else {
       this.clearSection();
     }
@@ -75,7 +84,10 @@ class Navigation extends React.Component {
   }
 
   clearSection() {
-    this.setState({section: 'landing'});
+    this.setState({
+      section: 'landing',
+      transparency: 90
+    });
     this.props.setNavActive(1);
   }
 
@@ -132,9 +144,9 @@ class Navigation extends React.Component {
     if (!this.state.section) {
       sectionNav = <TriggerArrow handleClick={this.setSectionBiased} nsew='nw' />
     } else if (this.state.section === 'development') {
-      sectionNav = <NavigationSection section={this.state.section} navList={devNavItems} clearSection={this.clearSection} stashNav={this.stashNav} side='right' />;
+      sectionNav = <NavigationSection section={this.state.section} navList={devNavItems} clearSection={this.clearSection} stashNav={this.stashNav} side='left' />;
     } else if (this.state.section === 'photography') {
-      sectionNav = <NavigationSection section={this.state.section} navList={photoNavItems} clearSection={this.clearSection} stashNav={this.stashNav} side='left' />;
+      sectionNav = <NavigationSection section={this.state.section} navList={photoNavItems} clearSection={this.clearSection} stashNav={this.stashNav} side='right' />;
     }
 
     return (
