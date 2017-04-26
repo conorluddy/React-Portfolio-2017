@@ -13,7 +13,9 @@ import Parser from 'html-react-parser';
 import DomToReact from 'html-react-parser/lib/dom-to-react';
 
 import ScrollPosition from '../../container/ScrollPosition/ScrollPosition.jsx';
+
 import ContentImageGroup from '../ContentImageGroup/ContentImageGroup.jsx';
+import ContentImageWCaption from '../ContentImageWCaption/ContentImageWCaption.jsx';
 
 const ReaderContent = ({content}) => {
 
@@ -31,12 +33,27 @@ const ReaderContent = ({content}) => {
               if (domNode.attribs.alive === 'true') {
                 return (
                   <ScrollPosition getBoundingRect="true" >
-                    <ContentImageGroup domNode={domNode} layout={domNode.attribs.layout} />
+                    <ContentImageGroup domNode={domNode} layout={domNode.attribs.layout} modifier={domNode.attribs.modifier} />
                   </ScrollPosition>
                 )
               } else {
                 return (
-                  <ContentImageGroup domNode={domNode} layout={domNode.attribs.layout} />
+                  <ContentImageGroup domNode={domNode} layout={domNode.attribs.layout} modifier={domNode.attribs.modifier} />
+                )
+              }
+            }
+
+
+            if (domNode.attribs && domNode.attribs.component === 'image-with-caption') {
+              if (domNode.attribs.alive === 'true') {
+                return (
+                  <ScrollPosition getBoundingRect="true" >
+                    <ContentImageWCaption />
+                  </ScrollPosition>
+                )
+              } else {
+                return (
+                  <ContentImageWCaption />
                 )
               }
             }

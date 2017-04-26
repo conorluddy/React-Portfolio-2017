@@ -9,12 +9,15 @@ heroImage:  whiteacademy.jpg
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
-<div component="image-group" layout="kebab" alive="true" >
+<div component="image-group" layout="butterfly" alive="true" >
+</div>
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+<div component="image-group" layout="kebab" modifier="fat" alive="true" >
   ![alt text](../../assets/images/content/work01.jpg "Title")
   ![alt text](../../assets/images/hero/whiteacademy.jpg "Title")
   ![alt text](../../assets/images/hero/tokyo.jpg "Title")
-  ![alt text](../../assets/images/hero/dublin.jpg "Title")
-  ![alt text](../../assets/images/hero/cliffs.jpg "Title")
 </div>
 
 
@@ -22,12 +25,26 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
 
-<div component="image-group" layout="kebab" alive="true" >
+
+
+<div component="image-group" layout="butterfly-top" modifier="" alive="true" >
   ![alt text](../../assets/images/content/work01.jpg "Title")
   ![alt text](../../assets/images/hero/whiteacademy.jpg "Title")
   ![alt text](../../assets/images/hero/tokyo.jpg "Title")
 </div>
+<div component="image-group" layout="butterfly-bottom" modifier="" alive="true" >
+  ![alt text](../../assets/images/content/work01.jpg "Title")
+  ![alt text](../../assets/images/hero/tokyo.jpg "Title")
+  ![alt text](../../assets/images/hero/dublin.jpg "Title")
+  ![alt text](../../assets/images/hero/cliffs.jpg "Title")
+  ![alt text](../../assets/images/hero/dublin.jpg "Title")
+</div>
 
+
+
+<div component="image-with-caption" layout="kebab" alive="true" >
+  ![alt text](../../assets/images/hero/whiteacademy.jpg "Title")
+</div>
 
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis

@@ -5,13 +5,4 @@ Description...
 
 .cpnt-content-image-group {
 
-
-  .cpnt-reader-content & {
-    @include grid-column(14);
-    @include grid-push(2);
-    @include grid-collapse;
-  }
-
-
-
 }

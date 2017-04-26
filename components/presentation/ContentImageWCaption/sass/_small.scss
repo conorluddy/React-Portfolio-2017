@@ -1,0 +1,12 @@
+/* Component: ContentImageWCaption: small screen size.
+
+Description...
+*/
+
+.cpnt-content-image-w-caption {
+
+  .cpnt-reader-content & {
+    @include grid-column(18);
+  }
+
+}

@@ -24,13 +24,13 @@ const NavOverlay = ({className, setSectionDevelopment, setSectionPhotography, se
 
       <div className="initial-opt _akrobat _weight-black left" >
           <h2 className="_weight-normal _selection-transparent" onClick={setSectionDevelopment} >
-            WEB<small className="_weight-xlight _selection-transparent">DEVELOPMENT & DESIGN</small>
+            WEB DEV <span className="_weight-xlight -fluro">//</span> DESIGN
           </h2>
       </div>
 
       <div className="initial-opt _akrobat _weight-black right" >
           <h2 className="_weight-normal _selection-transparent" onClick={setSectionPhotography} >
-            PHOTO<small className="_weight-xlight _selection-transparent">GRAPHY & VIDEO</small>
+            PHOTO <span className="_weight-xlight -fluro">//</span> VIDEO
           </h2>
       </div>
 
@@ -46,3 +46,5 @@ const NavOverlay = ({className, setSectionDevelopment, setSectionPhotography, se
 
 
 export default NavOverlay;
+
+//PHOTO<small className="_weight-xlight _selection-transparent">GRAPHY & VIDEO</small>

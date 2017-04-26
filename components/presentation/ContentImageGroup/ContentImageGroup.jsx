@@ -23,6 +23,7 @@ const ContentImageGroup = (props, context) => {
   let isInView;
   let mods = '';
   let html = '';
+  let wrapClasses = 'wrap';
 
   //Remove anything that's not an img tag.
   let images = props.domNode.children.filter(node => {
@@ -31,20 +32,29 @@ const ContentImageGroup = (props, context) => {
 
   function getClassNames() {
     componentTop = isAlive ? context.boundingRect.top : 0;
-    isInView = componentTop < (vh / 2);
+    isInView = componentTop < 0;//..(-1 * (vh / 6));
+
+    console.log('componentTop: ', componentTop);
 
     mods += isAlive ? 'is-alive' : '';
     mods += ' ';
     mods += isAlive && isInView ? 'is-in-view' : '';
     mods += ' ';
     mods += props.layout ? '-' + props.layout : '';
+    mods += ' ';
+    mods += props.modifier ? '-' + props.modifier : '';
 
     return baseClassName + ' ' + mods;
   }
 
   //Wrappin
   for (var i = 0; i < images.length; i++) {
-    html += '<div class="wrap"><img src=' + images[i].attribs.src + ' /></div>';
+    if (props.modifier === 'fat' && Math.floor( images.length / 2) === i) {
+      wrapClasses = 'wrap fatty';
+    } else {
+      wrapClasses = 'wrap';
+    }
+    html += '<div class="'+wrapClasses+'"><img src=' + images[i].attribs.src + ' /></div>';
   }
 
   return (
