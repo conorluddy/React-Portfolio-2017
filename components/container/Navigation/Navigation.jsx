@@ -96,7 +96,6 @@ class Navigation extends React.Component {
   }
 
   componentWillMount() {
-    // console.log('treetree: ', this.props.tree);
     for (var i = 0; i < this.props.tree.children.length; i++) {
       if (this.props.tree.children[i].name === 'development') {
         this.setState({

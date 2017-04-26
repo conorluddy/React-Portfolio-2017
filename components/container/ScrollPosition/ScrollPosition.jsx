@@ -26,7 +26,7 @@ class ScrollPosition extends React.Component {
 
   componentDidMount() {
     this.setState({
-      intrvl: setInterval(this.updateProgress.bind(this), 1000/60)
+      intrvl: setInterval(this.updateProgress.bind(this), 1000/40)
     });
   }
 
@@ -38,6 +38,7 @@ class ScrollPosition extends React.Component {
     let scroll = window.scrollY;
     let windowHeight = window.innerHeight;
     let docHeight = window.document.documentElement.clientHeight;
+
     return (scroll / (docHeight - windowHeight)) * 100;
   }
 
@@ -45,8 +46,6 @@ class ScrollPosition extends React.Component {
     let progress = Math.floor( this.getScrollPos() );
     let position = Math.floor( window.scrollY );
     let boundingRect = this.props.getBoundingRect ? this.elWrap.getBoundingClientRect() : null;
-
-    // console.log('boundingRect: ', boundingRect);
 
     this.setState({
       scrollProgress: progress,

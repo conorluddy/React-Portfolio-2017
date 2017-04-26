@@ -4,45 +4,23 @@ Description...
 */
 
 .cpnt-reader-content {
+  // @include grid-visual;
 
   .inner {
     @include grid-column(12);
-    // @include grid-push();
   }
 
-
-  > * {
-    @include grid-column(12);
-    @include grid-push(3);
-  }
-
-
-  .wide-image {
-    @include grid-column(18);
-    @include grid-push(0);
-    @include grid-collapse;
-
-    img {
-      width: 100%;
+  > {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    p {
+      @include grid-column(12);
+      @include grid-push(3);
     }
   }
-
-  .image-row {
-    @include grid-column(18);
-    @include grid-push(0);
-    @include grid-collapse;
-
-    display: flex;
-    justify-content: space-between;
-
-    img {
-      flex: 1 1 0;
-    }
-  }
-
-
-
-
 
 
 

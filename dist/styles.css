@@ -531,11 +531,51 @@ small,
 
 Description...
 */
-.cpnt-content-image-group {
-  opacity: 0;
-  transition: opacity 900ms ease-in; }
-  .cpnt-content-image-group.is-in-view {
-    opacity: 1; }
+.cpnt-content-image-group .wrap {
+  overflow: hidden;
+  display: block; }
+
+.cpnt-content-image-group.-row {
+  display: flex; }
+  .cpnt-content-image-group.-row > div {
+    flex: 1 1 0; }
+  .cpnt-content-image-group.-row img {
+    max-width: 100%; }
+
+.cpnt-content-image-group.-kebab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 240px;
+  margin-bottom: 20px; }
+  .cpnt-content-image-group.-kebab .wrap {
+    margin: 5px;
+    flex: 1 1 0;
+    position: relative;
+    height: 100%; }
+    .cpnt-content-image-group.-kebab .wrap:nth-child(odd) {
+      height: 66.6666%; }
+  .cpnt-content-image-group.-kebab img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0; }
+  .cpnt-content-image-group.-kebab.is-alive .wrap:before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    content: '';
+    z-index: 10;
+    transition: transform 2500ms ease; }
+  .cpnt-content-image-group.-kebab.is-in-view .wrap:before {
+    transform: translate3d(0, -100%, 0); }
+  .cpnt-content-image-group.-kebab.is-in-view .wrap:nth-child(odd):before {
+    transform: translate3d(0, 100%, 0); }
 
 /* Component: Grip: small screen size.
 
@@ -1046,10 +1086,19 @@ Description...
 Description... 
 */
 /* Large component SCSS ==================================================== */
-/* Component: ContentImageGroup: large screen size. 
+/* Component: ContentImageGroup: large screen size.
 
-Description... 
+Description...
 */
+.cpnt-reader-content .cpnt-content-image-group {
+  width: calc(77.77778% - 35.55556px);
+  float: left;
+  margin-left: 20px;
+  margin-left: calc(11.11111% - 22.22222px + 40px);
+  margin-left: -20px;
+  margin-right: -20px;
+  width: calc(100% + 40px); }
+
 /* Component: Grip: large screen size. 
 
 Description... 
@@ -1083,35 +1132,16 @@ Description...
   float: left;
   margin-left: 20px; }
 
-.cpnt-reader-content > * {
+.cpnt-reader-content > h1,
+.cpnt-reader-content > h2,
+.cpnt-reader-content > h3,
+.cpnt-reader-content > h4,
+.cpnt-reader-content > h5,
+.cpnt-reader-content > p {
   width: calc(66.66667% - 33.33333px);
   float: left;
   margin-left: 20px;
   margin-left: calc(16.66667% - 23.33333px + 40px); }
-
-.cpnt-reader-content .wide-image {
-  width: calc(100% - 40px);
-  float: left;
-  margin-left: 20px;
-  margin-left: calc(0% - 20px + 40px);
-  margin-left: -20px;
-  margin-right: -20px;
-  width: calc(100% + 40px); }
-  .cpnt-reader-content .wide-image img {
-    width: 100%; }
-
-.cpnt-reader-content .image-row {
-  width: calc(100% - 40px);
-  float: left;
-  margin-left: 20px;
-  margin-left: calc(0% - 20px + 40px);
-  margin-left: -20px;
-  margin-right: -20px;
-  width: calc(100% + 40px);
-  display: flex;
-  justify-content: space-between; }
-  .cpnt-reader-content .image-row img {
-    flex: 1 1 0; }
 
 .cpnt-reader-content .neat {
   margin-left: -20px;
