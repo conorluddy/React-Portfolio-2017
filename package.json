@@ -38,6 +38,8 @@
     "gulp-clean-css": "^3.0.4",
     "gulp-eslint": "^3.0.1",
     "gulp-fluent-ffmpeg": "^1.0.2",
+    "gulp-image-resize": "^0.12.0",
+    "gulp-imagemin": "^3.2.0",
     "gulp-intercept": "^0.1.0",
     "gulp-notify": "^3.0.0",
     "gulp-plumber": "^1.1.0",

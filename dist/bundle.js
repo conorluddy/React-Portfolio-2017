@@ -14697,12 +14697,14 @@ var Navigation = function (_React$Component) {
       var devNavItems = [];
       var tempName = void 0;
 
+      // ToDo - DRY this up
+
       for (var i = 0; i < this.state.treePhoto.children.length; i++) {
         tempName = this.state.treePhoto.children[i].name;
         tempName = this.state.treePhoto.children[i].extension ? tempName.substring(0, tempName.length - this.state.treePhoto.children[i].extension.length) : tempName;
 
         photoNavItems.push({
-          label: tempName,
+          label: tempName.replace('-', ' '),
           path: '/photography/' + tempName,
           md: this.state.treePhoto.children[i].path,
           children: this.state.treePhoto.children[i].children
@@ -14714,7 +14716,7 @@ var Navigation = function (_React$Component) {
         tempName = this.state.treeDev.children[i].extension ? tempName.substring(0, tempName.length - this.state.treeDev.children[i].extension.length) : tempName;
 
         devNavItems.push({
-          label: tempName,
+          label: tempName.replace('-', ' '),
           path: '/development/' + tempName,
           md: this.state.treeDev.children[i].path,
           children: this.state.treeDev.children[i].children
@@ -42461,7 +42463,7 @@ module.exports = {
 				{
 					"path": "content/development/about.md",
 					"name": "about.md",
-					"size": 1489,
+					"size": 1490,
 					"extension": ".md"
 				},
 				{
@@ -42473,7 +42475,7 @@ module.exports = {
 				{
 					"path": "content/development/dev-kitchensink.md",
 					"name": "dev-kitchensink.md",
-					"size": 12362,
+					"size": 18481,
 					"extension": ".md"
 				},
 				{
@@ -42483,13 +42485,25 @@ module.exports = {
 					"extension": ".md"
 				},
 				{
+					"path": "content/development/graphic-design.md",
+					"name": "graphic-design.md",
+					"size": 183,
+					"extension": ".md"
+				},
+				{
+					"path": "content/development/projects.md",
+					"name": "projects.md",
+					"size": 141,
+					"extension": ".md"
+				},
+				{
 					"path": "content/development/work.md",
 					"name": "work.md",
-					"size": 177,
+					"size": 205,
 					"extension": ".md"
 				}
 			],
-			"size": 19120
+			"size": 25592
 		},
 		{
 			"path": "content/photography",
@@ -42504,13 +42518,19 @@ module.exports = {
 				{
 					"path": "content/photography/automotive.md",
 					"name": "automotive.md",
-					"size": 1253,
+					"size": 1515,
+					"extension": ".md"
+				},
+				{
+					"path": "content/photography/business.md",
+					"name": "business.md",
+					"size": 99,
 					"extension": ".md"
 				},
 				{
 					"path": "content/photography/gear.md",
 					"name": "gear.md",
-					"size": 6179,
+					"size": 86,
 					"extension": ".md"
 				},
 				{
@@ -42526,10 +42546,10 @@ module.exports = {
 					"extension": ".md"
 				}
 			],
-			"size": 12774
+			"size": 7042
 		}
 	],
-	"size": 31894
+	"size": 32634
 };
 
 /***/ }),
