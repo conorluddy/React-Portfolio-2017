@@ -15,7 +15,7 @@ const RouteLanding = () => {
 
   return (
     <div className="cpnt-route-landing">
-      <Hero videoSrc="landing.mp4" />
+      <Hero videoSrc="sunset.mov" />
     </div>
   )
 
