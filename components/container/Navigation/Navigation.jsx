@@ -134,12 +134,14 @@ class Navigation extends React.Component {
     let devNavItems = [];
     let tempName;
 
+    // ToDo - DRY this up
+
     for (var i = 0; i < this.state.treePhoto.children.length; i++) {
       tempName = this.state.treePhoto.children[i].name;
       tempName = this.state.treePhoto.children[i].extension ? tempName.substring(0, tempName.length - this.state.treePhoto.children[i].extension.length) : tempName;
 
       photoNavItems.push({
-        label: tempName,
+        label: tempName.replace('-', ' '),
         path: '/photography/' + tempName,
         md: this.state.treePhoto.children[i].path,
         children: this.state.treePhoto.children[i].children
@@ -151,7 +153,7 @@ class Navigation extends React.Component {
       tempName = this.state.treeDev.children[i].extension ? tempName.substring(0, tempName.length - this.state.treeDev.children[i].extension.length) : tempName;
 
       devNavItems.push({
-        label: tempName,
+        label: tempName.replace('-', ' '),
         path: '/development/' + tempName,
         md: this.state.treeDev.children[i].path,
         children: this.state.treeDev.children[i].children
