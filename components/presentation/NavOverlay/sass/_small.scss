@@ -35,6 +35,7 @@ Description...
     z-index: 0;
     width: 50%;
     color: rgba(216,216,216,.95);
+    cursor: pointer;
 
     h2 {
       font-size: rem(42);
@@ -81,6 +82,13 @@ Description...
         transform-origin: bottom left;
         transform: rotate(90deg) translate3d(-50%, 0, 0);
         animation-name: nav-overlay-intro-down;
+      }
+    }
+
+
+    &:hover {
+      h2 {
+        color: rgba(225,225,225,.9);
       }
     }
   }

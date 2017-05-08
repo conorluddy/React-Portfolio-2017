@@ -6,7 +6,55 @@ Description...
 .cpnt-content-image-w-caption {
 
   .cpnt-reader-content & {
-    @include grid-column(18);
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    padding: 60px 0;
+  }
+
+  .img-wrap {
+    position: relative;
+    z-index: 1;
+    flex: 1 0 0;
+    flex-basis: 61.8%;
+    padding: 0 30px;
+  }
+
+  .text-wrap,
+  caption {
+    position: relative;
+    text-align: left;
+    z-index: 0;
+    padding: 20px;
+    margin-right: 5%;
+  }
+
+  &.is-alive {
+    caption {
+      transition: transform 1500ms $airlift;
+      transform: translate3d(-30px, 0, 0);
+    }
+  }
+
+  &.is-in-view {
+    caption {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+
+  /////  /////  /////  /////  /////  /////  /////  /////  /////  /////  /////
+
+
+  &.-right {
+    flex-direction: row-reverse;
+
+    .text-wrap,
+    caption {
+      text-align: right;
+      margin-right: 0;
+      margin-left: 5%;
+    }
   }
 
 }

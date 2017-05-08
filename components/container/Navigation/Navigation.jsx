@@ -21,7 +21,8 @@ class Navigation extends React.Component {
     super(props);
     this.state = {
       section: 'landing',
-      transparency: 90
+      transparency: 90,
+      hasCloseBtn: true
     };
 
     this.setSectionDevelopment = this.setSectionDevelopment.bind(this);
@@ -30,30 +31,42 @@ class Navigation extends React.Component {
     this.setSectionBiased = this.setSectionBiased.bind(this);
     this.clearSection = this.clearSection.bind(this);
     this.stashNav = this.stashNav.bind(this);
+    this.playAudioTick = this.playAudioTick.bind(this);
+  }
+
+  playAudioTick() {
+    let snd = new Audio("/assets/audio/tick-light.wav");
+    snd.play();
   }
 
   setSectionDevelopment() {
     if (this.state.section !== 'development') {
       this.setState({
         section: 'development',
-        transparency: 60
+        transparency: 20
       });
     } else {
       this.clearSection();
     }
+
     this.props.setNavActive(1);
+
+    this.playAudioTick();
   }
 
   setSectionPhotography() {
     if (this.state.section !== 'photography') {
       this.setState({
         section: 'photography',
-        transparency: 60
+        transparency: 20
       });
     } else {
       this.clearSection();
     }
+
     this.props.setNavActive(1);
+
+    this.playAudioTick();
   }
 
   setSectionBiased() {
@@ -75,18 +88,23 @@ class Navigation extends React.Component {
     } else {
       this.clearSection();
     }
+
     this.props.setNavActive(1);
   }
 
   stashNav() {
-    this.setState({section: null});
+    this.setState({
+      section: null,
+      hasCloseBtn: false
+    });
     this.props.setNavActive(0);
   }
 
   clearSection() {
     this.setState({
       section: 'landing',
-      transparency: 90
+      transparency: 90,
+      hasCloseBtn: true
     });
     this.props.setNavActive(1);
   }
@@ -143,14 +161,14 @@ class Navigation extends React.Component {
     if (!this.state.section) {
       sectionNav = <TriggerArrow handleClick={this.setSectionBiased} nsew='nw' />
     } else if (this.state.section === 'development') {
-      sectionNav = <NavigationSection section={this.state.section} navList={devNavItems} clearSection={this.clearSection} stashNav={this.stashNav} side='left' />;
+      sectionNav = <NavigationSection section={this.state.section} navList={devNavItems} clearSection={this.clearSection} stashNav={this.stashNav} side='left' playAudioTick={this.playAudioTick} />;
     } else if (this.state.section === 'photography') {
-      sectionNav = <NavigationSection section={this.state.section} navList={photoNavItems} clearSection={this.clearSection} stashNav={this.stashNav} side='right' />;
+      sectionNav = <NavigationSection section={this.state.section} navList={photoNavItems} clearSection={this.clearSection} stashNav={this.stashNav} side='right' playAudioTick={this.playAudioTick} />;
     }
 
     return (
       <div className="cpnt-navigation">
-          <NavOverlay className={this.getClassNames()} setSectionDevelopment={this.setSectionDevelopment} setSectionPhotography={this.setSectionPhotography} sectionNav={sectionNav} transparency={this.state.transparency} stashNav={this.stashNav} />
+          <NavOverlay className={this.getClassNames()} setSectionDevelopment={this.setSectionDevelopment} setSectionPhotography={this.setSectionPhotography} sectionNav={sectionNav} transparency={this.state.transparency} stashNav={this.stashNav} hasCloseBtn={this.state.hasCloseBtn} />
       </div>
     );
   }

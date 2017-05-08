@@ -48,12 +48,12 @@ const ReaderContent = ({content}) => {
               if (domNode.attribs.alive === 'true') {
                 return (
                   <ScrollPosition getBoundingRect="true" >
-                    <ContentImageWCaption />
+                    <ContentImageWCaption domNode={domNode} layout={domNode.attribs.layout} modifier={domNode.attribs.modifier} />
                   </ScrollPosition>
                 )
               } else {
                 return (
-                  <ContentImageWCaption />
+                  <ContentImageWCaption domNode={domNode} layout={domNode.attribs.layout} modifier={domNode.attribs.modifier} />
                 )
               }
             }

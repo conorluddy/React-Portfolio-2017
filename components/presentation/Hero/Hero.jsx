@@ -23,7 +23,10 @@ const Hero = ({imgSrc, videoSrc, title, subtitle, modifiers, scrollPosition}, co
   };
 
   videoSrc = videoSrc ? "./../assets/video/" + videoSrc : false;
-  video = <video style={parallaxStyle} autoPlay loop><source src={videoSrc} type="video/mp4" /></video>;
+
+  //TODO - make loop a prop, maybe make muted a prop, make poster a prop...
+
+  video = <video style={parallaxStyle} autoPlay ><source src={videoSrc} type="video/mp4" /></video>;
 
   if (modifiers && modifiers.height)
     heroStyle.height = modifiers.height;

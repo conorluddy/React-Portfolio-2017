@@ -13,9 +13,14 @@ import { Link, IndexLink } from 'react-router';
 import Grip from '../Grip/Grip.jsx';
 import TriggerArrow from '../TriggerArrow/TriggerArrow.jsx';
 
-const NavigationSection = ({section, navList, side, stashNav, clearSection}) => {
+const NavigationSection = ({section, navList, side, stashNav, clearSection, playAudioTick}) => {
   let innerClasses = section + " inner " + side;
   let arrowDirection = side === 'right' ? 'nw' : 'ne';
+
+  function navClick() {
+    stashNav();
+    playAudioTick();
+  }
 
   return (
     <div className="cpnt-navigation-section">
@@ -25,7 +30,7 @@ const NavigationSection = ({section, navList, side, stashNav, clearSection}) => 
           {navList.map((navItem, idx) =>
             <li className="_akrobat _weight-normal" key={idx}>
 
-              <Link to={navItem.path} onClick={stashNav} activeClassName="is-active" >{navItem.label}</Link>
+              <Link to={navItem.path} onClick={navClick} activeClassName="is-active" >{navItem.label}</Link>
 
               <Grip className="nav-items"/>
 

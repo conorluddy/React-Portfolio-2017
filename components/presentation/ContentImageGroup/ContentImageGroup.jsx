@@ -34,8 +34,6 @@ const ContentImageGroup = (props, context) => {
     componentTop = isAlive ? context.boundingRect.top : 0;
     isInView = componentTop < 0;//..(-1 * (vh / 6));
 
-    console.log('componentTop: ', componentTop);
-
     mods += isAlive ? 'is-alive' : '';
     mods += ' ';
     mods += isAlive && isInView ? 'is-in-view' : '';
@@ -48,6 +46,8 @@ const ContentImageGroup = (props, context) => {
   }
 
   //Wrappin
+  //
+  //TODO Refactor - try to do this with React instead of Parser
   for (var i = 0; i < images.length; i++) {
     if (props.modifier === 'fat' && Math.floor( images.length / 2) === i) {
       wrapClasses = 'wrap fatty';

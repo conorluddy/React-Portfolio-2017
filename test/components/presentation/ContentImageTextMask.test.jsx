@@ -1,0 +1,1 @@
+const ContentImageTextMask = require('../../../components/presentation/ContentImageTextMask.jsx');

@@ -80,7 +80,7 @@ class Reader extends React.Component {
     if (meta && (meta.heroImage || meta.heroVideo)) {
 
       title = meta.heroTitle ? <strong className="-white">{meta.heroTitle}</strong> : '';
-      subtitle = meta.heroSubtitle ? <span>{meta.heroSubtitle}</span> : '';
+      subtitle = meta.heroSubtitle ? <span className="subtitle">{meta.heroSubtitle}</span> : '';
 
       imgSrc = meta.heroImage ? meta.heroImage : false;
       videoSrc = meta.heroVideo ? meta.heroVideo : false;

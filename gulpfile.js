@@ -36,6 +36,10 @@ gulp.task('default', ['sass-component-index'], () => {
     gulp.start('webpack');
   });
 
+  // gulp.watch(['./assets/**/*'], () => {
+    // gulp.start('assets');
+  // });
+
   gulp.watch(['./dist/**/*'], browserSync.reload);
 
   gulp.watch(['./content/**/*'], () => {

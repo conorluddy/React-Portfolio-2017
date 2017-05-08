@@ -40,7 +40,7 @@ Description...
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 300px;
+    height: 620px;
     margin-bottom: 20px;
 
     .wrap {
@@ -62,11 +62,11 @@ Description...
     &.-fat {
       &.is-alive {
         .wrap::before {
-          transition-delay: 500ms;
+          // transition-delay: 500ms;
         }
         .wrap.fatty::before {
           transition-delay: 0ms;
-          transition-duration: 900ms;
+          transition-duration: 1000ms;
         }
       }
     }
@@ -133,7 +133,7 @@ Description...
   &.-butterfly-bottom {
     display: flex;
     justify-content: center;
-    height: 300px;
+    height: 500px;
     margin-bottom: 20px;
 
     .wrap {
