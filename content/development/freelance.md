@@ -6,5 +6,9 @@ heroVideo:
 heroImage: whiteacademy.jpg
 ---
 
+# **Freelance** design and development #
 
-# **Freelance** Projects #
+<div component="image-group" layout="row" alive="true" >
+  ![alt text](../../assets/images/content/dgd-mockup.jpg "Title")
+  ![alt text](../../assets/images/content/dgd-mockup.jpg "Title")
+</div>

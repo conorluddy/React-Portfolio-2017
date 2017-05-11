@@ -51,3 +51,6 @@ I designed this in Sketch after creating a mood-board from various sources. The 
 ### **Frontend** architecture
 
 Components with SASS attached.
+
+
+### Hosting | AWS

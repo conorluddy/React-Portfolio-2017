@@ -12,6 +12,13 @@ $neat-grid: (
 .grid-row {
   @include grid-container;
   max-width: $max-width;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+@media (min-width: 980px) {
+  .grid-row {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

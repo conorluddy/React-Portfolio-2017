@@ -1,0 +1,1 @@
+const Social = require('../../../components/presentation/Social.jsx');

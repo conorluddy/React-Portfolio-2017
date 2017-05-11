@@ -1,6 +1,6 @@
 ---
-heroImage: home.jpg
-heroTitle: Property
+heroImage: dgdsurgery.jpg
+heroTitle: Business
 ---
 
 ## **Business**

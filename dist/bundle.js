@@ -15085,12 +15085,25 @@ var ContentImageGroup = function ContentImageGroup(props, context) {
   //
   //TODO Refactor - try to do this with React instead of Parser
   for (var i = 0; i < images.length; i++) {
+
     if (props.modifier === 'fat' && Math.floor(images.length / 2) === i) {
       wrapClasses = 'wrap fatty';
     } else {
       wrapClasses = 'wrap';
     }
+
+    //Individual wrap for each image
     html += '<div class="' + wrapClasses + '"><img src=' + images[i].attribs.src + ' /></div>';
+
+    //First image pulled out from others
+    if (props.layout === 'one-up') {
+      if (i === 0) {
+        html += '<div class="other">';
+      }
+      if (i === images.length) {
+        html += '</div>';
+      }
+    }
   }
 
   return _react2.default.createElement(
@@ -42461,15 +42474,15 @@ module.exports = {
 			"name": "development",
 			"children": [
 				{
-					"path": "content/development/about.md",
-					"name": "about.md",
-					"size": 1490,
+					"path": "content/development/about-this-site.md",
+					"name": "about-this-site.md",
+					"size": 2193,
 					"extension": ".md"
 				},
 				{
 					"path": "content/development/dev-images.md",
 					"name": "dev-images.md",
-					"size": 4959,
+					"size": 6473,
 					"extension": ".md"
 				},
 				{
@@ -42493,7 +42506,7 @@ module.exports = {
 				{
 					"path": "content/development/projects.md",
 					"name": "projects.md",
-					"size": 141,
+					"size": 2259,
 					"extension": ".md"
 				},
 				{
@@ -42503,7 +42516,7 @@ module.exports = {
 					"extension": ".md"
 				}
 			],
-			"size": 25592
+			"size": 29927
 		},
 		{
 			"path": "content/photography",
@@ -42518,13 +42531,13 @@ module.exports = {
 				{
 					"path": "content/photography/automotive.md",
 					"name": "automotive.md",
-					"size": 1515,
+					"size": 1615,
 					"extension": ".md"
 				},
 				{
 					"path": "content/photography/business.md",
 					"name": "business.md",
-					"size": 99,
+					"size": 704,
 					"extension": ".md"
 				},
 				{
@@ -42546,10 +42559,10 @@ module.exports = {
 					"extension": ".md"
 				}
 			],
-			"size": 7042
+			"size": 7747
 		}
 	],
-	"size": 32634
+	"size": 37674
 };
 
 /***/ }),

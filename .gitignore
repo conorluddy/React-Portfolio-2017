@@ -3,5 +3,5 @@
 .DS_Store
 *.log
 .idea
-assets/video/Ersules.m4v
-dist/assets/video/Ersules.m4v
+assets/video/*
+dist/assets/video/*

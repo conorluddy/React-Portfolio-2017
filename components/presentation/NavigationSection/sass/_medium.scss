@@ -1,8 +1,16 @@
-/* Component: NavigationSection: medium screen size. 
+/* Component: NavigationSection: medium screen size.
 
-Description... 
+Description...
 */
 
 .cpnt-navigation-section {
+
+  .inner {
+      width: calc(50% + 15px);
+  }
+
+  .nav-list {
+    left: 20%;
+  }
 
 }

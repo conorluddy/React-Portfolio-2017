@@ -43,10 +43,13 @@ Description...
     color: $color-blue;
     text-transform: uppercase;
     font-weight: 100;
-    font-size: rem( 180 );
+    font-size: rem( 100 );
     line-height: rem( 90 );
     margin: auto;
     z-index: 10;
+
+    word-break: break-word;
+
     mix-blend-mode: overlay;
 
     strong {

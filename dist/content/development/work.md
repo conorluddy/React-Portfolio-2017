@@ -1,14 +1,35 @@
 ---
 title: Work projects
-heroTitle: Day Job
-heroSubtitle:
-heroVideo: landing.mp4
+heroTitle:
+heroImage: sseipad.jpg
 ---
-
 
 # **Work** Projects #
 
-![alt text](../../assets/images/content/libertymockups.jpg "Title")
+- Intro
+
+  Education & Career
 
 
-Project/client logo list
+- Employers
+  Trust 5
+  Fintrax
+  Aro
+  Buy4now
+  IQ Content
+  Each & Other
+
+- Clients
+  Logos
+  Others
+
+- Tech
+  ...
+
+- Projects
+  - SSE
+  - Ersules
+  - Kerry Group
+  - Liberty
+  - Oireachtas
+  - RSA
