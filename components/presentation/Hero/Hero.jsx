@@ -11,7 +11,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Hero = ({imgSrc, videoSrc, title, subtitle, modifiers, scrollPosition}, context) => {
+const Hero = ({imgSrc, videoSrc, title, subtitle, modifiers, scrollPosition, heroHasLoaded, confirmLoaded}, context) => {
 
   //TODO - make this work independently of context
 
@@ -22,8 +22,8 @@ const Hero = ({imgSrc, videoSrc, title, subtitle, modifiers, scrollPosition}, co
     transform: 'translate3D(0,' + context.scrollPosition / 5 + 'px,0)'
   };
 
-  videoSrc = videoSrc ? "./../assets/video/" + videoSrc : false;
 
+  videoSrc = videoSrc ? "./../assets/video/" + videoSrc : false;
   //TODO - make loop a prop, maybe make muted a prop, make poster a prop...
 
   video = <video style={parallaxStyle} autoPlay ><source src={videoSrc} type="video/mp4" /></video>;

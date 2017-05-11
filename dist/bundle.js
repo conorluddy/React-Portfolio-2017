@@ -9353,7 +9353,9 @@ var Hero = function Hero(_ref, context) {
       title = _ref.title,
       subtitle = _ref.subtitle,
       modifiers = _ref.modifiers,
-      scrollPosition = _ref.scrollPosition;
+      scrollPosition = _ref.scrollPosition,
+      heroHasLoaded = _ref.heroHasLoaded,
+      confirmLoaded = _ref.confirmLoaded;
 
 
   //TODO - make this work independently of context
@@ -9366,7 +9368,6 @@ var Hero = function Hero(_ref, context) {
   };
 
   videoSrc = videoSrc ? "./../assets/video/" + videoSrc : false;
-
   //TODO - make loop a prop, maybe make muted a prop, make poster a prop...
 
   video = _react2.default.createElement(
@@ -14891,6 +14892,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 // import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 
+// import Loading from '../../presentation/Loading/Loading.jsx';
+
 _metaMarked2.default.setOptions({
   renderer: new _metaMarked2.default.Renderer(),
   gfm: true,
@@ -14911,9 +14914,12 @@ var Reader = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (Reader.__proto__ || Object.getPrototypeOf(Reader)).call(this, props));
 
     _this.state = {
-      content: ''
+      content: '',
+      heroHasLoaded: false //,
+      // isLoading: true
     };
 
+    _this.confirmHeroLoaded = _this.confirmHeroLoaded.bind(_this);
     _this.getContent(props.location.pathname);
     return _this;
   }
@@ -14922,6 +14928,13 @@ var Reader = function (_React$Component) {
     key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps(nextProps) {
       this.getContent(nextProps.location.pathname);
+    }
+  }, {
+    key: 'confirmHeroLoaded',
+    value: function confirmHeroLoaded() {
+      //io = 1/0 = on/off
+      console.info('confirmLoaded');
+      this.setState({ heroHasLoaded: true });
     }
   }, {
     key: 'getContent',
@@ -14935,7 +14948,7 @@ var Reader = function (_React$Component) {
       (0, _fetchMd2.default)('./../content' + path + '.md').then(function (md) {
         var metamark = (0, _metaMarked2.default)(md);
         _this2.setState({
-          isLoading: false,
+          // isLoading: false,
           content: metamark.html,
           meta: metamark.meta,
           md: md
@@ -14991,11 +15004,16 @@ var Reader = function (_React$Component) {
           modifiers.heroDarken = meta.heroDarken;
         }
 
-        return _react2.default.createElement(_Hero2.default, { imgSrc: imgSrc, videoSrc: videoSrc, title: title, subtitle: subtitle, modifiers: modifiers, scrollPosition: this.state.scrollPosition });
+        return _react2.default.createElement(_Hero2.default, { imgSrc: imgSrc, videoSrc: videoSrc, title: title, subtitle: subtitle, modifiers: modifiers, scrollPosition: this.state.scrollPosition, heroHasLoaded: this.state.heroHasLoaded, confirmLoaded: this.confirmHeroLoaded });
       }
 
       return '';
     }
+
+    // ifLoading() {
+    //   return this.state.isLoading ? <Loading /> : '';
+    // }
+
   }, {
     key: 'render',
     value: function render() {
@@ -15284,7 +15302,7 @@ var NavOverlay = function NavOverlay(_ref) {
         'WEB DEV ',
         _react2.default.createElement(
           'span',
-          { className: '_weight-xlight -fluro' },
+          { className: '_weight-xlight' },
           '//'
         ),
         ' DESIGN'
@@ -15299,7 +15317,7 @@ var NavOverlay = function NavOverlay(_ref) {
         'PHOTO ',
         _react2.default.createElement(
           'span',
-          { className: '_weight-xlight -fluro' },
+          { className: '_weight-xlight' },
           '//'
         ),
         ' VIDEO'
@@ -42474,49 +42492,43 @@ module.exports = {
 			"name": "development",
 			"children": [
 				{
-					"path": "content/development/about-this-site.md",
-					"name": "about-this-site.md",
-					"size": 2193,
-					"extension": ".md"
-				},
-				{
-					"path": "content/development/dev-images.md",
-					"name": "dev-images.md",
-					"size": 6473,
-					"extension": ".md"
-				},
-				{
 					"path": "content/development/dev-kitchensink.md",
 					"name": "dev-kitchensink.md",
-					"size": 18481,
+					"size": 24887,
 					"extension": ".md"
 				},
 				{
-					"path": "content/development/freelance.md",
-					"name": "freelance.md",
-					"size": 133,
+					"path": "content/development/freelance-graphics.md",
+					"name": "freelance-graphics.md",
+					"size": 419,
 					"extension": ".md"
 				},
 				{
-					"path": "content/development/graphic-design.md",
-					"name": "graphic-design.md",
-					"size": 183,
+					"path": "content/development/freelance-web.md",
+					"name": "freelance-web.md",
+					"size": 402,
 					"extension": ".md"
 				},
 				{
 					"path": "content/development/projects.md",
 					"name": "projects.md",
-					"size": 2259,
+					"size": 2319,
+					"extension": ".md"
+				},
+				{
+					"path": "content/development/this-site.md",
+					"name": "this-site.md",
+					"size": 2193,
 					"extension": ".md"
 				},
 				{
 					"path": "content/development/work.md",
 					"name": "work.md",
-					"size": 205,
+					"size": 2360,
 					"extension": ".md"
 				}
 			],
-			"size": 29927
+			"size": 32580
 		},
 		{
 			"path": "content/photography",
@@ -42525,7 +42537,7 @@ module.exports = {
 				{
 					"path": "content/photography/about.md",
 					"name": "about.md",
-					"size": 2750,
+					"size": 85,
 					"extension": ".md"
 				},
 				{
@@ -42559,10 +42571,10 @@ module.exports = {
 					"extension": ".md"
 				}
 			],
-			"size": 7747
+			"size": 5082
 		}
 	],
-	"size": 37674
+	"size": 37662
 };
 
 /***/ }),

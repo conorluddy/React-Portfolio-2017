@@ -17,6 +17,7 @@ import fetchMd from '../../../modules/fetch-md.js';
 import Hero from '../../presentation/Hero/Hero.jsx';
 import ReaderContent from '../../presentation/ReaderContent/ReaderContent.jsx';
 import PageProgress from '../../presentation/PageProgress/PageProgress.jsx';
+// import Loading from '../../presentation/Loading/Loading.jsx';
 
 mMarked.setOptions({
   renderer: new mMarked.Renderer(),
@@ -34,9 +35,12 @@ class Reader extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      content: ''
+      content: '',
+      heroHasLoaded: false//,
+      // isLoading: true
     };
 
+    this.confirmHeroLoaded = this.confirmHeroLoaded.bind(this);
     this.getContent(props.location.pathname);
   }
 
@@ -44,6 +48,10 @@ class Reader extends React.Component {
     this.getContent(nextProps.location.pathname);
   }
 
+  confirmHeroLoaded() {//io = 1/0 = on/off
+    console.info('confirmLoaded');
+    this.setState({heroHasLoaded: true});
+  }
 
   getContent(path) {
     //TODO: improved path generation
@@ -54,7 +62,7 @@ class Reader extends React.Component {
       .then((md) => {
         let metamark = mMarked(md);
         this.setState({
-          isLoading: false,
+          // isLoading: false,
           content: metamark.html,
           meta: metamark.meta,
           md: md
@@ -101,16 +109,20 @@ class Reader extends React.Component {
         modifiers.heroDarken = meta.heroDarken;
       }
 
-      return <Hero imgSrc={imgSrc} videoSrc={videoSrc} title={title} subtitle={subtitle} modifiers={modifiers} scrollPosition={this.state.scrollPosition} />;
+      return <Hero imgSrc={imgSrc} videoSrc={videoSrc} title={title} subtitle={subtitle} modifiers={modifiers} scrollPosition={this.state.scrollPosition} heroHasLoaded={this.state.heroHasLoaded} confirmLoaded={this.confirmHeroLoaded} />;
     }
 
     return '';
   }
 
+  // ifLoading() {
+  //   return this.state.isLoading ? <Loading /> : '';
+  // }
+
   render() {
 
     return (
-      <div className="cpnt-reader">
+      <div className="cpnt-reader" >
 
         <ScrollPosition getBoundingRect={false} >
           {this.iNeedAHero(this.state.meta)}

@@ -1,12 +1,10 @@
 ---
 title: Freelance work
-heroTitle: Freelance
-heroSubtitle:
-heroVideo:
-heroImage: whiteacademy.jpg
+heroTitle: Freelance web
+heroImage: dgddesk.jpg
 ---
 
-# **Freelance** design and development #
+# **Freelance** web design &amp; development #
 
 
 

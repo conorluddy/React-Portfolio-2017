@@ -28,13 +28,13 @@ const NavOverlay = ({className, setSectionDevelopment, setSectionPhotography, se
 
       <div className="initial-opt _akrobat _weight-black left" onClick={setSectionDevelopment} >
           <h2 className="_weight-normal _selection-transparent" >
-            WEB DEV <span className="_weight-xlight -fluro">//</span> DESIGN
+            WEB DEV <span className="_weight-xlight">//</span> DESIGN
           </h2>
       </div>
 
       <div className="initial-opt _akrobat _weight-black right" onClick={setSectionPhotography} >
           <h2 className="_weight-normal _selection-transparent" >
-            PHOTO <span className="_weight-xlight -fluro">//</span> VIDEO
+            PHOTO <span className="_weight-xlight">//</span> VIDEO
           </h2>
       </div>
 

@@ -7,9 +7,9 @@ heroImage: whiteacademy.jpg
 ---
 
 
-# __Pro__jects #
+# __By me__, for me
 
-Projects that don't fall under freelance or my day job, live here. This is the section I want to grow this year. It's a bit bare at the moment.
+Projects that don't fall under freelance or my day job, live here. This is the section I want to grow this year. It's a bit bare at the moment. These are things I'm building or have built, for myself.
 
 
 ### Dublin Bus - Incoming Bus app
