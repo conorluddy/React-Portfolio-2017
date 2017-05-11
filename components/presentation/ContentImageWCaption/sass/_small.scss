@@ -8,6 +8,7 @@ Description...
   .cpnt-reader-content & {
     display: flex;
     align-items: flex-start;
+    flex-direction: column;
     width: 100%;
     padding: 60px 0;
   }
@@ -16,7 +17,7 @@ Description...
     position: relative;
     z-index: 1;
     flex: 1 0 0;
-    flex-basis: 61.8%;
+    // flex-basis: 100%;
     padding: 0 30px;
   }
 
