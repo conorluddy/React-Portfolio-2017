@@ -11,13 +11,17 @@ const imagemin = require('gulp-imagemin');
 module.exports = (gulp) => {
 
     gulp.task('assets', () => {
-      gulp.src('./assets/**/*')
-        .pipe(gulp.dest('dist/assets/'));
+      gulp.start('assets-content-images');
+      gulp.start('assets-hero-images');
+
+      //TODO optimise
+      gulp.src(['./assets/fonts/**/*']).pipe(gulp.dest('dist/assets/fonts'));
+      gulp.src(['./assets/audio/**/*']).pipe(gulp.dest('dist/assets/audio'));
+      gulp.src(['./assets/video/**/*']).pipe(gulp.dest('dist/assets/video'));
     });
 
 
-
-    gulp.task('asset-resize-content', () => {
+    gulp.task('assets-content-images', ['assets'], () => {
       gulp.src('./assets/images/content/*.jpg')
         .pipe(imageResize({
           width : 1440,
@@ -27,13 +31,25 @@ module.exports = (gulp) => {
           filter: 'Catrom'
         }))
         .pipe(imagemin())
-        .pipe(gulp.dest('dist/assets/images/content'));
+        .pipe(gulp.dest('dist/assets/images/content'))
+
+        //Small (50%) version
+
+        .pipe(imageResize({
+          width : 720,
+          crop : false,
+          upscale : false,
+          quality: 0.8,
+          filter: 'Catrom'
+        }))
+        .pipe(imagemin())
+        .pipe(gulp.dest('dist/assets/images/content/small'));
     });
 
 
 
 
-    gulp.task('asset-resize-hero', () => {
+    gulp.task('assets-hero-images', () => {
       gulp.src('./assets/images/hero/*.jpg')
         .pipe(imageResize({
           width : 1920,
@@ -43,7 +59,19 @@ module.exports = (gulp) => {
           filter: 'Catrom'
         }))
         .pipe(imagemin())
-        .pipe(gulp.dest('dist/assets/images/hero'));
+        .pipe(gulp.dest('dist/assets/images/hero'))
+
+        //Small (50%) version
+
+        .pipe(imageResize({
+          width : 960,
+          crop : false,
+          upscale : false,
+          quality: 0.8,
+          filter: 'Catrom'
+        }))
+        .pipe(imagemin())
+        .pipe(gulp.dest('dist/assets/images/hero/small'))
     });
 
 

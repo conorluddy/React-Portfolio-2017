@@ -49,12 +49,25 @@ const ContentImageGroup = (props, context) => {
   //
   //TODO Refactor - try to do this with React instead of Parser
   for (var i = 0; i < images.length; i++) {
+
     if (props.modifier === 'fat' && Math.floor( images.length / 2) === i) {
       wrapClasses = 'wrap fatty';
     } else {
       wrapClasses = 'wrap';
     }
+
+    //Individual wrap for each image
     html += '<div class="'+wrapClasses+'"><img src=' + images[i].attribs.src + ' /></div>';
+
+    //First image pulled out from others
+    if (props.layout === 'one-up') {
+      if (i === 0) {
+        html += '<div class="other">';
+      }
+      if (i === images.length) {
+        html += '</div>';
+      }
+    }
   }
 
   return (

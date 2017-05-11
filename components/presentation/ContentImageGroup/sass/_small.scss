@@ -193,6 +193,28 @@ Description...
 
 
 
+
+
+
+
+  &.-one-up {
+    display: flex;
+
+    > .wrap {
+      flex-basis: 61%;
+      flex: 1 1 0;
+    }
+
+    .other {
+      flex-basis: 33%;
+      flex: 1 1 0;
+    }
+
+  }
+
+
+
+
   /// Aliveness and Scroll response
   // &.is-alive {
   //   opacity: 0;
