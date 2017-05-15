@@ -25,6 +25,19 @@ class Navigation extends React.Component {
       hasCloseBtn: true
     };
 
+    //Enable ESC key for toggling nav.
+    if (window) {
+      window.addEventListener('keyup', ev => {
+        if (ev.keyCode === 27) {
+          if (this.state.section === null) {
+            this.setSectionLanding();
+          } else {
+            this.stashNav();
+          }
+        }
+      })
+    }
+
     this.setSectionDevelopment = this.setSectionDevelopment.bind(this);
     this.setSectionPhotography = this.setSectionPhotography.bind(this);
     this.setSectionLanding = this.setSectionLanding.bind(this);
@@ -32,6 +45,7 @@ class Navigation extends React.Component {
     this.clearSection = this.clearSection.bind(this);
     this.stashNav = this.stashNav.bind(this);
     this.playAudioTick = this.playAudioTick.bind(this);
+    this.navigate = this.navigate.bind(this);
   }
 
   playAudioTick() {
@@ -90,14 +104,27 @@ class Navigation extends React.Component {
     }
 
     this.props.setNavActive(1);
+    this.playAudioTick();
   }
 
   stashNav() {
     this.setState({
       section: null,
-      hasCloseBtn: false
+      hasCloseBtn: false,
+      transparency: 10
     });
     this.props.setNavActive(0);
+    this.playAudioTick();
+  }
+
+  navigate() {
+    this.playAudioTick();
+    this.setState({
+      transparency: 90
+    });
+    setTimeout(() => {
+      this.stashNav();
+    }, 500);
   }
 
   clearSection() {
@@ -163,9 +190,9 @@ class Navigation extends React.Component {
     if (!this.state.section) {
       sectionNav = <TriggerArrow handleClick={this.setSectionBiased} nsew='nw' />
     } else if (this.state.section === 'development') {
-      sectionNav = <NavigationSection section={this.state.section} navList={devNavItems} clearSection={this.clearSection} stashNav={this.stashNav} side='left' playAudioTick={this.playAudioTick} />;
+      sectionNav = <NavigationSection section={this.state.section} navList={devNavItems} clearSection={this.clearSection} navigate={this.navigate} side='left' playAudioTick={this.playAudioTick} />;
     } else if (this.state.section === 'photography') {
-      sectionNav = <NavigationSection section={this.state.section} navList={photoNavItems} clearSection={this.clearSection} stashNav={this.stashNav} side='right' playAudioTick={this.playAudioTick} />;
+      sectionNav = <NavigationSection section={this.state.section} navList={photoNavItems} clearSection={this.clearSection} navigate={this.navigate} side='right' playAudioTick={this.playAudioTick} />;
     }
 
     return (

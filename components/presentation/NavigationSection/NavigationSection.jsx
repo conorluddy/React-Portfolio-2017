@@ -13,13 +13,15 @@ import { Link, IndexLink } from 'react-router';
 import Grip from '../Grip/Grip.jsx';
 import TriggerArrow from '../TriggerArrow/TriggerArrow.jsx';
 
-const NavigationSection = ({section, navList, side, stashNav, clearSection, playAudioTick}) => {
+const NavigationSection = ({section, navList, side, navigate, clearSection, playAudioTick}) => {
   let innerClasses = section + " inner " + side;
   let arrowDirection = side === 'right' ? 'nw' : 'ne';
 
   function navClick() {
-    stashNav();
+    navigate();
     playAudioTick();
+
+    console.log('side' + side);
   }
 
   return (

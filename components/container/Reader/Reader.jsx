@@ -10,13 +10,12 @@
 
 import React from 'react';
 import mMarked from 'meta-marked';
-// import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
-
 import ScrollPosition from '../ScrollPosition/ScrollPosition.jsx';
 import fetchMd from '../../../modules/fetch-md.js';
 import Hero from '../../presentation/Hero/Hero.jsx';
 import ReaderContent from '../../presentation/ReaderContent/ReaderContent.jsx';
 import PageProgress from '../../presentation/PageProgress/PageProgress.jsx';
+// import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 // import Loading from '../../presentation/Loading/Loading.jsx';
 
 mMarked.setOptions({

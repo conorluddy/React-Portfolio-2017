@@ -8,8 +8,8 @@ const gutil = require('gutil');
 
 module.exports = (gulp) => {
 
-
   gulp.task('webpack', ['es-lint'], (callback) => {
+
     webpack({
         entry: [
           'whatwg-fetch',
@@ -29,15 +29,15 @@ module.exports = (gulp) => {
                 loader: 'babel-loader?presets[]=es2015&presets[]=react'
             }]
         },
-        // plugins:[
-        //   //https://facebook.github.io/react/docs/optimizing-performance.html#use-the-production-build
-        //   new webpack.DefinePlugin({
-        //     'process.env': {
-        //       NODE_ENV: JSON.stringify('production')
-        //     }
-        //   }),
-        //   new webpack.optimize.UglifyJsPlugin()
-        // ]
+        plugins:[
+          //https://facebook.github.io/react/docs/optimizing-performance.html#use-the-production-build
+          new webpack.DefinePlugin({
+            'process.env': {
+              NODE_ENV: JSON.stringify('production')
+            }
+          }),
+          new webpack.optimize.UglifyJsPlugin()
+        ]
     }, (err, stats) => {
         if(err) throw new gutil.PluginError('webpack', err);
         gutil.log('[webpack]', stats.toString({
@@ -45,6 +45,7 @@ module.exports = (gulp) => {
         }));
         callback();
     });
+
   });
 
 };
