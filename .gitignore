@@ -1,7 +1,7 @@
 /node_modules
 /bower_components
+/assets/video/*
+/dist/assets/video/*
 .DS_Store
 *.log
 .idea
-assets/video/*
-dist/assets/video/*
