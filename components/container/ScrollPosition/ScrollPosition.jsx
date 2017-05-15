@@ -26,7 +26,7 @@ class ScrollPosition extends React.Component {
 
   componentDidMount() {
     this.setState({
-      intrvl: setInterval(this.updateProgress.bind(this), 1000/40)
+      intrvl: setInterval(this.updateProgress.bind(this), 1000/60)
     });
   }
 
