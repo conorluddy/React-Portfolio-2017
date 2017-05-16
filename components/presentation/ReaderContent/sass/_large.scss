@@ -11,11 +11,20 @@ Description...
   }
 
 
-  h1, h2, h3, h4, h5, p, ul, dl, table, pre {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  p,
+  ul,
+  dl,
+  table,
+  pre {
     @include grid-column(12);
     @include grid-push(3);
+    @include clearfix;
   }
-
 
 
   // [class^="cpnt"] {

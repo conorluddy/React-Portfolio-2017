@@ -14,6 +14,7 @@ module.exports = (gulp) => {
       gulp.start('assets-content-images');
       gulp.start('assets-hero-images');
       gulp.start('assets-ui-images');
+      gulp.start('assets-gifs');
 
       //TODO optimise
       gulp.src(['./assets/fonts/**/*']).pipe(gulp.dest('dist/assets/fonts'));
@@ -85,6 +86,11 @@ module.exports = (gulp) => {
 
 
 
+
+    gulp.task('assets-gifs', () => {
+      gulp.src('./assets/images/content/*.gif')
+        .pipe(gulp.dest('dist/assets/images/content/'))
+    });
 
 
 

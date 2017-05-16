@@ -12,16 +12,25 @@ import React from 'react';
 import Parser from 'html-react-parser';
 import DomToReact from 'html-react-parser/lib/dom-to-react';
 
+/**
+ * Modifiers:
+ *  Blend mode (TODO)
+ *  Start from edge of grid (TODO)
+ *  Diagonal curtains (TODO)
+ *  Opacity (TODO)
+ */
+
 const ContentImageCurtains = (props, context) => {
   let baseClassName = 'cpnt-content-image-curtains';
   let vh = window.innerHeight || 800;
-  let preload = vh/10;//fully load without having to go all the way up
+  let preload = vh/5;//fully load without having to go all the way up
   let images = props.domNode.children.filter(node => {
     return node.name === 'img';
   });
 
   function getClassNames() {
     let mods = '';
+
     mods += props.layout ? '-' + props.layout : '';
     mods += ' ';
     mods += props.modifier ? '-' + props.modifier : '';
@@ -32,6 +41,8 @@ const ContentImageCurtains = (props, context) => {
   function getCurtainPull(direction) {
     let cTop = context.boundingRect.top - preload;
     let progress;
+
+    console.log('boundingRect.top: ', context.boundingRect.top);
 
     //want curtains to be fully closed when component is 1vh from top
 

@@ -32,7 +32,7 @@ const ContentImageGroup = (props, context) => {
 
   function getClassNames() {
     componentTop = isAlive ? context.boundingRect.top : 0;
-    isInView = componentTop < 0;//..(-1 * (vh / 6));
+    isInView = componentTop < vh / 2;
 
     mods += isAlive ? 'is-alive' : '';
     mods += ' ';
