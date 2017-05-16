@@ -1,7 +1,6 @@
 ---
 title:  About this site
-heroTitle:  About
-heroSubtitle:  This site
+heroTitle:  About This
 heroImage:  designinprogress.jpg
 ---
 
