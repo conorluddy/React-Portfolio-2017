@@ -9,15 +9,12 @@ Description...
   overflow: hidden;
 
  .curtain {
-   transition: transform 100ms linear;
+   transition: transform 20ms linear;
    position: absolute;
    width: 100%;
    height: 100%;
    top: 0;
-   left: 0;
    background: $color-off-white;
-
-  //  mix-blend-mode: overlay;
 
    &.-top {
     //   top: 0;
@@ -25,19 +22,24 @@ Description...
     //   right: 0;
    }
    &.-right {
-    //   top: 0;
-    //   right: 0;
-    //   bottom: 0;
-    //   width: 300px;
+      right: 0;
+      // left: inherit;
    }
    &.-bottom {
     // bottom: 0;
    }
 
    &.-left {
-    //   left: 0;
+      left: 0;
     //   width: 300px;
    }
 
+ }
+
+
+ &.-grid-edge {
+   .curtain {
+    width: calc(16.66667% - 23.33333px + 40px);
+   }
  }
 }

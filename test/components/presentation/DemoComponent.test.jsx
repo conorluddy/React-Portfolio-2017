@@ -1,0 +1,1 @@
+const DemoComponent = require('../../../components/presentation/DemoComponent.jsx');

@@ -63,8 +63,12 @@ class ScrollPosition extends React.Component {
   }
 
   render() {
+    let styles = {
+      clear: 'both'
+    };
+
     return (
-      <div className="cpnt-scroll-position" ref={(el) => { this.elWrap = el; }} >
+      <div className="cpnt-scroll-position" style={styles} ref={(el)=>{ this.elWrap = el; }} >
         {this.props.children}
       </div>
     );

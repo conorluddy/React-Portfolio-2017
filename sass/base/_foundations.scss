@@ -2,3 +2,8 @@
 html {
   background: $color-off-white;
 }
+
+
+.clearfix {
+  @include clearfix;
+}
