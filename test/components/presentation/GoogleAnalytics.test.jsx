@@ -1,0 +1,1 @@
+const GoogleAnalytics = require('../../../components/presentation/GoogleAnalytics.jsx');
