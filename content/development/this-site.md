@@ -1,7 +1,7 @@
 ---
 title:  About this site
 heroTitle:  About This
-heroImage:  designinprogress.jpg
+heroImage:  wipwood.jpg
 ---
 
 # **About** this site

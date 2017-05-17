@@ -61,7 +61,7 @@ const ContentImageWCaption = (props, context) => {
   return (
     <div className={getClassNames()} >
       <div className="img-wrap">{DomToReact(images)}</div>
-      <caption>{DomToReact(textEls)}</caption>
+      <span className="text-wrap">{DomToReact(textEls)}</span>
     </div>
   )
 

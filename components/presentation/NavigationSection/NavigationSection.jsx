@@ -13,15 +13,15 @@ import { Link, IndexLink } from 'react-router';
 import Grip from '../Grip/Grip.jsx';
 import TriggerArrow from '../TriggerArrow/TriggerArrow.jsx';
 
-const NavigationSection = ({section, navList, side, navigate, clearSection, playAudioTick}) => {
+const NavigationSection = ({section, navList, side, postNavigate, clearSection, playAudioTick}) => {
   let innerClasses = section + " inner " + side;
   let arrowDirection = side === 'right' ? 'nw' : 'ne';
 
-  function navClick() {
-    navigate();
+  function navClick(path) {
+    postNavigate();
     playAudioTick();
 
-    console.log('side' + side);
+    console.log('Navclick');
   }
 
   return (
@@ -30,9 +30,11 @@ const NavigationSection = ({section, navList, side, navigate, clearSection, play
 
         <ul className="nav-list">
           {navList.map((navItem, idx) =>
-            <li className="_akrobat _weight-normal" key={idx}>
+            <li className="_akrobat _weight-normal" key={idx} >
 
-              <Link to={navItem.path} onClick={navClick} activeClassName="is-active" >{navItem.label}</Link>
+              <Link to={navItem.path} activeClassName="is-active"  >
+                {navItem.label}
+              </Link>
 
               <Grip className="nav-items"/>
 
@@ -57,3 +59,6 @@ const NavigationSection = ({section, navList, side, navigate, clearSection, play
 //NavigationSection.defaultProps = { children: 'Hello World!' };
 
 export default NavigationSection;
+
+
+//onClick={navClick(navItem.path)}

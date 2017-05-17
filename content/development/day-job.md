@@ -1,21 +1,67 @@
 ---
 title: Work projects
-heroTitle:
+heroTitle: Day Job
 heroImage: sseipad.jpg
 ---
 
 # **This is** what I do
 
-I'm a web developer by trade. My 9-5 is currently spent as a front-end dev for Each & Other – a UX design and digital transformation agency in Dublin city. Back in 2006 I finished up a degree in Software Development in my home town of Galway, at the Galway-Mayo Institute of Technology, or GMIT. Since then I've bounced between the east and west coasts of Ireland, but settled in Dublin around 2012.
+I'm a web developer by trade. My 9-5 is currently spent as a front-end engineer for <a href="http://www.eachandother.com/people.html" target="_blank" >Each & Other</a> – a UX design and digital transformation agency in Dublin city. Back in 2006 I finished up a degree in Software Development in my home town of Galway, at the Galway-Mayo Institute of Technology, or GMIT. Since then I've bounced between the east and west coasts of Ireland, but settled in Dublin around 2012.
 
-## __Employ__ers
+
+## Current __tech stack__
+
+I've been using __CSS__ since about 1999. I'm very comfortable with it. I love using it to bring pages to life with micro-interactions and fluid UI animations. CSS is like crayons. Anyone can use it, but it takes a bit of skill and practice to do anything useful with it.
+
+__JavaScript__ has been my main focus over the past few years. I've built applications with __Ember__ and __React__, and a smaller scale application with __Angular__ and __Ionic__. The latter was for a hybrid Android app you can find on the <a href="./projects">side projects page</a>. Prior to using JavaScript properly, __jQuery__ was king for most projects and gave me a nice ramp-up into using front-end JavaScript on a day-to-day basis. I use __Node__ and __NPM__ daily to handle tooling for any projects I'm working on, with __Gulp__ as a task runner. __Github__ is my preferred method of version control. The __AWS__ suite of cloud services is pretty awesome for all things cloud, and I completed the <a href="https://aws.amazon.com/training/course-descriptions/essentials/" target="_blank" >AWS Technical Essentials</a> day course last November to get a better understanding of how it can be leveraged.
+
+
+## __Recent__ Projects
+
+### SSE Airtricity
+
+SSE's public website blah blah responsive blah blah
+- responsive, lead, tooling, modular, pattern lib, onsite
+
+<div component="image-curtains" modifier="" layout="LR" >
+  ![alt text](../../assets/images/hero/sse-ipad-iphone.jpg "Title")
+</div>
+
+### Ersules
+- ember
+- iot
+- node
+
+
+### Liberty Insurance
+- onsite
+- responsive
+- modular
+- php
+- silverstripe
+
+<div component="image-curtains" modifier="" layout="LR" >
+  ![alt text](../../assets/images/hero/liberty-macbook.jpg "Title")
+</div>
+
+### Oireachtas Éireann
+- onsite
+- front-end
+
+<div component="image-curtains" modifier="" layout="LR" >
+  ![alt text](../../assets/images/hero/oireachtas-ipad.jpg "Title")
+</div>
+
+
+
+## __Employers,__ past and present  
 
 - 2006 <a href="#" target="_blank" >Trust5</a> - Dublin
 - 2007 <a href="#" target="_blank" >Fintrax</a> - Galway
 - 2009 <a href="#" target="_blank" >Aró</a> - Galway
 - 2011 <a href="#" target="_blank" >Buy4Now</a> - Dublin
 - 2012 <a href="#" target="_blank" >IQ Content</a> - Dublin
-- 2014 <a href="#" target="_blank" >Each & Other</a> - Dublin
+- 2015 <a href="#" target="_blank" >Each & Other</a> - Dublin
 
 
 
@@ -25,7 +71,7 @@ I'm a web developer by trade. My 9-5 is currently spent as a front-end dev for E
 
 ## Clients
 
-Over the years I've put code into all of these companies websites or products.
+These are a few well known companies whose code I've worked on over the past few years.
 
 - Accenture
 - Allied Irish Bank
@@ -34,10 +80,9 @@ Over the years I've put code into all of these companies websites or products.
 - EA Mobile
 - Ersules
 - Fujitsu
-- Goodyear
+- Goodyear / Dunlop
 - Kerry Group
 - Liberty Mutual Insurance
-- O2
 - Oireachtas Éireann
 - Raidió Teilifís Éireann
 - Road Safety Authority
@@ -45,28 +90,3 @@ Over the years I've put code into all of these companies websites or products.
 - The K Club
 - Version 1
 - Vodafone
-
-
-
-## Current __tech stack__
-
-**JavaScript** has been my main focus the past few years. I've built applications with Ember and React, and a smaller scale application with Angular via Ionic. The latter was for a hybrid Android app you can find on the <a href="./projects">Projects page</a>. Previous to using JavaScript _properly_, jQuery was king for most projects and provided an easier entry into using JS on a day to day basis.
-
-I've been using __CSS__ since about 1999. I'm very comfortable with it. I love using it to bring pages to life with micro-interactions and fluid UI animations. CSS is easy to use, but hard to use well. It's very satisfying when you build something from the ground up with it, which scales well and stays clean.
-
-- JavaScript // ES5 // ES6
-- React // Ember
-- CSS // SASS // LESS
-- Gulp // WEBPACK
-- PHP // Node
-
-
-
-## Projects
-
-- SSE - responsive, lead, tooling, modular, pattern lib, onsite
-- Ersules - ember, iot, node api
-- Liberty - onsite, responsive, modular, php, silverstripe
-- Oireachtas - onsite, front-end
-- RSA - templates
-- Kerry Group - templates, sharepoint, onsite etc

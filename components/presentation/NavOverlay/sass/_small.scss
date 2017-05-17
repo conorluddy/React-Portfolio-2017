@@ -23,7 +23,6 @@ Description...
     > *:not(.cpnt-trigger-arrow) {
       display: none;
     }
-
   }
 
 
@@ -103,15 +102,37 @@ Description...
 
 
   > .cpnt-grip {
-    width: 24px;
+    width: 17px;
     height: 100vh;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
+
+    animation-name: fade-in;
+    animation-duration: 1000ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
   }
 
 
+
+  .curtain {
+    position: absolute;
+    background: $color-blue;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    .is-entering {
+
+    }
+
+    .is-exiting {
+
+    }
+  }
 }
 
 

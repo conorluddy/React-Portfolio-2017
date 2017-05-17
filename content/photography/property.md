@@ -15,21 +15,38 @@ Below is a selection of some property photographs I've taken to date. I'm always
   Treehouse accommodation in Teapot Lane, Co. Leitrim. This is a 'glamping' resort near Bundoran. The treehouse has it's own stove and is super cosy.
 </div>
 
-
-<div component="image-group" layout="kebab" modifier="fat" alive="true" >
-  ![alt text](../../assets/images/content/property-1.jpg "Title")
-  ![alt text](../../assets/images/content/property-4.jpg "Title")
-  ![alt text](../../assets/images/content/property-2.jpg "Title")  
+<div component="image-curtains" modifier="" layout="LR" >
+ ![alt text](../../assets/images/content/property-1.jpg "Title")
 </div>
 
-<div component="image-group" layout="butterfly-top" alive="true" >
-  ![alt text](../../assets/images/content/property-3.jpg "Title")
-  ![alt text](../../assets/images/content/property-5.jpg "Title")
-  ![alt text](../../assets/images/content/property-6.jpg "Title")
+<div component="image-curtains" modifier="" layout="LR" >
+ ![alt text](../../assets/images/content/property-4.jpg "Title")
 </div>
 
-<div component="image-group" layout="butterfly-bottom" alive="true" >
-  ![alt text](../../assets/images/content/property-9.jpg "Title")
-  ![alt text](../../assets/images/content/property-8.jpg "Title")
-  ![alt text](../../assets/images/content/property-7.jpg "Title")
+<div component="image-curtains" modifier="" layout="LR" >
+ ![alt text](../../assets/images/content/property-2.jpg "Title")  
+</div>
+
+<div component="image-curtains" modifier="" layout="LR" >
+ ![alt text](../../assets/images/content/property-3.jpg "Title")
+</div>
+
+<div component="image-curtains" modifier="" layout="LR" >
+ ![alt text](../../assets/images/content/property-5.jpg "Title")
+</div>
+
+<div component="image-curtains" modifier="" layout="LR" >
+ ![alt text](../../assets/images/content/property-6.jpg "Title")
+</div>
+
+<div component="image-curtains" modifier="" layout="LR" >
+ ![alt text](../../assets/images/content/property-9.jpg "Title")
+</div>
+
+<div component="image-curtains" modifier="" layout="LR" >
+ ![alt text](../../assets/images/content/property-8.jpg "Title")
+</div>
+
+<div component="image-curtains" modifier="" layout="LR" >
+ ![alt text](../../assets/images/content/property-7.jpg "Title")
 </div>

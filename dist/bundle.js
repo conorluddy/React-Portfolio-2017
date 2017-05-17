@@ -9251,7 +9251,7 @@ var ScrollPosition = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       this.setState({
-        intrvl: setInterval(this.updateProgress.bind(this), 1000 / 60)
+        intrvl: setInterval(this.updateProgress.bind(this), 1000 / 20)
       });
     }
   }, {
@@ -9359,7 +9359,8 @@ var Hero = function Hero(_ref, context) {
       modifiers = _ref.modifiers,
       scrollPosition = _ref.scrollPosition,
       heroHasLoaded = _ref.heroHasLoaded,
-      confirmLoaded = _ref.confirmLoaded;
+      confirmLoaded = _ref.confirmLoaded,
+      isLoading = _ref.isLoading;
 
 
   //TODO - make this work independently of context
@@ -9370,6 +9371,7 @@ var Hero = function Hero(_ref, context) {
   var parallaxStyle = {
     transform: 'translate3D(0,' + context.scrollPosition / 5 + 'px,0)'
   };
+  var classNames = isLoading ? "cpnt-hero is-loading" : "cpnt-hero is-loaded";
 
   videoSrc = videoSrc ? "./../assets/video/" + videoSrc : false;
   //TODO - make loop a prop, maybe make muted a prop, make poster a prop...
@@ -9385,7 +9387,7 @@ var Hero = function Hero(_ref, context) {
   if (videoSrc) {
     return _react2.default.createElement(
       'div',
-      { className: 'cpnt-hero', style: heroStyle },
+      { className: classNames, style: heroStyle },
       video,
       _react2.default.createElement(
         'h1',
@@ -9398,7 +9400,7 @@ var Hero = function Hero(_ref, context) {
   } else {
     return _react2.default.createElement(
       'div',
-      { className: 'cpnt-hero', style: heroStyle },
+      { className: classNames, style: heroStyle },
       _react2.default.createElement('img', { src: heroImg, alt: title, style: parallaxStyle }),
       _react2.default.createElement(
         'h1',
@@ -14574,7 +14576,8 @@ var Navigation = function (_React$Component) {
     _this.state = {
       section: 'landing',
       transparency: 90,
-      hasCloseBtn: true
+      hasCloseBtn: true,
+      transitionState: null
     };
 
     //Enable ESC key for toggling nav.
@@ -14597,7 +14600,7 @@ var Navigation = function (_React$Component) {
     _this.clearSection = _this.clearSection.bind(_this);
     _this.stashNav = _this.stashNav.bind(_this);
     _this.playAudioTick = _this.playAudioTick.bind(_this);
-    _this.navigate = _this.navigate.bind(_this);
+    _this.postNavigate = _this.postNavigate.bind(_this);
     return _this;
   }
 
@@ -14677,17 +14680,20 @@ var Navigation = function (_React$Component) {
       this.playAudioTick();
     }
   }, {
-    key: 'navigate',
-    value: function navigate() {
+    key: 'postNavigate',
+    value: function postNavigate() {
       var _this2 = this;
 
-      this.playAudioTick();
-      this.setState({
-        transparency: 90
-      });
+      this.scrollToPageTop();
+
       setTimeout(function () {
         _this2.stashNav();
-      }, 500);
+      }, 1000);
+    }
+  }, {
+    key: 'scrollToPageTop',
+    value: function scrollToPageTop() {
+      window.scrollTo(0, 0);
     }
   }, {
     key: 'clearSection',
@@ -14727,6 +14733,7 @@ var Navigation = function (_React$Component) {
       var photoNavItems = [];
       var devNavItems = [];
       var tempName = void 0;
+      var curtains = null;
 
       // ToDo - DRY this up
 
@@ -14757,15 +14764,25 @@ var Navigation = function (_React$Component) {
       if (!this.state.section) {
         sectionNav = _react2.default.createElement(_TriggerArrow2.default, { handleClick: this.setSectionBiased, nsew: 'nw' });
       } else if (this.state.section === 'development') {
-        sectionNav = _react2.default.createElement(_NavigationSection2.default, { section: this.state.section, navList: devNavItems, clearSection: this.clearSection, navigate: this.navigate, side: 'left', playAudioTick: this.playAudioTick });
+        sectionNav = _react2.default.createElement(_NavigationSection2.default, { section: this.state.section, navList: devNavItems, clearSection: this.clearSection, postNavigate: this.postNavigate, side: 'left', playAudioTick: this.playAudioTick });
       } else if (this.state.section === 'photography') {
-        sectionNav = _react2.default.createElement(_NavigationSection2.default, { section: this.state.section, navList: photoNavItems, clearSection: this.clearSection, navigate: this.navigate, side: 'right', playAudioTick: this.playAudioTick });
+        sectionNav = _react2.default.createElement(_NavigationSection2.default, { section: this.state.section, navList: photoNavItems, clearSection: this.clearSection, postNavigate: this.postNavigate, side: 'right', playAudioTick: this.playAudioTick });
       }
+
+      // if (this.state.transitionState) {
+      //   if (this.state.transitionState === "enter") {
+      //     curtains = <div className="curtain is-entering" />
+      //   }
+      //   if (this.state.transitionState === "exit") {
+      //     curtains = <div className="curtain is-exiting" />
+      //   }
+      // }
+
 
       return _react2.default.createElement(
         'div',
         { className: 'cpnt-navigation' },
-        _react2.default.createElement(_NavOverlay2.default, { className: this.getClassNames(), setSectionDevelopment: this.setSectionDevelopment, setSectionPhotography: this.setSectionPhotography, sectionNav: sectionNav, transparency: this.state.transparency, stashNav: this.stashNav, hasCloseBtn: this.state.hasCloseBtn })
+        _react2.default.createElement(_NavOverlay2.default, { className: this.getClassNames(), setSectionDevelopment: this.setSectionDevelopment, setSectionPhotography: this.setSectionPhotography, sectionNav: sectionNav, transparency: this.state.transparency, stashNav: this.stashNav, hasCloseBtn: this.state.hasCloseBtn, curtains: curtains })
       );
     }
   }]);
@@ -14944,8 +14961,8 @@ var Reader = function (_React$Component) {
 
     _this.state = {
       content: '',
-      heroHasLoaded: false //,
-      // isLoading: true
+      heroHasLoaded: false,
+      isLoading: true
     };
 
     _this.confirmHeroLoaded = _this.confirmHeroLoaded.bind(_this);
@@ -14957,6 +14974,7 @@ var Reader = function (_React$Component) {
     key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps(nextProps) {
       this.getContent(nextProps.location.pathname);
+      this.setState({ isLoading: true });
     }
   }, {
     key: 'confirmHeroLoaded',
@@ -14976,8 +14994,11 @@ var Reader = function (_React$Component) {
 
       (0, _fetchMd2.default)('./../content' + path + '.md').then(function (md) {
         var metamark = (0, _metaMarked2.default)(md);
+
+        console.info('Fetched');
+
         _this2.setState({
-          // isLoading: false,
+          isLoading: false,
           content: metamark.html,
           meta: metamark.meta,
           md: md
@@ -15033,20 +15054,14 @@ var Reader = function (_React$Component) {
           modifiers.heroDarken = meta.heroDarken;
         }
 
-        return _react2.default.createElement(_Hero2.default, { imgSrc: imgSrc, videoSrc: videoSrc, title: title, subtitle: subtitle, modifiers: modifiers, scrollPosition: this.state.scrollPosition, heroHasLoaded: this.state.heroHasLoaded, confirmLoaded: this.confirmHeroLoaded });
+        return _react2.default.createElement(_Hero2.default, { imgSrc: imgSrc, videoSrc: videoSrc, title: title, subtitle: subtitle, modifiers: modifiers, scrollPosition: this.state.scrollPosition, heroHasLoaded: this.state.heroHasLoaded, confirmLoaded: this.confirmHeroLoaded, isLoading: this.state.isLoading });
       }
 
       return '';
     }
-
-    // ifLoading() {
-    //   return this.state.isLoading ? <Loading /> : '';
-    // }
-
   }, {
     key: 'render',
     value: function render() {
-
       return _react2.default.createElement(
         'div',
         { className: 'cpnt-reader' },
@@ -15055,7 +15070,7 @@ var Reader = function (_React$Component) {
           { getBoundingRect: false },
           this.iNeedAHero(this.state.meta)
         ),
-        _react2.default.createElement(_ReaderContent2.default, { content: this.state.content }),
+        _react2.default.createElement(_ReaderContent2.default, { content: this.state.content, isLoading: this.state.isLoading }),
         _react2.default.createElement(
           _ScrollPosition2.default,
           { getBoundingRect: false },
@@ -15098,9 +15113,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 /**
  * Modifiers:
  *  Blend mode (TODO)
- *  Start from edge of grid (TODO)
+ *  Start from edge of grid
  *  Diagonal curtains (TODO)
  *  Opacity (TODO)
+ *
+ *  modifier="grid-edge"
  */
 
 var ContentImageCurtains = function ContentImageCurtains(props, context) {
@@ -15113,7 +15130,10 @@ var ContentImageCurtains = function ContentImageCurtains(props, context) {
 
   function getClassNames() {
     var mods = '';
+    var cTop = context.boundingRect.top - preload;
 
+    mods += cTop < vh / 2 ? 'is-in-view' : '';
+    mods += ' ';
     mods += props.layout ? '-' + props.layout : '';
     mods += ' ';
     mods += props.modifier ? '-' + props.modifier : '';
@@ -15121,45 +15141,46 @@ var ContentImageCurtains = function ContentImageCurtains(props, context) {
     return baseClassName + ' ' + mods;
   }
 
-  function getCurtainPull(direction) {
-    var cTop = context.boundingRect.top - preload;
-    var progress = void 0;
+  // function getCurtainPull(direction) {
+  //
+  //   //Return - using is-in-view instead.
+  //   return {};
+  //
+  //   let cTop = context.boundingRect.top - preload;
+  //   let progress;
+  //
+  //   console.log('boundingRect.top: ', context.boundingRect.top);
+  //
+  //   //want curtains to be fully closed when component is 1vh from top
+  //
+  //   if (cTop > vh) {
+  //     progress = 0 + '%';
+  //   } else if (cTop < 0) {
+  //     progress = 100 + '%';
+  //   } else {
+  //     progress = Math.floor( 100 - (cTop / vh * 100) ) + '%';
+  //   }
+  //
+  //   switch (direction) {
+  //     case 'U': return {transform: 'translate3d(0, -' + progress + ', 0)'};
+  //     case 'D': return {transform: 'translate3d(0, ' + progress + ', 0)'};
+  //     case 'L': return {transform: 'translate3d(-' + progress + ', 0, 0)'};
+  //     case 'R': return {transform: 'translate3d(' + progress + ', 0, 0)'};
+  //     //////////////////////////////////////////////////////////////////////////
+  //     default: return {transform: 'translate3d(' + progress + ', 0, 0)'};
+  //   }
+  // }
 
-    console.log('boundingRect.top: ', context.boundingRect.top);
-
-    //want curtains to be fully closed when component is 1vh from top
-
-    if (cTop > vh) {
-      progress = 0 + '%';
-    } else if (cTop < 0) {
-      progress = 100 + '%';
-    } else {
-      progress = Math.floor(100 - cTop / vh * 100) + '%';
-    }
-
-    switch (direction) {
-      case 'U':
-        return { transform: 'translate3d(0, -' + progress + ', 0)' };
-      case 'D':
-        return { transform: 'translate3d(0, ' + progress + ', 0)' };
-      case 'L':
-        return { transform: 'translate3d(-' + progress + ', 0, 0)' };
-      case 'R':
-        return { transform: 'translate3d(' + progress + ', 0, 0)' };
-      //////////////////////////////////////////////////////////////////////////
-      default:
-        return { transform: 'translate3d(' + progress + ', 0, 0)' };
-    }
-  }
 
   function getCurtains() {
     var curtains = props.layout.split('');
 
-    return curtains.map(function (dir) {
-      if (dir === 'U') return _react2.default.createElement('div', { className: 'curtain -top', style: getCurtainPull("U"), key: dir });
-      if (dir === 'D') return _react2.default.createElement('div', { className: 'curtain -bottom', style: getCurtainPull("D"), key: dir });
-      if (dir === 'L') return _react2.default.createElement('div', { className: 'curtain -left', style: getCurtainPull("L"), key: dir });
-      if (dir === 'R') return _react2.default.createElement('div', { className: 'curtain -right', style: getCurtainPull("R"), key: dir });
+    //Only adds curtains for the directions requested.
+    return curtains.map(function (dir, idx) {
+      if (dir === 'U') return _react2.default.createElement('div', { className: 'curtain -top', key: idx }); //style={getCurtainPull("U")}
+      if (dir === 'D') return _react2.default.createElement('div', { className: 'curtain -bottom', key: idx }); //style={getCurtainPull("D")}
+      if (dir === 'L') return _react2.default.createElement('div', { className: 'curtain -left', key: idx }); //style={getCurtainPull("L")}
+      if (dir === 'R') return _react2.default.createElement('div', { className: 'curtain -right', key: idx }); //style={getCurtainPull("R")}
     });
   }
 
@@ -15375,8 +15396,8 @@ var ContentImageWCaption = function ContentImageWCaption(props, context) {
       (0, _domToReact2.default)(images)
     ),
     _react2.default.createElement(
-      'caption',
-      null,
+      'span',
+      { className: 'text-wrap' },
       (0, _domToReact2.default)(textEls)
     )
   );
@@ -15429,7 +15450,8 @@ var NavOverlay = function NavOverlay(_ref) {
       sectionNav = _ref.sectionNav,
       transparency = _ref.transparency,
       stashNav = _ref.stashNav,
-      hasCloseBtn = _ref.hasCloseBtn;
+      hasCloseBtn = _ref.hasCloseBtn,
+      curtains = _ref.curtains;
 
 
   var styles = {
@@ -15474,7 +15496,8 @@ var NavOverlay = function NavOverlay(_ref) {
     ),
     _react2.default.createElement(_Grip2.default, null),
     sectionNav,
-    closeBtn
+    closeBtn,
+    curtains
   );
 }; /*
      NavOverlay
@@ -15531,18 +15554,18 @@ var NavigationSection = function NavigationSection(_ref) {
   var section = _ref.section,
       navList = _ref.navList,
       side = _ref.side,
-      navigate = _ref.navigate,
+      postNavigate = _ref.postNavigate,
       clearSection = _ref.clearSection,
       playAudioTick = _ref.playAudioTick;
 
   var innerClasses = section + " inner " + side;
   var arrowDirection = side === 'right' ? 'nw' : 'ne';
 
-  function navClick() {
-    navigate();
+  function navClick(path) {
+    postNavigate();
     playAudioTick();
 
-    console.log('side' + side);
+    console.log('Navclick');
   }
 
   return _react2.default.createElement(
@@ -15560,7 +15583,7 @@ var NavigationSection = function NavigationSection(_ref) {
             { className: '_akrobat _weight-normal', key: idx },
             _react2.default.createElement(
               _reactRouter.Link,
-              { to: navItem.path, onClick: navClick, activeClassName: 'is-active' },
+              { to: navItem.path, activeClassName: 'is-active' },
               navItem.label
             ),
             _react2.default.createElement(_Grip2.default, { className: 'nav-items' }),
@@ -15585,6 +15608,8 @@ var NavigationSection = function NavigationSection(_ref) {
 //NavigationSection.defaultProps = { children: 'Hello World!' };
 
 exports.default = NavigationSection;
+
+//onClick={navClick(navItem.path)}
 
 /***/ }),
 /* 146 */
@@ -42665,13 +42690,7 @@ module.exports = {
 				{
 					"path": "content/development/day-job.md",
 					"name": "day-job.md",
-					"size": 2385,
-					"extension": ".md"
-				},
-				{
-					"path": "content/development/dev-kitchensink.md",
-					"name": "dev-kitchensink.md",
-					"size": 24887,
+					"size": 3317,
 					"extension": ".md"
 				},
 				{
@@ -42689,26 +42708,20 @@ module.exports = {
 				{
 					"path": "content/development/this-site.md",
 					"name": "this-site.md",
-					"size": 4231,
+					"size": 4202,
 					"extension": ".md"
 				}
 			],
-			"size": 34686
+			"size": 10702
 		},
 		{
 			"path": "content/photography",
 			"name": "photography",
 			"children": [
 				{
-					"path": "content/photography/about.md",
-					"name": "about.md",
-					"size": 85,
-					"extension": ".md"
-				},
-				{
 					"path": "content/photography/automotive.md",
 					"name": "automotive.md",
-					"size": 1615,
+					"size": 2259,
 					"extension": ".md"
 				},
 				{
@@ -42732,14 +42745,14 @@ module.exports = {
 				{
 					"path": "content/photography/property.md",
 					"name": "property.md",
-					"size": 1602,
+					"size": 1951,
 					"extension": ".md"
 				}
 			],
-			"size": 5082
+			"size": 5990
 		}
 	],
-	"size": 39768
+	"size": 16692
 };
 
 /***/ }),
