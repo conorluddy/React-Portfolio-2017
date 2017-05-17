@@ -7,7 +7,6 @@ import RoutePhotography from './components/presentation/RoutePhotography/RoutePh
 import RouteDevelopment from './components/presentation/RouteDevelopment/RouteDevelopment.jsx';
 import Reader from './components/container/Reader/Reader.jsx';
 
-
 render((
   <Router history={browserHistory} >
     <Route path="/" component={Nucleus}>
