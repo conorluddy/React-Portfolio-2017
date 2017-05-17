@@ -21,8 +21,7 @@ Description...
     padding: 0 30px;
   }
 
-  .text-wrap,
-  caption {
+  .text-wrap {
     position: relative;
     text-align: left;
     z-index: 0;
@@ -31,14 +30,14 @@ Description...
   }
 
   &.is-alive {
-    caption {
+    .text-wrap {
       transition: transform 1500ms $airlift;
       transform: translate3d(-30px, 0, 0);
     }
   }
 
   &.is-in-view {
-    caption {
+    .text-wrap {
       transform: translate3d(0, 0, 0);
     }
   }
@@ -50,8 +49,7 @@ Description...
   &.-right {
     flex-direction: row-reverse;
 
-    .text-wrap,
-    caption {
+    .text-wrap {
       text-align: right;
       margin-right: 0;
       margin-left: 5%;

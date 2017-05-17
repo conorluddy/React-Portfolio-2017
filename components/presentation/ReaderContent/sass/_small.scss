@@ -35,7 +35,8 @@ Description...
       font-weight: 600;
     }
 
-    &:before {
+    &:before,
+    &:after {
       content: '';
       position: absolute;
       top: 0;
@@ -45,6 +46,10 @@ Description...
       height: 1em;
       background: grey(251, 0.8);
       border: solid 6px grey(251);
+    }
+    &:after {
+      left: inherit;
+      right: 0;
     }
   }
 

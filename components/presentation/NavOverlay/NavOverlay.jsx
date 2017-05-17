@@ -12,7 +12,7 @@ import React from 'react';
 import Grip from '../Grip/Grip.jsx';
 import TriggerArrow from '../TriggerArrow/TriggerArrow.jsx';
 
-const NavOverlay = ({className, setSectionDevelopment, setSectionPhotography, sectionNav, transparency, stashNav, hasCloseBtn}) => {
+const NavOverlay = ({className, setSectionDevelopment, setSectionPhotography, sectionNav, transparency, stashNav, hasCloseBtn, curtains}) => {
 
   const styles = {
     backgroundColor: 'RGBA(20,20,20,' + transparency/100 + ')'
@@ -43,6 +43,8 @@ const NavOverlay = ({className, setSectionDevelopment, setSectionPhotography, se
       {sectionNav}
 
       {closeBtn}
+
+      {curtains}
 
     </div>
   )

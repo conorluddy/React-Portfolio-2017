@@ -3,15 +3,13 @@
 Description...
 */
 
-
 .page-nav-active .cpnt-hero {
-  // filter: blur(3px);
-  // transform: scale(1.05);
+  filter: blur(4px);
+  transform: scale(1.1);
 }
 
 .cpnt-hero {
-  // transition: filter 200ms linear, transform 200ms linear;
-
+  transition: filter 200ms linear, transform 200ms linear;
   background: $color-black;
   background-size: cover;
   background-position: center center;
@@ -47,9 +45,7 @@ Description...
     line-height: rem( 90 );
     margin: auto;
     z-index: 10;
-
     word-break: break-word;
-
     mix-blend-mode: overlay;
 
     strong {
@@ -89,27 +85,46 @@ Description...
   }
 
 
+  //
+  // &.hero-enter {
+  //   filter: blur(6px);
+  //   transform: scale(1.1);
+  // }
+  //
+  // &.hero-enter.hero-enter-active {
+  //   filter: blur(0);
+  //   // transform: scale(1);
+  //   transition-duration: 500ms;
+  // }
+  //
+  // &.hero-leave {
+  //   filter: blur(0);
+  //   transform: scale(1);
+  // }
+  //
+  // &.hero-leave.hero-leave-active {
+  //   filter: blur(6px);
+  //   // transform: scale(1.1);
+  //   transition-duration: 300ms;
+  // }
 
-  &.hero-enter {
-    filter: blur(6px);
-    transform: scale(1.1);
+
+  &.is-loaded {
+    animation-name: reader-appear;
+    animation-duration: 1200ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: $soft-landing;
   }
 
-  &.hero-enter.hero-enter-active {
-    filter: blur(0);
-    // transform: scale(1);
-    transition-duration: 500ms;
-  }
+}
 
-  &.hero-leave {
-    filter: blur(0);
-    transform: scale(1);
+@keyframes reader-appear {
+  0% {
+    // opacity: 0;
+    transform: translate3d(0, 20%, 0);// scale(1.5);
   }
-
-  &.hero-leave.hero-leave-active {
-    filter: blur(6px);
-    // transform: scale(1.1);
-    transition-duration: 300ms;
+  100% {
+    // opacity: 1;
+    transform: translate3d(0, 0, 0);// scale(1);
   }
-
 }

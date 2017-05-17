@@ -11,7 +11,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Hero = ({imgSrc, videoSrc, title, subtitle, modifiers, scrollPosition, heroHasLoaded, confirmLoaded}, context) => {
+const Hero = ({imgSrc, videoSrc, title, subtitle, modifiers, scrollPosition, heroHasLoaded, confirmLoaded, isLoading}, context) => {
 
   //TODO - make this work independently of context
 
@@ -21,6 +21,7 @@ const Hero = ({imgSrc, videoSrc, title, subtitle, modifiers, scrollPosition, her
   let parallaxStyle = {
     transform: 'translate3D(0,' + context.scrollPosition / 5 + 'px,0)'
   };
+  let classNames = isLoading ? "cpnt-hero is-loading" : "cpnt-hero is-loaded";
 
 
   videoSrc = videoSrc ? "./../assets/video/" + videoSrc : false;
@@ -33,7 +34,7 @@ const Hero = ({imgSrc, videoSrc, title, subtitle, modifiers, scrollPosition, her
 
   if (videoSrc) {
     return (
-      <div className="cpnt-hero" style={heroStyle}>
+      <div className={classNames} style={heroStyle}>
         {video}
         <h1>
           {title}
@@ -44,7 +45,7 @@ const Hero = ({imgSrc, videoSrc, title, subtitle, modifiers, scrollPosition, her
     )
   } else {
     return (
-      <div className="cpnt-hero" style={heroStyle}>
+      <div className={classNames} style={heroStyle}>
         <img src={heroImg} alt={title} style={parallaxStyle} />
         <h1>
           {title}

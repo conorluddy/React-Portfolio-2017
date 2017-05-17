@@ -1,8 +1,22 @@
-/* Component: RoutePhotography: small screen size. 
+/* Component: RoutePhotography: small screen size.
 
-Description... 
+Description...
 */
 
 .cpnt-route-photography {
 
+  // animation-name: reader-appear;
+  // animation-duration: 3000ms;
+  // animation-fill-mode: forwards;
+  // animation-timing-function: linear;
+
+}
+
+@keyframes reader-appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

@@ -35,8 +35,8 @@ class Reader extends React.Component {
     super(props);
     this.state = {
       content: '',
-      heroHasLoaded: false//,
-      // isLoading: true
+      heroHasLoaded: false,
+      isLoading: true
     };
 
     this.confirmHeroLoaded = this.confirmHeroLoaded.bind(this);
@@ -45,6 +45,7 @@ class Reader extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     this.getContent(nextProps.location.pathname);
+    this.setState({ isLoading: true });
   }
 
   confirmHeroLoaded() {//io = 1/0 = on/off
@@ -60,8 +61,11 @@ class Reader extends React.Component {
     fetchMd('./../content' + path + '.md')
       .then((md) => {
         let metamark = mMarked(md);
+
+        console.info('Fetched');
+
         this.setState({
-          // isLoading: false,
+          isLoading: false,
           content: metamark.html,
           meta: metamark.meta,
           md: md
@@ -108,18 +112,13 @@ class Reader extends React.Component {
         modifiers.heroDarken = meta.heroDarken;
       }
 
-      return <Hero imgSrc={imgSrc} videoSrc={videoSrc} title={title} subtitle={subtitle} modifiers={modifiers} scrollPosition={this.state.scrollPosition} heroHasLoaded={this.state.heroHasLoaded} confirmLoaded={this.confirmHeroLoaded} />;
+      return <Hero imgSrc={imgSrc} videoSrc={videoSrc} title={title} subtitle={subtitle} modifiers={modifiers} scrollPosition={this.state.scrollPosition} heroHasLoaded={this.state.heroHasLoaded} confirmLoaded={this.confirmHeroLoaded} isLoading={this.state.isLoading} />;
     }
 
     return '';
-  }
-
-  // ifLoading() {
-  //   return this.state.isLoading ? <Loading /> : '';
-  // }
+  };
 
   render() {
-
     return (
       <div className="cpnt-reader" >
 
@@ -127,7 +126,7 @@ class Reader extends React.Component {
           {this.iNeedAHero(this.state.meta)}
         </ScrollPosition>
 
-        <ReaderContent content={this.state.content} />
+        <ReaderContent content={this.state.content} isLoading={this.state.isLoading} />
 
         <ScrollPosition getBoundingRect={false} >
           <PageProgress />
