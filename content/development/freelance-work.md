@@ -1,9 +1,20 @@
 ---
-title: Freelance work
-heroTitle: Freelance web
+title: Freelance
+heroTitle: Freelance
 heroImage: dgddesk.jpg
 ---
 
 
 
-# WIP...
+# Freelance
+
+
+
+Irish Drift Champ
+Prodrift Academy
+Deansgrange
+Clear Dental
+Vanda
+Drift2
+Irish Tech Community
+Irish Drifting Community
