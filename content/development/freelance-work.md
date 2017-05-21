@@ -4,9 +4,9 @@ heroTitle: Freelance
 heroImage: dgddesk.jpg
 ---
 
-
-
 # Freelance
+
+These are some examples of work I completed in a freelance capacity over the past few years. They range from logo and graphic design, to web design and web development.
 
 
 
