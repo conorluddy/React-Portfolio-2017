@@ -10,13 +10,13 @@
 
 import React from 'react';
 import mMarked from 'meta-marked';
-// import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
-
 import ScrollPosition from '../ScrollPosition/ScrollPosition.jsx';
 import fetchMd from '../../../modules/fetch-md.js';
 import Hero from '../../presentation/Hero/Hero.jsx';
 import ReaderContent from '../../presentation/ReaderContent/ReaderContent.jsx';
 import PageProgress from '../../presentation/PageProgress/PageProgress.jsx';
+// import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+import Loading from '../../presentation/Loading/Loading.jsx';
 
 mMarked.setOptions({
   renderer: new mMarked.Renderer(),
@@ -34,16 +34,31 @@ class Reader extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      content: ''
+      content: '',
+      heroHasLoaded: false,
+      isLoading: true
     };
 
+    this.confirmHeroLoaded = this.confirmHeroLoaded.bind(this);
     this.getContent(props.location.pathname);
   }
 
   componentWillReceiveProps(nextProps) {
+    console.log('Reader willReceiveProps nextProps: ', nextProps);
+
     this.getContent(nextProps.location.pathname);
+
+
+    if (this.props.params.slug !== nextProps.params.slug) {
+      this.setState({ isLoading: true,
+                      heroHasLoaded: false });
+    }
   }
 
+  confirmHeroLoaded() {//io = 1/0 = on/off
+    console.info('Hero image/video ready');
+    this.setState({heroHasLoaded: true});
+  }
 
   getContent(path) {
     //TODO: improved path generation
@@ -53,6 +68,9 @@ class Reader extends React.Component {
     fetchMd('./../content' + path + '.md')
       .then((md) => {
         let metamark = mMarked(md);
+
+        console.info('Fetched');
+
         this.setState({
           isLoading: false,
           content: metamark.html,
@@ -80,7 +98,7 @@ class Reader extends React.Component {
     if (meta && (meta.heroImage || meta.heroVideo)) {
 
       title = meta.heroTitle ? <strong className="-white">{meta.heroTitle}</strong> : '';
-      subtitle = meta.heroSubtitle ? <span>{meta.heroSubtitle}</span> : '';
+      subtitle = meta.heroSubtitle ? <span className="subtitle">{meta.heroSubtitle}</span> : '';
 
       imgSrc = meta.heroImage ? meta.heroImage : false;
       videoSrc = meta.heroVideo ? meta.heroVideo : false;
@@ -101,22 +119,27 @@ class Reader extends React.Component {
         modifiers.heroDarken = meta.heroDarken;
       }
 
-      return <Hero imgSrc={imgSrc} videoSrc={videoSrc} title={title} subtitle={subtitle} modifiers={modifiers} scrollPosition={this.state.scrollPosition} />;
+      return <Hero imgSrc={imgSrc} videoSrc={videoSrc} title={title} subtitle={subtitle} modifiers={modifiers} scrollPosition={this.state.scrollPosition} heroHasLoaded={this.state.heroHasLoaded} confirmHeroLoaded={this.confirmHeroLoaded} />;
     }
 
     return '';
+  };
+
+  ifHeroLoading() {
+    return this.state.heroHasLoaded ? '' : <Loading />;
   }
 
   render() {
-
     return (
-      <div className="cpnt-reader">
+      <div className="cpnt-reader" >
 
         <ScrollPosition getBoundingRect={false} >
           {this.iNeedAHero(this.state.meta)}
         </ScrollPosition>
 
-        <ReaderContent content={this.state.content} />
+        {this.ifHeroLoading()}
+
+        <ReaderContent content={this.state.content} isLoading={this.state.isLoading} />
 
         <ScrollPosition getBoundingRect={false} >
           <PageProgress />

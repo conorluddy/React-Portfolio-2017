@@ -13,7 +13,7 @@ import { Link, IndexLink } from 'react-router';
 import Grip from '../Grip/Grip.jsx';
 import TriggerArrow from '../TriggerArrow/TriggerArrow.jsx';
 
-const NavigationSection = ({section, navList, side, stashNav, clearSection}) => {
+const NavigationSection = ({section, navList, side, postNavigate, clearSection, playAudioTick}) => {
   let innerClasses = section + " inner " + side;
   let arrowDirection = side === 'right' ? 'nw' : 'ne';
 
@@ -23,9 +23,11 @@ const NavigationSection = ({section, navList, side, stashNav, clearSection}) => 
 
         <ul className="nav-list">
           {navList.map((navItem, idx) =>
-            <li className="_akrobat _weight-normal" key={idx}>
+            <li className="_akrobat _weight-normal" key={idx} >
 
-              <Link to={navItem.path} onClick={stashNav} activeClassName="is-active" >{navItem.label}</Link>
+              <Link to={navItem.path} activeClassName="is-active" onClick={postNavigate}  >
+                {navItem.label}
+              </Link>
 
               <Grip className="nav-items"/>
 
@@ -39,8 +41,6 @@ const NavigationSection = ({section, navList, side, stashNav, clearSection}) => 
           )}
         </ul>
 
-        <TriggerArrow handleClick={clearSection} nsew={arrowDirection} />
-
       </div>
     </div>
   );
@@ -50,3 +50,6 @@ const NavigationSection = ({section, navList, side, stashNav, clearSection}) => 
 //NavigationSection.defaultProps = { children: 'Hello World!' };
 
 export default NavigationSection;
+
+
+//onClick={navClick(navItem.path)}

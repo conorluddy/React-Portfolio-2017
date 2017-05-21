@@ -1,0 +1,1 @@
+const ContentImageCurtains = require('../../../components/presentation/ContentImageCurtains.jsx');

@@ -28,6 +28,7 @@ class Nucleus extends React.Component {
   }
 
   getClassNames() {
+    //This is for site effects, not for hiding nav
     return this.state.navActive ? 'cpnt-nucleus page-nav-active' : 'cpnt-nucleus page-nav-hidden';
   }
 
@@ -47,5 +48,3 @@ class Nucleus extends React.Component {
 }
 
 export default Nucleus;
-
-//<Navigation tree={ContentTree} />

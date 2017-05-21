@@ -1,8 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Router, Route, browserHistory, Link, IndexRoute } from 'react-router';
-import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
-
 import Nucleus from './components/container/Nucleus/Nucleus.jsx';
 import RouteLanding from './components/presentation/RouteLanding/RouteLanding.jsx';
 import RoutePhotography from './components/presentation/RoutePhotography/RoutePhotography.jsx';
@@ -16,7 +14,7 @@ render((
       <IndexRoute component={RouteLanding} />
 
       <Route path="photography" component={RoutePhotography} >
-        <Route path=":slug" component={Reader}/>
+          <Route path=":slug" component={Reader}/>
       </Route>
 
       <Route path="development" component={RouteDevelopment} >

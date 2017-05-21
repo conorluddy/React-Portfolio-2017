@@ -8,8 +8,8 @@ const gutil = require('gutil');
 
 module.exports = (gulp) => {
 
-
   gulp.task('webpack', ['es-lint'], (callback) => {
+
     webpack({
         entry: [
           'whatwg-fetch',
@@ -28,7 +28,7 @@ module.exports = (gulp) => {
                 exclude: /node_modules/,
                 loader: 'babel-loader?presets[]=es2015&presets[]=react'
             }]
-        },
+        }//,
         // plugins:[
         //   //https://facebook.github.io/react/docs/optimizing-performance.html#use-the-production-build
         //   new webpack.DefinePlugin({
@@ -45,6 +45,7 @@ module.exports = (gulp) => {
         }));
         callback();
     });
+
   });
 
 };

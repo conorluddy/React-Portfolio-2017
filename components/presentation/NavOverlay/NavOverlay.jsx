@@ -12,25 +12,27 @@ import React from 'react';
 import Grip from '../Grip/Grip.jsx';
 import TriggerArrow from '../TriggerArrow/TriggerArrow.jsx';
 
-const NavOverlay = ({className, setSectionDevelopment, setSectionPhotography, sectionNav, transparency, stashNav}) => {
+const NavOverlay = ({className, setSectionDevelopment, setSectionPhotography, sectionNav, transparency, stashNav, clearSection, section}) => {
 
+  const closeBtn = section === 'landing' ? <TriggerArrow handleClick={stashNav} /> : <TriggerArrow handleClick={clearSection} />;
   const styles = {
     backgroundColor: 'RGBA(20,20,20,' + transparency/100 + ')'
-  }
+  };
 
   className = 'cpnt-nav-overlay' + ' ' + className;
+
   return (
     <div className={className} style={styles}>
 
-      <div className="initial-opt _akrobat _weight-black left" >
-          <h2 className="_weight-normal _selection-transparent" onClick={setSectionDevelopment} >
-            WEB<small className="_weight-xlight _selection-transparent">DEVELOPMENT & DESIGN</small>
+      <div className="initial-opt _akrobat _weight-black left" onClick={setSectionDevelopment} >
+          <h2 className="_weight-normal _selection-transparent" >
+            WEB DEV <span className="_weight-xlight">//</span> DESIGN
           </h2>
       </div>
 
-      <div className="initial-opt _akrobat _weight-black right" >
-          <h2 className="_weight-normal _selection-transparent" onClick={setSectionPhotography} >
-            PHOTO<small className="_weight-xlight _selection-transparent">GRAPHY & VIDEO</small>
+      <div className="initial-opt _akrobat _weight-black right" onClick={setSectionPhotography} >
+          <h2 className="_weight-normal _selection-transparent" >
+            PHOTO <span className="_weight-xlight">//</span> VIDEO
           </h2>
       </div>
 
@@ -38,7 +40,12 @@ const NavOverlay = ({className, setSectionDevelopment, setSectionPhotography, se
 
       {sectionNav}
 
+      {closeBtn}
 
+      <i className="edge-border -top" />
+      <i className="edge-border -right" />
+      <i className="edge-border -bottom" />
+      <i className="edge-border -left" />
 
     </div>
   )
@@ -46,3 +53,5 @@ const NavOverlay = ({className, setSectionDevelopment, setSectionPhotography, se
 
 
 export default NavOverlay;
+
+//PHOTO<small className="_weight-xlight _selection-transparent">GRAPHY & VIDEO</small>

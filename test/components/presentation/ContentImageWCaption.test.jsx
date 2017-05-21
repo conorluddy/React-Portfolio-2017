@@ -1,0 +1,1 @@
+const ContentImageWCaption = require('../../../components/presentation/ContentImageWCaption.jsx');

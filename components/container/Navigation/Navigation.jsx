@@ -14,6 +14,7 @@ import Grip from '../../presentation/Grip/Grip.jsx';
 import NavigationSection from '../../presentation/NavigationSection/NavigationSection.jsx';
 import NavOverlay from '../../presentation/NavOverlay/NavOverlay.jsx';
 import TriggerArrow from '../../presentation/TriggerArrow/TriggerArrow.jsx';
+import VersionInfo from '../../presentation/VersionInfo/VersionInfo.jsx';
 
 class Navigation extends React.Component {
 
@@ -21,82 +22,126 @@ class Navigation extends React.Component {
     super(props);
     this.state = {
       section: 'landing',
-      transparency: 90
+      transparency: 90,
+      hasCloseBtn: true,
+      transitionState: null
     };
+
+    //Enable ESC key for toggling nav.
+    if (window) {
+      window.addEventListener('keyup', ev => {
+        if (ev.keyCode === 27) {
+          if (this.state.section === null) {
+            this.setSectionLanding();
+          } else {
+            this.stashNav();
+          }
+        }
+      });
+    }
 
     this.setSectionDevelopment = this.setSectionDevelopment.bind(this);
     this.setSectionPhotography = this.setSectionPhotography.bind(this);
     this.setSectionLanding = this.setSectionLanding.bind(this);
-    this.setSectionBiased = this.setSectionBiased.bind(this);
+    // this.setSectionBiased = this.setSectionBiased.bind(this);
     this.clearSection = this.clearSection.bind(this);
     this.stashNav = this.stashNav.bind(this);
+    this.playAudioTick = this.playAudioTick.bind(this);
+    this.postNavigate = this.postNavigate.bind(this);
+  }
+
+  playAudioTick() {
+    let snd = new Audio("/assets/audio/tick-light.wav");
+    snd.play();
   }
 
   setSectionDevelopment() {
     if (this.state.section !== 'development') {
       this.setState({
         section: 'development',
-        transparency: 60
+        transparency: 20
       });
     } else {
       this.clearSection();
     }
+
     this.props.setNavActive(1);
+
+    this.playAudioTick();
   }
 
   setSectionPhotography() {
     if (this.state.section !== 'photography') {
       this.setState({
         section: 'photography',
-        transparency: 60
+        transparency: 20
       });
     } else {
       this.clearSection();
     }
+
     this.props.setNavActive(1);
+
+    this.playAudioTick();
   }
 
-  setSectionBiased() {
-    if (this.props.routeSection === 'dev') {
-      this.setSectionDevelopment();
-    } else if (this.props.routeSection === 'photo') {
-      this.setSectionPhotography();
-    } else {
-      this.setSectionLanding();
-    }
-  }
+  // setSectionBiased() {
+  //     this.setSectionLanding();
+  // }
 
   setSectionLanding() {
+    console.log('setSectionLanding');
     if (this.state.section !== 'landing') {
       this.setState({
         section: 'landing',
-        transparency: 90
+        transparency: 90,
+        hasCloseBtn: true
       });
     } else {
       this.clearSection();
     }
+
     this.props.setNavActive(1);
+    this.playAudioTick();
   }
 
   stashNav() {
-    this.setState({section: null});
+    this.setState({
+      section: null,
+      hasCloseBtn: false,
+      transparency: 10
+    });
     this.props.setNavActive(0);
+  }
+
+  postNavigate() {
+    this.scrollToPageTop();
+
+    setTimeout(() => {
+      this.stashNav();
+    }, 50);
+  }
+
+  scrollToPageTop() {
+    window.scrollTo(0,0);
   }
 
   clearSection() {
     this.setState({
       section: 'landing',
-      transparency: 90
+      transparency: 90,
+      hasCloseBtn: true
     });
     this.props.setNavActive(1);
   }
 
   getClassNames() {
-    return this.state.section ? '' : ' is-stashed';
+    let cnames = this.state.section ? '-section-' + this.state.section : '';
+    cnames += this.state.section ? '' : ' is-stashed';
+    return cnames;
   }
 
   componentWillMount() {
-    // console.log('treetree: ', this.props.tree);
     for (var i = 0; i < this.props.tree.children.length; i++) {
       if (this.props.tree.children[i].name === 'development') {
         this.setState({
@@ -116,13 +161,16 @@ class Navigation extends React.Component {
     let photoNavItems = [];
     let devNavItems = [];
     let tempName;
+    let curtains = null;
+
+    // ToDo - DRY this up
 
     for (var i = 0; i < this.state.treePhoto.children.length; i++) {
       tempName = this.state.treePhoto.children[i].name;
       tempName = this.state.treePhoto.children[i].extension ? tempName.substring(0, tempName.length - this.state.treePhoto.children[i].extension.length) : tempName;
 
       photoNavItems.push({
-        label: tempName,
+        label: tempName.replace('-', ' '),
         path: '/photography/' + tempName,
         md: this.state.treePhoto.children[i].path,
         children: this.state.treePhoto.children[i].children
@@ -134,24 +182,23 @@ class Navigation extends React.Component {
       tempName = this.state.treeDev.children[i].extension ? tempName.substring(0, tempName.length - this.state.treeDev.children[i].extension.length) : tempName;
 
       devNavItems.push({
-        label: tempName,
+        label: tempName.replace('-', ' '),
         path: '/development/' + tempName,
         md: this.state.treeDev.children[i].path,
         children: this.state.treeDev.children[i].children
       });
     }
 
-    if (!this.state.section) {
-      sectionNav = <TriggerArrow handleClick={this.setSectionBiased} nsew='nw' />
-    } else if (this.state.section === 'development') {
-      sectionNav = <NavigationSection section={this.state.section} navList={devNavItems} clearSection={this.clearSection} stashNav={this.stashNav} side='left' />;
+    if (this.state.section === 'development') {
+      sectionNav = <NavigationSection section={this.state.section} navList={devNavItems} clearSection={this.clearSection} postNavigate={this.postNavigate} side='left' playAudioTick={this.playAudioTick} />;
     } else if (this.state.section === 'photography') {
-      sectionNav = <NavigationSection section={this.state.section} navList={photoNavItems} clearSection={this.clearSection} stashNav={this.stashNav} side='right' />;
+      sectionNav = <NavigationSection section={this.state.section} navList={photoNavItems} clearSection={this.clearSection} postNavigate={this.postNavigate} side='right' playAudioTick={this.playAudioTick} />;
     }
 
     return (
       <div className="cpnt-navigation">
-          <NavOverlay className={this.getClassNames()} setSectionDevelopment={this.setSectionDevelopment} setSectionPhotography={this.setSectionPhotography} sectionNav={sectionNav} transparency={this.state.transparency} stashNav={this.stashNav} />
+          <NavOverlay className={this.getClassNames()} setSectionDevelopment={this.setSectionDevelopment} setSectionPhotography={this.setSectionPhotography} sectionNav={sectionNav} transparency={this.state.transparency} stashNav={this.stashNav} clearSection={this.clearSection} section={this.state.section} />
+          <VersionInfo />
       </div>
     );
   }

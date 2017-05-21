@@ -13,6 +13,7 @@ require('./gulp/documentation.js')(gulp);
 require('./gulp/generate.js')(gulp);
 require('./gulp/js.js')(gulp);
 require('./gulp/webpack.js')(gulp);
+require('./gulp/deploy.js')(gulp);
 
 
 /**
@@ -36,7 +37,7 @@ gulp.task('default', ['sass-component-index'], () => {
     gulp.start('webpack');
   });
 
-  gulp.watch(['./dist/**/*'], browserSync.reload);
+  gulp.watch(['./dist/*'], browserSync.reload);
 
   gulp.watch(['./content/**/*'], () => {
     gulp.start('content');
