@@ -1,0 +1,1 @@
+const VersionInfo = require('../../../components/presentation/VersionInfo.jsx');

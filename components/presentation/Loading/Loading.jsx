@@ -13,7 +13,7 @@ import React from 'react';
 const Loading = () => {
   return (
     <div className="cpnt-loading">
-     Loading component
+     Loading...
     </div>
   )
 };

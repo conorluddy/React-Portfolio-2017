@@ -4,12 +4,12 @@ Description...
 */
 
 .page-nav-active .cpnt-hero {
-  filter: blur(4px);
-  transform: scale(1.1);
+  // filter: grayscale(100%) blur(2px);
 }
 
 .cpnt-hero {
-  transition: filter 200ms linear, transform 200ms linear;
+  transition: all 1000ms linear;
+  // opacityfilter
   background: $color-black;
   background-size: cover;
   background-position: center center;
@@ -42,7 +42,7 @@ Description...
     text-transform: uppercase;
     font-weight: 100;
     font-size: rem( 100 );
-    line-height: rem( 90 );
+    line-height: 1.25;
     margin: auto;
     z-index: 10;
     word-break: break-word;
@@ -84,47 +84,33 @@ Description...
     }
   }
 
-
-  //
-  // &.hero-enter {
-  //   filter: blur(6px);
-  //   transform: scale(1.1);
-  // }
-  //
-  // &.hero-enter.hero-enter-active {
-  //   filter: blur(0);
-  //   // transform: scale(1);
-  //   transition-duration: 500ms;
-  // }
-  //
-  // &.hero-leave {
-  //   filter: blur(0);
-  //   transform: scale(1);
-  // }
-  //
-  // &.hero-leave.hero-leave-active {
-  //   filter: blur(6px);
-  //   // transform: scale(1.1);
-  //   transition-duration: 300ms;
-  // }
-
+  &.is-loading {
+    opacity: 0;
+    filter: grayscale(100%) blur(2px);
+  }
 
   &.is-loaded {
-    animation-name: reader-appear;
-    animation-duration: 1200ms;
-    animation-fill-mode: forwards;
-    animation-timing-function: $soft-landing;
+    opacity: 1;
+    filter: grayscale(0%) blur(0);
+
+    // img{
+      // Parallax overrides this
+      // animation-name: reader-appear;
+      // animation-duration: 1200ms;
+      // animation-fill-mode: forwards;
+      // animation-timing-function: $soft-landing;
+    // }
   }
 
 }
-
-@keyframes reader-appear {
-  0% {
-    // opacity: 0;
-    transform: translate3d(0, 20%, 0);// scale(1.5);
-  }
-  100% {
-    // opacity: 1;
-    transform: translate3d(0, 0, 0);// scale(1);
-  }
-}
+//
+// @keyframes reader-appear {
+//   0% {
+//     opacity: 0;
+//     transform: scale(2);
+//   }
+//   100% {
+//     opacity: 1;
+//     transform: scale(1);
+//   }
+// }

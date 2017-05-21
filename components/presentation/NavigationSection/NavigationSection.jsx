@@ -17,13 +17,6 @@ const NavigationSection = ({section, navList, side, postNavigate, clearSection, 
   let innerClasses = section + " inner " + side;
   let arrowDirection = side === 'right' ? 'nw' : 'ne';
 
-  function navClick(path) {
-    postNavigate();
-    playAudioTick();
-
-    console.log('Navclick');
-  }
-
   return (
     <div className="cpnt-navigation-section">
       <div className={innerClasses} >
@@ -32,7 +25,7 @@ const NavigationSection = ({section, navList, side, postNavigate, clearSection, 
           {navList.map((navItem, idx) =>
             <li className="_akrobat _weight-normal" key={idx} >
 
-              <Link to={navItem.path} activeClassName="is-active"  >
+              <Link to={navItem.path} activeClassName="is-active" onClick={postNavigate}  >
                 {navItem.label}
               </Link>
 
@@ -47,8 +40,6 @@ const NavigationSection = ({section, navList, side, postNavigate, clearSection, 
             </li>
           )}
         </ul>
-
-        <TriggerArrow handleClick={clearSection} nsew={arrowDirection} />
 
       </div>
     </div>

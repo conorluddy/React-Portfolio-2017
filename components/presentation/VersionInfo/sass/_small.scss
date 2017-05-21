@@ -1,0 +1,19 @@
+/* Component: VersionInfo: small screen size.
+
+Description...
+*/
+
+.cpnt-version-info {
+
+  color: $color-fluro;
+  display: block;
+  font-size: rem(10);
+  left: 50px;
+  position: absolute;
+  top: 5px;
+  transform-origin: top left;
+  transform: rotate(90deg);
+  width: 40px;
+  z-index: 100;
+
+}

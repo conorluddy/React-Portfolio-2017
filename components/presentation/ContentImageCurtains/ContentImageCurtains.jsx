@@ -25,7 +25,7 @@ import DomToReact from 'html-react-parser/lib/dom-to-react';
 const ContentImageCurtains = (props, context) => {
   let baseClassName = 'cpnt-content-image-curtains';
   let vh = window.innerHeight || 800;
-  let preload = vh/5;//fully load without having to go all the way up
+  let preload = vh / 3;//0 means it only animates when it hits the top of the page. VH means it animate when it's at bottom
   let images = props.domNode.children.filter(node => {
     return node.name === 'img';
   });

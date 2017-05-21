@@ -12,16 +12,14 @@ import React from 'react';
 import Grip from '../Grip/Grip.jsx';
 import TriggerArrow from '../TriggerArrow/TriggerArrow.jsx';
 
-const NavOverlay = ({className, setSectionDevelopment, setSectionPhotography, sectionNav, transparency, stashNav, hasCloseBtn, curtains}) => {
+const NavOverlay = ({className, setSectionDevelopment, setSectionPhotography, sectionNav, transparency, stashNav, clearSection, section}) => {
 
+  const closeBtn = section === 'landing' ? <TriggerArrow handleClick={stashNav} /> : <TriggerArrow handleClick={clearSection} />;
   const styles = {
     backgroundColor: 'RGBA(20,20,20,' + transparency/100 + ')'
-  }
-  const closeBtn = hasCloseBtn ? <TriggerArrow handleClick={stashNav} /> : '';
+  };
 
   className = 'cpnt-nav-overlay' + ' ' + className;
-
-
 
   return (
     <div className={className} style={styles}>
@@ -44,7 +42,10 @@ const NavOverlay = ({className, setSectionDevelopment, setSectionPhotography, se
 
       {closeBtn}
 
-      {curtains}
+      <i className="edge-border -top" />
+      <i className="edge-border -right" />
+      <i className="edge-border -bottom" />
+      <i className="edge-border -left" />
 
     </div>
   )

@@ -1,8 +1,24 @@
-/* Component: NavOverlay: large screen size. 
+/* Component: NavOverlay: large screen size.
 
-Description... 
+Description...
 */
 
 .cpnt-nav-overlay {
+
+
+
+  .initial-opt {
+    h2 {
+      &:before {
+        content: '';
+        height: 1px;
+        width: 100%;
+        background: $color-fluro;
+        position: absolute;
+        right: 80%;
+        top: 50%;
+      }
+    }
+  }
 
 }

@@ -11,7 +11,7 @@ to replace it with a component description :)
     background: rgba(32,32,32,.84);
     top: 0;
     bottom: 0;
-    width: calc(100% - 36px);
+    width: 100%;
     height: 100vh;
     overflow: hidden;
     animation-duration: 300ms;
@@ -50,6 +50,7 @@ to replace it with a component description :)
     line-height: rem(80);
     position: relative;
     top: 50%;
+    top: calc(50% - 40px);
     left: 0;
     width: 80%;
     transform: translateY(-50%);
@@ -105,7 +106,7 @@ to replace it with a component description :)
   }
 
   .cpnt-grip {
-    width: 175px;
+    width: 100%;
     height: 26px;
     position: absolute;
     top: 56px;
@@ -125,6 +126,7 @@ to replace it with a component description :)
     overflow: hidden;
     opacity: 0;
     cursor: default;
+    mix-blend-mode: color-dodge;
 
     .num-wrap {
       font-style: normal;
@@ -187,26 +189,26 @@ to replace it with a component description :)
 
   @keyframes nav-section-inner-intro-left {
     0% {
-      opacity: 0;
-      transform: translateX(-120px);
+      // opacity: 0;
+      // transform: translateX(-120px);
       // filter: blur(20px);
     }
     100% {
-      opacity: 1;
-      transform: translateX(0);
+      // opacity: 1;
+      // transform: translateX(0);
       // filter: blur(0);
     }
   }
 
   @keyframes nav-section-inner-intro-right {
     0% {
-      opacity: 0;
-      transform: translateX(120px);
+      // opacity: 0;
+      // transform: translateX(120px);
       // filter: blur(20px);
     }
     100% {
-      opacity: 1;
-      transform: translateX(0);
+      // opacity: 1;
+      // transform: translateX(0);
       // filter: blur(0);
     }
   }

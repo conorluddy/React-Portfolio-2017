@@ -49,4 +49,4 @@ This is a static site, so it'll happily sit on AWS via S3 and Cloudfront, with R
 
 ## **Visual design** ##
 
-I half-designed this in SketchApp after creating a moodboard from various sources, and then ended up tweaking it a lot while I was building it. The aim was to be clear and minimal so that the content and images could stand out. It's got a 50/50 split between photography and coding, as I want to use it as a portfolio for both, but they're both very different disciplines. There's no logo because I don't have a personal brand, and it'd just get in the way :)
+I started designing this in SketchApp after creating a mood-board from various sources, and then ended up tweaking it a lot while I was building it. The aim was to be clear and minimal so that the content and photography could stand out. It's got a 50/50 split between photography and coding. I want to use it as a portfolio for both, but they're both very different disciplines. There's no logo for now because I don't have a personal brand, and it would just get in the way :)

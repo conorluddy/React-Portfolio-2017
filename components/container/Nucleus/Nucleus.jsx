@@ -39,6 +39,7 @@ class Nucleus extends React.Component {
       <div className={this.getClassNames()}>
 
         <Navigation tree={ContentTree} setNavActive={this.setNavActive} routeSection={section} />
+
         {this.props.children}
 
       </div>

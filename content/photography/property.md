@@ -9,10 +9,8 @@ Whether you're trying to sell your home, rent out an apartment on Daft, or enti
 
 Below is a selection of some property photographs I've taken to date. I'm always looking to add to this portfolio, so hit me up if you want to talk.
 
-<div component="image-with-caption" alive="true" modifier="right" >
+<div component="image-curtains" modifier="" layout="LR" >
   ![alt text](../../assets/images/content/property-10.jpg "Title")  
-
-  Treehouse accommodation in Teapot Lane, Co. Leitrim. This is a 'glamping' resort near Bundoran. The treehouse has it's own stove and is super cosy.
 </div>
 
 <div component="image-curtains" modifier="" layout="LR" >
