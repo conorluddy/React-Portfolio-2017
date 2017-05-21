@@ -11,7 +11,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Hero = ({imgSrc, videoSrc, title, subtitle, modifiers, scrollPosition, heroHasLoaded, confirmLoaded, isLoading}, context) => {
+const Hero = ({imgSrc, videoSrc, title, subtitle, modifiers, scrollPosition, heroHasLoaded, confirmHeroLoaded}, context) => {
 
   //TODO - make this work independently of context
 
@@ -21,36 +21,33 @@ const Hero = ({imgSrc, videoSrc, title, subtitle, modifiers, scrollPosition, her
   let parallaxStyle = {
     transform: 'translate3D(0,' + context.scrollPosition / 5 + 'px,0)'
   };
-  let classNames = isLoading ? "cpnt-hero is-loading" : "cpnt-hero is-loaded";
-
+  let classNames = heroHasLoaded ?  "cpnt-hero is-loaded" : "cpnt-hero is-loading";
 
   videoSrc = videoSrc ? "./../assets/video/" + videoSrc : false;
+
   //TODO - make loop a prop, maybe make muted a prop, make poster a prop...
 
-  video = <video style={parallaxStyle} autoPlay ><source src={videoSrc} type="video/mp4" /></video>;
+  let imgError = (e) => {
+    console.log('image load error: ', e);
+  }
 
-  if (modifiers && modifiers.height)
-    heroStyle.height = modifiers.height;
+  if (modifiers && modifiers.height) heroStyle.height = modifiers.height;
 
   if (videoSrc) {
     return (
       <div className={classNames} style={heroStyle}>
-        {video}
+        <video style={parallaxStyle} autoPlay onCanPlay={confirmHeroLoaded} ><source src={videoSrc} type="video/mp4" /></video>
         <h1>
           {title}
-          <br />
-          {subtitle}
         </h1>
       </div>
     )
   } else {
     return (
       <div className={classNames} style={heroStyle}>
-        <img src={heroImg} alt={title} style={parallaxStyle} />
+        <img src={heroImg} alt={title} style={parallaxStyle} onLoad={confirmHeroLoaded} onError={imgError} />
         <h1>
           {title}
-          <br />
-          {subtitle}
         </h1>
       </div>
     )

@@ -6,11 +6,15 @@ Description...
 .cpnt-navigation-section {
 
   .inner {
-      width: calc(50% + 7px);
+    width: calc(50% + 7px);
   }
 
   .nav-list {
     left: 20%;
+  }
+
+  .cpnt-grip {
+    width: 175px;
   }
 
 }

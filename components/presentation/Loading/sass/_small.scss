@@ -4,7 +4,6 @@ Description...
 */
 
 .cpnt-loading {
-  transition: background 500ms ease;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -12,14 +11,10 @@ Description...
   right: 0;
   padding: 40px;
   display: flex;
-  align-items: flex-end;
-  align-content: flex-end;
-  justify-content: flex-start;
-  z-index: -1;
-  background: RGBA(255, 255, 255, 0);
-
-  &.is-loading {
-    background: RGBA(255, 255, 255, 0.75);
-    z-index: 1;
-  }
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  z-index: 1;
+  background: grey(84);
+  color: $color-fluro;
 }

@@ -14,6 +14,7 @@ import Grip from '../../presentation/Grip/Grip.jsx';
 import NavigationSection from '../../presentation/NavigationSection/NavigationSection.jsx';
 import NavOverlay from '../../presentation/NavOverlay/NavOverlay.jsx';
 import TriggerArrow from '../../presentation/TriggerArrow/TriggerArrow.jsx';
+import VersionInfo from '../../presentation/VersionInfo/VersionInfo.jsx';
 
 class Navigation extends React.Component {
 
@@ -36,13 +37,13 @@ class Navigation extends React.Component {
             this.stashNav();
           }
         }
-      })
+      });
     }
 
     this.setSectionDevelopment = this.setSectionDevelopment.bind(this);
     this.setSectionPhotography = this.setSectionPhotography.bind(this);
     this.setSectionLanding = this.setSectionLanding.bind(this);
-    this.setSectionBiased = this.setSectionBiased.bind(this);
+    // this.setSectionBiased = this.setSectionBiased.bind(this);
     this.clearSection = this.clearSection.bind(this);
     this.stashNav = this.stashNav.bind(this);
     this.playAudioTick = this.playAudioTick.bind(this);
@@ -84,21 +85,17 @@ class Navigation extends React.Component {
     this.playAudioTick();
   }
 
-  setSectionBiased() {
-    if (this.props.routeSection === 'dev') {
-      this.setSectionDevelopment();
-    } else if (this.props.routeSection === 'photo') {
-      this.setSectionPhotography();
-    } else {
-      this.setSectionLanding();
-    }
-  }
+  // setSectionBiased() {
+  //     this.setSectionLanding();
+  // }
 
   setSectionLanding() {
+    console.log('setSectionLanding');
     if (this.state.section !== 'landing') {
       this.setState({
         section: 'landing',
-        transparency: 90
+        transparency: 90,
+        hasCloseBtn: true
       });
     } else {
       this.clearSection();
@@ -115,7 +112,6 @@ class Navigation extends React.Component {
       transparency: 10
     });
     this.props.setNavActive(0);
-    this.playAudioTick();
   }
 
   postNavigate() {
@@ -123,8 +119,7 @@ class Navigation extends React.Component {
 
     setTimeout(() => {
       this.stashNav();
-    }, 1000);
-
+    }, 50);
   }
 
   scrollToPageTop() {
@@ -141,7 +136,9 @@ class Navigation extends React.Component {
   }
 
   getClassNames() {
-    return this.state.section ? '' : ' is-stashed';
+    let cnames = this.state.section ? '-section-' + this.state.section : '';
+    cnames += this.state.section ? '' : ' is-stashed';
+    return cnames;
   }
 
   componentWillMount() {
@@ -192,32 +189,16 @@ class Navigation extends React.Component {
       });
     }
 
-
-
-
-    if (!this.state.section) {
-      sectionNav = <TriggerArrow handleClick={this.setSectionBiased} nsew='nw' />
-    } else if (this.state.section === 'development') {
+    if (this.state.section === 'development') {
       sectionNav = <NavigationSection section={this.state.section} navList={devNavItems} clearSection={this.clearSection} postNavigate={this.postNavigate} side='left' playAudioTick={this.playAudioTick} />;
     } else if (this.state.section === 'photography') {
       sectionNav = <NavigationSection section={this.state.section} navList={photoNavItems} clearSection={this.clearSection} postNavigate={this.postNavigate} side='right' playAudioTick={this.playAudioTick} />;
     }
 
-    // if (this.state.transitionState) {
-    //   if (this.state.transitionState === "enter") {
-    //     curtains = <div className="curtain is-entering" />
-    //   }
-    //   if (this.state.transitionState === "exit") {
-    //     curtains = <div className="curtain is-exiting" />
-    //   }
-    // }
-
-
-
-
     return (
       <div className="cpnt-navigation">
-          <NavOverlay className={this.getClassNames()} setSectionDevelopment={this.setSectionDevelopment} setSectionPhotography={this.setSectionPhotography} sectionNav={sectionNav} transparency={this.state.transparency} stashNav={this.stashNav} hasCloseBtn={this.state.hasCloseBtn} curtains={curtains} />
+          <NavOverlay className={this.getClassNames()} setSectionDevelopment={this.setSectionDevelopment} setSectionPhotography={this.setSectionPhotography} sectionNav={sectionNav} transparency={this.state.transparency} stashNav={this.stashNav} clearSection={this.clearSection} section={this.state.section} />
+          <VersionInfo />
       </div>
     );
   }

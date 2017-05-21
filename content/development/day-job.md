@@ -18,41 +18,37 @@ __JavaScript__ has been my main focus over the past few years. I've built applic
 
 ## __Recent__ Projects
 
-### SSE Airtricity
+## __SSE__ Airtricity
 
-SSE's public website blah blah responsive blah blah
-- responsive, lead, tooling, modular, pattern lib, onsite
+In 2015 I led the front-end development of SSE's responsive website rebuild. I set up an extensive build environment with Node and Gulp, then laid out a scaffold for a componentised front-end using SASS, with specific guidelines and rules about how we should keep the front-end codebase clean and scalable. The project is still being built upon today, and generates a living style-guide on the fly as you build new components. This year I was working on-site with SSE again for a few months, on their agile digital team.
 
 <div component="image-curtains" modifier="" layout="LR" >
   ![alt text](../../assets/images/hero/sse-ipad-iphone.jpg "Title")
 </div>
 
-### Ersules
-- ember
-- iot
-- node
+## __Ersules__
 
+This was a very interesting IoT project aimed at saving energy in large offices by using intelligent lighting. We built a single page application with Ember, D3, and Leaflet. The rest is confidential, but it was awesome. It took up most of my work year in 2016.
 
-### Liberty Insurance
-- onsite
-- responsive
-- modular
-- php
-- silverstripe
+<div component="image-curtains" modifier="" layout="LR" >
+  ![alt text](../../assets/images/hero/ersu-desktop.jpg "Title")
+</div>
+
+## __Liberty__ Insurance
+
+Liberty contracted a small team of us in 2014 to completely rebuild their website with a responsive componentised front-end.
 
 <div component="image-curtains" modifier="" layout="LR" >
   ![alt text](../../assets/images/hero/liberty-macbook.jpg "Title")
 </div>
 
-### Oireachtas Éireann
-- onsite
-- front-end
+## __Oireachtas__ Éireann
+
+The new Oireachtas website is still in beta, and is due to go live this summer. I spent a few months working on parts of the front-end of this in early 2017.
 
 <div component="image-curtains" modifier="" layout="LR" >
   ![alt text](../../assets/images/hero/oireachtas-ipad.jpg "Title")
 </div>
-
-
 
 ## __Employers,__ past and present  
 

@@ -16,7 +16,7 @@ import Hero from '../../presentation/Hero/Hero.jsx';
 import ReaderContent from '../../presentation/ReaderContent/ReaderContent.jsx';
 import PageProgress from '../../presentation/PageProgress/PageProgress.jsx';
 // import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
-// import Loading from '../../presentation/Loading/Loading.jsx';
+import Loading from '../../presentation/Loading/Loading.jsx';
 
 mMarked.setOptions({
   renderer: new mMarked.Renderer(),
@@ -44,12 +44,19 @@ class Reader extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    console.log('Reader willReceiveProps nextProps: ', nextProps);
+
     this.getContent(nextProps.location.pathname);
-    this.setState({ isLoading: true });
+
+
+    if (this.props.params.slug !== nextProps.params.slug) {
+      this.setState({ isLoading: true,
+                      heroHasLoaded: false });
+    }
   }
 
   confirmHeroLoaded() {//io = 1/0 = on/off
-    console.info('confirmLoaded');
+    console.info('Hero image/video ready');
     this.setState({heroHasLoaded: true});
   }
 
@@ -112,11 +119,15 @@ class Reader extends React.Component {
         modifiers.heroDarken = meta.heroDarken;
       }
 
-      return <Hero imgSrc={imgSrc} videoSrc={videoSrc} title={title} subtitle={subtitle} modifiers={modifiers} scrollPosition={this.state.scrollPosition} heroHasLoaded={this.state.heroHasLoaded} confirmLoaded={this.confirmHeroLoaded} isLoading={this.state.isLoading} />;
+      return <Hero imgSrc={imgSrc} videoSrc={videoSrc} title={title} subtitle={subtitle} modifiers={modifiers} scrollPosition={this.state.scrollPosition} heroHasLoaded={this.state.heroHasLoaded} confirmHeroLoaded={this.confirmHeroLoaded} />;
     }
 
     return '';
   };
+
+  ifHeroLoading() {
+    return this.state.heroHasLoaded ? '' : <Loading />;
+  }
 
   render() {
     return (
@@ -125,6 +136,8 @@ class Reader extends React.Component {
         <ScrollPosition getBoundingRect={false} >
           {this.iNeedAHero(this.state.meta)}
         </ScrollPosition>
+
+        {this.ifHeroLoading()}
 
         <ReaderContent content={this.state.content} isLoading={this.state.isLoading} />
 
