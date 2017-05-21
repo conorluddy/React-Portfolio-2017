@@ -42843,7 +42843,7 @@ module.exports = {
 				{
 					"path": "content/development/freelance-work.md",
 					"name": "freelance-work.md",
-					"size": 90,
+					"size": 374,
 					"extension": ".md"
 				},
 				{
@@ -42859,7 +42859,7 @@ module.exports = {
 					"extension": ".md"
 				}
 			],
-			"size": 10691
+			"size": 10975
 		},
 		{
 			"path": "content/photography",
@@ -42887,7 +42887,7 @@ module.exports = {
 			"size": 4589
 		}
 	],
-	"size": 15280
+	"size": 15564
 };
 
 /***/ }),
