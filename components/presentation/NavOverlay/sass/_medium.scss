@@ -1,8 +1,14 @@
-/* Component: NavOverlay: medium screen size. 
+/* Component: NavOverlay: medium screen size.
 
-Description... 
+Description...
 */
 
 .cpnt-nav-overlay {
+
+  > .cpnt-grip {
+    // width: 17px;
+    // height: 100vh;
+    // top: inherit;
+  }
 
 }

@@ -26,7 +26,6 @@ gulp.task('default', ['sass-component-index'], () => {
   gulp.start('webpack');
   gulp.start('browserSync');
   gulp.start('content');
-
   gulp.src('./index.html').pipe(gulp.dest('dist/'));
 
   gulp.watch(['./sass/**/*.scss', './components/**/*.scss'], () => {
