@@ -15,8 +15,8 @@ import fetchMd from '../../../modules/fetch-md.js';
 import Hero from '../../presentation/Hero/Hero.jsx';
 import ReaderContent from '../../presentation/ReaderContent/ReaderContent.jsx';
 import PageProgress from '../../presentation/PageProgress/PageProgress.jsx';
-// import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import Loading from '../../presentation/Loading/Loading.jsx';
+import Edge from '../../presentation/Edge/Edge.jsx';
 
 mMarked.setOptions({
   renderer: new mMarked.Renderer(),
@@ -144,6 +144,11 @@ class Reader extends React.Component {
         <ScrollPosition getBoundingRect={false} >
           <PageProgress />
         </ScrollPosition>
+
+        <Edge affix="top" />
+        <Edge affix="right" />
+        <Edge affix="bottom" />
+        <Edge affix="left" />
 
       </div>
     );

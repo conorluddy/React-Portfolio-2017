@@ -10,17 +10,12 @@
 
 import React from 'react';
 import Hero from '../Hero/Hero.jsx';
-import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 
 const RouteLanding = () => {
 
   return (
     <div className="cpnt-route-landing">
-
-      <CSSTransitionGroup transitionName="fade" transitionEnterTimeout={3000} transitionLeaveTimeout={3000} >
-        <Hero videoSrc="sunset.mov" />
-      </CSSTransitionGroup>
-
+      <Hero videoSrc="landing.mp4" />
     </div>
   )
 

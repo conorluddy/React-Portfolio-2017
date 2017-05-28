@@ -1,0 +1,1 @@
+const Edge = require('../../../components/presentation/Edge.jsx');

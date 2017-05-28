@@ -758,6 +758,10 @@ Description...
     margin-right: 0;
     margin-left: 5%; }
 
+/* Component: Edge: small screen size. 
+
+Description... 
+*/
 /* Component: GoogleAnalytics: small screen size. 
 
 Description... 
@@ -872,13 +876,10 @@ Description...
   width: 100vw;
   height: 100vh; }
   .cpnt-nav-overlay > .cpnt-grip {
-    width: 17px;
     width: 28px;
-    height: 100vh;
     height: calc(100vh - 92px);
     position: absolute;
     left: 50%;
-    top: inherit;
     top: 57px;
     transform: translateX(-50%);
     z-index: 1;
@@ -893,6 +894,9 @@ Description...
     height: 36px; }
     .cpnt-nav-overlay.is-stashed > *:not(.cpnt-trigger-arrow) {
       display: none; }
+    .cpnt-nav-overlay.is-stashed .cpnt-trigger-arrow {
+      left: 0;
+      top: 0; }
   .cpnt-nav-overlay .initial-opt {
     position: absolute;
     top: 0;
@@ -938,7 +942,7 @@ Description...
   .cpnt-nav-overlay .edge-border {
     background: #3e3e3e;
     position: fixed;
-    transition: all 300ms cubic-bezier(0.32, 0.9, 0.68, 0.98); }
+    transition: all 500ms cubic-bezier(0.32, 0.9, 0.68, 0.98); }
     .cpnt-nav-overlay .edge-border.-top {
       width: 100%;
       height: 0;
@@ -961,13 +965,21 @@ Description...
   .cpnt-nav-overlay.-section-development .initial-opt, .cpnt-nav-overlay.-section-photography > .cpnt-grip,
   .cpnt-nav-overlay.-section-photography .initial-opt {
     display: none; }
-  .cpnt-nav-overlay.-section-landing .cpnt-trigger-arrow {
+  .cpnt-nav-overlay.-section-development .edge-border, .cpnt-nav-overlay.-section-photography .edge-border {
+    background: #eeff00; }
+    .cpnt-nav-overlay.-section-development .edge-border.-top, .cpnt-nav-overlay.-section-development .edge-border.-bottom, .cpnt-nav-overlay.-section-photography .edge-border.-top, .cpnt-nav-overlay.-section-photography .edge-border.-bottom {
+      height: 56px; }
+    .cpnt-nav-overlay.-section-development .edge-border.-left, .cpnt-nav-overlay.-section-development .edge-border.-right, .cpnt-nav-overlay.-section-photography .edge-border.-left, .cpnt-nav-overlay.-section-photography .edge-border.-right {
+      width: 56px; }
+  .cpnt-nav-overlay.-section-landing .edge-border {
+    background: #3e3e3e; }
+    .cpnt-nav-overlay.-section-landing .edge-border.-top, .cpnt-nav-overlay.-section-landing .edge-border.-bottom {
+      height: 25px; }
+    .cpnt-nav-overlay.-section-landing .edge-border.-left, .cpnt-nav-overlay.-section-landing .edge-border.-right {
+      width: 25px; }
+  .cpnt-nav-overlay .cpnt-trigger-arrow {
     left: calc(50% - 18px);
     top: 10px; }
-  .cpnt-nav-overlay.-section-landing .edge-border.-top, .cpnt-nav-overlay.-section-landing .edge-border.-bottom {
-    height: 25px; }
-  .cpnt-nav-overlay.-section-landing .edge-border.-left, .cpnt-nav-overlay.-section-landing .edge-border.-right {
-    width: 25px; }
 
 @keyframes nav-overlay-intro-up {
   0% {
@@ -1311,6 +1323,10 @@ Description...
     flex-direction: row; }
   .cpnt-content-image-w-caption .img-wrap {
     flex-basis: 61.8%; }
+  /* Component: Edge: medium screen size. 
+
+Description... 
+*/
   /* Component: GoogleAnalytics: medium screen size. 
 
 Description... 
@@ -1329,9 +1345,9 @@ Description...
 
 Description... 
 */
-  /* Component: NavOverlay: medium screen size. 
+  /* Component: NavOverlay: medium screen size.
 
-Description... 
+Description...
 */
   /* Component: NavigationSection: medium screen size.
 
@@ -1395,6 +1411,10 @@ Description...
 Description... 
 */
   /* Component: ContentImageWCaption: large screen size. 
+
+Description... 
+*/
+  /* Component: Edge: large screen size. 
 
 Description... 
 */
