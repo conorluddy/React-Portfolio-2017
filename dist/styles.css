@@ -1185,11 +1185,6 @@ Description...
 */
 .cpnt-reader-content {
   padding-bottom: 170px; }
-  .cpnt-reader-content h1:first-child,
-  .cpnt-reader-content h2:first-child {
-    font-size: 6.25rem;
-    color: #5e5e5e;
-    position: relative; }
   .cpnt-reader-content h1,
   .cpnt-reader-content h2 {
     position: relative;
@@ -1201,8 +1196,8 @@ Description...
     .cpnt-reader-content h2 strong,
     .cpnt-reader-content h2 b {
       font-weight: 600; }
-    .cpnt-reader-content h1:before,
-    .cpnt-reader-content h2:before {
+    .cpnt-reader-content h1::before,
+    .cpnt-reader-content h2::before {
       content: '';
       position: absolute;
       top: 0;
@@ -1212,10 +1207,15 @@ Description...
       height: 1em;
       background: rgba(251, 251, 251, 0.8);
       border: solid 6px #fbfbfb; }
-    .cpnt-reader-content h1:after,
-    .cpnt-reader-content h2:after {
+    .cpnt-reader-content h1::after,
+    .cpnt-reader-content h2::after {
       left: inherit;
       right: 0; }
+    .cpnt-reader-content h1:first-child,
+    .cpnt-reader-content h2:first-child {
+      font-size: 6.25rem;
+      color: #5e5e5e;
+      position: relative; }
   .cpnt-reader-content a {
     color: #25a0ff;
     transition: color 300ms ease; }

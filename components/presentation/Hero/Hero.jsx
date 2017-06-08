@@ -26,6 +26,9 @@ const Hero = ({imgSrc, videoSrc, title, subtitle, modifiers, scrollPosition, her
   videoSrc = videoSrc ? "./../assets/video/" + videoSrc : false;
 
   //TODO - make loop a prop, maybe make muted a prop, make poster a prop...
+  // <h1>
+  //   {title}
+  // </h1>
 
   let imgError = (e) => {
     console.log('image load error: ', e);
@@ -37,18 +40,12 @@ const Hero = ({imgSrc, videoSrc, title, subtitle, modifiers, scrollPosition, her
     return (
       <div className={classNames} style={heroStyle}>
         <video style={parallaxStyle} autoPlay onCanPlay={confirmHeroLoaded} ><source src={videoSrc} type="video/mp4" /></video>
-        <h1>
-          {title}
-        </h1>
       </div>
     )
   } else {
     return (
       <div className={classNames} style={heroStyle}>
         <img src={heroImg} alt={title} style={parallaxStyle} onLoad={confirmHeroLoaded} onError={imgError} />
-        <h1>
-          {title}
-        </h1>
       </div>
     )
   }

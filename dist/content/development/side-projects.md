@@ -1,11 +1,8 @@
 ---
 title: Projects
 heroTitle: Projects
-heroSubtitle:
-heroVideo:
-heroImage: whiteacademy.jpg
+heroImage: hoodie-buswarner.jpg
 ---
-
 
 # __By me__, for me
 

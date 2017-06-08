@@ -9375,6 +9375,9 @@ var Hero = function Hero(_ref, context) {
   videoSrc = videoSrc ? "./../assets/video/" + videoSrc : false;
 
   //TODO - make loop a prop, maybe make muted a prop, make poster a prop...
+  // <h1>
+  //   {title}
+  // </h1>
 
   var imgError = function imgError(e) {
     console.log('image load error: ', e);
@@ -9390,23 +9393,13 @@ var Hero = function Hero(_ref, context) {
         'video',
         { style: parallaxStyle, autoPlay: true, onCanPlay: confirmHeroLoaded },
         _react2.default.createElement('source', { src: videoSrc, type: 'video/mp4' })
-      ),
-      _react2.default.createElement(
-        'h1',
-        null,
-        title
       )
     );
   } else {
     return _react2.default.createElement(
       'div',
       { className: classNames, style: heroStyle },
-      _react2.default.createElement('img', { src: heroImg, alt: title, style: parallaxStyle, onLoad: confirmHeroLoaded, onError: imgError }),
-      _react2.default.createElement(
-        'h1',
-        null,
-        title
-      )
+      _react2.default.createElement('img', { src: heroImg, alt: title, style: parallaxStyle, onLoad: confirmHeroLoaded, onError: imgError })
     );
   }
 };
@@ -41774,7 +41767,7 @@ module.exports = g;
 
 module.exports = {
 	"name": "conorluddydotcom",
-	"version": "0.6.0",
+	"version": "0.7.0",
 	"description": "Personal site",
 	"main": "index.jsx",
 	"scripts": {
@@ -41857,13 +41850,13 @@ module.exports = {
 				{
 					"path": "content/development/graphic-design.md",
 					"name": "graphic-design.md",
-					"size": 1142,
+					"size": 126,
 					"extension": ".md"
 				},
 				{
 					"path": "content/development/side-projects.md",
 					"name": "side-projects.md",
-					"size": 2059,
+					"size": 2037,
 					"extension": ".md"
 				},
 				{
@@ -41875,11 +41868,11 @@ module.exports = {
 				{
 					"path": "content/development/web-design.md",
 					"name": "web-design.md",
-					"size": 1142,
+					"size": 123,
 					"extension": ".md"
 				}
 			],
-			"size": 8564
+			"size": 6507
 		},
 		{
 			"path": "content/photography",
@@ -41888,7 +41881,7 @@ module.exports = {
 				{
 					"path": "content/photography/business.md",
 					"name": "business.md",
-					"size": 715,
+					"size": 92,
 					"extension": ".md"
 				},
 				{
@@ -41904,10 +41897,10 @@ module.exports = {
 					"extension": ".md"
 				}
 			],
-			"size": 4589
+			"size": 3966
 		}
 	],
-	"size": 19301
+	"size": 16621
 };
 
 /***/ }),
