@@ -968,9 +968,9 @@ Description...
   .cpnt-nav-overlay.-section-development .edge-border, .cpnt-nav-overlay.-section-photography .edge-border {
     background: #eeff00; }
     .cpnt-nav-overlay.-section-development .edge-border.-top, .cpnt-nav-overlay.-section-development .edge-border.-bottom, .cpnt-nav-overlay.-section-photography .edge-border.-top, .cpnt-nav-overlay.-section-photography .edge-border.-bottom {
-      height: 56px; }
+      height: 3px; }
     .cpnt-nav-overlay.-section-development .edge-border.-left, .cpnt-nav-overlay.-section-development .edge-border.-right, .cpnt-nav-overlay.-section-photography .edge-border.-left, .cpnt-nav-overlay.-section-photography .edge-border.-right {
-      width: 56px; }
+      width: 3px; }
   .cpnt-nav-overlay.-section-landing .edge-border {
     background: #3e3e3e; }
     .cpnt-nav-overlay.-section-landing .edge-border.-top, .cpnt-nav-overlay.-section-landing .edge-border.-bottom {
