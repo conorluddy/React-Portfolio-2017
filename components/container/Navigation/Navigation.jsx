@@ -85,10 +85,6 @@ class Navigation extends React.Component {
     this.playAudioTick();
   }
 
-  // setSectionBiased() {
-  //     this.setSectionLanding();
-  // }
-
   setSectionLanding() {
     console.log('setSectionLanding');
     if (this.state.section !== 'landing') {

@@ -1,8 +1,100 @@
-/* Component: Social: small screen size. 
+/* Component: Social: small screen size.
 
-Description... 
+Description...
 */
 
 .cpnt-social {
+
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  z-index: 1000;
+  background: transparentize($color-white, 0.8);
+  transition: all 300ms $bounce-in;
+
+  span {
+    // transform: rotate(-90deg) translate3d(100%, 0, 0);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    cursor: pointer;
+    font-size: rem(14);
+    transform-origin: bottom left;
+    transform: rotate(-90deg) translate3d(0,0,0);
+    width: 100vh;
+
+    &:before,
+    &:after {
+      content: '';
+      height: 1px;
+      vertical-align: middle;
+      display: inline-block;
+      background: $color-black;
+    }
+
+    &:before {
+      width: 1em;
+      margin: 0 1em 0 3em;
+    }
+
+    &:after {
+      width: 5em;
+      margin-left: 1em;
+    }
+  }
+
+  ul {
+    height: 100%;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    align-content: space-around;
+    margin: 0;
+    padding: 30px;
+    box-sizing: border-box;
+  }
+
+  li {
+    flex: auto;
+    transition: all 100ms $bounce-in;
+  }
+
+  a {
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: $color-black;
+  }
+
+  &.is-visible {
+    li {
+      transform: translateX(0);
+      transition-duration: 0;
+    }
+  }
+
+  &.is-stashed {
+    transform: translateX(100%);
+    li {
+      transform: translateX(200%);
+    }
+  }
+
+  .page-nav-active & {
+    background: transparent;
+
+    span {
+      color: $color-fluro;
+      &:before,
+      &:after {
+        background: $color-fluro;
+      }
+    }
+
+    a {
+      color: $color-fluro;
+    }
+  }
 
 }

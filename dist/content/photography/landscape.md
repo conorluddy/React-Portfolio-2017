@@ -1,11 +1,12 @@
 ---
-title:  Landscape
+title:  Landscapes
 heroTitle:  Landscape
-heroImage:  bullock.jpg
+heroImage:  glendalough.jpg
 ---
 
+## **Land**scape photography
 
-## **Land**scape ##
+I love trying to capture nature on camera.
 
 <div component="image-curtains" modifier="" layout="LR" >![alt text](../../assets/images/content/land-1.jpg "Title")</div>
 
@@ -16,8 +17,6 @@ heroImage:  bullock.jpg
 <div component="image-curtains" modifier="" layout="LR" >![alt text](../../assets/images/content/land-4.jpg "Title")</div>
 
 <div component="image-curtains" modifier="" layout="LR" >![alt text](../../assets/images/content/land-5.jpg "Title")</div>
-
-<div component="image-curtains" modifier="" layout="LR" >![alt text](../../assets/images/content/land-6.jpg "Title")</div>
 
 <div component="image-curtains" modifier="" layout="LR" >![alt text](../../assets/images/content/land-6.jpg "Title")</div>
 

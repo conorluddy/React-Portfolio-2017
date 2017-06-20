@@ -11,25 +11,38 @@
 import React from 'react';
 import ContentTree from '../../../tree.json';
 import Navigation from '../Navigation/Navigation.jsx';
+import Social from '../../presentation/Social/Social.jsx';
 
 class Nucleus extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      navActive: false
+      navActive: true,
+      socialActive: false
     };
 
     this.setNavActive = this.setNavActive.bind(this);
+    this.toggleSocialActive = this.toggleSocialActive.bind(this);
   }
 
   setNavActive(io) {//io = 1/0 = on/off
     this.setState({navActive: io});
   }
 
+  toggleSocialActive() {//io = 1/0 = on/off
+    this.setState({socialActive: ! this.state.socialActive});
+  }
+
   getClassNames() {
-    //This is for site effects, not for hiding nav
-    return this.state.navActive ? 'cpnt-nucleus page-nav-active' : 'cpnt-nucleus page-nav-hidden';
+    let clas = 'cpnt-nucleus';
+
+    if (this.state.navActive) clas += ' page-nav-active ';
+    else clas += ' page-nav-hidden ';
+    if (this.state.socialActive) clas += ' page-social-active ';
+    else clas += ' page-social-hidden ';
+
+    return clas;
   }
 
   render() {
@@ -39,6 +52,8 @@ class Nucleus extends React.Component {
       <div className={this.getClassNames()}>
 
         <Navigation tree={ContentTree} setNavActive={this.setNavActive} routeSection={section} />
+
+        <Social showing={this.state.socialActive} toggleSocialActive={this.toggleSocialActive} />
 
         {this.props.children}
 

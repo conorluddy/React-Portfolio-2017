@@ -75,7 +75,7 @@ Description...
       h2 {
         right: 0;
         transform-origin: bottom right;
-        transform: rotate(-90deg) translate3d(30%, 0, 0);
+        transform: rotate(-90deg); // translate3d(30%, 0, 0);
         opacity: 1;
         color: rgba(255, 255, 255, 1);
       }
@@ -88,7 +88,7 @@ Description...
       h2 {
         left: 0;
         transform-origin: bottom left;
-        transform: rotate(90deg) translate3d(30%, 0, 0);
+        transform: rotate(90deg); // translate3d(30%, 0, 0);
         opacity: 1;
         color: rgba(255, 255, 255, 1);
       }
