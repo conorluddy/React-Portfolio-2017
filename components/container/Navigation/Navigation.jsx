@@ -10,11 +10,12 @@
 
 import React from 'react';
 import { Link, IndexLink } from 'react-router';
+import Anime from '../../container/Anime/Anime.jsx';
 import Grip from '../../presentation/Grip/Grip.jsx';
 import NavigationSection from '../../presentation/NavigationSection/NavigationSection.jsx';
 import NavOverlay from '../../presentation/NavOverlay/NavOverlay.jsx';
-import TriggerArrow from '../../presentation/TriggerArrow/TriggerArrow.jsx';
 import VersionInfo from '../../presentation/VersionInfo/VersionInfo.jsx';
+import TriggerArrow from '../../presentation/TriggerArrow/TriggerArrow.jsx';
 
 class Navigation extends React.Component {
 
@@ -194,6 +195,9 @@ class Navigation extends React.Component {
     return (
       <div className="cpnt-navigation">
           <NavOverlay className={this.getClassNames()} setSectionDevelopment={this.setSectionDevelopment} setSectionPhotography={this.setSectionPhotography} sectionNav={sectionNav} transparency={this.state.transparency} stashNav={this.stashNav} clearSection={this.clearSection} section={this.state.section} />
+          <Anime>
+            <TriggerArrow handleClick={this.clearSection} />
+          </Anime>
           <VersionInfo />
       </div>
     );

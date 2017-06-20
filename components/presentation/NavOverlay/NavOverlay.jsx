@@ -11,11 +11,11 @@
 import React from 'react';
 import Grip from '../Grip/Grip.jsx';
 import TriggerArrow from '../TriggerArrow/TriggerArrow.jsx';
+import Anime from '../../container/Anime/Anime.jsx';
 
 
 const NavOverlay = ({className, setSectionDevelopment, setSectionPhotography, sectionNav, transparency, stashNav, clearSection, section}) => {
-
-  const closeBtn = section === 'landing' ? <TriggerArrow handleClick={stashNav} /> : <TriggerArrow handleClick={clearSection} />;
+  const closeBtn = <Anime section={section} ><TriggerArrow handleClick={section === 'landing' ? stashNav : clearSection} /></Anime>;
   const styles = {
     backgroundColor: 'RGBA(20,20,20,' + transparency/100 + ')'
   };
@@ -49,7 +49,7 @@ const NavOverlay = ({className, setSectionDevelopment, setSectionPhotography, se
       <i className="edge-border -left" />
 
     </div>
-  )
+  );
 };
 
 

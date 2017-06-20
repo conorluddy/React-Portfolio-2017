@@ -30,8 +30,8 @@ Description...
     // display: none;
     top: 0;
     left: 0;
-    width: 36px;
-    height: 36px;
+    width: 0;
+    height: 0;
 
     > *:not(.cpnt-trigger-arrow) {
       display: none;
@@ -43,7 +43,6 @@ Description...
     }
 
   }
-
 
   .initial-opt {
     position: absolute;

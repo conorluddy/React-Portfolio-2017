@@ -33,15 +33,32 @@ const TriggerArrow = ({nsew, handleClick}) => {
   return (
     <div className="cpnt-trigger-arrow">
 
-      <svg width="36px" height="36px" viewBox="494 10 36 36" version="1.1" onClick={handleClick} >
-          <g id="back" stroke="none" fill="none" transform="translate(494.000000, 10.000000)" strokeWidth="1" fillRule="evenodd">
-              <g>
-                  <rect id="Rectangle-5" fill="#EEFF00" x="0" y="0" width="36" height="36"></rect>
-
-                  <g id="aro" transform="translate(6.000000, 6.000000)" fillRule="nonzero" fill="#4A4A4A">
-                      <path d="M12.1310756,7 L20.1708827,7 L20.1708827,0 L3.58544136,0 L0,0 L0,20 L7,20 L7,11.7986376 L11.9403839,16.8440668 L17.0218461,11.9947608 L12.1310756,7 Z" id="Combined-Shape"></path>
-                  </g>
-              </g>
+      <svg width="36px" height="36px" viewBox="0 0 36 36" className="close" onClick={handleClick} >
+          <g >
+            <g className="bg-lines" transform="translate(17.951533, 17.951533) rotate(-315.000000) translate(-17.951533, -17.951533) translate(-12.548467, -8.048467)" stroke="#EEFF00" strokeWidth="4">
+              <path d="M0.941281671,2 L59.3649149,2" ></path>
+              <path d="M0.941281671,4 L59.3649149,4" ></path>
+              <path d="M0.941281671,7 L59.3649149,7" ></path>
+              <path d="M0.941281671,10 L59.3649149,10" ></path>
+              <path d="M0.941281671,13 L59.3649149,13" ></path>
+              <path d="M0.941281671,16 L59.3649149,16" ></path>
+              <path d="M0.941281671,19 L59.3649149,19" ></path>
+              <path d="M0.941281671,21 L59.3649149,21" ></path>
+              <path d="M0.941281671,24 L59.3649149,24" ></path>
+              <path d="M59.3381089,27 L0.914475689,27" ></path>
+              <path d="M59.3381089,30 L0.914475689,30" ></path>
+              <path d="M59.3381089,33 L0.914475689,33" ></path>
+              <path d="M59.3381089,36 L0.914475689,36" ></path>
+              <path d="M59.3381089,38 L0.914475689,38" ></path>
+              <path d="M59.3381089,41 L0.914475689,41" ></path>
+              <path d="M59.3381089,44 L0.914475689,44" ></path>
+              <path d="M59.3381089,47 L0.914475689,47" ></path>
+              <path d="M59.3381089,50 L0.914475689,50" ></path>
+            </g>
+            <g className="x-paths" transform="translate(10.000000, 10.000000)" stroke="#4A4A4A" strokeWidth="7">
+                <path d="M0,0 L16,16" id="Line"></path>
+                <path d="M16,0 L0,16" id="Line"></path>
+            </g>
           </g>
       </svg>
 

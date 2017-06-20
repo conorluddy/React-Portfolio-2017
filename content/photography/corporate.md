@@ -16,3 +16,4 @@ Here are some samples of my work.
 <div component="image-curtains" modifier="" layout="LR" >
   ![alt text](../../assets/images/content/property-10.jpg "Title")  
 </div>
+  

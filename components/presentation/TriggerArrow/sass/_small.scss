@@ -6,5 +6,20 @@ Description...
 .cpnt-trigger-arrow {
   cursor: pointer;
   z-index: 100;
-  position: relative;
+  // position: relative;
+
+
+
+
+      position: absolute;
+      left: calc(50% - 18px);
+      top: 10px;
+      cursor: pointer;
+
+      &:hover {
+        .x-paths {
+          stroke: $color-black;
+        }
+      }
+
 }
