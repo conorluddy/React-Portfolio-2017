@@ -13,8 +13,9 @@ import React from 'react';
 const GoogleAnalytics = (props) => {
   return (
     <div className="cpnt-google-analytics">
-     GoogleAnalytics component
+
      {props.children}
+
     </div>
   )
 };

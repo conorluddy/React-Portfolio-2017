@@ -12,6 +12,7 @@ import React from 'react';
 import Grip from '../Grip/Grip.jsx';
 import TriggerArrow from '../TriggerArrow/TriggerArrow.jsx';
 
+
 const NavOverlay = ({className, setSectionDevelopment, setSectionPhotography, sectionNav, transparency, stashNav, clearSection, section}) => {
 
   const closeBtn = section === 'landing' ? <TriggerArrow handleClick={stashNav} /> : <TriggerArrow handleClick={clearSection} />;

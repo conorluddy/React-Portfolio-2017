@@ -12,17 +12,6 @@ Description...
 .cpnt-reader-content {
   padding-bottom: 170px;
 
-  h1:first-child,
-  h2:first-child {
-    font-size: rem(100);
-    color: grey(94);
-    position: relative;
-
-    // &:before {
-    //   mix-blend-mode: exclusion;
-    // }
-  }
-
   h1,
   h2 {
     position: relative;
@@ -35,7 +24,7 @@ Description...
       font-weight: 600;
     }
 
-    &:before {
+    &::before {
       content: '';
       position: absolute;
       top: 0;
@@ -43,12 +32,17 @@ Description...
       transform: translateX(-50%) rotate(-45deg);
       width: 2em;
       height: 1em;
-      background: grey(251, 0.8);
+      background: grey(251, .8);
       border: solid 6px grey(251);
     }
-    &:after {
+    &::after {
       left: inherit;
       right: 0;
+    }
+    &:first-child {
+      font-size: rem(100);
+      color: grey(94);
+      position: relative;
     }
   }
 

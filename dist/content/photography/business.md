@@ -3,11 +3,16 @@ heroImage: dgdsurgery.jpg
 heroTitle: Business
 ---
 
-## **Business**
+## **Corporate** photography
+
+
 
 ### Deansgrange Dental
 
-I wanted these photographs to portray how bright, clean and modern this dental practice is. They were to be used as full-page backgrounds on the website I designed and built for them, so this had to be taken into account when composing shots.
+
+
+
+
 
 <photos to come>
 

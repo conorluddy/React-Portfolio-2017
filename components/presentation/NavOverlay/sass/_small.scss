@@ -51,7 +51,7 @@ Description...
     bottom: 0;
     z-index: 0;
     width: 50%;
-    color: rgba(222,222,222,.95);
+    color: rgba(222, 222, 222, .95);
     cursor: pointer;
 
     h2 {
@@ -65,7 +65,7 @@ Description...
       animation-duration: 2500ms;
       animation-fill-mode: forwards;
       animation-timing-function: $water-kick;
-      color: rgba(216,216,216,0);
+      color: rgba(216, 216, 216, 0);
     }
 
 
@@ -75,9 +75,9 @@ Description...
       h2 {
         right: 0;
         transform-origin: bottom right;
-        transform: rotate(-90deg) translate3d(30%, 0, 0);
+        transform: rotate(-90deg); // translate3d(30%, 0, 0);
         opacity: 1;
-        color: rgba(255,255,255,1);
+        color: rgba(255, 255, 255, 1);
       }
     }
 
@@ -88,9 +88,9 @@ Description...
       h2 {
         left: 0;
         transform-origin: bottom left;
-        transform: rotate(90deg) translate3d(30%, 0, 0);
+        transform: rotate(90deg); // translate3d(30%, 0, 0);
         opacity: 1;
-        color: rgba(255,255,255,1);
+        color: rgba(255, 255, 255, 1);
       }
     }
 
@@ -98,7 +98,7 @@ Description...
     &:hover {
       opacity: 1;
       h2 {
-        color: rgba(225,225,225,.9);
+        color: rgba(225, 225, 225, .9);
       }
     }
 
@@ -152,7 +152,7 @@ Description...
 
 
     //How thick the border is when it's in dev/photo
-    $edge-width: 56px;
+    $edge-width: 3px;
     .edge-border {
       background: $color-fluro;
       &.-top,
@@ -201,10 +201,10 @@ Description...
     transform: rotate(-90deg) translate3d(-50%, 0, 0);
   }
   20% {
-    color: rgba(216,216,216,.25);
+    color: rgba(216, 216, 216, .25);
   }
   100% {
-    color: rgba(216,216,216,.95);
+    color: rgba(216, 216, 216, .95);
     opacity: 1;
     transform: rotate(-90deg) translate3d(30%, 0, 0);
   }
@@ -217,10 +217,10 @@ Description...
     transform: rotate(90deg) translate3d(-50%, 0, 0);
   }
   20% {
-    color: rgba(216,216,216,.25);
+    color: rgba(216, 216, 216, .25);
   }
   100% {
-    color: rgba(216,216,216,.95);
+    color: rgba(216, 216, 216, .95);
     opacity: 1;
     transform: rotate(90deg) translate3d(30%, 0, 0);
   }

@@ -14,7 +14,7 @@ module.exports = (gulp) => {
   gulp.task('deploy', () => {});
 
   gulp.task('pre-deploy', ['bump', 'content', 'sass-component-index'], () => {
-      gulp.start('assets');
+      // gulp.start('assets');
       gulp.start('sass');
       gulp.start('webpack-production');
       gulp.src('./index.html')
