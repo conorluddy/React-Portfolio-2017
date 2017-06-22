@@ -10,7 +10,7 @@
 
 import React from 'react';
 import Anime from '../../container/Anime/Anime.jsx';
-
+import BackgroundSvg from '../BackgroundSvg/BackgroundSvg.jsx';
 
 const Social = (props) => {
 
@@ -57,12 +57,16 @@ const Social = (props) => {
 
       <span onClick={props.toggleSocialActive} >Contact || Social</span>
 
+
+            <Anime>
+              <BackgroundSvg />
+            </Anime>
+
       <ul>
         {socials.map(listEm)}
       </ul>
 
-
-      <Anime showing={props.showing} >
+      <Anime showing={props.showing} duration="5000" delay="0" elasticity="300" easing="easeOutExpo" >
         <svg width="36px" height="36px" viewBox="0 0 36 36" className="close" onClick={props.toggleSocialActive} >
             <g >
               <g className="bg-lines" transform="translate(17.951533, 17.951533) rotate(-315.000000) translate(-17.951533, -17.951533) translate(-12.548467, -8.048467)" stroke="#EEFF00" strokeWidth="4">

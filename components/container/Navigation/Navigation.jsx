@@ -16,6 +16,8 @@ import NavigationSection from '../../presentation/NavigationSection/NavigationSe
 import NavOverlay from '../../presentation/NavOverlay/NavOverlay.jsx';
 import VersionInfo from '../../presentation/VersionInfo/VersionInfo.jsx';
 import TriggerArrow from '../../presentation/TriggerArrow/TriggerArrow.jsx';
+import Square from '../../presentation/Square/Square.jsx';
+
 
 class Navigation extends React.Component {
 
@@ -196,9 +198,13 @@ class Navigation extends React.Component {
       <div className="cpnt-navigation">
           <NavOverlay className={this.getClassNames()} setSectionDevelopment={this.setSectionDevelopment} setSectionPhotography={this.setSectionPhotography} sectionNav={sectionNav} transparency={this.state.transparency} stashNav={this.stashNav} clearSection={this.clearSection} section={this.state.section} />
           <Anime>
-            <TriggerArrow handleClick={this.clearSection} />
+            <Square handleClick={this.clearSection} />
           </Anime>
+
+
           <VersionInfo />
+
+
       </div>
     );
   }

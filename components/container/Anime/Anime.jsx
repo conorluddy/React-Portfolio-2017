@@ -21,17 +21,29 @@ class Anime extends React.Component {
   }
 
   componentDidMount() {
-    const paths = this.elemnt.querySelectorAll('path');
-    const ani = anime({
-      targets: paths,
-      duration: 2000,
-      delay: 800,
-      elasticity: 200,
-      easing: 'easeInOutExpo',
-      autoplay: false,
-      strokeDashoffset: [anime.setDashoffset, 0]
-    });
 
+    //ToDo = make this a prop, including queryselector.
+    // const paths = this.elemnt.querySelectorAll('path');
+    // const ani = anime({
+    //   targets: paths,
+    //   duration: this.props.duration || 1200,
+    //   delay: this.props.delay || 0,
+    //   elasticity: this.props.elasticity || 200,
+    //   easing: this.props.easing || 'easeInOutExpo',
+    //   autoplay: false,
+    //   strokeDashoffset: [anime.setDashoffset, 0]
+    // });
+
+    const circle = this.elemnt.querySelectorAll('circle');
+    const wrapper = this.elemnt.querySelectorAll('svg');
+    const radius = wrapper[0].clientHeight > wrapper[0].clientWidth ? wrapper[0].clientHeight : wrapper[0].clientWidth;
+    const ani = anime({
+      targets: circle,
+      r: radius * 1.5,
+      duration: 3500,
+      easing: 'easeOutCubic',
+      elasticity: 0
+    });
 
     //So we can stop, start, restart etc.
     this.setState({
@@ -39,7 +51,7 @@ class Anime extends React.Component {
     });
   }
 
-  componentDidUpdate(/*prevProps, prevState*/) {
+  componentDidUpdate(prevProps, prevState) {
     this.state.anime.restart();
   }
 

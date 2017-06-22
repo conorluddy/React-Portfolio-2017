@@ -10,8 +10,9 @@
 
 import React from 'react';
 import Grip from '../Grip/Grip.jsx';
-import TriggerArrow from '../TriggerArrow/TriggerArrow.jsx';
 import Anime from '../../container/Anime/Anime.jsx';
+import TriggerArrow from '../TriggerArrow/TriggerArrow.jsx';
+import BackgroundSvg from '../BackgroundSvg/BackgroundSvg.jsx';
 
 
 const NavOverlay = ({className, setSectionDevelopment, setSectionPhotography, sectionNav, transparency, stashNav, clearSection, section}) => {

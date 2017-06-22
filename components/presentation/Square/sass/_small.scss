@@ -1,13 +1,9 @@
-/* Component: TriggerArrow: small screen size.
+/* Component: Square: small screen size.
 
 Description...
 */
 
-.cpnt-trigger-arrow {
-  cursor: pointer;
-  z-index: 100;
-  // position: relative;
-
+.cpnt-square {
   position: absolute;
   left: calc(50% - 18px);
   top: 10px;
@@ -18,5 +14,4 @@ Description...
       stroke: $color-black;
     }
   }
-
 }
