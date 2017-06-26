@@ -21,37 +21,21 @@ class Anime extends React.Component {
   }
 
   componentDidMount() {
+    // const wrapper = this.elemnt.querySelectorAll('svg')[0];
 
-    //ToDo = make this a prop, including queryselector.
-    // const paths = this.elemnt.querySelectorAll('path');
-    // const ani = anime({
-    //   targets: paths,
-    //   duration: this.props.duration || 1200,
-    //   delay: this.props.delay || 0,
-    //   elasticity: this.props.elasticity || 200,
-    //   easing: this.props.easing || 'easeInOutExpo',
-    //   autoplay: false,
-    //   strokeDashoffset: [anime.setDashoffset, 0]
-    // });
-
-    const circle = this.elemnt.querySelectorAll('circle');
-    const wrapper = this.elemnt.querySelectorAll('svg');
-    const radius = wrapper[0].clientHeight > wrapper[0].clientWidth ? wrapper[0].clientHeight : wrapper[0].clientWidth;
-    const ani = anime({
-      targets: circle,
-      r: radius * 1.5,
-      duration: 3500,
-      easing: 'easeOutCubic',
-      elasticity: 0
-    });
+    const opts = Object.assign({
+      targets: this.elemnt.querySelectorAll(this.props.aniOptions ? this.props.aniOptions.selector : 'path'),
+      autoplay: false,
+      strokeDashoffset: [anime.setDashoffset, 0]
+    }, this.props.aniOptions);
 
     //So we can stop, start, restart etc.
     this.setState({
-      anime: ani
+      anime: anime(opts)
     });
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate() {
     this.state.anime.restart();
   }
 

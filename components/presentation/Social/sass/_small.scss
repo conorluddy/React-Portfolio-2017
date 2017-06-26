@@ -9,8 +9,8 @@ Description...
   top: 0;
   height: 100vh;
   z-index: 1000;
-  background: transparentize($color-white, 0.1);
-  transition: all 500ms $airlift;
+  // background: transparentize($color-white, 0.1);
+  // transition: all 500ms $airlift;
   font-size: rem(12);
   width: 100%;
 
@@ -107,7 +107,7 @@ Description...
   }
 
   .page-nav-active & {
-    background: transparentize($color-black, 0.2);
+    // background: transparentize($color-black, 0.2);
 
     span {
       color: $color-fluro;

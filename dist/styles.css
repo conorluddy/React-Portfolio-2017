@@ -1289,8 +1289,6 @@ Description...
   top: 0;
   height: 100vh;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.9);
-  transition: all 500ms cubic-bezier(0.7, 0, 0.3, 1);
   font-size: 0.75rem;
   width: 100%; }
   .cpnt-social span {
@@ -1352,14 +1350,12 @@ Description...
     .cpnt-social.is-stashed li {
       transform: scale(0);
       opacity: 0; }
-  .page-nav-active .cpnt-social {
-    background: rgba(10, 10, 10, 0.8); }
-    .page-nav-active .cpnt-social span {
-      color: #eeff00; }
-      .page-nav-active .cpnt-social span:before, .page-nav-active .cpnt-social span:after {
-        background: #eeff00; }
-    .page-nav-active .cpnt-social a {
-      color: #eeff00; }
+  .page-nav-active .cpnt-social span {
+    color: #eeff00; }
+    .page-nav-active .cpnt-social span:before, .page-nav-active .cpnt-social span:after {
+      background: #eeff00; }
+  .page-nav-active .cpnt-social a {
+    color: #eeff00; }
 
 /* Component: Square: small screen size.
 

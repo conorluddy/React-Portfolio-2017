@@ -5970,38 +5970,22 @@ var Anime = function (_React$Component) {
   _createClass(Anime, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
+      // const wrapper = this.elemnt.querySelectorAll('svg')[0];
 
-      //ToDo = make this a prop, including queryselector.
-      // const paths = this.elemnt.querySelectorAll('path');
-      // const ani = anime({
-      //   targets: paths,
-      //   duration: this.props.duration || 1200,
-      //   delay: this.props.delay || 0,
-      //   elasticity: this.props.elasticity || 200,
-      //   easing: this.props.easing || 'easeInOutExpo',
-      //   autoplay: false,
-      //   strokeDashoffset: [anime.setDashoffset, 0]
-      // });
-
-      var circle = this.elemnt.querySelectorAll('circle');
-      var wrapper = this.elemnt.querySelectorAll('svg');
-      var radius = wrapper[0].clientHeight > wrapper[0].clientWidth ? wrapper[0].clientHeight : wrapper[0].clientWidth;
-      var ani = (0, _animejs2.default)({
-        targets: circle,
-        r: radius * 1.5,
-        duration: 3500,
-        easing: 'easeOutCubic',
-        elasticity: 0
-      });
+      var opts = Object.assign({
+        targets: this.elemnt.querySelectorAll(this.props.aniOptions ? this.props.aniOptions.selector : 'path'),
+        autoplay: false,
+        strokeDashoffset: [_animejs2.default.setDashoffset, 0]
+      }, this.props.aniOptions);
 
       //So we can stop, start, restart etc.
       this.setState({
-        anime: ani
+        anime: (0, _animejs2.default)(opts)
       });
     }
   }, {
     key: 'componentDidUpdate',
-    value: function componentDidUpdate(prevProps, prevState) {
+    value: function componentDidUpdate() {
       this.state.anime.restart();
     }
   }, {
@@ -9373,9 +9357,9 @@ var BackgroundSvg = function BackgroundSvg(props) {
     _react2.default.createElement(
       "svg",
       { width: "100%", height: "100%", viewBox: "0 0 100% 100%" },
-      _react2.default.createElement("circle", { cx: "0", cy: "0", r: "0", opacity: "0.25" }),
-      _react2.default.createElement("circle", { cx: "100%", cy: "0", r: "0", opacity: "0.25" }),
-      _react2.default.createElement("circle", { cx: "50%", cy: "100%", r: "0", opacity: "0.25" })
+      _react2.default.createElement("circle", { cx: "0", cy: "0", r: "0", opacity: "0.5" }),
+      _react2.default.createElement("circle", { cx: "100%", cy: "0", r: "0", opacity: "0.5" }),
+      _react2.default.createElement("circle", { cx: "50%", cy: "100%", r: "0", opacity: "0.5" })
     )
   );
 };
@@ -14897,7 +14881,7 @@ var Navigation = function (_React$Component) {
         _react2.default.createElement(_NavOverlay2.default, { className: this.getClassNames(), setSectionDevelopment: this.setSectionDevelopment, setSectionPhotography: this.setSectionPhotography, sectionNav: sectionNav, transparency: this.state.transparency, stashNav: this.stashNav, clearSection: this.clearSection, section: this.state.section }),
         _react2.default.createElement(
           _Anime2.default,
-          null,
+          { aniOptions: { selector: 'path', duration: 3000, delay: 500, easing: 'easeOutExpo', elasticity: 900 } },
           _react2.default.createElement(_Square2.default, { handleClick: this.clearSection })
         ),
         _react2.default.createElement(_VersionInfo2.default, null)
@@ -15690,7 +15674,7 @@ var NavOverlay = function NavOverlay(_ref) {
 
   var closeBtn = _react2.default.createElement(
     _Anime2.default,
-    { section: section },
+    { section: section, aniOptions: { selector: 'path', duration: 3500, easing: 'easeOutCubic', elasticity: 900 } },
     _react2.default.createElement(_TriggerArrow2.default, { handleClick: section === 'landing' ? stashNav : clearSection })
   );
   var styles = {
@@ -16202,7 +16186,13 @@ var Social = function Social(props) {
     ),
     _react2.default.createElement(
       _Anime2.default,
-      null,
+      { aniOptions: {
+          selector: 'circle',
+          duration: 3500,
+          easing: 'easeOutCubic',
+          elasticity: 0,
+          r: 2000
+        } },
       _react2.default.createElement(_BackgroundSvg2.default, null)
     ),
     _react2.default.createElement(
@@ -16212,7 +16202,13 @@ var Social = function Social(props) {
     ),
     _react2.default.createElement(
       _Anime2.default,
-      { showing: props.showing, duration: '5000', delay: '0', elasticity: '300', easing: 'easeOutExpo' },
+      { showing: props.showing, aniOptions: {
+          selector: 'path',
+          duration: 2000,
+          easing: 'easeOutCubic',
+          elasticity: 900,
+          delay: 500
+        } },
       _react2.default.createElement(
         'svg',
         { width: '36px', height: '36px', viewBox: '0 0 36 36', className: 'close', onClick: props.toggleSocialActive },

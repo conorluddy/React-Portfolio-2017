@@ -52,21 +52,35 @@ const Social = (props) => {
     return 'cpnt-social ' + (props.showing ? 'is-visible' : 'is-stashed');
   }
 
+
+
+
   return (
     <div className={classNames()}>
 
       <span onClick={props.toggleSocialActive} >Contact || Social</span>
 
-
-            <Anime>
-              <BackgroundSvg />
-            </Anime>
+      <Anime aniOptions={{
+        selector: 'circle',
+        duration: 3500,
+        easing: 'easeOutCubic',
+        elasticity: 0,
+        r: 2000
+      }}>
+        <BackgroundSvg />
+      </Anime>
 
       <ul>
         {socials.map(listEm)}
       </ul>
 
-      <Anime showing={props.showing} duration="5000" delay="0" elasticity="300" easing="easeOutExpo" >
+      <Anime showing={props.showing} aniOptions={{
+        selector: 'path',
+        duration: 2000,
+        easing: 'easeOutCubic',
+        elasticity: 900,
+        delay: 500
+      }} >
         <svg width="36px" height="36px" viewBox="0 0 36 36" className="close" onClick={props.toggleSocialActive} >
             <g >
               <g className="bg-lines" transform="translate(17.951533, 17.951533) rotate(-315.000000) translate(-17.951533, -17.951533) translate(-12.548467, -8.048467)" stroke="#EEFF00" strokeWidth="4">

@@ -16,7 +16,7 @@ import BackgroundSvg from '../BackgroundSvg/BackgroundSvg.jsx';
 
 
 const NavOverlay = ({className, setSectionDevelopment, setSectionPhotography, sectionNav, transparency, stashNav, clearSection, section}) => {
-  const closeBtn = <Anime section={section} ><TriggerArrow handleClick={section === 'landing' ? stashNav : clearSection} /></Anime>;
+  const closeBtn = <Anime section={section} aniOptions={{selector: 'path', duration: 3500, easing: 'easeOutCubic', elasticity: 900}} ><TriggerArrow handleClick={section === 'landing' ? stashNav : clearSection} /></Anime>;
   const styles = {
     backgroundColor: 'RGBA(20,20,20,' + transparency/100 + ')'
   };
