@@ -7,8 +7,12 @@ Description...
   position: relative;
   overflow: hidden;
 
+  img {
+    width: 100%;
+  }
+
  .curtain {
-   transition: transform 2500ms $water-kick;
+   transition: transform 50ms linear;
    position: absolute;
    width: 100%;
    height: 100%;

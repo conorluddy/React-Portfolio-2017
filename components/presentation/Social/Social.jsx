@@ -65,7 +65,7 @@ const Social = (props) => {
         duration: 3500,
         easing: 'easeOutCubic',
         elasticity: 0,
-        r: 2000
+        r: 100
       }}>
         <BackgroundSvg />
       </Anime>

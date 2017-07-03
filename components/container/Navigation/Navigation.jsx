@@ -89,7 +89,6 @@ class Navigation extends React.Component {
   }
 
   setSectionLanding() {
-    console.log('setSectionLanding');
     if (this.state.section !== 'landing') {
       this.setState({
         section: 'landing',
@@ -155,8 +154,16 @@ class Navigation extends React.Component {
     }
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.section !== this.state.section) {
+      this.setState({
+        'prevSection': prevState.section
+      });
+    }
+  }
+
   render() {
-    let sectionNav = null;
+    let navSection = null;
     let photoNavItems = [];
     let devNavItems = [];
     let tempName;
@@ -189,23 +196,21 @@ class Navigation extends React.Component {
     }
 
     if (this.state.section === 'development') {
-      sectionNav = <NavigationSection section={this.state.section} navList={devNavItems} clearSection={this.clearSection} postNavigate={this.postNavigate} side='left' playAudioTick={this.playAudioTick} />;
+      navSection = <NavigationSection section={this.state.section} navList={devNavItems} clearSection={this.clearSection} postNavigate={this.postNavigate} side='left' playAudioTick={this.playAudioTick} />;
     } else if (this.state.section === 'photography') {
-      sectionNav = <NavigationSection section={this.state.section} navList={photoNavItems} clearSection={this.clearSection} postNavigate={this.postNavigate} side='right' playAudioTick={this.playAudioTick} />;
+      navSection = <NavigationSection section={this.state.section} navList={photoNavItems} clearSection={this.clearSection} postNavigate={this.postNavigate} side='right' playAudioTick={this.playAudioTick} />;
     }
 
     return (
       <div className="cpnt-navigation">
-          <NavOverlay className={this.getClassNames()} setSectionDevelopment={this.setSectionDevelopment} setSectionPhotography={this.setSectionPhotography} sectionNav={sectionNav} transparency={this.state.transparency} stashNav={this.stashNav} clearSection={this.clearSection} section={this.state.section} />
 
+          <NavOverlay className={this.getClassNames()} setSectionDevelopment={this.setSectionDevelopment} setSectionPhotography={this.setSectionPhotography} navSection={navSection} transparency={this.state.transparency} stashNav={this.stashNav} clearSection={this.clearSection} section={this.state.section} prevSection={this.state.prevSection} />
 
           <Anime aniOptions={{selector: 'path', duration: 3000, delay: 500, easing: 'easeOutExpo', elasticity: 900}} >
             <Square handleClick={this.clearSection} />
           </Anime>
 
-
           <VersionInfo />
-
 
       </div>
     );

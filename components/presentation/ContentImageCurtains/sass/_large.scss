@@ -1,8 +1,31 @@
-/* Component: ContentImageCurtains: large screen size. 
+/* Component: ContentImageCurtains: large screen size.
 
-Description... 
+Description...
 */
 
 .cpnt-content-image-curtains {
+
+
+  &.-small,
+  &.-medium,
+  &.-large {
+   @include clearfix;
+  }
+
+  &.-small {
+    @include grid-column(10);
+    @include grid-push(4);
+  }
+  &.-medium {
+    @include grid-column(12);
+    @include grid-push(3);
+  }
+  &.-large {
+    @include grid-column(14);
+    @include grid-push(2);
+  }
+  &.-edges-only {
+    
+  }
 
 }

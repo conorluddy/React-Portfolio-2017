@@ -15,11 +15,12 @@ import ScrollPosition from '../../container/ScrollPosition/ScrollPosition.jsx';
 import ContentImageGroup from '../ContentImageGroup/ContentImageGroup.jsx';
 import ContentImageWCaption from '../ContentImageWCaption/ContentImageWCaption.jsx';
 import ContentImageCurtains from '../ContentImageCurtains/ContentImageCurtains.jsx';
+import GlitchText from '../GlitchText/GlitchText.jsx';
 
 const ReaderContent = ({content}) => {
 
   console.info('ReaderContent Component - we should not see this message more than once or twice per page...');
-  
+
   // Replace MD html with React components, based on
   // what component attribute we gave them.
 
@@ -31,6 +32,25 @@ const ReaderContent = ({content}) => {
               return domNode;
             }
 
+
+
+
+            /**
+             * ELEMENTS
+             */
+            if (domNode.name) {
+              switch (domNode.name) {
+                case 'h1': return ( <GlitchText domNode={domNode} /> );
+                case 'h2': return ( <GlitchText domNode={domNode} /> );
+              }
+            }
+
+
+
+
+            /**
+             * COMPONENTS
+             */
             switch (domNode.attribs.component) {
 
               case 'image-group':
@@ -65,7 +85,7 @@ const ReaderContent = ({content}) => {
               case 'image-curtains':
 
                 return (
-                    <ScrollPosition getBoundingRect="true" >
+                    <ScrollPosition getBoundingRect="true" fps="40" >
                       <ContentImageCurtains domNode={domNode} layout={domNode.attribs.layout} modifier={domNode.attribs.modifier} />
                     </ScrollPosition>
                   )

@@ -13,8 +13,7 @@ import React from 'react';
 const BackgroundSvg = (props) => {
   return (
     <div className="cpnt-background-svg">
-
-        <svg width="100%" height="100%" viewBox="0 0 100% 100%" >
+        <svg viewBox="0 0 100 100" preserveAspectRatio="none" >
             <circle cx="0" cy="0" r="0" opacity="0.5"></circle>
             <circle cx="100%" cy="0" r="0" opacity="0.5"></circle>
             <circle cx="50%" cy="100%" r="0" opacity="0.5"></circle>

@@ -598,6 +598,9 @@ Description...
   bottom: 0;
   left: 0;
   right: 0; }
+  .cpnt-background-svg svg {
+    width: 100%;
+    height: 100%; }
 
 /* Component: ContentImageCurtains: small screen size.
 
@@ -606,8 +609,10 @@ Description...
 .cpnt-content-image-curtains {
   position: relative;
   overflow: hidden; }
+  .cpnt-content-image-curtains img {
+    width: 100%; }
   .cpnt-content-image-curtains .curtain {
-    transition: transform 2500ms cubic-bezier(0.32, 0.9, 0.68, 0.98);
+    transition: transform 50ms linear;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -770,6 +775,10 @@ Description...
     margin-left: 5%; }
 
 /* Component: Edge: small screen size. 
+
+Description... 
+*/
+/* Component: GlitchText: small screen size. 
 
 Description... 
 */
@@ -951,9 +960,17 @@ Description...
   .cpnt-nav-overlay small {
     font-size: 1.375rem; }
   .cpnt-nav-overlay .edge-border {
-    background: #3e3e3e;
-    position: fixed;
-    transition: all 500ms cubic-bezier(0.32, 0.9, 0.68, 0.98); }
+    position: fixed; }
+    .cpnt-nav-overlay .edge-border svg {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      width: 100%; }
+    .cpnt-nav-overlay .edge-border polygon {
+      transition: fill 500ms cubic-bezier(0.32, 0.9, 0.68, 0.98); }
     .cpnt-nav-overlay .edge-border.-top {
       width: 100%;
       height: 0;
@@ -967,6 +984,8 @@ Description...
       width: 100%;
       height: 0;
       bottom: 0; }
+      .cpnt-nav-overlay .edge-border.-bottom svg {
+        transform: rotate(180deg); }
     .cpnt-nav-overlay .edge-border.-left {
       height: 100%;
       width: 0;
@@ -976,18 +995,18 @@ Description...
   .cpnt-nav-overlay.-section-development .initial-opt, .cpnt-nav-overlay.-section-photography > .cpnt-grip,
   .cpnt-nav-overlay.-section-photography .initial-opt {
     display: none; }
-  .cpnt-nav-overlay.-section-development .edge-border, .cpnt-nav-overlay.-section-photography .edge-border {
-    background: #eeff00; }
-    .cpnt-nav-overlay.-section-development .edge-border.-top, .cpnt-nav-overlay.-section-development .edge-border.-bottom, .cpnt-nav-overlay.-section-photography .edge-border.-top, .cpnt-nav-overlay.-section-photography .edge-border.-bottom {
-      height: 3px; }
-    .cpnt-nav-overlay.-section-development .edge-border.-left, .cpnt-nav-overlay.-section-development .edge-border.-right, .cpnt-nav-overlay.-section-photography .edge-border.-left, .cpnt-nav-overlay.-section-photography .edge-border.-right {
-      width: 3px; }
-  .cpnt-nav-overlay.-section-landing .edge-border {
-    background: #3e3e3e; }
-    .cpnt-nav-overlay.-section-landing .edge-border.-top, .cpnt-nav-overlay.-section-landing .edge-border.-bottom {
-      height: 25px; }
-    .cpnt-nav-overlay.-section-landing .edge-border.-left, .cpnt-nav-overlay.-section-landing .edge-border.-right {
-      width: 25px; }
+  .cpnt-nav-overlay.-section-development .edge-border polygon, .cpnt-nav-overlay.-section-photography .edge-border polygon {
+    fill: #eeff00; }
+  .cpnt-nav-overlay.-section-development .edge-border.-top, .cpnt-nav-overlay.-section-development .edge-border.-bottom, .cpnt-nav-overlay.-section-photography .edge-border.-top, .cpnt-nav-overlay.-section-photography .edge-border.-bottom {
+    height: 25px; }
+  .cpnt-nav-overlay.-section-development .edge-border.-left, .cpnt-nav-overlay.-section-development .edge-border.-right, .cpnt-nav-overlay.-section-photography .edge-border.-left, .cpnt-nav-overlay.-section-photography .edge-border.-right {
+    width: 25px; }
+  .cpnt-nav-overlay.-section-landing .edge-border polygon {
+    fill: #3e3e3e; }
+  .cpnt-nav-overlay.-section-landing .edge-border.-top, .cpnt-nav-overlay.-section-landing .edge-border.-bottom {
+    height: 25px; }
+  .cpnt-nav-overlay.-section-landing .edge-border.-left, .cpnt-nav-overlay.-section-landing .edge-border.-right {
+    width: 25px; }
   .cpnt-nav-overlay .cpnt-trigger-arrow {
     left: calc(50% - 18px);
     top: 10px; }
@@ -1433,6 +1452,10 @@ Description...
 
 Description... 
 */
+  /* Component: GlitchText: medium screen size. 
+
+Description... 
+*/
   /* Component: GoogleAnalytics: medium screen size. 
 
 Description... 
@@ -1514,10 +1537,29 @@ Description...
 
 Description... 
 */
-  /* Component: ContentImageCurtains: large screen size. 
+  /* Component: ContentImageCurtains: large screen size.
 
-Description... 
+Description...
 */
+  .cpnt-content-image-curtains.-small::after, .cpnt-content-image-curtains.-medium::after, .cpnt-content-image-curtains.-large::after {
+    clear: both;
+    content: "";
+    display: table; }
+  .cpnt-content-image-curtains.-small {
+    width: calc(55.55556% - 31.11111px);
+    float: left;
+    margin-left: 20px;
+    margin-left: calc(22.22222% - 24.44444px + 40px); }
+  .cpnt-content-image-curtains.-medium {
+    width: calc(66.66667% - 33.33333px);
+    float: left;
+    margin-left: 20px;
+    margin-left: calc(16.66667% - 23.33333px + 40px); }
+  .cpnt-content-image-curtains.-large {
+    width: calc(77.77778% - 35.55556px);
+    float: left;
+    margin-left: 20px;
+    margin-left: calc(11.11111% - 22.22222px + 40px); }
   /* Component: ContentImageGroup: large screen size.
 
 Description...
@@ -1531,6 +1573,10 @@ Description...
 Description... 
 */
   /* Component: Edge: large screen size. 
+
+Description... 
+*/
+  /* Component: GlitchText: large screen size. 
 
 Description... 
 */

@@ -1,0 +1,1 @@
+const GlitchText = require('../../../components/presentation/GlitchText.jsx');
