@@ -40,8 +40,16 @@ const ReaderContent = ({content}) => {
              */
             if (domNode.name) {
               switch (domNode.name) {
-                case 'h1': return ( <GlitchText domNode={domNode} /> );
-                case 'h2': return ( <GlitchText domNode={domNode} /> );
+                case 'h1': return (
+                  <ScrollPosition getBoundingRect="true" >
+                    <GlitchText domNode={domNode} />
+                  </ScrollPosition>
+                );
+                case 'h2': return (
+                  <ScrollPosition getBoundingRect="true" >
+                    <GlitchText domNode={domNode} />
+                  </ScrollPosition>
+                );
               }
             }
 

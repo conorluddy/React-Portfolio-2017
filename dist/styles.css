@@ -663,7 +663,7 @@ Description...
       height: 100%;
       flex-basis: 25%; }
     .cpnt-content-image-group.-kebab.-fat.is-alive .wrap.fatty::before {
-      transition-delay: 0ms;
+      transition-delay: 0;
       transition-duration: 1000ms; }
     .cpnt-content-image-group.-kebab img {
       width: 100%;
@@ -672,7 +672,7 @@ Description...
       position: absolute;
       top: 0;
       left: 0; }
-    .cpnt-content-image-group.-kebab.is-alive .wrap:before {
+    .cpnt-content-image-group.-kebab.is-alive .wrap::before {
       position: absolute;
       top: 0;
       bottom: 0;
@@ -682,34 +682,34 @@ Description...
       content: '';
       z-index: 10;
       transition: transform 2000ms cubic-bezier(0.7, 0, 0.3, 1); }
-    .cpnt-content-image-group.-kebab.is-in-view .wrap:before {
+    .cpnt-content-image-group.-kebab.is-in-view .wrap::before {
       transform: translate3d(0, -100%, 0); }
-    .cpnt-content-image-group.-kebab.is-in-view .wrap:nth-child(even):before {
+    .cpnt-content-image-group.-kebab.is-in-view .wrap:nth-child(even)::before {
       transform: translate3d(0, 100%, 0); }
   .cpnt-content-image-group.-butterfly-top {
     align-items: flex-end; }
   .cpnt-content-image-group.-butterfly-bottom {
     align-items: flex-start; }
-  .cpnt-content-image-group.-butterfly-top, .cpnt-content-image-group.-butterfly-bottom {
+  .cpnt-content-image-group.-butterfly-bottom, .cpnt-content-image-group.-butterfly-top {
     display: flex;
     justify-content: center;
     height: 500px;
     margin-bottom: 20px; }
-    .cpnt-content-image-group.-butterfly-top .wrap, .cpnt-content-image-group.-butterfly-bottom .wrap {
+    .cpnt-content-image-group.-butterfly-bottom .wrap, .cpnt-content-image-group.-butterfly-top .wrap {
       margin: 5px;
       flex: 1 1 0;
       position: relative;
       height: 33%; }
-      .cpnt-content-image-group.-butterfly-top .wrap:nth-child(even), .cpnt-content-image-group.-butterfly-bottom .wrap:nth-child(even) {
+      .cpnt-content-image-group.-butterfly-bottom .wrap:nth-child(even), .cpnt-content-image-group.-butterfly-top .wrap:nth-child(even) {
         height: 66%; }
-    .cpnt-content-image-group.-butterfly-top img, .cpnt-content-image-group.-butterfly-bottom img {
+    .cpnt-content-image-group.-butterfly-bottom img, .cpnt-content-image-group.-butterfly-top img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       position: absolute;
       top: 0;
       left: 0; }
-    .cpnt-content-image-group.-butterfly-top.is-alive .wrap:before, .cpnt-content-image-group.-butterfly-bottom.is-alive .wrap:before {
+    .cpnt-content-image-group.-butterfly-bottom.is-alive .wrap::before, .cpnt-content-image-group.-butterfly-top.is-alive .wrap::before {
       position: absolute;
       top: 0;
       bottom: 0;
@@ -719,9 +719,9 @@ Description...
       content: '';
       z-index: 10;
       transition: transform 2000ms cubic-bezier(0.7, 0, 0.3, 1); }
-    .cpnt-content-image-group.-butterfly-top.is-in-view .wrap:before, .cpnt-content-image-group.-butterfly-bottom.is-in-view .wrap:before {
+    .cpnt-content-image-group.-butterfly-bottom.is-in-view .wrap::before, .cpnt-content-image-group.-butterfly-top.is-in-view .wrap::before {
       transform: translate3d(0, -100%, 0); }
-    .cpnt-content-image-group.-butterfly-top.is-in-view .wrap:nth-child(even):before, .cpnt-content-image-group.-butterfly-bottom.is-in-view .wrap:nth-child(even):before {
+    .cpnt-content-image-group.-butterfly-bottom.is-in-view .wrap:nth-child(even)::before, .cpnt-content-image-group.-butterfly-top.is-in-view .wrap:nth-child(even)::before {
       transform: translate3d(0, 100%, 0); }
   .cpnt-content-image-group.-one-up {
     display: flex; }
@@ -778,9 +778,9 @@ Description...
 
 Description... 
 */
-/* Component: GlitchText: small screen size. 
+/* Component: GlitchText: small screen size.
 
-Description... 
+Description...
 */
 /* Component: GoogleAnalytics: small screen size. 
 
@@ -838,8 +838,8 @@ Description...
   .cpnt-hero .subtitle {
     font-size: 5rem;
     font-weight: 500; }
-  .cpnt-hero video,
-  .cpnt-hero img {
+  .cpnt-hero img,
+  .cpnt-hero video {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -1541,7 +1541,7 @@ Description...
 
 Description...
 */
-  .cpnt-content-image-curtains.-small::after, .cpnt-content-image-curtains.-medium::after, .cpnt-content-image-curtains.-large::after {
+  .cpnt-content-image-curtains.-large::after, .cpnt-content-image-curtains.-medium::after, .cpnt-content-image-curtains.-small::after {
     clear: both;
     content: "";
     display: table; }

@@ -2,39 +2,25 @@
 
 Description...
 */
-
 .cpnt-content-image-group {
   @include grid-column(18);
-
   // Core
-
   .wrap {
     overflow: hidden;
     display: block;
   }
-
   // Layouts
-
   &.-row {
     display: flex;
     // justify-content: flex-start;
-
     > div {
       flex: 1 1 0;
     }
 
     img {
-      max-width: 100%
+      max-width: 100%;
     }
   }
-
-
-
-
-
-
-
-
 
   &.-kebab {
     display: flex;
@@ -64,8 +50,9 @@ Description...
         .wrap::before {
           // transition-delay: 500ms;
         }
+
         .wrap.fatty::before {
-          transition-delay: 0ms;
+          transition-delay: 0;
           transition-duration: 1000ms;
         }
       }
@@ -82,7 +69,7 @@ Description...
 
     &.is-alive {
       .wrap {
-        &:before {
+        &::before {
           position: absolute;
           top: 0;
           bottom: 0;
@@ -98,11 +85,12 @@ Description...
 
     &.is-in-view {
       .wrap {
-        &:before {
+        &::before {
           transform: translate3d(0, -100%, 0);
         }
+
         &:nth-child(even) {
-          &:before {
+          &::before {
             transform: translate3d(0, 100%, 0);
           }
         }
@@ -110,27 +98,16 @@ Description...
     }
   }
 
-
-
-
-
-
-
-
-
-
-
   &.-butterfly-top {
     align-items: flex-end;
   }
+
   &.-butterfly-bottom {
     align-items: flex-start;
   }
 
-
-
-  &.-butterfly-top,
-  &.-butterfly-bottom {
+  &.-butterfly-bottom,
+  &.-butterfly-top {
     display: flex;
     justify-content: center;
     height: 500px;
@@ -158,7 +135,7 @@ Description...
 
     &.is-alive {
       .wrap {
-        &:before {
+        &::before {
           position: absolute;
           top: 0;
           bottom: 0;
@@ -174,28 +151,18 @@ Description...
 
     &.is-in-view {
       .wrap {
-        &:before {
+        &::before {
           transform: translate3d(0, -100%, 0);
         }
+
         &:nth-child(even) {
-          &:before {
+          &::before {
             transform: translate3d(0, 100%, 0);
           }
         }
       }
     }
   }
-
-
-
-
-
-
-
-
-
-
-
 
   &.-one-up {
     display: flex;
@@ -209,12 +176,7 @@ Description...
       flex-basis: 33%;
       flex: 1 1 0;
     }
-
   }
-
-
-
-
   /// Aliveness and Scroll response
   // &.is-alive {
   //   opacity: 0;
@@ -224,5 +186,4 @@ Description...
   // &.is-in-view {
   //   opacity: 1;
   // }
-
 }

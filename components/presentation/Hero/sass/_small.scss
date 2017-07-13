@@ -2,7 +2,6 @@
 
 Description...
 */
-
 .page-nav-active .cpnt-hero {
   // filter: grayscale(100%) blur(2px);
 }
@@ -58,8 +57,8 @@ Description...
     font-weight: 500;
   }
 
-  video,
-  img {
+  img,
+  video {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -92,16 +91,14 @@ Description...
   &.is-loaded {
     opacity: 1;
     filter: grayscale(0%) blur(0);
-
     // img{
-      // Parallax overrides this
-      // animation-name: reader-appear;
-      // animation-duration: 1200ms;
-      // animation-fill-mode: forwards;
-      // animation-timing-function: $soft-landing;
+    // Parallax overrides this
+    // animation-name: reader-appear;
+    // animation-duration: 1200ms;
+    // animation-fill-mode: forwards;
+    // animation-timing-function: $soft-landing;
     // }
   }
-
 }
 //
 // @keyframes reader-appear {

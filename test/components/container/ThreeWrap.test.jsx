@@ -1,0 +1,1 @@
+const ThreeWrap = require('../../../components/container/ThreeWrap.jsx');

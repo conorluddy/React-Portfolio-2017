@@ -12,13 +12,11 @@ import React from 'react';
 import Hero from '../Hero/Hero.jsx';
 
 const RouteLanding = () => {
-
   return (
     <div className="cpnt-route-landing">
       <Hero imgSrc="whiteacademy.jpg" heroHasLoaded="true" />
     </div>
-  )
-
+  );
 };
 
 export default RouteLanding;

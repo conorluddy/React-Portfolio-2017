@@ -11,9 +11,8 @@
 import React from 'react';
 import DomToReact from 'html-react-parser/lib/dom-to-react';
 import Parser from 'html-react-parser';
-import * as THREE from 'three';
 
-const GlitchText = (props) => {
+const GlitchText = (props, context) => {
   let text;
   let textArr;
   let result = '';
@@ -21,6 +20,10 @@ const GlitchText = (props) => {
   let i;
   let j;
   let k;
+  let vh = window.innerHeight || 800;
+  let isAlive = context.boundingRect !== undefined;
+  let componentTop;
+  let isInView;
 
   /**
    * Wrap all characters in a span. Retains any strong/bold wrappers
@@ -30,7 +33,7 @@ const GlitchText = (props) => {
       text = props.domNode.children[i].children[0].data || '';
       textArr = text.split('');
       for (j = 0; j < textArr.length; j++) {
-        result += '<span>' + textArr[j] + '</span>';
+        result += '<span style="transition-delay:' + ( j * 200 ) + 'ms;">' + textArr[j] + '</span>';
       }
       result = '<strong>' + result + '</strong>';
     } else {
@@ -38,21 +41,33 @@ const GlitchText = (props) => {
       textArr = text.split('');
 
       for (j = 0; j < textArr.length; j++) {
-        result += '<span>' + textArr[j] + '</span>';
+        result += '<span style="transition-delay:' + ( j * 200 ) + 'ms;">' + textArr[j] + '</span>';
       }
     }
   }
 
+  function getClassNames() {
+    let clas = 'cpnt-glitch-text';
+    componentTop = isAlive ? context.boundingRect.top : 0;
+    isInView = componentTop < vh / 2;
+
+    clas += ' ';
+    clas += isAlive ? 'is-alive' : '';
+    clas += ' ';
+    clas += isAlive && isInView ? 'is-in-view' : '';
+
+    return clas;
+  }
 
   if (props.domNode.name.toLowerCase() === 'h1') {
     return (
-      <h1 className="cpnt-glitch-text">
+      <h1 className={getClassNames()} >
         {Parser(result)}
       </h1>
     );
   } else {
     return (
-      <h2 className="cpnt-glitch-text">
+      <h2 className={getClassNames()} >
         {Parser(result)}
       </h2>
     );
@@ -60,7 +75,9 @@ const GlitchText = (props) => {
 
 };
 
-//GlitchText.propTypes = { children: React.PropTypes.string };
-//GlitchText.defaultProps = { children: 'Hello World!' };
+GlitchText.contextTypes = {
+  scrollPosition: React.PropTypes.number,
+  boundingRect: React.PropTypes.object
+};
 
 export default GlitchText;

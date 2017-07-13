@@ -1541,6 +1541,10 @@ dashdash@^1.12.0:
   dependencies:
     assert-plus "^1.0.0"
 
+dat.gui@0.6.x:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/dat.gui/-/dat.gui-0.6.1.tgz#7c3d0a2ac2c570dafb61b91203fd7fe3171d6ac7"
+
 date-now@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/date-now/-/date-now-0.1.4.tgz#eaf439fd4d4848ad74e5cc7dbef200672b9e345b"
@@ -4971,6 +4975,14 @@ postcss@^5.0.4, postcss@^5.2.16:
     source-map "^0.5.6"
     supports-color "^3.2.3"
 
+postprocessing@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/postprocessing/-/postprocessing-2.2.0.tgz#1aa2d30ee92b894a23a24e90656011463963b1bd"
+  dependencies:
+    dat.gui "0.6.x"
+    stats.js "0.17.x"
+    three "0.86.x"
+
 prelude-ls@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.1.2.tgz#21932a549f5e52ffd9a827f570e04be62a97da54"
@@ -5764,6 +5776,10 @@ stat-mode@^0.2.0:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/stat-mode/-/stat-mode-0.2.2.tgz#e6c80b623123d7d80cf132ce538f346289072502"
 
+stats.js@0.17.x:
+  version "0.17.0"
+  resolved "https://registry.yarnpkg.com/stats.js/-/stats.js-0.17.0.tgz#b1c3dc46d94498b578b7fd3985b81ace7131cc7d"
+
 "statuses@>= 1.3.1 < 2", statuses@~1.3.0:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/statuses/-/statuses-1.3.1.tgz#faf51b9eb74aaef3b3acf4ad5f61abf24cb7b93e"
@@ -6026,7 +6042,7 @@ tfunk@^3.0.1:
     chalk "^1.1.1"
     object-path "^0.9.0"
 
-three@^0.86.0:
+three@0.86.x, three@^0.86.0:
   version "0.86.0"
   resolved "https://registry.yarnpkg.com/three/-/three-0.86.0.tgz#1c33e476a1537e9a8a18f5792d024b1046cd2000"
 
