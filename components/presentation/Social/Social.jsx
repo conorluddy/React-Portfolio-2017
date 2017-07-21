@@ -27,6 +27,7 @@ const Social = (props) => {
     {name: 'Medium', href: 'https://medium.com/@madebyluddy'},
     {name: 'Pinterest', href: 'https://www.pinterest.com/madebyluddy'},
     {name: 'Spotify', href: 'https://open.spotify.com/user/1171140582'},
+    {name: 'Stack Overflow', href: 'https://stackoverflow.com/users/1039955/conorluddy'},
     {name: 'Steam', href: 'http://steamcommunity.com/id/cluddy/'},
     {name: 'Twitter', href: 'https://twitter.com/madebyluddy'},
     {name: 'Unsplash', href: 'https://unsplash.com/@madebyluddy'},

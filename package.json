@@ -19,6 +19,7 @@
     "meta-marked": "^0.4.2",
     "meta-remarkable": "^0.1.0",
     "node-sass": "^4.5.2",
+    "pixi.js": "^4.5.3",
     "postprocessing": "^2.2.0",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",

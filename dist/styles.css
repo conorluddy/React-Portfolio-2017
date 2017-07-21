@@ -1279,6 +1279,12 @@ Description...
   100% {
     filter: blur(0);
     opacity: 1; } }
+  .cpnt-reader-content ul {
+    margin: 0 0 1.75rem;
+    padding: 0;
+    list-style: circle; }
+  .cpnt-reader-content li {
+    line-height: 1.75rem; }
 
 /* Component: RouteDevelopment: small screen size. 
 

@@ -9402,6 +9402,8 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// import PIXI from 'pixi.js';
+
 /*
   Hero
   Stateless Presentation Component
@@ -16358,7 +16360,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var Social = function Social(props) {
 
-  var socials = [{ name: 'Email', href: 'mailto:conorluddy@gmail.com' }, { name: '500PX', href: 'https://500px.com/luddy' }, { name: 'Behance', href: 'https://behance.net/luddy' }, { name: 'Codepen', href: 'https://codepen.io/luddy' }, { name: 'Dribbble', href: 'https://dribbble.com/ConorLuddy' }, { name: 'Flickr', href: 'https://flickr.com/photos/conorluddy/albums' }, { name: 'Github', href: 'https://github.com/conorluddy' }, { name: 'Instagram', href: 'https://instagram.com/cnrldy' }, { name: 'LinkedIn', href: 'https://linkedin.com/in/cluddy' }, { name: 'Medium', href: 'https://medium.com/@madebyluddy' }, { name: 'Pinterest', href: 'https://www.pinterest.com/madebyluddy' }, { name: 'Spotify', href: 'https://open.spotify.com/user/1171140582' }, { name: 'Steam', href: 'http://steamcommunity.com/id/cluddy/' }, { name: 'Twitter', href: 'https://twitter.com/madebyluddy' }, { name: 'Unsplash', href: 'https://unsplash.com/@madebyluddy' }, { name: 'Vimeo', href: 'https://vimeo.com/unleadedpixel' }, { name: 'YouTube', href: 'https://www.youtube.com/user/cluddy/videos' }];
+  var socials = [{ name: 'Email', href: 'mailto:conorluddy@gmail.com' }, { name: '500PX', href: 'https://500px.com/luddy' }, { name: 'Behance', href: 'https://behance.net/luddy' }, { name: 'Codepen', href: 'https://codepen.io/luddy' }, { name: 'Dribbble', href: 'https://dribbble.com/ConorLuddy' }, { name: 'Flickr', href: 'https://flickr.com/photos/conorluddy/albums' }, { name: 'Github', href: 'https://github.com/conorluddy' }, { name: 'Instagram', href: 'https://instagram.com/cnrldy' }, { name: 'LinkedIn', href: 'https://linkedin.com/in/cluddy' }, { name: 'Medium', href: 'https://medium.com/@madebyluddy' }, { name: 'Pinterest', href: 'https://www.pinterest.com/madebyluddy' }, { name: 'Spotify', href: 'https://open.spotify.com/user/1171140582' }, { name: 'Stack Overflow', href: 'https://stackoverflow.com/users/1039955/conorluddy' }, { name: 'Steam', href: 'http://steamcommunity.com/id/cluddy/' }, { name: 'Twitter', href: 'https://twitter.com/madebyluddy' }, { name: 'Unsplash', href: 'https://unsplash.com/@madebyluddy' }, { name: 'Vimeo', href: 'https://vimeo.com/unleadedpixel' }, { name: 'YouTube', href: 'https://www.youtube.com/user/cluddy/videos' }];
 
   function listEm(soci, ix) {
     var stylz = {
@@ -42428,6 +42430,7 @@ module.exports = {
 		"meta-marked": "^0.4.2",
 		"meta-remarkable": "^0.1.0",
 		"node-sass": "^4.5.2",
+		"pixi.js": "^4.5.3",
 		"postprocessing": "^2.2.0",
 		"react": "^15.4.1",
 		"react-dom": "^15.4.1",
@@ -42512,11 +42515,11 @@ module.exports = {
 				{
 					"path": "content/development/web-development.md",
 					"name": "web-development.md",
-					"size": 732,
+					"size": 3538,
 					"extension": ".md"
 				}
 			],
-			"size": 8184
+			"size": 10990
 		},
 		{
 			"path": "content/photography",
@@ -42550,7 +42553,7 @@ module.exports = {
 			"size": 4665
 		}
 	],
-	"size": 18997
+	"size": 21803
 };
 
 /***/ }),

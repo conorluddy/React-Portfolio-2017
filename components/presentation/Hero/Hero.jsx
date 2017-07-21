@@ -10,6 +10,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+// import PIXI from 'pixi.js';
 
 const Hero = ({imgSrc, videoSrc, title, subtitle, modifiers, scrollPosition, heroHasLoaded, confirmHeroLoaded}, context) => {
 
