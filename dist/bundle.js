@@ -42515,11 +42515,11 @@ module.exports = {
 				{
 					"path": "content/development/web-development.md",
 					"name": "web-development.md",
-					"size": 3538,
+					"size": 4369,
 					"extension": ".md"
 				}
 			],
-			"size": 10990
+			"size": 11821
 		},
 		{
 			"path": "content/photography",
@@ -42553,7 +42553,7 @@ module.exports = {
 			"size": 4665
 		}
 	],
-	"size": 21803
+	"size": 22634
 };
 
 /***/ }),
