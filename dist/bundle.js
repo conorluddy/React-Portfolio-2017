@@ -5970,12 +5970,13 @@ var Anime = function (_React$Component) {
   _createClass(Anime, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      // const wrapper = this.elemnt.querySelectorAll('svg')[0];
-
       var opts = Object.assign({
         targets: this.elemnt.querySelectorAll(this.props.aniOptions ? this.props.aniOptions.selector : 'path'),
         autoplay: false,
-        strokeDashoffset: [_animejs2.default.setDashoffset, 0]
+        strokeDashoffset: [_animejs2.default.setDashoffset, 0],
+        delay: function delay(el, i) {
+          return i * (Math.random(10) * 10);
+        }
       }, this.props.aniOptions);
 
       //So we can stop, start, restart etc.
@@ -9354,14 +9355,71 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var BackgroundSvg = function BackgroundSvg(props) {
   return _react2.default.createElement(
-    "div",
-    { className: "cpnt-background-svg" },
+    'div',
+    { className: 'cpnt-background-svg' },
     _react2.default.createElement(
-      "svg",
-      { viewBox: "0 0 100 100", preserveAspectRatio: "none" },
-      _react2.default.createElement("circle", { cx: "0", cy: "0", r: "0", opacity: "0.5" }),
-      _react2.default.createElement("circle", { cx: "100%", cy: "0", r: "0", opacity: "0.5" }),
-      _react2.default.createElement("circle", { cx: "50%", cy: "100%", r: "0", opacity: "0.5" })
+      'svg',
+      { xmlns: 'http://www.w3.org/2000/svg', viewBox: '0 0 1920 1080', width: '100%', preserveAspectRatio: 'xMinYMax slice' },
+      _react2.default.createElement(
+        'g',
+        { strokeWidth: '40px', stroke: '#000', transform: 'rotate(180 960 540)' },
+        _react2.default.createElement('path', { d: 'M1930.5-19.5L2220.7,1103' }),
+        _react2.default.createElement('path', { d: 'M1890.5-19.5L2180.7,1103' }),
+        _react2.default.createElement('path', { d: 'M1850.5-19.5L2140.7,1103' }),
+        _react2.default.createElement('path', { d: 'M1810.5-19.5L2100.7,1103' }),
+        _react2.default.createElement('path', { d: 'M1770.5-19.5L2060.7,1103' }),
+        _react2.default.createElement('path', { d: 'M1730.5-19.5L2020.7,1103' }),
+        _react2.default.createElement('path', { d: 'M1690.5-19.5L1980.7,1103' }),
+        _react2.default.createElement('path', { d: 'M1650.5-19.5L1940.7,1103' }),
+        _react2.default.createElement('path', { d: 'M1610.5-19.5L1900.7,1103' }),
+        _react2.default.createElement('path', { d: 'M1570.5-19.5L1860.7,1103' }),
+        _react2.default.createElement('path', { d: 'M1530.5-19.5L1820.7,1103' }),
+        _react2.default.createElement('path', { d: 'M1490.5-19.5L1780.7,1103' }),
+        _react2.default.createElement('path', { d: 'M1450.5-19.5L1740.7,1103' }),
+        _react2.default.createElement('path', { d: 'M1410.5-19.5L1700.7,1103' }),
+        _react2.default.createElement('path', { d: 'M1370.5-19.5L1660.7,1103' }),
+        _react2.default.createElement('path', { d: 'M1330.5-19.5L1620.7,1103' }),
+        _react2.default.createElement('path', { d: 'M1290.5-19.5L1580.7,1103' }),
+        _react2.default.createElement('path', { d: 'M1250.5-19.5L1540.7,1103' }),
+        _react2.default.createElement('path', { d: 'M1210.5-19.5L1500.7,1103' }),
+        _react2.default.createElement('path', { d: 'M1170.5-19.5L1460.7,1103' }),
+        _react2.default.createElement('path', { d: 'M1130.5-19.5L1420.7,1103' }),
+        _react2.default.createElement('path', { d: 'M1090.5-19.5L1380.7,1103' }),
+        _react2.default.createElement('path', { d: 'M1050.5-19.5L1340.7,1103' }),
+        _react2.default.createElement('path', { d: 'M1010.5-19.5L1300.7,1103' }),
+        _react2.default.createElement('path', { d: 'M970.5-19.5L1260.7,1103' }),
+        _react2.default.createElement('path', { d: 'M930.5-19.5L1220.7,1103' }),
+        _react2.default.createElement('path', { d: 'M890.5-19.5L1180.7,1103' }),
+        _react2.default.createElement('path', { d: 'M850.5-19.5L1140.7,1103' }),
+        _react2.default.createElement('path', { d: 'M810.5-19.5L1100.7,1103' }),
+        _react2.default.createElement('path', { d: 'M770.5-19.5L1060.7,1103' }),
+        _react2.default.createElement('path', { d: 'M730.5-19.5L1020.7,1103' }),
+        _react2.default.createElement('path', { d: 'M690.5-19.5L980.7,1103' }),
+        _react2.default.createElement('path', { d: 'M650.5-19.5L940.7,1103' }),
+        _react2.default.createElement('path', { d: 'M610.5-19.5L900.7,1103' }),
+        _react2.default.createElement('path', { d: 'M570.5-19.5L860.7,1103' }),
+        _react2.default.createElement('path', { d: 'M530.5-19.5L820.7,1103' }),
+        _react2.default.createElement('path', { d: 'M490.5-19.5L780.7,1103' }),
+        _react2.default.createElement('path', { d: 'M450.5-19.5L740.7,1103' }),
+        _react2.default.createElement('path', { d: 'M410.5-19.5L700.7,1103' }),
+        _react2.default.createElement('path', { d: 'M370.5-19.5L660.7,1103' }),
+        _react2.default.createElement('path', { d: 'M330.5-19.5L620.7,1103' }),
+        _react2.default.createElement('path', { d: 'M290.5-19.5L580.7,1103' }),
+        _react2.default.createElement('path', { d: 'M250.5-19.5L540.7,1103' }),
+        _react2.default.createElement('path', { d: 'M210.5-19.5L500.7,1103' }),
+        _react2.default.createElement('path', { d: 'M170.5-19.5L460.7,1103' }),
+        _react2.default.createElement('path', { d: 'M130.5-19.5L420.7,1103' }),
+        _react2.default.createElement('path', { d: 'M90.5-19.5L380.7,1103' }),
+        _react2.default.createElement('path', { d: 'M50.5-19.5L340.7,1103' }),
+        _react2.default.createElement('path', { d: 'M10.5-19.5L300.7,1103' }),
+        _react2.default.createElement('path', { d: 'M-29.5-19.5L260.7,1103' }),
+        _react2.default.createElement('path', { d: 'M-69.5-19.5L220.7,1103' }),
+        _react2.default.createElement('path', { d: 'M-109.5-19.5L180.7,1103' }),
+        _react2.default.createElement('path', { d: 'M-149.5-19.5L140.7,1103' }),
+        _react2.default.createElement('path', { d: 'M-189.5-19.5L100.7,1103' }),
+        _react2.default.createElement('path', { d: 'M-229.5-19.5L60.7,1103' }),
+        _react2.default.createElement('path', { d: 'M-269.5-19.5L20.7,1103' })
+      )
     )
   );
 };
@@ -15830,10 +15888,9 @@ var NavOverlay = function NavOverlay(_ref) {
 
   console.log('sections', [prevSection, section]);
   console.log('newPoints', newPoints);
+  console.log('--- render ---');
 
   className = 'cpnt-nav-overlay' + ' ' + className;
-
-  console.log('--- render ---');
 
   return _react2.default.createElement(
     'div',
@@ -16393,11 +16450,10 @@ var Social = function Social(props) {
     _react2.default.createElement(
       _Anime2.default,
       { aniOptions: {
-          selector: 'circle',
-          duration: 3500,
-          easing: 'easeOutCubic',
-          elasticity: 0,
-          r: 100
+          selector: 'path',
+          duration: 1500,
+          elasticity: 10,
+          easing: 'easeOutCubic'
         } },
       _react2.default.createElement(_BackgroundSvg2.default, null)
     ),
@@ -42411,7 +42467,7 @@ module.exports = g;
 
 module.exports = {
 	"name": "conorluddydotcom",
-	"version": "0.11.0",
+	"version": "0.13.0",
 	"description": "Personal site",
 	"main": "index.jsx",
 	"scripts": {
@@ -42497,7 +42553,7 @@ module.exports = {
 				{
 					"path": "content/development/graphic-design.md",
 					"name": "graphic-design.md",
-					"size": 1196,
+					"size": 1652,
 					"extension": ".md"
 				},
 				{
@@ -42515,32 +42571,26 @@ module.exports = {
 				{
 					"path": "content/development/web-development.md",
 					"name": "web-development.md",
-					"size": 4369,
+					"size": 6628,
 					"extension": ".md"
 				}
 			],
-			"size": 11821
+			"size": 14536
 		},
 		{
 			"path": "content/photography",
 			"name": "photography",
 			"children": [
 				{
-					"path": "content/photography/automotive.md",
-					"name": "automotive.md",
-					"size": 216,
-					"extension": ".md"
-				},
-				{
 					"path": "content/photography/corporate.md",
 					"name": "corporate.md",
-					"size": 642,
+					"size": 1295,
 					"extension": ".md"
 				},
 				{
 					"path": "content/photography/landscape.md",
 					"name": "landscape.md",
-					"size": 2017,
+					"size": 1973,
 					"extension": ".md"
 				},
 				{
@@ -42550,10 +42600,10 @@ module.exports = {
 					"extension": ".md"
 				}
 			],
-			"size": 4665
+			"size": 5058
 		}
 	],
-	"size": 22634
+	"size": 25742
 };
 
 /***/ }),

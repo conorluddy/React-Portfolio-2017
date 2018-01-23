@@ -68,11 +68,11 @@ const ReaderContent = ({content}) => {
                     <ScrollPosition getBoundingRect="true" >
                       <ContentImageGroup domNode={domNode} layout={domNode.attribs.layout} modifier={domNode.attribs.modifier} />
                     </ScrollPosition>
-                  )
+                  );
                 } else {
                   return (
                     <ContentImageGroup domNode={domNode} layout={domNode.attribs.layout} modifier={domNode.attribs.modifier} />
-                  )
+                  );
                 }
 
               case 'image-with-caption':
@@ -82,11 +82,11 @@ const ReaderContent = ({content}) => {
                     <ScrollPosition getBoundingRect="true" >
                       <ContentImageWCaption domNode={domNode} layout={domNode.attribs.layout} modifier={domNode.attribs.modifier} />
                     </ScrollPosition>
-                  )
+                  );
                 } else {
                   return (
                     <ContentImageWCaption domNode={domNode} layout={domNode.attribs.layout} modifier={domNode.attribs.modifier} />
-                  )
+                  );
                 }
                 break;
 
@@ -96,7 +96,7 @@ const ReaderContent = ({content}) => {
                     <ScrollPosition getBoundingRect="true" fps="40" >
                       <ContentImageCurtains domNode={domNode} layout={domNode.attribs.layout} modifier={domNode.attribs.modifier} />
                     </ScrollPosition>
-                  )
+                  );
                 break;
 
               default:

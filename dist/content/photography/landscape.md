@@ -6,8 +6,6 @@ heroImage:  glendalough.jpg
 
 ## **Land**scape photography
 
-I love trying to capture nature on camera.
-
 <div component="image-curtains" modifier="" layout="LR" >![alt text](../../assets/images/content/land-1.jpg "Title")</div>
 
 <div component="image-curtains" modifier="" layout="LR" >![alt text](../../assets/images/content/land-2.jpg "Title")</div>

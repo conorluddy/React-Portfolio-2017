@@ -21,12 +21,11 @@ class Anime extends React.Component {
   }
 
   componentDidMount() {
-    // const wrapper = this.elemnt.querySelectorAll('svg')[0];
-
     const opts = Object.assign({
       targets: this.elemnt.querySelectorAll(this.props.aniOptions ? this.props.aniOptions.selector : 'path'),
       autoplay: false,
-      strokeDashoffset: [anime.setDashoffset, 0]
+      strokeDashoffset: [anime.setDashoffset, 0],
+      delay: function(el, i) { return i * (Math.random(10) * 10); }
     }, this.props.aniOptions);
 
     //So we can stop, start, restart etc.

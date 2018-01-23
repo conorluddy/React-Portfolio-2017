@@ -62,11 +62,10 @@ const Social = (props) => {
       <span onClick={props.toggleSocialActive} >Contact || Social</span>
 
       <Anime aniOptions={{
-        selector: 'circle',
-        duration: 3500,
-        easing: 'easeOutCubic',
-        elasticity: 0,
-        r: 100
+        selector: 'path',
+        duration: 1500,
+        elasticity: 10,
+        easing: 'easeOutCubic'
       }}>
         <BackgroundSvg />
       </Anime>

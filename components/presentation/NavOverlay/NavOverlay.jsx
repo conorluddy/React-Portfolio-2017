@@ -56,10 +56,9 @@ const NavOverlay = ({className, setSectionDevelopment, setSectionPhotography, na
 
   console.log('sections', [prevSection, section]);
   console.log('newPoints', newPoints);
+  console.log('--- render ---');
 
   className = 'cpnt-nav-overlay' + ' ' + className;
-
-  console.log('--- render ---');
 
   return (
     <div className={className} style={styles}>

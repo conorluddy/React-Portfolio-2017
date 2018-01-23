@@ -10,7 +10,10 @@ These are small selection of projects I've worked on over the last few years.
 Web development is my full-time day job, and has been for over 10 years now.
 The design side of it started out as a personal hobby that ended up turning into
 something useful. Having an interest in design comes in useful very often when
-you're a developer.
+you're a developer. For example – all of the designs samples on this page are photos from a
+<a href="https://unsplash.com/collections/871415/mockupable" target="\_blank">collection I made on Unsplash</a>.
+I made PSDs from them which I can just drop webpage screenshots into, resulting
+in realistic looking mockups. I didn't learn that while coding :p
 
 
 
@@ -78,8 +81,9 @@ for certain parts of the website at the time.
 
 Liberty hired a small team of us to design and build their current website. I was the
 front-end developer for the project, so I built the front-end [CSS, JavaScript, HTML]
-of their current website. The design aspect was left to the professionals this
-time.
+of their current responsive website. The aim was to make it load as quickly as possible,
+as well as making it modular so that it would be quick and easy to compose new
+page layouts.
 
 <div component="image-curtains" modifier="" layout="LR" >
   ![alt text](../../assets/images/hero/liberty-home-macbook.jpg "Title")  
@@ -95,11 +99,28 @@ time.
 
 ## __Deansgrange__ Dental
 
+The previous Deansgrange Dental website had been 'hacked', according to the people
+who had built it for them. They were looking for a chunky sum of money to look
+into it and fix it for them. It had been using a free Wordpress theme and had a
+few basic pages. When I checked the server I saw that the code had just been moved
+into a folder called 'hacked', so that the site couldn't load. To fix it, all they
+would have had to do is take the code back out of the folder. Had it been a
+malicious hack, it's doubtful that the culprits would have made it so easy to
+reverse – so I'm pretty sure it was a web design shop trying to fleece a dentist.
 
-Design, Development, Photography
-Responsive
-Static
-GulpJs
+Anyways, I designed them a new responsive website and carried out a couple of
+photoshoots to provide bright imagery for it, as well as staff portraits. The
+site is just static for the moment, as in it doesn't run on a CMS. This makes it
+much faster than a Wordpress website though. Page speed is a major factor for
+strong SEO (Search Engine Optimisation).
+
+I built it with a modular front end and used GulpJs and SASS in my build system
+so that you can easily upgrade components and all of the pages will automatically
+rebuild themselves.
+
+- Responsive website – Works seamlessly across mobile, tablet and desktop
+- Bespoke design – Mostly designed in the browser
+- Photography – All website photos were taken by myself
 
 <div component="image-curtains" modifier="" layout="LR" >
   ![alt text](../../assets/images/hero/dgd-home-macbook.jpg "Title")  
@@ -115,8 +136,15 @@ GulpJs
 
 ## __Clear__ Dental
 
-Design, Development, Photography
-Wordpress
+Clear Dental Care are based in Crumlin, Dublin. This is a Wordpress site that I
+designed around the client's vision for what they wanted. I also created their
+logo and carried out a couple of photoshoots to provide photography for their
+website and marketing material. One of the photos was even used for a roadside
+billboard advertisement.
+
+- Responsive website – Works seamlessly across mobile, tablet and desktop
+- Photography – All website photos were taken by myself
+- Bespoke design
 
 <div component="image-curtains" modifier="" layout="LR" >
   ![alt text](../../assets/images/hero/clear-home-macbook.jpg "Title")  

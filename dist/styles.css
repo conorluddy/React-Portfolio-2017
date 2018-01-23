@@ -1323,8 +1323,9 @@ Description...
     cursor: pointer;
     font-size: 0.875rem;
     transform-origin: bottom left;
-    transform: rotate(-90deg) translate3d(0, 0, 0);
-    width: 100vh; }
+    transform: rotate(-90deg) translate3d(0, -10px, 0);
+    width: 100vh;
+    transition: color 200ms ease-in; }
     .cpnt-social span:before, .cpnt-social span:after {
       content: '';
       height: 1px;
@@ -1354,7 +1355,7 @@ Description...
   .cpnt-social a {
     text-transform: uppercase;
     letter-spacing: 0.3em;
-    color: #0a0a0a; }
+    color: #eeff00; }
   .cpnt-social .close {
     position: absolute;
     left: calc(50% - 18px);
@@ -1370,6 +1371,8 @@ Description...
     transform: scale(1);
     opacity: 1;
     transition-duration: 0; }
+  .cpnt-social.is-visible .cpnt-background-svg {
+    opacity: 1; }
   .cpnt-social.is-stashed {
     transform: translateX(100%); }
     .cpnt-social.is-stashed li {
@@ -1379,8 +1382,9 @@ Description...
     color: #eeff00; }
     .page-nav-active .cpnt-social span:before, .page-nav-active .cpnt-social span:after {
       background: #eeff00; }
-  .page-nav-active .cpnt-social a {
-    color: #eeff00; }
+  .cpnt-social .cpnt-background-svg {
+    opacity: 0;
+    transition: opacity 500ms ease-in; }
 
 /* Component: Square: small screen size.
 
@@ -1420,9 +1424,9 @@ Description...
   color: #eeff00;
   display: block;
   font-size: 0.625rem;
-  left: 50px;
+  left: calc(50% + 30px);
   position: absolute;
-  top: 5px;
+  top: 11px;
   transform-origin: top left;
   transform: rotate(90deg);
   width: 40px;

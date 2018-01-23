@@ -22,8 +22,9 @@ Description...
     cursor: pointer;
     font-size: rem(14);
     transform-origin: bottom left;
-    transform: rotate(-90deg) translate3d(0,0,0);
+    transform: rotate(-90deg) translate3d(0, -10px, 0);
     width: 100vh;
+    transition: color 200ms ease-in;
 
     &:before,
     &:after {
@@ -66,7 +67,7 @@ Description...
   a {
     text-transform: uppercase;
     letter-spacing: 0.3em;
-    color: $color-black;
+    color: $color-fluro;
   }
 
   .close {
@@ -96,6 +97,10 @@ Description...
       opacity: 1;
       transition-duration: 0;
     }
+
+    .cpnt-background-svg {
+      opacity: 1;
+    }
   }
 
   &.is-stashed {
@@ -107,8 +112,6 @@ Description...
   }
 
   .page-nav-active & {
-    // background: transparentize($color-black, 0.2);
-
     span {
       color: $color-fluro;
       &:before,
@@ -116,10 +119,12 @@ Description...
         background: $color-fluro;
       }
     }
+  }
 
-    a {
-      color: $color-fluro;
-    }
+
+  .cpnt-background-svg {
+    opacity: 0;
+    transition: opacity 500ms ease-in;
   }
 
 }
