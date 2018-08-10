@@ -12,6 +12,8 @@
   "license": "ISC",
   "dependencies": {
     "animejs": "^2.0.2",
+    "bourbon": "^5.1.0",
+    "bourbon-neat": "^3.0.0",
     "history": "^4.6.1",
     "html-react-parser": "^0.3.3",
     "lodash": "^4.17.4",

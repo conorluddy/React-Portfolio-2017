@@ -26,7 +26,7 @@ In 2015 I led the front-end development of SSE's responsive website rebuild. I s
   ![alt text](../../assets/images/hero/sse-ipad-iphone.jpg "Title")
 </div>
 
-## __Ersules__
+## __IOT project__
 
 This was a very interesting IoT project aimed at saving energy in large offices by using intelligent lighting. We built a single page application with Ember, D3, and Leaflet. The rest is confidential, but it was awesome. It took up most of my work year in 2016.
 
