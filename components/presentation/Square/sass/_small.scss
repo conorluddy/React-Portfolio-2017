@@ -1,0 +1,17 @@
+/* Component: Square: small screen size.
+
+Description...
+*/
+
+.cpnt-square {
+  position: absolute;
+  left: calc(50% - 18px);
+  top: 10px;
+  cursor: pointer;
+
+  &:hover {
+    .x-paths {
+      stroke: $color-black;
+    }
+  }
+}

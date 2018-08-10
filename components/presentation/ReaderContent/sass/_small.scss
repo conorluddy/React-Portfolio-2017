@@ -91,4 +91,14 @@ Description...
     }
   }
 
+  ul {
+    margin: 0 0 rem(28);
+    padding: 0;
+    list-style: circle;
+  }
+
+  li {
+    line-height: rem(28);
+  }
+
 }

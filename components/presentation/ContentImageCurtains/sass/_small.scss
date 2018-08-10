@@ -2,49 +2,50 @@
 
 Description...
 */
-
 .cpnt-content-image-curtains {
   position: relative;
   overflow: hidden;
 
- .curtain {
-   transition: transform 2500ms $water-kick;
-   position: absolute;
-   width: 100%;
-   height: 100%;
-   top: 0;
-   background: $color-off-white;
+  img {
+    width: 100%;
+  }
 
-   &.-top {
-   }
+  .curtain {
+    transition: transform 50ms linear;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background: $color-off-white;
 
-   &.-right {
+    &.-top {}
+
+    &.-right {
       right: 0;
-   }
+    }
 
-   &.-bottom {
-   }
+    &.-bottom {}
 
-   &.-left {
+    &.-left {
       left: 0;
-   }
+    }
+  }
 
- }
+  &.-grid-edge {
+    .curtain {
+      width: calc(16.66667% - 23.33333px + 40px);
+    }
+  }
 
- &.-grid-edge {
-   .curtain {
-    width: calc(16.66667% - 23.33333px + 40px);
-   }
- }
+  &.is-in-view {
+    .curtain {
+      &.-left {
+        transform: translate3d(-100%, 0, 0);
+      }
 
- &.is-in-view {
-   .curtain {
-     &.-left {
-       transform: translate3d(-100%, 0, 0);
-     }
-     &.-right {
-       transform: translate3d(100%, 0, 0);
-     }
-   }
- }
+      &.-right {
+        transform: translate3d(100%, 0, 0);
+      }
+    }
+  }
 }

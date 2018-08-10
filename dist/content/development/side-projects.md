@@ -6,7 +6,7 @@ heroImage: hoodie-buswarner.jpg
 
 # __By me__, for me
 
-Projects that don't fall under freelance or my day job, live here. This is the section I want to grow this year. It's a bit bare at the moment. These are things I'm building or have built, for myself.
+Projects that don't fall under freelance or my day job, live here. This is the main section I want to grow this year. These are things I'm building or have built, to teach myself new things.
 
 
 ### Dublin Bus - Incoming Bus app
@@ -24,7 +24,7 @@ This was built with the <a href="https://ionicframework.com" target="_blank" >Io
 
 ### This website
 
-You can read all about this website over in its own section, but tldr; it's a single page React application that fetches and converts Markdown files when you navigate to different sections.
+You can read all about this website over in its own section, but TLDR; it's a single page React application that fetches and converts Markdown files into HTML when you navigate to different routes.
 
 ### Future Projects
 

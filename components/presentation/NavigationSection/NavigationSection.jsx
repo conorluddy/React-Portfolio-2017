@@ -11,7 +11,6 @@
 import React from 'react'
 import { Link, IndexLink } from 'react-router';
 import Grip from '../Grip/Grip.jsx';
-import TriggerArrow from '../TriggerArrow/TriggerArrow.jsx';
 
 const NavigationSection = ({section, navList, side, postNavigate, clearSection, playAudioTick}) => {
   let innerClasses = section + " inner " + side;

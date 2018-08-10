@@ -10,6 +10,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+// import PIXI from 'pixi.js';
 
 const Hero = ({imgSrc, videoSrc, title, subtitle, modifiers, scrollPosition, heroHasLoaded, confirmHeroLoaded}, context) => {
 
@@ -57,3 +58,7 @@ Hero.contextTypes = {
 }
 
 export default Hero;
+
+
+// <img src={heroImg} alt={title} style={parallaxStyle} onLoad={confirmHeroLoaded} onError={imgError} />
+// <ThreeWrap img={heroImg} style={parallaxStyle} hasLoaded={confirmHeroLoaded} />

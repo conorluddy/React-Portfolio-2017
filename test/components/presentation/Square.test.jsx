@@ -1,0 +1,1 @@
+const Square = require('../../../components/presentation/Square.jsx');

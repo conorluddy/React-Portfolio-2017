@@ -11,8 +11,26 @@ Whether you need headshots of staff for a team page on your website, or images o
 people going about their daily duties, or clean interior/exterior/aerial
 photographs of your place of business, feel free to get in touch.
 
-Here are some samples of my work.
+<div component="image-curtains" modifier="" layout="LR" >
+  ![alt text](../../assets/images/content/corporate-01.jpg "Title")  
+</div>
 
 <div component="image-curtains" modifier="" layout="LR" >
-  ![alt text](../../assets/images/content/property-10.jpg "Title")  
+  ![alt text](../../assets/images/content/corporate-07.jpg "Title")  
+</div>
+
+<div component="image-curtains" modifier="" layout="LR" >
+  ![alt text](../../assets/images/content/corporate-08.jpg "Title")  
+</div>
+
+<div component="image-curtains" modifier="" layout="LR" >
+  ![alt text](../../assets/images/content/corporate-09.jpg "Title")  
+</div>
+
+<div component="image-curtains" modifier="" layout="LR" >
+  ![alt text](../../assets/images/content/corporate-06.jpg "Title")  
+</div>
+
+<div component="image-curtains" modifier="" layout="LR" >
+  ![alt text](../../assets/images/content/clear-dental-logo-bags.jpg "Title")  
 </div>

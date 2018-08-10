@@ -120,6 +120,7 @@ class Reader extends React.Component {
       }
 
       return <Hero imgSrc={imgSrc} videoSrc={videoSrc} title={title} subtitle={subtitle} modifiers={modifiers} scrollPosition={this.state.scrollPosition} heroHasLoaded={this.state.heroHasLoaded} confirmHeroLoaded={this.confirmHeroLoaded} />;
+      // return <Hero imgSrc={imgSrc} videoSrc={videoSrc} title={title} subtitle={subtitle} modifiers={modifiers} heroHasLoaded={this.state.heroHasLoaded} confirmHeroLoaded={this.confirmHeroLoaded} />;
     }
 
     return '';
@@ -132,7 +133,7 @@ class Reader extends React.Component {
   render() {
     return (
       <div className="cpnt-reader" >
-
+        
         <ScrollPosition getBoundingRect={false} >
           {this.iNeedAHero(this.state.meta)}
         </ScrollPosition>
