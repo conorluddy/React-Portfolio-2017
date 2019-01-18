@@ -15,7 +15,7 @@ import Grip from '../../presentation/Grip/Grip.jsx';
 import NavigationSection from '../../presentation/NavigationSection/NavigationSection.jsx';
 import NavOverlay from '../../presentation/NavOverlay/NavOverlay.jsx';
 import VersionInfo from '../../presentation/VersionInfo/VersionInfo.jsx';
-import TriggerArrow from '../../presentation/TriggerArrow/TriggerArrow.jsx';
+// import TriggerArrow from '../../presentation/TriggerArrow/TriggerArrow.jsx';
 import Square from '../../presentation/Square/Square.jsx';
 
 
@@ -34,10 +34,10 @@ class Navigation extends React.Component {
     if (window) {
       window.addEventListener('keyup', ev => {
         if (ev.keyCode === 27) {
-          if (this.state.section === null) {
-            this.setSectionLanding();
-          } else {
+          if (this.state.section) {
             this.stashNav();
+          } else {
+            this.setSectionLanding();
           }
         }
       });
@@ -167,9 +167,6 @@ class Navigation extends React.Component {
     let photoNavItems = [];
     let devNavItems = [];
     let tempName;
-    let curtains = null;
-
-    // ToDo - DRY this up
 
     for (var i = 0; i < this.state.treePhoto.children.length; i++) {
       tempName = this.state.treePhoto.children[i].name;
@@ -203,15 +200,11 @@ class Navigation extends React.Component {
 
     return (
       <div className="cpnt-navigation">
-
-          <NavOverlay className={this.getClassNames()} setSectionDevelopment={this.setSectionDevelopment} setSectionPhotography={this.setSectionPhotography} navSection={navSection} transparency={this.state.transparency} stashNav={this.stashNav} clearSection={this.clearSection} section={this.state.section} prevSection={this.state.prevSection} />
-
-          <Anime aniOptions={{selector: 'path', duration: 3000, delay: 500, easing: 'easeOutExpo', elasticity: 900}} >
-            <Square handleClick={this.clearSection} />
-          </Anime>
-
-          <VersionInfo />
-
+        <NavOverlay className={this.getClassNames()} setSectionDevelopment={this.setSectionDevelopment} setSectionPhotography={this.setSectionPhotography} navSection={navSection} transparency={this.state.transparency} stashNav={this.stashNav} clearSection={this.clearSection} section={this.state.section} prevSection={this.state.prevSection} />
+        <Anime aniOptions={{selector: 'path', duration: 3000, delay: 500, easing: 'easeOutExpo', elasticity: 900}} >
+          <Square handleClick={this.setSectionLanding} />
+        </Anime>
+        <VersionInfo />
       </div>
     );
   }

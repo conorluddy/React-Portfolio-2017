@@ -49,6 +49,3 @@ const NavigationSection = ({section, navList, side, postNavigate, clearSection, 
 //NavigationSection.defaultProps = { children: 'Hello World!' };
 
 export default NavigationSection;
-
-
-//onClick={navClick(navItem.path)}

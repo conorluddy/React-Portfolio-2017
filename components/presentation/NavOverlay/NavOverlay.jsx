@@ -11,7 +11,7 @@
 import React from 'react';
 import Grip from '../Grip/Grip.jsx';
 import Anime from '../../container/Anime/Anime.jsx';
-import TriggerArrow from '../TriggerArrow/TriggerArrow.jsx';
+import TriggerClose from '../TriggerArrow/TriggerArrow.jsx';
 import BackgroundSvg from '../BackgroundSvg/BackgroundSvg.jsx';
 
 
@@ -40,7 +40,6 @@ const NavOverlay = ({className, setSectionDevelopment, setSectionPhotography, na
       {value: points.random},
       {value: points.full}
     ];
-
   }
 
   // else {
@@ -53,10 +52,6 @@ const NavOverlay = ({className, setSectionDevelopment, setSectionPhotography, na
   //   ];
   //
   // }
-
-  console.log('sections', [prevSection, section]);
-  console.log('newPoints', newPoints);
-  console.log('--- render ---');
 
   className = 'cpnt-nav-overlay' + ' ' + className;
 
@@ -80,7 +75,7 @@ const NavOverlay = ({className, setSectionDevelopment, setSectionPhotography, na
       {navSection}
 
       <Anime section={section} aniOptions={{selector: 'path', duration: 3500, easing: 'easeOutCubic', elasticity: 900}} >
-        <TriggerArrow handleClick={section === 'landing' ? stashNav : clearSection} />
+        <TriggerClose handleClick={section === 'landing' ? stashNav : clearSection} />
       </Anime>
 
       <i className="edge-border -top" >

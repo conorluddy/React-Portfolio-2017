@@ -18,7 +18,7 @@ class Nucleus extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      navActive: true,
+      navActive: false,
       socialActive: false
     };
 

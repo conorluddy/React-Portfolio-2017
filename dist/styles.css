@@ -1407,8 +1407,7 @@ Description...
   z-index: 100;
   position: absolute;
   left: calc(50% - 18px);
-  top: 10px;
-  cursor: pointer; }
+  top: 10px; }
   .cpnt-trigger-arrow:hover .x-paths {
     stroke: #0a0a0a; }
 
