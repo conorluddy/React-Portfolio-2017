@@ -1,3 +1,6 @@
+![mac-candles](https://github.com/user-attachments/assets/3184c80e-e004-41ed-94aa-a527b92fa14d)
+
+
 # **About** this site
 
 In a nutshell, this is a _single page application_ built from the ground up with React and React Router. Page content comes from markdown files. Fetched markdown files are parsed and converted into HTML and React components on the fly. This is more experimental than optimal, but seems to work well across devices so far.
